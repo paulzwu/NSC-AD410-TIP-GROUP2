@@ -1,4 +1,3 @@
-
 Status Report 1:
 
 1) Read project requirements
