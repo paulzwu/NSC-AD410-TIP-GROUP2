@@ -1,7 +1,0 @@
-Status Report 1:
-
-1) Obtain more details about site requirements.
-
-2) Create wireframe for site.
-
-3) Create basic html form for inputs/outputs.
