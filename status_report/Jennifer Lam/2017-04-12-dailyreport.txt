@@ -1,7 +1,7 @@
 Status Report 2:
 
-1) did a wireframe for 2 pages for the admin pages
+1) What I did is construct a wireframe for 2 pages for the admin pages
 
-2) met up with our whole group to discuss the structure of the project requirements at the Grove 
+2) What I am working on is creating a Acceptance Criteria from User Stories
 
-3) Still running into a problem with what the features on the admin pages would need. 
+3) No issues yet.
