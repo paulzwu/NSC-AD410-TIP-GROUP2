@@ -1,0 +1,5 @@
+1) Since last report, I went with Mark to take notes on our meeting with our stakeholders and clarify any questions for the app. Developed a mind map of the app, and created a site structure reference.
+
+2) Tomorrow I plan on clarifying this weeks tasks with in group, setting up data flow diagrams to be shared between front-end and mid-tier, and begin working on those. 
+
+3) Road blocks: Would like to know what data will be accessible from canvas so we can definitively understand how to route users, but because we're not sure how this will work, am wondering if we should set up a base page that lets you specify which user type you are for testing purposes. Also would like to clearly know duration of this sprint, and what we should plan to have done by the end of it. Not sure we clearly addressed that from the last meeting. 
