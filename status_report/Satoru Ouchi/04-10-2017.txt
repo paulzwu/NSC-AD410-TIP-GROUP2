@@ -1,0 +1,7 @@
+STatus Report 1
+
+1. Looked at project requirements.
+
+2. Looked at sqli
+
+3. Practice with sqli/install any IDEs.
