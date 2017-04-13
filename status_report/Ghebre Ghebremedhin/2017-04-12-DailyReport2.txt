@@ -1,0 +1,20 @@
+Ghebre Ghebremedhin
+Status Report 2 (4/12/2017)
+
+A. What I did?
+  In a team(the whole team):
+  1. discussed about the overall client requirement and ways to handle/address those requirements
+  2. discussed about scrum methodology
+  3. discussed about use of github and concerns of using it.
+  4. outlined the main features of the app
+
+  In our small team (mid-tier)
+  1. outlined draft user stories for the Feedback/Email Link, TIP Editor, and User Profile(partially)
+  2. outlined draft Acceptance Criteria for the user stories mentioned above  
+
+B. What I will do?
+  1. In our small team, continue outlining draft User Stories for the Feedback/Email Link, and Tool-Tip Feature(s)
+  2. outlined draft Acceptance Criteria for the user stories that are under our plan for tomorrow's meeting
+
+C. Any impediments?
+  1. Working in team helps a lot. No hurdles as of now   
