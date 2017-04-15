@@ -1,0 +1,38 @@
+Week 1: Status Report: 3
+What have I done?
+1.	Created user stories (back-end)
+2.	Working on database modeling and database design draft 
+3.	Reading online resource to understand basic about SQLite and installed on my machine 
+4.	Reading post by front-end wire and mid-tie post 
+What will I do?
+1.	I will continue working on database model and create table
+2.	More understand SQLite 
+Any obstacles?
+I don’t have obstacles yet 
+
+
+
+Mahilet Hailemariam 
+Week 1: Status Report:3
+Due date -4/14/17
+
+What have I done? 
+
+1.Continued working on user stories
+ 
+2.Worked on database modeling and database design draft.
+
+3.Read online resource to understand basic SQLite and installed on my machine.
+ 
+4.Read materials posted by front-end team.
+
+What will I do? 
+
+1. I will continue working on database model and create .
+
+2. Learn more to understand SQLite.
+
+Any obstacles? 
+
+1.I don’t have obstacles yet. 
+
