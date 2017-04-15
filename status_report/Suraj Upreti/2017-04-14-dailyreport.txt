@@ -1,0 +1,5 @@
+Status Report 3:
+
+1). First draft of database design completed
+
+2). Working on second draft with missing attributes, relationship to be added
