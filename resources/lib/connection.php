@@ -1,15 +1,13 @@
 <?php
-$servername = "";
-$username = "";
-$password = "";
-
-try {
-	$conn = new PDO("mysql:host=$servername;dbname=myDB", $username, $password);
-	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "Connected successfully"; 
-    }
-catch(PDOException $e)
-    {
-       echo "Connection failed: " . $e->getMessage();
-    }
+	try {
+	    //open the database - creates the db if file not present
+	    $conn = new PDO("sqlite:DB/test.sqlite");
+	    // sets attributes to catch errors
+	    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	    // this line for testing purposes
+	    echo "Connection successful<br>";
+	} catch(PDOException $e) {
+	    print 'Exception : '.$e->getMessage();
+	}
 ?>
+
