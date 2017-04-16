@@ -1,0 +1,17 @@
+Ghebre Ghebremedhin
+Status Report 3 (4/14/2017)
+
+A. What I did?
+  
+  In our small team (mid-tier)
+  1. discussed and outlined draft user stories for User Profile
+  2. discussed and outlined draft Acceptance Criteria for the user stories of the User Profile
+  3. discussed about database and use of github
+  4. read the materials contributed by other sub-teams
+   
+
+B. What I will do?
+  1. discuss and finish user stories  
+
+C. Any impediments?
+  1. No impediments
