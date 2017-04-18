@@ -1,0 +1,15 @@
+Ghebre Ghebremedhin
+Status Report 4 (4/17/2017)
+
+A. What I did?
+  
+  In our small team (mid-tier)
+  1. continued discussing and outlining draft user stories for the features assigned to our team
+  2. updated myself with how SQLite and PHP work
+     
+
+B. What I will do?
+  1. participate, contribute, and take share in sprint 1     
+
+C. Any impediments?
+  1. No impediments
