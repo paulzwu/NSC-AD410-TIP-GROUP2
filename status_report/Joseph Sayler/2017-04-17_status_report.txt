@@ -2,15 +2,9 @@ Joseph Sayler
 Status report 4
 04-17-2017
 
-1. fixed a few issues with the scripts i uploaded on friday (everything in examples folder had wrong paths for includes and db file)
+1. yesterday, fixed a few issues with the scripts i uploaded on friday (everything in examples folder had wrong paths for includes and db file)
 
-2. continuing with research on setting up the survey.js editor
+2. today, setting up survey.js editor
 
-3. couple of roadblocks:
-   
-   a) survey.js editor is proving rather difficult to set up. instructions found online very vague. will continue trying a few more
-   things, but would appreciate assistance from anyone who is more familiar with using node.js and npm
-
-   b) would like to know what server-side scripting front end team needs and what the db structure is from the back end team so can
-   start making more specific query scripts (i assume we are going to discuss this tomorrow in class...)
+3. no roadblocks at this time
 
