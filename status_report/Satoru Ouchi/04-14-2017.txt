@@ -1,0 +1,7 @@
+Status Report 3
+
+1. Yesterday I created a mock database in SQLite to test and play with.
+
+2. Today I did not do anything because I got busy with other work.
+
+3. Tomorrow I want to start creating a database based off the ERD diagram given by Suraj.
