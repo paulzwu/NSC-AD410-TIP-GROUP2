@@ -1,0 +1,19 @@
+Mahilet Haileamriam
+Status Report: 4
+Due date -4/17/17
+
+What have I done?
+
+1.Learn how to use SQLite, with lynda.com videos.
+ 
+2.I'm trying to create a database using SQLite.
+
+What will I do?
+
+1.I will continue working on create a database using SQLite
+
+2.Tomorrow, meat team member. 
+
+Any obstacles?
+
+1.I don’t have obstacles yet
