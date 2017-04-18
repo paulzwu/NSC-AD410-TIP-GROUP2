@@ -1,0 +1,5 @@
+Status Report 4:
+
+1). Second draft of database design completed
+
+2). Working on final database design
