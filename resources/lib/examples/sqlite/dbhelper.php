@@ -44,7 +44,8 @@ function openOrCreateDB(){
 function createTable(){
     global $conn;
     try {
-        $conn->exec("CREATE TABLE Colors (Id INTEGER PRIMARY KEY, Name TEXT, Rgb TEXT, Hex TEXT)");
+        $conn->exec("CREATE TABLE Colors (id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT, Rgb TEXT, Hex TEXT)");
+        $conn->exec("CREATE TABLE Faculty (faculty_id INTEGER PRIMARY KEY AUTOINCREMENT, department_id INTEGER, name TEXT, email TEXT)");
         echo "Table created successfully";
     } catch (PDOException $e){
         echo 'Exception : '.$e->getMessage();
@@ -66,6 +67,9 @@ function insertData(){
             "INSERT INTO Colors (Name, Rgb, Hex) VALUES ('White', '255,255,255', '#ffffff');".
             "INSERT INTO Colors (Name, Rgb, Hex) VALUES ('Gray', '128,128,128', '#808080');".
             "INSERT INTO Colors (Name, Rgb, Hex) VALUES ('Black', '0,0,0', '#000000');");
+
+        $conn->exec("INSERT INTO Faculty (department_id, name, email) VALUES ('Math', 'John Doe', 'johndoe@email.com');");
+
         echo "Inserted data successfully";
     }catch (PDOException $e){
         echo 'Exception : '.$e->getMessage();
