@@ -1,1 +1,5 @@
 /nbproject/private/
+*.iml
+/.idea/workspace.xml
+/.idea/vcs.xml
+/.idea/modules.xml
