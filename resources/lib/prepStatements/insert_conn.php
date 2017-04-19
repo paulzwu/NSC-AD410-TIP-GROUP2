@@ -1,21 +1,24 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zw251y
- * Date: 3/10/2016
- * Time: 2:45 PM
- */
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "myDBPDO";
 
-include "conn_proc.php";
-
-$sql = "INSERT INTO MyGuests (firstname, lastname, email) VALUES ('John', 'Doe', 'john@example.com')";
-
-if (mysqli_query($conn, $sql)) {
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "INSERT INTO MyGuests (firstname, lastname, email)
+    VALUES ('John', 'Doe', 'john@example.com')";
+    // use exec() because no results are returned
+    $conn->exec($sql);
     echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
+    }
+catch(PDOException $e)
+    {
+    echo $sql . "<br>" . $e->getMessage();
+    }
 
-mysqli_close($conn);
+$conn = null;
 ?>
 
