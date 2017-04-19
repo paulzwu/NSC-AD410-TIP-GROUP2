@@ -1,11 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zw251y
- * Date: 3/10/2016
- * Time: 3:02 PM
- */
-include "conn_proc.php";
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "myDBPDO";
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -29,14 +26,4 @@ catch(PDOException $e)
     }
 
 $conn = null;
-/*
-$sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
-
-if ($conn->query($sql) === TRUE) {
-    echo "Record updated successfully";
-} else {
-    echo "Error updating record: " . $conn->error;
-}
-
-$conn->close();
-*/
+?>
