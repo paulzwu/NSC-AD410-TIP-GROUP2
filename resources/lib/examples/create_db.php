@@ -24,4 +24,6 @@
 	} catch(PDOException $e) {
 		print 'Exception : '.$e->getMessage();
 	}
+
 ?>
+
