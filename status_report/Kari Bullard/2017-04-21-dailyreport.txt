@@ -1,0 +1,5 @@
+1) Yesterday I updated the mockups to reflect design changes requested.
+
+2) Tomorrow I plan on working on a templating engine for our project
+
+3) No road blocks for now, but I feel I'll have plenty to report soon, as we're starting some implementation this week.

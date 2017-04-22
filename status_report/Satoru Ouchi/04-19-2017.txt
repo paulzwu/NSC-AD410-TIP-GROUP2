@@ -1,0 +1,7 @@
+Status Report 4
+
+1. Yesterday I updated the user stories with acceptance criteria.
+
+2. Today I looked at the code the mid tier had.
+
+3. Tomorrow I will start working with mid-tier to see what we can work on to create a database.
