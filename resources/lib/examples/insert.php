@@ -1,6 +1,6 @@
 <?php
 	// sample data insertion script
-	include '../connection.php';
+	include 'conn.php';
 	try {
 		// inserts data into database
 		$conn->exec("INSERT INTO Colors (Name, Rgb, Hex) VALUES ('Light Steel Blue', '176,196,222', '#b0c4de');".

@@ -1,6 +1,6 @@
 <?php
 	// sample query script
-	include '../connection.php';
+	include 'conn.php';
 	try {
 		// queries database file for information
 		$result = $conn->query('SELECT * FROM Colors');
