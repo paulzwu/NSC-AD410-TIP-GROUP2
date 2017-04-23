@@ -1,9 +1,4 @@
-/*
-    Theme Name: Maundy
-    Theme URL: https://bootstrapmade.com/maundy-free-coming-soon-bootstrap-theme/
-    Author: BootstrapMade.com
-    Author URL: https://bootstrapmade.com
-*/
+
 
 body {
 	line-height: 1.2;
@@ -25,8 +20,7 @@ q:before, q:after {
 }
 table {
 	border-collapse: collapse;
-	border-spacing: 5px;
-	border: 1px solid white;
+	border-spacing: 1px;
 }
 th, td {
     text-align: left;
@@ -47,7 +41,7 @@ th {
 ***********************************/
 .content
 {
-	margin-top: 50px;
+	margin: 100px 100px;
 	color: #fff;
 }
 .logo img
@@ -106,7 +100,7 @@ th {
 }
 .section-padding
 {
-	padding: 60px;
+	padding: 200px;
 }
 .about-title h2
 {
@@ -306,7 +300,7 @@ Media Queries
         padding: 15px;
 }
 .section-padding {
-        padding: 60px 30px;
+        padding: 100px 100px;
 }
 .subscribe_form .subscribe {
     width: 100px;
@@ -338,5 +332,10 @@ body{
 #facultyTable{
 		padding: 100px 100px;
 		color: black;
+}
+	
+.example6 .navbar-brand{ 
+  background: url(http://res.cloudinary.com/candidbusiness/image/upload/v1455406304/dispute-bills-chicago.png) center / contain no-repeat;
+  width: 200px;
 }
 }
