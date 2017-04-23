@@ -1,0 +1,5 @@
+Status Report 5:
+
+1) Still working on the final database design diagram
+
+2) Learning how to use sqlite to perform CRUD operations

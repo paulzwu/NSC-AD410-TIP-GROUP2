@@ -1,0 +1,19 @@
+Status Report #5
+James No
+4/20/17
+Mid-Tier Team
+
+1. After discussing with team about our user stories (and receiving Slack
+notifications from Mark & Kari about format) I will be continuing to refine
+user stories to make concrete acceptance criteria. We will be working on the
+feedback/email form as our first sprint project, and I will be working on the
+PDO script to grab the admin email from the database.
+
+2. Will be meeting with mid-team today to discuss any further developments; Joe
+was talking about how the mail() function in PHP requires a domain, will be
+hearing more about it from him. Will continue to discuss implementation
+of survey.js, and other possible libraries to utilize for the TIP Editor.
+
+3. Had a rough time with the Android assignment for the other class, took time
+away from my research. But I finished last night, and will be able to resume
+building the PDO script.
