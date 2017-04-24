@@ -1,0 +1,24 @@
+Mahilet Haileamriam
+Status Report: 5
+Due date -4/17/19
+
+What have I done?
+
+1.Meeting with group on Tuesday 
+
+2.I got some feedback about first draft Entity Relationship Diagram from back- end team. 
+
+3.I created a new branch with git.
+
+What will I do?
+
+1.I will continue working on sprint-1- create designing database 
+
+2.We’ll finalize user stories.
+
+3.We’ll discuss about Entity Relationship Diagram with mid-tier.
+
+Any obstacles?
+
+1. I don’t have obstacles yet 
+
