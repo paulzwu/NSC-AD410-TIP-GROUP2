@@ -1,0 +1,7 @@
+Status Report 6:
+
+1) What I did is research on smarty template
+
+2) What I am working on creating template for header and content
+
+3) no issues
