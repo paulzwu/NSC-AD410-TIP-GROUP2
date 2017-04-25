@@ -1,0 +1,23 @@
+Joseph Sayler
+Status report 7
+04-24-2017
+
+
+Tasks:
+
+Yesterday
+
+... \:|
+
+Today
+1. uploaded TIP-editor php file to github; let front end (Kari) know it's there so they can look at formatting it. it is in the tip-editor branch. the editor still needs a save and load function implemented. these are nothing unique or specific to the editor, just have to use some ajax to implement it. also, we have to determine what features of the editor we want to limit/cut so as not to overwhelm the user. this will probably be a future sprint...
+
+Tomorrow 
+1. will reorganize all our DB scripts into one library (mean to do this over the weekend, but life and stuff)
+2. going to be implementing some new mail code for the feedback/contact form, using phpmailer. this will not change the basic layout of the current file, feedback.php. i will probably code all the phpmailer stuff in a new file and then include that in the feedback.php file. unfortunately i did not get this updated tonight because...
+
+
+Roadblock(s):
+
+1. i spent a lot of time this evening trying to get a mock email server going, but to no avail. i tried using sendmail and postfix on my linux virtual machine but couldn't get them to send out. will use XAMPP and/or papercut to send/receive emails on my local windows machine to test that the php code actually works. (i guess this is less a roadblock and more a setback. i know what i have to do, it just has to wait until probably tomorrow or wednesday)
+
