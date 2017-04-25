@@ -1,6 +1,6 @@
 var facultyTIPS = [
-    ["2017/04/25", "Completed", "Continue"],
-    ["2011/04/25", "Completed", "https://www.youtube.com/watch?v=RCKBtsTk8eQ"],
+    ["2017/04/25", "Completed", "Click to View"],
+    ["2011/04/25", "In Progress", "https://www.youtube.com/watch?v=RCKBtsTk8eQ"],
     ["2011/04/25", "Completed", "Click to View"],
     ["2011/04/25", "Completed", "Click to View"],
     ["2011/04/25", "Completed", "Click to View"],
@@ -39,7 +39,7 @@ $(document).ready(function() {
             "aTargets": [2],
             "bSortable": true,
             "mRender": function(url, type, full) {
-                return '<a href="' + url + '">' + url + '</a>';
+                return '<a href="' + url + '" + target="_blank">' + "LINK" + '</a>';
             }
         }, ]
     });
@@ -92,7 +92,7 @@ $(document).ready(function() {
             "aTargets": [3],
             "bSortable": true,
             "mRender": function(url, type, full) {
-                return '<a href="' + url + '">' + url + '</a>';
+                return '<a href="' + url + '" + target="_blank">' + "LINK" + '</a>';
             }
         }, ]
     });
