@@ -11,6 +11,17 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function () 
+{
     return view('welcome');
+});
+
+Route::get('/faculty', function () 
+{
+    return view('faculty_dash');
+});
+
+Route::get('/admin', function () 
+{
+    return view('admin_dash');
 });
