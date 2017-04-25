@@ -1,0 +1,24 @@
+Status Report 7:
+
+1) What did you do?
+* Reviewed all status reports for roadblocks
+* Reviewed all User Stories and made sure everything is added to Trello
+* Added all docs to the repo
+* Wrote agenda for Tuesday’s meeting
+* Created email for mid-tier so they can test email function
+
+2) What are you doing next?
+Meeting with fronted before Tue meeting
+Meeting with the team: 
+   *Front End Mockups* - What adjustments to incorporate before we show Alissa?
+   *Mid Tier Email Feature* - Brief show and tell
+   *Backend Database* - Brief show and tell
+   *Code structuring with Laravel*
+   *What questions do we need to ask Terre from Canvas about OAuth?*
+   *Timeline* Look at our remaining 7 sprints we have left to sketch a rough timeline
+Checking Status Reports for roadblocks
+Drafting questions for Terre about OAuth
+Finalizing mockups with front end team for Alissa/Jill meetings
+
+3)What roadblocks stand in your way?
+No roadblocks
