@@ -1,7 +1,7 @@
 Status Report 7:
 
-1) What I did is research on smarty template and how to create template for my pages.
+1) What I did is use smarty template and create template for the header and content.
 
-2) What I am working on is learning to use larvael framework
+2) What I am working on is getting laravel framework install
 
-3) no issues
+3) no issue at the moment   
