@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TIP Assesment Page</title>
+    <title>TIP Assesment</title>
     <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans:400,400italic,300italic,300|Raleway:300,400,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="<?php echo asset('css/font-awesome.min.css');?>" />
     <link rel="stylesheet" href="<?php echo asset('css/style.css');?>" />
@@ -49,17 +49,13 @@
 
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li class="active"><a href="#">Home</a>
+                    <li class="active"><a href="<?php echo url('/faculty');?>">Home</a>
                     </li>
-                    <li><a href="#">About</a>
+                    <li><a href="<?php echo url('/tip');?>">TIP Assessment</a>
                     </li>
-                    <li><a href="#">Contact</a>
+                    <li><a href="<?php echo url('/facultyfaqs');?>">FAQs</a>
                     </li>
-                    <li><a href="#">Help</a>
-                    </li>
-                    <li><a href="#">FAQS</a>
-                    </li>
-                    <li><a href="#">LogOut</a>
+                    <li><a href="<?php echo url('/');?>">Logout</a>
                     </li>
 
                 </ul>

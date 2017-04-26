@@ -33,11 +33,13 @@
             </div>
             <div id="navbar6" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#">Home</a>
+                    <li class="active"><a href="<?php echo url('/faculty');?>">Home</a>
                     </li>
-                    <li><a href="#">About</a>
+                    <li><a href="<?php echo url('/tip');?>">TIP Assessment</a>
                     </li>
-                    <li><a href="#">Contact</a>
+                    <li><a href="<?php echo url('/facultyfaqs');?>">FAQs</a>
+                    </li>
+                    <li><a href="<?php echo url('/');?>">Logout</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
