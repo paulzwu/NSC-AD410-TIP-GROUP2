@@ -1,5 +1,7 @@
 <?php
 
+  include 'conn.php';
+
   $db = new SQLite3('db/mydb');  // placeholder for db name
   // Error handling
   if(!$db) {
