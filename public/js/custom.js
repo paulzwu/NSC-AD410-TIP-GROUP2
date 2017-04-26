@@ -1,3 +1,4 @@
+
 var facultyTIPS = [
     ["2017/04/25", "Completed", "Click to View"],
     ["2011/04/25", "In Progress", "https://www.youtube.com/watch?v=RCKBtsTk8eQ"],
@@ -85,7 +86,7 @@ $(document).ready(function() {
                 title: "Link to TIP"
             }
         ],
-		 "aoColumnDefs": [{
+         "aoColumnDefs": [{
             "sTitle": "Site name",
             "aTargets": ["site_name"]
         }, {
@@ -97,3 +98,5 @@ $(document).ready(function() {
         }, ]
     });
 });
+
+
