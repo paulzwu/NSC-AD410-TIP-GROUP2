@@ -26,3 +26,9 @@ Route::get('/admin', function ()
 	
     	return view('admin_dash');
 });
+
+Route::get('/tip', function () 
+{
+	
+    	return view('tip_assessment');
+});
