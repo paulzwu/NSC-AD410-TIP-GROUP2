@@ -18,10 +18,11 @@ Route::get('/', function ()
 
 Route::get('/faculty', function () 
 {
-    return view('faculty_dash');
+	return view('faculty_dash');
 });
 
 Route::get('/admin', function () 
 {
-    return view('admin_dash');
+	
+    	return view('admin_dash');
 });

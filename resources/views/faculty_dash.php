@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans:400,400italic,300italic,300|Raleway:300,400,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/v/bs/jq-2.2.4/dt-1.10.15/datatables.min.css">
+    <script type="text/javascript" src="<?php echo asset('js/jquery.min.js');?>"></script>
+    <script type="text/javascript" src="<?php echo asset('js/bootstrap.min.js');?>"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs/jq-2.2.4/dt-1.10.15/datatables.min.js"></script>
     <!-- <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css"> I can't find this file in the css directory-->    
     <!-- <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css"> Also wondering if we need the wow.js and animate.css-->
@@ -64,7 +66,7 @@
         <div class="container">
             <div class="row">
                 <div class="logo text-center">
-                    <img src="<?php echo asset('img/logo.png');?>" alt="North Seattle College">
+                    <img src="img/logo.png" alt="logo">
                     <h2>Hello USER</h2>
                     <center>
                         <button type="button" class="btn btn-primary">Start new assessment</button>
@@ -109,8 +111,6 @@
             </div>
         </div>
     </footer>
-    <script type="text/javascript" src="<?php echo asset('js/jquery.min.js');?>"></script>
-    <script type="text/javascript" src="<?php echo asset('js/bootstrap.min.js');?>"></script>
     <script type="text/javascript" src="<?php echo asset('js/custom.js');?>"></script>
 </body>
 
