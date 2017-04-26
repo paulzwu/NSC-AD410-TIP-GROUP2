@@ -29,24 +29,25 @@ function openOrCreateDB(){
 function createTable(){
     global $conn;
     try {
-        $sql = "CREATE TABLE IF NOT EXISTS Faculty (faculty_id INTEGER PRIMARY KEY, department_id INTEGER FOREIGN KEY, full_name TEXT, email TEXT)";
+        $sql = "CREATE TABLE IF NOT EXISTS Faculty (faculty_id INTEGER PRIMARY KEY, department_id INTEGER, full_name TEXT, email TEXT)";
         $conn->exec($sql);
 
         $sql = "CREATE TABLE IF NOT EXISTS Departments (department_id INTEGER PRIMARY KEY, depart_name TEXT, description TEXT)";
         $conn->exec($sql);
 
-        $sql = "CREATE TABLE IF NOT EXISTS Courses (course_id INTEGER PRIMARY KEY, department_id INTEGER FOREIGN KEY , course_name TEXT, description TEXT)";
+        $sql = "CREATE TABLE IF NOT EXISTS Courses (course_id INTEGER PRIMARY KEY, department_id INTEGER, course_name TEXT, description TEXT)";
         $conn->exec($sql);
 
-        $sql = "CREATE TABLE IF NOT EXISTS Questions (question_id INTEGER PRIMARY KEY course_id INTEGER FOREIGN KEY, department_id INTEGER FOREIGN KEY, 
+        $sql = "CREATE TABLE IF NOT EXISTS Questions (question_id INTEGER PRIMARY KEY course_id INTEGER, department_id INTEGER, 
                 question_name TEXT, description TEXT)";
         $conn->exec($sql);
 
-        $sql = "CREATE TABLE IF NOT EXISTS Answers (answer_id INTEGER PRIMARY KEY, course_id INTEGER FOREIGN KEY, department_id INTEGER FOREIGN KEY, 
+        $sql = "CREATE TABLE IF NOT EXISTS Answers (answer_id INTEGER PRIMARY KEY, course_id INTEGER, department_id INTEGER, 
                 answer_name TEXT, description TEXT)";
         $conn->exec($sql);
 
-        $sql = "CREATE TABLE IF NOT EXISTS Results (course_id INTEGER FOREIGN KEY, department_id INTEGER FOREIGN KEY, course_name TEXT, description TEXT)";
+        $sql = "CREATE TABLE IF NOT EXISTS Results (result_id INTEGER PRIMARY KEY, question_id INTEGER, answer_id INTEGER,
+                result_description TEXT)";
         $conn->exec($sql);
 
         echo "Tables created successfully <br>";
