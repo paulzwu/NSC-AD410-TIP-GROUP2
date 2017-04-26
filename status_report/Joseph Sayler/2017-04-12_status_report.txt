@@ -1,0 +1,7 @@
+Status report 2 04-12-2017
+
+1. reading up on sqlite and how to use it with PHP to access an SQLite database
+2. creating basic connection script using PHP's SQLite3 class
+3. looking into SurveyJS Editor and how to configure it for use in the project
+4. working on user stories with mid-tier group
+

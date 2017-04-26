@@ -1,0 +1,7 @@
+Status Report 1:
+
+1) Setup team meeting with clients, setup Trello board for tracking sprints
+
+2) Helping team get setup with git, meet with client
+
+3) Not everyone has checked in to GitHub, so our team meeting may or may not need to focus on that depending on how many get git to work

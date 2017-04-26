@@ -1,0 +1,20 @@
+Status Report #3
+James No
+4/14/17
+Mid-Tier Team
+
+1. Met with team on Thursday to discuss GitHub etiquette (use forks for
+personal back-up for repo, branches for public development), further
+deliberation on user stories (formatting, order of importance, etc.), and how
+user stories may be divided up in the future. Front-end's implementation
+of the Tool-Tip feature assuaged most of our worries about complexity of
+the feature.
+
+2. Further seeking to refine user stories, in epic form along with a
+minute form similar to front-end's stories (really like their detail!), along
+with further reading up on Survey.js (contact dev team and ask about our
+non-profit status, then communicate with rest of the group for further
+development).
+
+3. Will have to discuss with group the optimal method of utilizing SQLite
+with PHP scripting, along with further Survey.js research

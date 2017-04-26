@@ -1,0 +1,14 @@
+Ghebre Ghebremedhin
+Status Report 7 (4/24/2017)
+
+A. What I did?
+  
+  Revised SQlite and PHP 
+     
+
+B. What I will do?
+  In the team, we will be finalizing the functionality for the user to be able to email/feedback to the admin (Sprint1)      
+
+
+C. Any impediments?
+  	No impediments

@@ -1,0 +1,7 @@
+Status Report 2
+
+1. There was a group meeting yesterday, gained more insight on the project. Created user stories. Agreed to work on database.
+
+2. Today I updated the user stories. Started to dabble in the SQLite
+
+3. Tomorrow I will play with SQLite a bit more and possibly start a rough databse.
