@@ -14,6 +14,16 @@ insertDepartment("English","Department of spelling and reading");
 insertDepartment("Health","Department of scrubs");
 insertDepartment("Beer","Department of all that is Holy");
 
+insertCourses('1','AD410','Web Application Practicum');
+insertCourses('1','AD340','Mobile Application');
+insertCourses('2','AD900','I Want Out Of Here');
+
+insertQuestions("1","0","Personal question","Who are you");
+
+insertAnswers("1","0","Personal answer","I have no idea");
+insertAnswers("2","1","Personal answer","Im a crazy person");
+insertAnswers("3","2","Personal answer","Im you");
+
 outputData();
 closeDB();
 
@@ -29,24 +39,22 @@ function openOrCreateDB(){
 function createTable(){
     global $conn;
     try {
-        $sql = "CREATE TABLE IF NOT EXISTS Faculty (faculty_id INTEGER PRIMARY KEY, department_id INTEGER FOREIGN KEY, full_name TEXT, email TEXT)";
+        $sql = "CREATE TABLE IF NOT EXISTS Faculty (faculty_id INTEGER PRIMARY KEY, department_id INTEGER, full_name TEXT, email TEXT)";
         $conn->exec($sql);
 
-        $sql = "CREATE TABLE IF NOT EXISTS Departments (department_id INTEGER PRIMARY KEY, depart_name TEXT, description TEXT)";
+        $sql = "CREATE TABLE IF NOT EXISTS Departments (department_id INTEGER PRIMARY KEY, depart_name TEXT, depart_description TEXT)";
         $conn->exec($sql);
 
-        $sql = "CREATE TABLE IF NOT EXISTS Courses (course_id INTEGER PRIMARY KEY, department_id INTEGER FOREIGN KEY , course_name TEXT, description TEXT)";
+        $sql = "CREATE TABLE IF NOT EXISTS Courses (course_id INTEGER PRIMARY KEY, department_id INTEGER, course_name TEXT, course_description TEXT)";
         $conn->exec($sql);
 
-        $sql = "CREATE TABLE IF NOT EXISTS Questions (question_id INTEGER PRIMARY KEY course_id INTEGER FOREIGN KEY, department_id INTEGER FOREIGN KEY, 
-                question_name TEXT, description TEXT)";
+        $sql = "CREATE TABLE IF NOT EXISTS Questions (question_id INTEGER PRIMARY KEY, course_id INTEGER, department_id INTEGER, question_name TEXT, question_description TEXT)";
         $conn->exec($sql);
 
-        $sql = "CREATE TABLE IF NOT EXISTS Answers (answer_id INTEGER PRIMARY KEY, course_id INTEGER FOREIGN KEY, department_id INTEGER FOREIGN KEY, 
-                answer_name TEXT, description TEXT)";
+        $sql = "CREATE TABLE IF NOT EXISTS Answers (answer_id INTEGER PRIMARY KEY, course_id INTEGER, department_id INTEGER, answer_name TEXT, answer_description TEXT)";
         $conn->exec($sql);
 
-        $sql = "CREATE TABLE IF NOT EXISTS Results (course_id INTEGER FOREIGN KEY, department_id INTEGER FOREIGN KEY, course_name TEXT, description TEXT)";
+        $sql = "CREATE TABLE IF NOT EXISTS Results (result_id INTEGER PRIMARY KEY, question_id INTEGER, answer_id INTEGER, result_description TEXT)";
         $conn->exec($sql);
 
         echo "Tables created successfully <br>";
@@ -64,7 +72,7 @@ function insertFaculty($depart_id,$name,$email){
         $sql = "INSERT OR IGNORE INTO Faculty (department_id, full_name, email) 
                       VALUES ('$depart_id', '$name', '$email');";
         $conn->exec($sql);
-        echo "Inserted data successfully <br>";
+        echo "Inserted faculty successfully <br>";
     }catch (PDOException $e){
         echo 'Exception : '.$e->getMessage();
     }
@@ -94,7 +102,7 @@ function updateFaculty($faculty_id,$depart_id,$name,$email,$new_depart_id,$new_n
 			WHERE faculty_id = '$faculty_id;";
 			$conn->exec($sql);
 		}
-		//Mutiple record updates
+		//Multiple record updates
 		else if ($new_depart_id == ''){
 			$sql = "UPDATE OR IGNORE Faculty
 			SET name = '$new_name', email = $new_email
@@ -148,10 +156,10 @@ function insertDepartment($name,$description){
     global $conn;
     try {
         // insert data
-        $sql = "INSERT OR IGNORE INTO Departments (depart_name, description) 
+        $sql = "INSERT OR IGNORE INTO Departments (depart_name, depart_description) 
                       VALUES ('$name', '$description');";
         $conn->exec($sql);
-        echo "Inserted data successfully <br>";
+        echo "Inserted department successfully <br>";
     } catch (PDOException $e) {
         echo 'Exception : ' . $e->getMessage();
     }
@@ -178,8 +186,8 @@ function updateDepartDescription($new_description,$description){
     try {
         // update data description
         $sql = "UPDATE OR IGNORE Departments 
-				SET description = '$new_description'
-				WHERE description = '$description';";
+				SET depart_description = '$new_description'
+				WHERE depart_description = '$description';";
         $conn->exec($sql);
         echo "Updated data successfully <br>";
     } catch (PDOException $e) {
@@ -208,10 +216,10 @@ function insertCourses($depart_id,$course_name,$course_descrip){
     global $conn;
     try {
         // insert data
-        $sql = "INSERT OR IGNORE INTO Courses (department_id, course_name, description) 
+        $sql = "INSERT OR IGNORE INTO Courses (department_id, course_name, course_description) 
                       VALUES ('$depart_id','$course_name','$course_descrip');";
         $conn->exec($sql);
-        echo "Inserted data successfully <br>";
+        echo "Inserted course successfully <br>";
     }catch (PDOException $e){
         echo 'Exception : '.$e->getMessage();
     }
@@ -225,7 +233,7 @@ function updateCourses($course_id, $new_depart_id, $new_course_name, $new_course
 		//Update single record
         if ($new_depart_id == '' && $new_course_name == ''){
 			$sql = "UPDATE OR IGNORE Courses
-			SET description = '$new_course_descrip'
+			SET course_description = '$new_course_descrip'
 			WHERE course_id = '$course_id;";
 			$conn->exec($sql);
 		}
@@ -295,10 +303,10 @@ function insertQuestions($course_id, $department_id, $question_name, $question_d
     global $conn;
     try {
         // insert data
-        $sql = "INSERT OR IGNORE INTO Questions (course_id, department_id, question_name, description) 
-                      VALUES ('$course_id, $department_id','$question_name','$question_descrip');";
+        $sql = "INSERT INTO Questions (course_id, department_id, question_name, question_description) 
+                      VALUES ('$course_id', '$department_id','$question_name','$question_descrip');";
         $conn->exec($sql);
-        echo "Inserted data successfully <br>";
+        echo "Inserted question successfully <br>";
     }catch (PDOException $e){
         echo 'Exception : '.$e->getMessage();
     }
@@ -310,7 +318,7 @@ function updateQuestions($question_id, $new_course_id, $new_depart_id, $new_ques
 		//One record update
 		if ($new_course_id == '' && $new_depart_id == '' && $new_question_name == ''){
 			$sql = "UPDATE OR IGNORE Questions
-			SET description = $new_question_descrip
+			SET question_description = $new_question_descrip
 			WHERE question_id = '$question_id;";
 			$conn->exec($sql);
 		}
@@ -335,13 +343,13 @@ function updateQuestions($question_id, $new_course_id, $new_depart_id, $new_ques
 		//Update two records
         else if ($new_depart_id == '' && $new_question_name == ''){
 			$sql = "UPDATE OR IGNORE Questions
-			SET description = '$new_question_descrip', course_id = $new_course_id
+			SET question_description = '$new_question_descrip', course_id = $new_course_id
 			WHERE question_id = '$question_id;";
 			$conn->exec($sql);
 		}
 		else if ($new_depart_id == '' && $new_course_id == ''){
 			$sql = "UPDATE OR IGNORE Questions
-			SET description = '$new_question_descrip', question_name = $new_question_name
+			SET question_description = '$new_question_descrip', question_name = $new_question_name
 			WHERE question_id = '$question_id;";
 			$conn->exec($sql);
 		}
@@ -359,7 +367,7 @@ function updateQuestions($question_id, $new_course_id, $new_depart_id, $new_ques
 		}
 		else if ($new_course_id == '' && $new_question_name == ''){
 			$sql = "UPDATE OR IGNORE Questions
-			SET description = '$new_question_descrip', department_id = $new_depart_id 
+			SET question_description = '$new_question_descrip', department_id = $new_depart_id 
 			WHERE question_id = '$question_id;";
 			$conn->exec($sql);
 		}
@@ -428,10 +436,10 @@ function insertAnswers($course_id, $department_id, $answer_name, $answer_descrip
     global $conn;
     try {
         // insert data
-        $sql = "INSERT OR IGNORE INTO Answers (course_id, department_id, answer_name, description) 
-                      VALUES ('$course_id, $department_id','$answer_name','$answer_descrip');";
+        $sql = "INSERT INTO Answers (course_id, department_id, answer_name, answer_description) 
+                      VALUES ('$course_id','$department_id','$answer_name','$answer_descrip');";
         $conn->exec($sql);
-        echo "Inserted data successfully <br>";
+        echo "Inserted answer successfully <br>";
     }catch (PDOException $e){
         echo 'Exception : '.$e->getMessage();
     }
@@ -444,7 +452,7 @@ function updatAnswers($answer_id, $new_course_id, $new_depart_id, $new_answer_na
 		//One record update
 		if ($new_course_id == '' && $new_depart_id == '' && $new_answer_name == ''){
 			$sql = "UPDATE OR IGNORE Answers
-			SET description = $new_answer_descrip
+			SET answer_description = $new_answer_descrip
 			WHERE answer_id = '$answer_id;";
 			$conn->exec($sql);
 		}
@@ -469,13 +477,13 @@ function updatAnswers($answer_id, $new_course_id, $new_depart_id, $new_answer_na
 		//Update two records
         else if ($new_depart_id == '' && $new_answer_name == ''){
 			$sql = "UPDATE OR IGNORE Answers
-			SET description = '$new_answer_descrip', course_id = $new_course_id
+			SET answer_description = '$new_answer_descrip', course_id = $new_course_id
 			WHERE answer_id = '$answer_id;";
 			$conn->exec($sql);
 		}
 		else if ($new_depart_id == '' && $new_course_id == ''){
 			$sql = "UPDATE OR IGNORE Answers
-			SET description = '$new_answer_descrip', answer_name = $new_answer_name
+			SET answer_description = '$new_answer_descrip', answer_name = $new_answer_name
 			WHERE answer_id = '$answer_id;";
 			$conn->exec($sql);
 		}
@@ -493,7 +501,7 @@ function updatAnswers($answer_id, $new_course_id, $new_depart_id, $new_answer_na
 		}
 		else if ($new_course_id == '' && $new_answer_name == ''){
 			$sql = "UPDATE OR IGNORE Answers
-			SET description = '$new_answer_descrip', department_id = $new_depart_id 
+			SET answer_description = '$new_answer_descrip', department_id = $new_depart_id 
 			WHERE answer_id = '$answer_id;";
 			$conn->exec($sql);
 		}
@@ -558,14 +566,15 @@ function deleteAnswers($answer_id){
 //		***ANSWERS END***
 
 //		***RESULTS***
+// Needs modifying to
 function insertResults($depart_id,$course_name,$result_descrip){
     global $conn;
     try {
         // insert data
-        $sql = "INSERT OR IGNORE INTO Results (department_id, course_name, description) 
+        $sql = "INSERT OR IGNORE INTO Results (department_id, course_name, result_description) 
                       VALUES ('$depart_id','$course_name','$result_descrip');";
         $conn->exec($sql);
-        echo "Inserted data successfully <br>";
+        echo "Inserted result successfully <br>";
     }catch (PDOException $e){
         echo 'Exception : '.$e->getMessage();
     }
@@ -579,7 +588,7 @@ function updateResults($course_id, $new_depart_id, $new_course_name, $new_result
 		//Update single record
         if ($new_depart_id == '' && $new_course_name == ''){
 			$sql = "UPDATE OR IGNORE Results
-			SET description = '$new_result_descrip'
+			SET result_description = '$new_result_descrip'
 			WHERE course_id = '$course_id;";
 			$conn->exec($sql);
 		}
@@ -598,13 +607,13 @@ function updateResults($course_id, $new_depart_id, $new_course_name, $new_result
 		//Mutiple record updates
 		else if ($new_depart_id == ''){
 			$sql = "UPDATE OR IGNORE Results
-			SET course_name = '$new_course_name', description = $new_result_descrip
+			SET course_name = '$new_course_name', result_description = $new_result_descrip
 			WHERE course_id = '$course_id;";
 			$conn->exec($sql);
 		}
 		else if ($new_course_name == ''){
 			$sql = "UPDATE OR IGNORE Results
-			SET department_id = '$new_depart_id', description = $new_result_descrip
+			SET department_id = '$new_depart_id', result_description = $new_result_descrip
 			WHERE course_id = '$course_id';";
 			$conn->exec($sql);
 		}
@@ -617,7 +626,7 @@ function updateResults($course_id, $new_depart_id, $new_course_name, $new_result
 		//All record update
 		else{
 			$sql = "UPDATE OR IGNORE Results
-			SET department_id = '$new_depart_id', course_name = '$new_course_name', description = '$new_result_descrip'
+			SET department_id = '$new_depart_id', course_name = '$new_course_name', result_description = '$new_result_descrip'
 			WHERE course_id = '$course_id'";
 			$conn->exec($sql);
 		}
@@ -657,7 +666,7 @@ function outputData(){
             // prints formatted data
             print "<tr><td>" . $row['department_id'] . "</td>";
             print "<td>" . $row['depart_name'] . "</td>";
-            print "<td>" . $row['description'] . "</td>";
+            print "<td>" . $row['depart_description'] . "</td>";
             print "<td></td></tr>";
             $result = $conn->query('SELECT * FROM Colors');
         }
