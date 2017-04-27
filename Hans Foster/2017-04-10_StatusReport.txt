@@ -1,5 +1,5 @@
-1) Testing
+1) Learned about mid-tier development and assigned tentative roles
 
-2) Testing
+2) Using github/cementing roles and a bit of design
 
-3) Testing
+3) Meeting times
