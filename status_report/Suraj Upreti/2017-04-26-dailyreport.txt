@@ -4,4 +4,4 @@ Status Report 8:
 
 2). Working on creating a sample login page
 
-3). Learning how to use composer and Lavarel framework
+3). Need to learn how to use composer and Lavarel framework
