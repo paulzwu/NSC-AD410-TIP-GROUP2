@@ -1,0 +1,7 @@
+Status Report 8:
+
+1). Researched about Oauth2 process
+
+2). Working on creating a sample login page
+
+3). Learning how to use composer and Lavarel framework
