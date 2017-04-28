@@ -1,0 +1,5 @@
+1) Yesterday I worked on setting up the Laravel framework in our directory, as well as incorporating the code people wrote in with the new directory. 
+
+2) Tomorrow I plan on putting together a Laravel reference doc for our weekly Scrum. 
+
+3) Road blocks would be getting everyone on the same page with things. Hopefully we can hammer that out tommorow. 
