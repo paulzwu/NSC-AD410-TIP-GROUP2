@@ -13,6 +13,7 @@ class ComposerStaticInit2fcc6db628d24f451304121b382708e2
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
+        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
     );
@@ -21,6 +22,10 @@ class ComposerStaticInit2fcc6db628d24f451304121b382708e2
         'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
+        ),
+        'j' => 
+        array (
+            'jlawrence\\eos\\' => 14,
         ),
         'X' => 
         array (
@@ -87,6 +92,8 @@ class ComposerStaticInit2fcc6db628d24f451304121b382708e2
         'C' => 
         array (
             'Cron\\' => 5,
+            'ConsoleTVs\\Charts\\' => 18,
+            'Collective\\Html\\' => 16,
             'Carbon\\' => 7,
         ),
         'A' => 
@@ -101,6 +108,10 @@ class ComposerStaticInit2fcc6db628d24f451304121b382708e2
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+        ),
+        'jlawrence\\eos\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/jlawrence/eos/src',
         ),
         'XdgBaseDir\\' => 
         array (
@@ -222,6 +233,14 @@ class ComposerStaticInit2fcc6db628d24f451304121b382708e2
         array (
             0 => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron',
         ),
+        'ConsoleTVs\\Charts\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/consoletvs/charts/src',
+        ),
+        'Collective\\Html\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravelcollective/html/src',
+        ),
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
@@ -293,6 +312,21 @@ class ComposerStaticInit2fcc6db628d24f451304121b382708e2
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
+        'Collective\\Html\\Componentable' => __DIR__ . '/..' . '/laravelcollective/html/src/Componentable.php',
+        'Collective\\Html\\Eloquent\\FormAccessible' => __DIR__ . '/..' . '/laravelcollective/html/src/Eloquent/FormAccessible.php',
+        'Collective\\Html\\FormBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/FormBuilder.php',
+        'Collective\\Html\\FormFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/FormFacade.php',
+        'Collective\\Html\\HtmlBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlBuilder.php',
+        'Collective\\Html\\HtmlFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlFacade.php',
+        'Collective\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlServiceProvider.php',
+        'ConsoleTVs\\Charts\\Builder' => __DIR__ . '/..' . '/consoletvs/charts/src/Builder.php',
+        'ConsoleTVs\\Charts\\Builder\\Chart' => __DIR__ . '/..' . '/consoletvs/charts/src/Builder/Chart.php',
+        'ConsoleTVs\\Charts\\Builder\\Database' => __DIR__ . '/..' . '/consoletvs/charts/src/Builder/Database.php',
+        'ConsoleTVs\\Charts\\Builder\\Math' => __DIR__ . '/..' . '/consoletvs/charts/src/Builder/Math.php',
+        'ConsoleTVs\\Charts\\Builder\\Multi' => __DIR__ . '/..' . '/consoletvs/charts/src/Builder/Multi.php',
+        'ConsoleTVs\\Charts\\Builder\\Realtime' => __DIR__ . '/..' . '/consoletvs/charts/src/Builder/Realtime.php',
+        'ConsoleTVs\\Charts\\ChartsServiceProvider' => __DIR__ . '/..' . '/consoletvs/charts/src/ChartsServiceProvider.php',
+        'ConsoleTVs\\Charts\\Facades\\Charts' => __DIR__ . '/..' . '/consoletvs/charts/src/Facades/Charts.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
@@ -3161,6 +3195,13 @@ class ComposerStaticInit2fcc6db628d24f451304121b382708e2
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'XdgBaseDir\\Xdg' => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
+        'jlawrence\\eos\\AdvancedFunctions' => __DIR__ . '/..' . '/jlawrence/eos/src/AdvancedFunctions.php',
+        'jlawrence\\eos\\Graph' => __DIR__ . '/..' . '/jlawrence/eos/src/Graph.php',
+        'jlawrence\\eos\\Math' => __DIR__ . '/..' . '/jlawrence/eos/src/Math.php',
+        'jlawrence\\eos\\Matrix' => __DIR__ . '/..' . '/jlawrence/eos/src/Matrix.php',
+        'jlawrence\\eos\\Parser' => __DIR__ . '/..' . '/jlawrence/eos/src/Parser.php',
+        'jlawrence\\eos\\Stack' => __DIR__ . '/..' . '/jlawrence/eos/src/Stack.php',
+        'jlawrence\\eos\\Trig' => __DIR__ . '/..' . '/jlawrence/eos/src/Trig.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',
         'phpDocumentor\\Reflection\\DocBlockFactoryInterface' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactoryInterface.php',
