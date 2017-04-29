@@ -6,35 +6,25 @@ Due date - 4/28/17
 
 What have I done?
 
-	•I created database tables, fields that we need for our project.
+	â€¢I created database tables, fields that we need for our project.
 
-	•I identified relationships between our entities. 
-
-	 Besides, I normalized the data and prepared an Entity 
+	â€¢I identified relationships between our entities.  Besides, I normalized the data and prepared an Entity 
    
-         Relationship Diagram (ERD)
+         Relationship Diagram (ERD) which reflects all the fields with unique values, having  appropriate data-types,  and the
+	 
+	 relationships across the entities.
 
-         which reflects all the fields with unique values, having 
-
-         appropriate data-types, 
-
-         and the relationships across the entities.
-
-	•I didn’t get time to learn Laravel 
+	â€¢I didnâ€™t get time to learn Laravel 
 
 What will I do?
 
-	•Continue working on about data in structured, Relational
- 
-         databases for our  project (TipsDB)
+	â€¢Continue working on about data in structured, Relational databases for our  project (TipsDB)
 
-	•Continue to work Create database with SQLite
+	â€¢Continue to work Create database with SQLite
 
-	•Meet with backend team and review data in structured and  
-
-         Relational databases for our project
+	â€¢Meet with backend team and review data in structured and  Relational databases for our project
 
 Any obstacles?
 
-      •I don’t have obstacles yet. 
+      â€¢I donâ€™t have obstacles yet. 
 
