@@ -80,7 +80,5 @@ Route::get('/facultyfaqs', function ()
 
 Route::get('/adminfaqs', function () 
 {
-	
     	return view('admin_faqs');
 });
-
