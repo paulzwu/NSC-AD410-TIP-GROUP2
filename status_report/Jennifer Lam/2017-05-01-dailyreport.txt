@@ -1,0 +1,7 @@
+Status Report 10:
+
+1) What I did is create a prototype filter 
+
+2) What I am working on is generate filter tags
+
+3) no issues
