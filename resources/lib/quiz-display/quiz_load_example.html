@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <link href="http://getbootstrap.com/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+	    <link href="https://surveyjs.azureedge.net/0.12.9/surveyeditor.css" type="text/css" rel="stylesheet" />
+	    <script src="https://surveyjs.azureedge.net/0.12.9/survey.ko.min.js"></script>
+	    <script src="https://surveyjs.azureedge.net/0.12.9/surveyeditor.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.min.js" type="text/javascript"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/worker-json.js" type="text/javascript"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/mode-json.js" type="text/javascript"></script>
+	    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" type="text/css" rel="stylesheet" />
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" type="text/javascript"></script>		
+	</head>
+	<body>
+		<div id="container"></div>
+		<div id="results"></div><hr>
+		<div style="text-align:center;"><p>Enter quiz number (currently 1 - 5): <input type="text" name="ID"> <button>Get Quiz</button></p></div>
+		<script>
+			$(document).ready(function() {
+				var loadquiz = 'sqlite3_calls.php';
+				var completeMessage = '';
+				$("button").click(function() {
+					// 'action':'load' tells sqlite3_calls.php to run its load function
+					var loadFormData = {'action': 'load', 'ID': $('input[name=ID]').val()};
+					$.ajax({url: loadquiz,dataType: 'json',data: loadFormData,type: 'POST',async: true})
+					.done(function(json){
+						var surveyJSON = JSON.parse(json);
+						Survey.defaultBootstrapCss.navigationButton = "btn btn-primary";
+						Survey.Survey.cssType = "bootstrap";
+						var survey = new Survey.Model(surveyJSON, "container");
+						//options for progress bar - top, bottom, none
+						survey.showProgressBar = "top"; survey.render();
+						// use this for custom messages after survey completed; if no text provided, uses default message
+						survey.completedHtml = completeMessage; survey.render();
+						// when set to false, prevents the after survey message from displaying
+						survey.showCompletedPage = true; survey.render();
+						// gathers survey answer data and does something with it
+						survey.onComplete.add(function (sender) {
+							var mySurvey = sender;
+							var surveyData = sender.data;
+							// some kind of save function would replace this line of code
+							document.getElementById("results").innerHTML = JSON.stringify(surveyData);
+						});
+						//survey.onComplete.add(sendDataToServer);
+					});
+				});
+			});
+		</script>
+	</body>
+</html>
