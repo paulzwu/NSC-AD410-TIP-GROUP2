@@ -17,6 +17,7 @@
             <div id="wrap">
                 <div id="main" class="container clear-top">
                     <!-- Main Content -->
+                    @include('layouts.partials.progress_indicator_charts') 
                 </div>
             </div>
             @include('layouts.partials.footer')

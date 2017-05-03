@@ -3443,5 +3443,147 @@
             "testing",
             "xunit"
         ]
+    },
+    {
+        "name": "laravelcollective/html",
+        "version": "v5.4.1",
+        "version_normalized": "5.4.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/LaravelCollective/html.git",
+            "reference": "7570f25d58a00fd6909c0563808590f9cdb14d47"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/LaravelCollective/html/zipball/7570f25d58a00fd6909c0563808590f9cdb14d47",
+            "reference": "7570f25d58a00fd6909c0563808590f9cdb14d47",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/http": "5.4.*",
+            "illuminate/routing": "5.4.*",
+            "illuminate/session": "5.4.*",
+            "illuminate/support": "5.4.*",
+            "illuminate/view": "5.4.*",
+            "php": ">=5.6.4"
+        },
+        "require-dev": {
+            "illuminate/database": "5.4.*",
+            "mockery/mockery": "~0.9.4",
+            "phpunit/phpunit": "~5.4"
+        },
+        "time": "2017-01-26T19:27:05+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Collective\\Html\\": "src/"
+            },
+            "files": [
+                "src/helpers.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Taylor Otwell",
+                "email": "taylorotwell@gmail.com"
+            },
+            {
+                "name": "Adam Engebretson",
+                "email": "adam@laravelcollective.com"
+            }
+        ],
+        "description": "HTML and Form Builders for the Laravel Framework",
+        "homepage": "http://laravelcollective.com"
+    },
+    {
+        "name": "jlawrence/eos",
+        "version": "v3.2.2",
+        "version_normalized": "3.2.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/jlawrence11/eos.git",
+            "reference": "25e3d0f2316cb4636000f452a8e7dcc83725a32a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/jlawrence11/eos/zipball/25e3d0f2316cb4636000f452a8e7dcc83725a32a",
+            "reference": "25e3d0f2316cb4636000f452a8e7dcc83725a32a",
+            "shasum": ""
+        },
+        "require-dev": {
+            "codeclimate/php-test-reporter": "dev-master",
+            "phpunit/phpunit": "4.*"
+        },
+        "time": "2016-03-02T22:35:41+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "jlawrence\\eos\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL-2.1+"
+        ],
+        "authors": [
+            {
+                "name": "Jon Lawrence",
+                "email": "jon@jon-lawrence.com"
+            }
+        ],
+        "description": "Parse and solve math equations without using 'eval()'.",
+        "keywords": [
+            "eos",
+            "equations",
+            "math",
+            "solve"
+        ]
+    },
+    {
+        "name": "consoletvs/charts",
+        "version": "3.0.13",
+        "version_normalized": "3.0.13.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ConsoleTVs/Charts.git",
+            "reference": "866cf60466a5ae150e39814fbec6d0f5aef260cc"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ConsoleTVs/Charts/zipball/866cf60466a5ae150e39814fbec6d0f5aef260cc",
+            "reference": "866cf60466a5ae150e39814fbec6d0f5aef260cc",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "5.1.* || 5.2.* || 5.3.* || 5.4.*",
+            "jlawrence/eos": "3.*",
+            "laravelcollective/html": "^5.0",
+            "php": ">=5.6.4"
+        },
+        "time": "2017-01-25T14:34:37+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "ConsoleTVs\\Charts\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Erik Campobadal",
+                "email": "soc@erik.cat"
+            }
+        ],
+        "description": "Create charts for laravel using diferent charts libraries"
     }
 ]

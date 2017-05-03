@@ -23,8 +23,35 @@ Route::get('/faculty', function ()
 
 Route::get('/admin', function () 
 {
-	
-    	return view('admin_dash');
+	$complete_chart =  Charts::create('percentage', 'justgage')
+		->title('Complete')
+		->elementLabel('of 100')
+		->values([65,0,100])
+		->responsive(false)
+		->height(300)
+		->width(0)
+		->colors(['#25D366', '#25D366', '#25D366']);
+
+	$chart_inprogress =  Charts::create('percentage', 'justgage')
+		->title('In-Progress')
+		->elementLabel('of 100')
+		->values([22,0,100])
+		->responsive(false)
+		->height(300)
+		->width(0)
+		->colors(['#1AB7EA', '#1AB7EA', '#1AB7EA']);
+
+	$chart_notstarted =  Charts::create('percentage', 'justgage')
+		->title('Not Started')
+		->elementLabel('of 100')
+		->values([13,0,100])
+		->responsive(false)
+		->height(300)
+		->width(0)
+		->colors(['#DD4B39', '#DD4B39', '#DD4B39']);
+		
+		return view('admin_dash', ['chart_complete' => $complete_chart, 'chart_inprogress' => $chart_inprogress, 'chart_notstarted' => $chart_notstarted]);
+
 });
 
 Route::get('/tip', function () 
@@ -56,3 +83,4 @@ Route::get('/adminfaqs', function ()
 	
     	return view('admin_faqs');
 });
+
