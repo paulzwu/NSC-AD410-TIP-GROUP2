@@ -1,0 +1,5 @@
+1)  I was gone all weekend at Dreamhack, so I missed the last meeting.  Just read up on implementing Laravel
+
+2)  I want to download Laravel and see how it works.  
+
+3)  We're undecided if we want to break up the Json file into separate pieces for the database side of things. 
