@@ -1,0 +1,8 @@
+1)  Read about SQLite and furthered discussion with github and scrums and sprints, other agile practices
+    Talked about the requirements for the final application.  
+
+
+2)  Work on user stories
+
+
+3)  Nothing so far - uploading user stories all to one place maybe
