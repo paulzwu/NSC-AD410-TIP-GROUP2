@@ -24,5 +24,4 @@
             </div>
             @include('layouts.partials.footer')
         </body>
-    </div>
 </html>
