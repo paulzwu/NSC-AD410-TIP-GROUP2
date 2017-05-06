@@ -1,0 +1,12 @@
+Status Report 12:
+
+1) What did you do?
+* Spent five hours today trying to get laravel to display on a server. Can do it with localhost but not remote. Setup on my own domain and AWS Beanstalk. I can’t get it to display with Laravel. Apparently Laravel isn’t compatible with shared hosting and if you can install it it has to take over the entire root. That’s why I tried AWS but AWS is like setting up your own server
+
+
+2) What are you doing next?
+Checking status reports for roadblocks
+checking in on team code
+
+3)What roadblocks stand in your way?
+Setting up laravel on remote host is a nightmare

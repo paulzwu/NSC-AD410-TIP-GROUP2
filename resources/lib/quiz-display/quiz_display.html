@@ -20,31 +20,44 @@
 		<div style="text-align:center;"><p>Enter quiz number (currently 1 - 5): <input type="text" name="ID"> <button>Get Quiz</button></p></div>
 		<script>
 			$(document).ready(function() {
-				var loadquiz = 'sqlite3_calls.php';
+				var quiz_controller = 'sqlite_lib.php';
 				var completeMessage = '';
 				$("button").click(function() {
-					// 'action':'load' tells sqlite3_calls.php to run its load function
-					var loadFormData = {'action': 'load', 'ID': $('input[name=ID]').val()};
-					$.ajax({url: loadquiz,dataType: 'json',data: loadFormData,type: 'POST',async: true})
+					$('#results').empty();
+					// 'action':'load' tells sqlite_lib.php to run its load function
+					$.ajax({url: quiz_controller,
+							dataType: 'json',
+							data: {'action':'load', 'ID':$('input[name=ID]').val()},
+							type: 'POST',
+							async: true})
 					.done(function(json){
+						console.log("JSON data received from server")
 						var surveyJSON = JSON.parse(json);
 						Survey.defaultBootstrapCss.navigationButton = "btn btn-primary";
 						Survey.Survey.cssType = "bootstrap";
 						var survey = new Survey.Model(surveyJSON, "container");
+						
 						//options for progress bar - top, bottom, none
-						survey.showProgressBar = "top"; survey.render();
+						survey.showProgressBar = "top";
 						// use this for custom messages after survey completed; if no text provided, uses default message
-						survey.completedHtml = completeMessage; survey.render();
+						survey.completedHtml = completeMessage;
 						// when set to false, prevents the after survey message from displaying
-						survey.showCompletedPage = true; survey.render();
-						// gathers survey answer data and does something with it
+						survey.showCompletedPage = true;
+						// renders the above changes
+						survey.render();
+						
+						// gathers survey answer data saves to DB
 						survey.onComplete.add(function (sender) {
 							var mySurvey = sender;
-							var surveyData = sender.data;
-							// some kind of save function would replace this line of code
-							document.getElementById("results").innerHTML = JSON.stringify(surveyData);
+							var surveyData = JSON.stringify(sender.data);
+							$.ajax({url: quiz_controller,
+									dataType: 'json',
+									data: {'action':'save','Responses':surveyData},
+									type: 'POST',
+									async: true})
+							document.getElementById("results").innerHTML = surveyData;
+							console.log("JSON data sent to server")
 						});
-						//survey.onComplete.add(sendDataToServer);
 					});
 				});
 			});
