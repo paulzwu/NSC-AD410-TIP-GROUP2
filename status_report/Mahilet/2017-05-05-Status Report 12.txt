@@ -1,0 +1,33 @@
+Mahilet Haileamriam
+
+Status Report: 12
+
+Due date - 05/05/17
+
+What have I done?
+
+
+	•Uploaded first draft database Queries in to the GitHub repertory
+
+	
+	•Completed: Sprint 2
+			
+
+
+What will I do?
+
+
+	•Insert/update  new records into a database
+
+
+	•Finalize SQLite database Queries
+
+
+	•continued learning laravel 
+
+
+Any obstacles?
+
+
+	•I don’t have obstacles yet. 
+
