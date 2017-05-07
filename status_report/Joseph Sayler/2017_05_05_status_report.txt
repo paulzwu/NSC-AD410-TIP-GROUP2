@@ -1,0 +1,16 @@
+Joseph Sayler
+Status report 12
+5/5/2017
+
+Yesterday
+
+Met with mid-tier, front end, and a few people from back end groups to discuss what to do next. based upon front end design, mid-tier will make functions to be used as filters for the reports. mid-tier came up with database scheme and back end will implement. back end will also import some dummy data into said database.
+
+Today
+
+added save functionality to the quiz view demo. this code can be re-used elsewhere as needed
+
+
+Roadblocks
+
+none
