@@ -1,0 +1,18 @@
+Joseph Sayler
+Status report 13
+5/8/2017
+
+
+Yesterday
+
+poked around surveyjs editor, looking for ways to remove stuff we don't need. will probably have to use local code and not stuff from cdn so changes are permanent for everyone
+
+
+Today
+
+had mid-tier group meeting; went over DB setup and PDO/SQLite for data retrieval.
+
+
+Roadblocks
+
+none
