@@ -1,0 +1,7 @@
+Status Report 13:
+
+1). Learned about Laravel in more detail
+
+2). Waiting for API key
+
+3). Researching user data required after signing in
