@@ -1,0 +1,8 @@
+Status Report 9
+
+1. Yesterday I worked on other projects. 
+
+2. Today I attended our weekly meeting to see what I can do.
+
+3. Tomorrow I will create pseudo code to parse a JSON styled answer. The road block I'm facing right now is 
+trying to understand why the JSON answer needs to be parsed.
