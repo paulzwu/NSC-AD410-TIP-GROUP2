@@ -1,0 +1,19 @@
+Status Report 13:
+
+1) What did you do?
+* Tried again to setup Laravel on shared host using a restructuring hack then another attempt on AWS install to no avail
+* Decided with Kari to gut laravel of the routing functionality so we’re just using php. That will make it more compatible with wherever we deploy 
+
+
+
+2) What are you doing next?
+* Meet with team:
+   * Front, Mid, Back team updates
+   * Plan for our first show and tell with the board on May 19th 12:30 – 1:30 pm
+   * Walk through of Laravel ‘de-routing’ / restructuring the project
+   * Troubleshooting git conflicts caused by project restructuring
+* Check status reports
+* Make sure Trello is up to date
+
+3)What roadblocks stand in your way?
+Need to get Kari’s update on Laravel to attempt install on a server
