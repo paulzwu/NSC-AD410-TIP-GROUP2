@@ -35,7 +35,7 @@ $router->add('admin', ['namespace' => 'Admin', 'controller' => 'Dashboard', 'act
 $router->add('edit', ['namespace' => 'Admin', 'controller' => 'Editor', 'action' => 'index']);
 $router->add('adminfaq', ['namespace' => 'Admin', 'controller' => 'FAQ', 'action' => 'index']);
 $router->add('support', ['namespace' => 'Admin', 'controller' => 'Support', 'action' => 'index']);
-$router->add('', ['controller' => 'Home', 'action' => 'index']);
+$router->add('', ['namespace' => 'Admin', 'controller' => 'Dashboard', 'action' => 'index']);
 
 //Faculty Routes
 $router->add('faculty', ['namespace' => 'Faculty', 'controller' => 'Dashboard', 'action' => 'index']);
