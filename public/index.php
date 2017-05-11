@@ -1,58 +1,46 @@
 <?php
 
 /**
- * Laravel - A PHP Framework For Web Artisans
+ * Front controller
  *
- * @package  Laravel
- * @author   Taylor Otwell <taylor@laravel.com>
+ * PHP version 5.4
  */
 
-/*
-|--------------------------------------------------------------------------
-| Register The Auto Loader
-|--------------------------------------------------------------------------
-|
-| Composer provides a convenient, automatically generated class loader for
-| our application. We just need to utilize it! We'll simply require it
-| into the script here so that we don't have to worry about manual
-| loading any of our classes later on. It feels great to relax.
-|
-*/
+/**
+ * Composer
+ */
+// require '../vendor/autoload.php';
 
-require __DIR__.'/../bootstrap/autoload.php';
+/**
+ * Autoloader
+ */
+spl_autoload_register(function ($class) {
+   $root = dirname(__DIR__);   // get the parent directory
+   $file = $root . '/' . str_replace('\\', '/', $class) . '.php';
+   if (is_readable($file)) {
+       require $root . '/' . str_replace('\\', '/', $class) . '.php';
+   }
+});
 
-/*
-|--------------------------------------------------------------------------
-| Turn On The Lights
-|--------------------------------------------------------------------------
-|
-| We need to illuminate PHP development, so let us turn on the lights.
-| This bootstraps the framework and gets it ready for use, then it
-| will load up this application so that we can run it and send
-| the responses back to the browser and delight our users.
-|
-*/
 
-$app = require_once __DIR__.'/../bootstrap/app.php';
+/**
+ * Routing
+ */
+$router = new Core\Router();
 
-/*
-|--------------------------------------------------------------------------
-| Run The Application
-|--------------------------------------------------------------------------
-|
-| Once we have the application, we can handle the incoming request
-| through the kernel, and send the associated response back to
-| the client's browser allowing them to enjoy the creative
-| and wonderful application we have prepared for them.
-|
-*/
+//Admin routes
+$router->add('{controller}/{action}');
+$router->add('{controller}/{id:\d+}/{action}');
+$router->add('admin', ['namespace' => 'Admin', 'controller' => 'Dashboard', 'action' => 'index']);
+$router->add('edit', ['namespace' => 'Admin', 'controller' => 'Editor', 'action' => 'index']);
+$router->add('adminfaq', ['namespace' => 'Admin', 'controller' => 'FAQ', 'action' => 'index']);
+$router->add('support', ['namespace' => 'Admin', 'controller' => 'Support', 'action' => 'index']);
+$router->add('', ['namespace' => 'Admin', 'controller' => 'Dashboard', 'action' => 'index']);
 
-$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
-
-$response = $kernel->handle(
-    $request = Illuminate\Http\Request::capture()
-);
-
-$response->send();
-
-$kernel->terminate($request, $response);
+//Faculty Routes
+$router->add('faculty', ['namespace' => 'Faculty', 'controller' => 'Dashboard', 'action' => 'index']);
+$router->add('tip', ['namespace' => 'Faculty', 'controller' => 'TIP', 'action' => 'index']);
+$router->add('facultyfaq', ['namespace' => 'Faculty', 'controller' => 'FAQ', 'action' => 'index']);
+$router->add('facultysupport', ['namespace' => 'Faculty', 'controller' => 'Support', 'action' => 'index']);
+    
+$router->dispatch($_SERVER['QUERY_STRING']);
