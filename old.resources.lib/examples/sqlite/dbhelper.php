@@ -10,7 +10,7 @@ function openOrCreateDB(){
     global $conn;
     try {
         $conn = new PDO("sqlite:test.sqlite");
-        echo "DB created successfully <br>";
+        echo "DB connected <br>";
     } catch (PDOException $e){
         echo 'Exception : '.$e->getMessage();
     }
@@ -18,7 +18,11 @@ function openOrCreateDB(){
 function createTable(){
     global $conn;
     try {
-        $sql = "CREATE TABLE IF NOT EXISTS Faculty (faculty_id INTEGER PRIMARY KEY, department_id INTEGER, full_name TEXT, email TEXT)";
+        $sql = "CREATE TABLE IF NOT EXISTS Faculty (
+                faculty_id INTEGER PRIMARY KEY, 
+                department_id INTEGER, 
+                full_name TEXT, 
+                email TEXT)";
         $conn->exec($sql);
         if ($conn->exec($sql)){
             // method could be run in a loop as a readFile method extracts the data from a file
@@ -30,7 +34,10 @@ function createTable(){
             echo "Faculty table already exists.";
         }
 
-        $sql = "CREATE TABLE IF NOT EXISTS Departments (department_id INTEGER PRIMARY KEY, depart_name TEXT, depart_description TEXT)";
+        $sql = "CREATE TABLE IF NOT EXISTS Departments (
+                department_id INTEGER PRIMARY KEY, 
+                depart_name TEXT, 
+                depart_description TEXT)";
         $conn->exec($sql);
         if ($conn->exec($sql)){
             insertDepartment("Math","Department of numbers and weird symbols");
@@ -43,7 +50,11 @@ function createTable(){
             echo "Departments table already exists.";
         }
 
-        $sql = "CREATE TABLE IF NOT EXISTS Courses (course_id INTEGER PRIMARY KEY, department_id INTEGER, course_name TEXT, course_description TEXT)";
+        $sql = "CREATE TABLE IF NOT EXISTS Courses (
+                course_id INTEGER PRIMARY KEY, 
+                department_id INTEGER, 
+                course_name TEXT, 
+                course_description TEXT)";
         $conn->exec($sql);
         if ($conn->exec($sql)){
             insertCourses('1','AD410','Web Application Practicum');
@@ -54,7 +65,12 @@ function createTable(){
             echo "Courses table already exists.";
         }
 
-        $sql = "CREATE TABLE IF NOT EXISTS Questions (question_id INTEGER PRIMARY KEY, course_id INTEGER, department_id INTEGER, question_name TEXT, question_description TEXT)";
+        $sql = "CREATE TABLE IF NOT EXISTS Questions (
+                question_id INTEGER PRIMARY KEY, 
+                course_id INTEGER, 
+                department_id INTEGER, 
+                question_name TEXT, 
+                question_description TEXT)";
         $conn->exec($sql);
         if ($conn->exec($sql)){
             insertQuestions("1","0","TIP question","What is your division");
@@ -91,7 +107,12 @@ function createTable(){
             echo "Questions table already exists.";
         }
 
-        $sql = "CREATE TABLE IF NOT EXISTS Answers (answer_id INTEGER PRIMARY KEY, course_id INTEGER, department_id INTEGER, answer_name TEXT, answer_description TEXT)";
+        $sql = "CREATE TABLE IF NOT EXISTS Answers (
+                answer_id INTEGER PRIMARY KEY, 
+                course_id INTEGER, 
+                department_id INTEGER, 
+                answer_name TEXT, 
+                answer_description TEXT)";
         $conn->exec($sql);
         if ($conn->exec($sql)){
             insertAnswers("1","0","Personal answer","I have no idea");
@@ -102,7 +123,11 @@ function createTable(){
             echo "Answers table already exists.";
         }
 
-        $sql = "CREATE TABLE IF NOT EXISTS Results (result_id INTEGER PRIMARY KEY, question_id INTEGER, answer_id INTEGER, result_description TEXT)";
+        $sql = "CREATE TABLE IF NOT EXISTS Results (
+                result_id INTEGER PRIMARY KEY, 
+                question_id INTEGER, 
+                answer_id INTEGER, 
+                result_description TEXT)";
         $conn->exec($sql);
         if ($conn->exec($sql)){
 
