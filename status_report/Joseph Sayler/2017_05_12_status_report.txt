@@ -1,0 +1,16 @@
+Joseph Sayler
+Status report 15
+5/12/2017
+
+
+Yesterday
+
+still experimenting with removing unwanted divs in survey.js editor
+
+Today
+
+same as yesterday
+
+Roadblocks
+
+none
