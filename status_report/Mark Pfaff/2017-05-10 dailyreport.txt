@@ -1,0 +1,18 @@
+Status Report 14:
+
+1) What did you do?
+* Got site live on shared hosting with Kari’s help
+* Met with team:
+   * Front, Mid, Back team updates
+   * Planned for our first show and tell with the board on May 19th 12:30 – 1:30 pm
+   * Walk through of Laravel ‘de-routing’ / restructuring the project
+   * Troubleshooted git conflicts caused by project restructuring
+* Checked status reports
+
+
+2) What are you doing next?
+* Make sure Trello is up to date
+* Check in on code
+
+3)What roadblocks stand in your way?
+None right now
