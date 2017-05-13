@@ -1,0 +1,7 @@
+Status Report 15:
+
+1) What I did is continue on creating script and testing
+
+2) What I am still working on is creating a filter tag 
+
+3) practice learning javascript
