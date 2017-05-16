@@ -93,7 +93,7 @@ if (!isset($_GET[CODE])) {
  */
 $router = new Core\Router();
 
-// //Admin routes
+//Admin routes
 // $router->add('{controller}/{action}');
 // $router->add('{controller}/{id:\d+}/{action}');
 // $router->add('admin', ['namespace' => 'Admin', 'controller' => 'Dashboard', 'action' => 'index']);
@@ -103,10 +103,25 @@ $router = new Core\Router();
 // $router->add('', ['controller' => 'Login', 'action' => 'index']);
 // $router->add('', ['namespace' => 'Admin', 'controller' => 'Dashboard', 'action' => 'index']);
 
-// //Faculty Routes
+//Faculty Routes
 // $router->add('faculty', ['namespace' => 'Faculty', 'controller' => 'Dashboard', 'action' => 'index']);
 // $router->add('tip', ['namespace' => 'Faculty', 'controller' => 'TIP', 'action' => 'index']);
 // $router->add('facultyfaq', ['namespace' => 'Faculty', 'controller' => 'FAQ', 'action' => 'index']);
 // $router->add('facultysupport', ['namespace' => 'Faculty', 'controller' => 'Support', 'action' => 'index']);
+
+//Admin routes
+$router->add('{controller}/{action}');
+$router->add('{controller}/{id:\d+}/{action}');
+$router->add('admin', ['namespace' => 'Admin', 'controller' => 'Dashboard', 'action' => 'index']);
+$router->add('edit', ['namespace' => 'Admin', 'controller' => 'Editor', 'action' => 'index']);
+$router->add('adminfaq', ['namespace' => 'Admin', 'controller' => 'FAQ', 'action' => 'index']);
+$router->add('support', ['namespace' => 'Admin', 'controller' => 'Support', 'action' => 'index']);
+
+$router->add('', ['namespace' => 'Admin', 'controller' => 'Dashboard', 'action' => 'index']);
+//Faculty Routes
+$router->add('faculty', ['namespace' => 'Faculty', 'controller' => 'Dashboard', 'action' => 'index']);
+$router->add('tip', ['namespace' => 'Faculty', 'controller' => 'TIP', 'action' => 'index']);
+$router->add('facultyfaq', ['namespace' => 'Faculty', 'controller' => 'FAQ', 'action' => 'index']);
+$router->add('facultysupport', ['namespace' => 'Faculty', 'controller' => 'Support', 'action' => 'index']);
     
-// $router->dispatch($_SERVER['QUERY_STRING']);
+$router->dispatch($_SERVER['QUERY_STRING']);
