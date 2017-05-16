@@ -26,9 +26,9 @@ class Dashboard extends \Core\Controller
      */
     public function indexAction()
     {
-        $userSpecs = \App\Models\Dashboard::getUser();
+        $userSpecs = \App\Models\AdminDash::getUser();
         $user = $userSpecs['name'];
-        $stats = \App\Models\Dashboard::getStats();
+        $stats = \App\Models\AdminDash::getStats();
         $total = $stats['complete'] + $stats['inprogress'] + $stats['notstarted'];
         $waiting_on = $total - ($stats['inprogress'] + $stats['notstarted']);
         View::render('Admin/dashboard.php', [
