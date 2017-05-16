@@ -7,7 +7,7 @@ use PDO;
 //        This is where you should write your db access functions
 //        Views will access the data by calling methods from this class using a class instance
 
-class Dashboard extends \Core\Model
+class AdminDash extends \Core\Model
 {
 
     /**
