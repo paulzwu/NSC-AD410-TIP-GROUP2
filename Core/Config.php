@@ -1,16 +1,13 @@
 <?php
 
-namespace App;
 
-
-class Config
-{
     //OAuth configurations for canvas authorization
-    global  $config;
+    global $config;
     $config = [
-        'canvasClientId' => '90000000000379',
-        'canvasClientSecret' => 'Jf24s5qoapRwU2xQasluOqW5YhxYvAbKexh9yssstII5EX0fmjRUES526kHU9xXZ',
-        'redirectUri'=> "http://markpfaff.com/projects/NSC-AD410-TIP-GROUP2/public/",
+        'canvasClientId' => '90000000000380',
+        'canvasClientSecret' => 'RpiIUNErVJDJeAYsUYzJsdlQFzI8ihyrHlO5SbJ6r4CFWYZlFEO5NSO5zHmcsKZl',
+        'redirectUri'=> "http://markpfaff.com/projects/NSC-AD410-TIP-GROUP2/admin/",
+        // 'redirectUri'=> "http://nsc-ad410-tip-group2.localhost/admin",
         'canvasInstanceUrl'=>'https://northseattle.test.instructure.com'
     ];
 
@@ -37,4 +34,4 @@ class Config
     //  * @var string
     //  */
     // const DB_PASSWORD = 'secret';
-}
+
