@@ -4,10 +4,9 @@
     //OAuth configurations for canvas authorization
     global $config;
     $config = [
-        'canvasClientId' => '90000000000380',
-        'canvasClientSecret' => 'RpiIUNErVJDJeAYsUYzJsdlQFzI8ihyrHlO5SbJ6r4CFWYZlFEO5NSO5zHmcsKZl',
-        'redirectUri'=> "http://markpfaff.com/projects/NSC-AD410-TIP-GROUP2/admin/",
-        // 'redirectUri'=> "http://nsc-ad410-tip-group2.localhost/admin",
+        'canvasClientId' => '90000000000383',
+        'canvasClientSecret' => 'onlPUzNNIxEXjisu0Ne3oUcEqPSQzrBpZbGUIS1a1pipl9h9glLZsMSjYk5dmmPd',
+        'redirectUri'=> "http://markpfaff.com/projects/NSC-AD410-TIP-GROUP2/public/",
         'canvasInstanceUrl'=>'https://northseattle.test.instructure.com'
     ];
 
