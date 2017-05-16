@@ -2,4 +2,4 @@
 
 2) Create breakpoints for style sheets
 
-3) Nothing is working, still having big issues working with views/controllers/apache/whatever the fuck we're using.
+3) Nothing is working, still having big issues working with views/controllers/apache/
