@@ -1,0 +1,13 @@
+Status Report 16:
+
+1) What did you do?
+* looked through code, found some git merge issues and corrected
+* updated live site with current code
+* checked status reports
+
+2) What are you doing next?
+* Meet with the team
+
+3)What roadblocks stand in your way?
+* People are falling behind on status reports
+* Current version of site has some issues, pages not working, 
