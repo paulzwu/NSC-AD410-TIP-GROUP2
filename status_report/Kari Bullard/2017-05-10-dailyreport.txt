@@ -1,0 +1,5 @@
+1) Yesterday I worked on documenting the new project structure and began thinking about what's left for front-end and how we should divy things up. 
+
+2) Tomorrow I plan on trying to implement some report generation stuff. Working with Suraj on exporting HTML to PDF
+
+3) No roadblocks.
