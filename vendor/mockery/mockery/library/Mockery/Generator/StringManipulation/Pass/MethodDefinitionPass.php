@@ -126,25 +126,11 @@ if (\$argc > $i) {
 BODY;
             }
         }
-
-        $body .= $this->getReturnStatement($method, $invoke);
-
-        return $body;
-    }
-
-    private function getReturnStatement($method, $invoke)
-    {
-        if ($method->getReturnType() === 'void') {
-            return <<<BODY
-{$invoke}(__FUNCTION__, \$argv);
-}
-BODY;
-        }
-
-        return <<<BODY
+        $body .= <<<BODY
 \$ret = {$invoke}(__FUNCTION__, \$argv);
 return \$ret;
 }
 BODY;
+        return $body;
     }
 }

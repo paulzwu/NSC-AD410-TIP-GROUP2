@@ -7,22 +7,22 @@ Due date - 4/24/17
 
 What have I done?
 
-	• Completed: Sprint 1- Created a basic ERD drift, and uploaded     		  Tips_ERD_draft2 in to the GitHub reparatory. 
+	â€¢ Completed: Sprint 1- Created a basic ERD drift, and uploaded Tips_ERD_draft2 in to the GitHub reparatory. 
 
- 	• I created database folder under the folder docs, and I’ve added 	          first and second TIPS ERD pdf draft. 
+ 	â€¢ I created database folder under the folder docs, and Iâ€™ve added first and second TIPS ERD pdf draft. 
 
-	• I spent most of my time practice on create database with SQLite
+	â€¢ I spent most of my time practice on create database with SQLite
 
 What will I do?
 
-	• I make to finalizing creation of the database drift. 
+	â€¢ I make to finalizing creation of the database drift. 
 
-	• Team Meeting Tomorrow.
+	â€¢ Team Meeting Tomorrow.
 
-	• We'll have to discuss with team member about ERD to go forward.
+	â€¢ We'll have to discuss with team member about ERD to go forward.
 
 
 Any obstacles?
 
-	• I don’t have obstacles yet. 
+	â€¢ I donâ€™t have obstacles yet. 
 

@@ -11,7 +11,6 @@
 
 namespace Symfony\Component\Yaml\Tests\Command;
 
-use PHPUnit\Framework\TestCase;
 use Symfony\Component\Yaml\Command\LintCommand;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -22,7 +21,7 @@ use Symfony\Component\Console\Tester\CommandTester;
  *
  * @author Robin Chalas <robin.chalas@gmail.com>
  */
-class LintCommandTest extends TestCase
+class LintCommandTest extends \PHPUnit_Framework_TestCase
 {
     private $files;
 

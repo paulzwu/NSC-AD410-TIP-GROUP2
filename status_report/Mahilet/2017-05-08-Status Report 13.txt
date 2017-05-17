@@ -1,0 +1,27 @@
+Mahilet Haileamriam
+
+Status Report: 13
+
+Due date - 05/08/17
+
+
+What have I done?
+
+	•Insert/update  new records into a database.
+
+
+What will I do?
+
+	•Tomorrow, meat team member.
+
+
+	•Finalize SQLite database Queries
+
+
+	•continued learning laravel 
+
+
+Any obstacles?
+
+•I don’t have obstacles yet. 
+

@@ -32,9 +32,8 @@ before_script:
 script:
   - ./travis/script.sh
 
-after_success:
-  - ./travis/after_success.sh
-
+after_script:
+  - ./travis/after_script.sh
 notifications:
   email:
     - padraic.brady@gmail.com

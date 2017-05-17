@@ -1,58 +1,123 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+include "../Core/Config.php";
 
 /**
- * Laravel - A PHP Framework For Web Artisans
- *
- * @package  Laravel
- * @author   Taylor Otwell <taylor@laravel.com>
+ * Composer
  */
+require '../vendor/autoload.php';
 
-/*
-|--------------------------------------------------------------------------
-| Register The Auto Loader
-|--------------------------------------------------------------------------
-|
-| Composer provides a convenient, automatically generated class loader for
-| our application. We just need to utilize it! We'll simply require it
-| into the script here so that we don't have to worry about manual
-| loading any of our classes later on. It feels great to relax.
-|
-*/
+/*****************************************
+Toggle this block to turn oauth on and off
 
-require __DIR__.'/../bootstrap/autoload.php';
+******************************************/
 
-/*
-|--------------------------------------------------------------------------
-| Turn On The Lights
-|--------------------------------------------------------------------------
-|
-| We need to illuminate PHP development, so let us turn on the lights.
-| This bootstraps the framework and gets it ready for use, then it
-| will load up this application so that we can run it and send
-| the responses back to the browser and delight our users.
-|
-*/
+// use smtech\OAuth2\Client\Provider\CanvasLMS;
+// use GuzzleHttp\Client;
 
-$app = require_once __DIR__.'/../bootstrap/app.php';
+// //echo 'http://' . $_SERVER['SERVER_NAME'] . '/' . $_SERVER['SCRIPT_NAME'];
+// //exit;
+// session_start();
 
-/*
-|--------------------------------------------------------------------------
-| Run The Application
-|--------------------------------------------------------------------------
-|
-| Once we have the application, we can handle the incoming request
-| through the kernel, and send the associated response back to
-| the client's browser allowing them to enjoy the creative
-| and wonderful application we have prepared for them.
-|
-*/
+// /* anti-fat-finger constant definitions */
+// define('CODE', 'code');
+// define('STATE', 'state');
+// define('STATE_LOCAL', 'oauth2-state');
 
-$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+// $provider = new CanvasLMS([
+//     'clientId' => $config['canvasClientId'] ,
+//     'clientSecret' => $config['canvasClientSecret'],
+//     'purpose' => 'tip',
+//     'redirectUri' => $config['redirectUri'],
+//     'canvasInstanceUrl' => $config['canvasInstanceUrl']
+// //'redirectUri' => 'http://' . $_SERVER['SERVER_NAME'] . '/' . $_SERVER['SCRIPT_NAME'],
+// //'redirectUri' => 'http://localhost:63342/'.$_SERVER['SCRIPT_NAME'],
+// //'canvasInstanceUrl' => 'https://northseattle.test.instructure.com'
+// ]);
+// $c = new Client(['verify'=>false]);
+// $provider->setHttpClient($c);
 
-$response = $kernel->handle(
-    $request = Illuminate\Http\Request::capture()
-);
+// /* if we don't already have an authorization code, let's get one! */
+// if (!isset($_GET[CODE])) {
+//     $authorizationUrl = $provider->getAuthorizationUrl();
+//     $_SESSION[STATE_LOCAL] = $provider->getState();
+//     header("Location: $authorizationUrl");
+//     exit;
 
-$response->send();
+//     /* check that the passed state matches the stored state to mitigate cross-site request forgery attacks */
+// } elseif (empty($_GET[STATE]) || $_GET[STATE] !== $_SESSION[STATE_LOCAL]) {
+//     unset($_SESSION[STATE_LOCAL]);
+//     exit('Invalid state');
 
-$kernel->terminate($request, $response);
+// } else {
+//     echo $_GET[CODE];
+//     /* try to get an access token (using our existing code) */
+//     $token = $provider->getAccessToken('authorization_code', [CODE => $_GET[CODE]]);
+//     echo "Good, I got a token so I can do things on behave of you <br/>";
+//     /* do something with that token... (probably not just print to screen, but whatevs...) */
+//     echo "token:", $token->getToken(), "<br/>";
+//     $ownerDetails = $provider->getResourceOwner($token);
+
+//     // Use these details to create a new profile
+//     // printf('Your Name: %s <br/>', $ownerDetails->getName());
+//     // printf('Your id: %s <br/>', $ownerDetails->getId());
+//     //printf('email: %s! <br/>', $ownerDetails->getEmail());
+//     $uid= $ownerDetails->getId();
+
+//     $domain = 'northseattle.test.instructure.com';
+
+//     $profile_url = 'https://' . $domain . '/api/v1/users/' . $uid . '/profile?access_token=' . $token;
+//     //echo $profile_url;
+//     $f = @file_get_contents($profile_url);
+//     //$list = json_decode($f);
+//     //echo $f;
+//     $profile = json_decode($f);
+
+//     echo "Your email is: ", $profile->primary_email;
+//         //https://northseattle.test.instructure.com/api/v1/users/3901027/profile
+
+// //exit;
+// }
+/*****************************************
+Toggle this block to turn oauth on and off
+
+******************************************/
+
+/**
+ * Routing
+ */
+$router = new Core\Router();
+
+//Admin routes
+// $router->add('{controller}/{action}');
+// $router->add('{controller}/{id:\d+}/{action}');
+// $router->add('admin', ['namespace' => 'Admin', 'controller' => 'Dashboard', 'action' => 'index']);
+// $router->add('edit', ['namespace' => 'Admin', 'controller' => 'Editor', 'action' => 'index']);
+// $router->add('adminfaq', ['namespace' => 'Admin', 'controller' => 'FAQ', 'action' => 'index']);
+// $router->add('support', ['namespace' => 'Admin', 'controller' => 'Support', 'action' => 'index']);
+// $router->add('', ['controller' => 'Login', 'action' => 'index']);
+// $router->add('', ['namespace' => 'Admin', 'controller' => 'Dashboard', 'action' => 'index']);
+
+//Faculty Routes
+// $router->add('faculty', ['namespace' => 'Faculty', 'controller' => 'Dashboard', 'action' => 'index']);
+// $router->add('tip', ['namespace' => 'Faculty', 'controller' => 'TIP', 'action' => 'index']);
+// $router->add('facultyfaq', ['namespace' => 'Faculty', 'controller' => 'FAQ', 'action' => 'index']);
+// $router->add('facultysupport', ['namespace' => 'Faculty', 'controller' => 'Support', 'action' => 'index']);
+
+//Admin routes
+$router->add('{controller}/{action}');
+$router->add('{controller}/{id:\d+}/{action}');
+$router->add('admin', ['namespace' => 'Admin', 'controller' => 'Dashboard', 'action' => 'index']);
+$router->add('edit', ['namespace' => 'Admin', 'controller' => 'Editor', 'action' => 'index']);
+$router->add('adminfaq', ['namespace' => 'Admin', 'controller' => 'FAQ', 'action' => 'index']);
+$router->add('support', ['namespace' => 'Admin', 'controller' => 'Support', 'action' => 'index']);
+
+$router->add('', ['namespace' => 'Admin', 'controller' => 'Dashboard', 'action' => 'index']);
+//Faculty Routes
+$router->add('faculty', ['namespace' => 'Faculty', 'controller' => 'Dashboard', 'action' => 'index']);
+$router->add('tip', ['namespace' => 'Faculty', 'controller' => 'TIP', 'action' => 'index']);
+$router->add('facultyfaq', ['namespace' => 'Faculty', 'controller' => 'FAQ', 'action' => 'index']);
+$router->add('facultysupport', ['namespace' => 'Faculty', 'controller' => 'Support', 'action' => 'index']);
+    
+$router->dispatch($_SERVER['QUERY_STRING']);

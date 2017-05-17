@@ -1,0 +1,5 @@
+1) Yesterday I worked on breaking down some front-end tasks and writing requirements for them.
+
+2) Today I plan on integrating some of the elements we developed with the front end site.
+
+3) No roadblocks as of now.

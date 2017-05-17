@@ -1,0 +1,7 @@
+Status Report 10:
+
+1). Learned basic Lavarel
+
+2). Working on creating a sample login page
+
+3). Problem using CanvasLMS class

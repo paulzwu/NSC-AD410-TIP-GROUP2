@@ -11,12 +11,10 @@
 
 namespace Symfony\Component\Yaml\Tests;
 
-use PHPUnit\Framework\TestCase;
-use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\Component\Yaml\Inline;
 use Symfony\Component\Yaml\Yaml;
 
-class InlineTest extends TestCase
+class InlineTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @dataProvider getTestsForParse
@@ -168,7 +166,7 @@ class InlineTest extends TestCase
 
     /**
      * @group legacy
-     * @expectedDeprecation Using a colon that is not followed by an indication character (i.e. " ", ",", "[", "]", "{", "}" is deprecated since version 3.2 and will throw a ParseException in 4.0.
+     * @expectedDeprecation Omitting the space after the colon that follows a mapping key definition is deprecated since version 3.2 and will throw a ParseException in 4.0.
      * throws \Symfony\Component\Yaml\Exception\ParseException in 4.0
      */
     public function testParseMappingKeyWithColonNotFollowedBySpace()
@@ -397,8 +395,6 @@ class InlineTest extends TestCase
             array('[foo, {bar: foo}]', array('foo', array('bar' => 'foo'))),
             array('{ foo: {bar: foo} }', array('foo' => array('bar' => 'foo'))),
             array('{ foo: [bar, foo] }', array('foo' => array('bar', 'foo'))),
-            array('{ foo:{bar: foo} }', array('foo' => array('bar' => 'foo'))),
-            array('{ foo:[bar, foo] }', array('foo' => array('bar', 'foo'))),
 
             array('[  foo, [  bar, foo  ]  ]', array('foo', array('bar', 'foo'))),
 
@@ -652,15 +648,10 @@ class InlineTest extends TestCase
 
     /**
      * @dataProvider getInvalidBinaryData
-     * @expectedException \Symfony\Component\Yaml\Exception\ParseException
      */
     public function testParseInvalidBinaryData($data, $expectedMessage)
     {
-        if (method_exists($this, 'expectException')) {
-            $this->expectExceptionMessageRegExp($expectedMessage);
-        } else {
-            $this->setExpectedExceptionRegExp(ParseException::class, $expectedMessage);
-        }
+        $this->setExpectedExceptionRegExp('\Symfony\Component\Yaml\Exception\ParseException', $expectedMessage);
 
         Inline::parse($data);
     }
@@ -682,31 +673,5 @@ class InlineTest extends TestCase
     public function testNotSupportedMissingValue()
     {
         Inline::parse('{this, is not, supported}');
-    }
-
-    public function testVeryLongQuotedStrings()
-    {
-        $longStringWithQuotes = str_repeat("x\r\n\\\"x\"x", 1000);
-
-        $yamlString = Inline::dump(array('longStringWithQuotes' => $longStringWithQuotes));
-        $arrayFromYaml = Inline::parse($yamlString);
-
-        $this->assertEquals($longStringWithQuotes, $arrayFromYaml['longStringWithQuotes']);
-    }
-
-    public function testOmittedMappingKeyIsParsedAsColon()
-    {
-        $this->assertSame(array(':' => 'foo'), Inline::parse('{: foo}'));
-    }
-
-    public function testBooleanMappingKeysAreConvertedToStrings()
-    {
-        $this->assertSame(array('false' => 'foo'), Inline::parse('{false: foo}'));
-        $this->assertSame(array('true' => 'foo'), Inline::parse('{true: foo}'));
-    }
-
-    public function testTheEmptyStringIsAValidMappingKey()
-    {
-        $this->assertSame(array('' => 'foo'), Inline::parse('{ "": foo }'));
     }
 }

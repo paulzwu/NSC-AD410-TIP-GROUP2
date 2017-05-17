@@ -1,0 +1,15 @@
+Status Report #10
+James No
+5/01/17
+Mid-Tier Team
+
+1. Met with the mid-tier team about working on the assessment, narrowed
+down our user stories to working on functions to insert/replace
+answers, along with selecting surveys out of the DB.
+
+2. Will continue to work on functionality, along with using Hans'
+mock database to work with data.
+
+3. Using PHP functions for Javascript seems a little tricky, but we
+saw some AJAX support, will be continuing to look into integrating
+AJAX for our functions.
