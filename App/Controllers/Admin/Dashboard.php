@@ -37,4 +37,10 @@ class Dashboard extends \Core\Controller
             'waitingOn' => $waiting_on
         ]);
     }
+
+    public function report1(){
+        View::render('Reports/tip_report1.php', [
+            'name' => $user
+        ]);
+    }
 }
