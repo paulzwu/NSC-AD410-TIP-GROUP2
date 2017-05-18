@@ -119,5 +119,5 @@ $router->add('faculty', ['namespace' => 'Faculty', 'controller' => 'Dashboard', 
 $router->add('tip', ['namespace' => 'Faculty', 'controller' => 'TIP', 'action' => 'index']);
 $router->add('facultyfaq', ['namespace' => 'Faculty', 'controller' => 'FAQ', 'action' => 'index']);
 $router->add('facultysupport', ['namespace' => 'Faculty', 'controller' => 'Support', 'action' => 'index']);
-    
+
 $router->dispatch($_SERVER['QUERY_STRING']);
