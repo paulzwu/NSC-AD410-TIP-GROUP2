@@ -66,16 +66,11 @@
     </section>
     <section>
         <div class="container">
-            <div class="row" id="filters">
-                <div class="col-lg-12">
-                    <p>filters</p>
-                    <p>filters</p>
-                    <p>filters</p>
-                    <p>filters</p>
-                    <p>filters</p>
-                    <p>filters</p>
-                </div>
-            </div>
+          <div class="row" id="filters">
+              <?php
+              include("filter.php");
+                ?>
+              </div>
             <div class="row">
                 <?php include("datagrid.php"); ?>
             </div>
@@ -98,4 +93,3 @@
 
 </body>
 </html>
-
