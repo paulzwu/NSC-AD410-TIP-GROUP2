@@ -42,7 +42,7 @@
                         <hr>
                         <p>Retrieve contact info and response status for faculty to easily send completion
                             reminders.</p>
-                        <button class="btn btn-info">Export</button>
+                        <button class="btn btn-info"><a href="report1">Export</a></button>
                     </div>
                     <div id="LOD" class="tab-pane fade">
                         <hr>
@@ -88,8 +88,8 @@
 <script type="text/javascript" src="assets/js/custom.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs/jq-2.2.4/dt-1.10.15/datatables.min.js"></script>
 <script src="assets/js/lib/raphael-2.1.4.min.js"></script>
+<script type="text/javascript" src="assets/js/lib/d3.min.js"></script>
 <script src="assets/js/lib/justgage.js"></script>
 <script src="assets/js/tipprogress.js"></script>
-
 </body>
 </html>

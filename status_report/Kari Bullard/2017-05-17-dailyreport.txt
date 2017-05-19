@@ -1,0 +1,5 @@
+1) Yesterday I worked with Suraj and Mark to get Oauth working on our live host.
+
+2) Today I met with Olga to got over report information, and work on getting her local host setup, which has yet to happen, but we'll continue working on it. 
+
+3) No roadblocks as of now, besides like, the known ones.
