@@ -1,0 +1,17 @@
+Status report 17
+5/17/2017
+
+
+Yesterday
+
+researched adding save/save as menu and how to implement a better load function
+
+
+Today
+
+met with group and discussed database and how to move forward
+
+
+Roadblocks
+
+none
