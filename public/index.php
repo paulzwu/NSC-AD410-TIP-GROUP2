@@ -77,7 +77,7 @@ Toggle this block to turn oauth on and off
 //     echo "Your email is: ", $profile->primary_email;
 //         //https://northseattle.test.instructure.com/api/v1/users/3901027/profile
 
-// //exit;
+//exit;
 // }
 /*****************************************
 Toggle this block to turn oauth on and off
