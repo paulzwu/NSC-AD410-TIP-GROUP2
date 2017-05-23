@@ -1,111 +1,120 @@
+/*NavBar Styles*/
 nav {
     -webkit-box-shadow: 3px -2px 20px 2px rgba(194, 190, 194, 0.79);
     -moz-box-shadow: 3px -2px 20px 2px rgba(194, 190, 194, 0.79);
     box-shadow: 3px -2px 20px 2px rgba(194, 190, 194, 0.79);
     font-family: 'Work Sans', sans-serif;
+    font-size: 1.1em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+nav img {
+    height: 45px;
+    width: 55px;
+    vertical-align: top;
+    margin-left: 20px;
+}
+nav span {
+    color: #ffffff;
+    padding-left: 10px;
+    vertical-align: bottom;
+    font-size: 1.8em;
 }
 
+.navbar-default {
+    background-color: #0099ff;
+}
+
+#navbar-collapse ul {
+    margin-right: 20px;
+}
+
+.navbar-default .navbar-nav li a {
+    color: #ffffff;
+}
+
+ul li a{
+    font-family: font-family: 'Open Sans', sans-serif;
+    color: #ffffff;
+    font-size: 1.2em;
+}
+
+span {
+    font-family: font-family: 'Khula', sans-serif;
+    color: #191970;
+}
+/*End NavBar Styles*/
+
+/*TIP Response Guage Styles*/
 header {
     text-align: center;
-    color: #ffffff;
-    background: #0099ff;
-    width:100%;
-}
-
-header h3 {
-    font-family: 'Work Sans', sans-serif;
-    margin-top: 0px;
-}
-
-header button {
-    margin-top: 20px;
-    margin-right: 5px;
+    padding-top: 80px;
+    color: #7f8c8d;
 }
 
 header hr {
     margin-bottom: 40px;
 }
+/*END TIP Response Guage Styles*/
 
-span {
-    font-family: 'Work Sans', sans-serif;
-    color: #191970;
+/*Report List Styles*/
+#accordion2 > div div.panel-heading {
+    padding: 5px;
 }
 
-.content-wrapper{
-    background: #f2f2f2;
-    width: 100%;
-}
-
-header .container {
-    padding-top: 150px;
-    padding-bottom: 50px;
-}
-
-section {
-    width: 100%;
-}
-
-#reports {
-    padding-top: 100px;
-}
-
-#filters{
-    width: 100%;
-    background: #ffffff;
-    margin-top: 10px;
-    margin-botton: 10px;
-    padding-top: 10px;
-}
-
-.quickGlance{
-    padding-top: 0;
-}
-
-.tab-content div{
-    background: #ffffff;
-    margin: 5px;
-}
-
-.faqHeader {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-section h2 {
-    margin: 0;
-    font-size: 3em;
-}
-
-h1 h3 {
-    font-family: 'Work Sans', sans-serif;
+#page-top {
+    padding-top: 115px;
+    padding-bottom: 70px;
 }
 
 body {
-    font-family: 'Work Sans', sans-serif;
+    font-family: font-family: 'Open Sans', sans-serif;
+    color: #7f8c8d;
+    background-color: #ecf0f1;
 }
 
 nav a {
     color: #191970;
-    font-family: 'Work Sans', sans-serif;
+    font-family: font-family: 'Khula', sans-serif;
 }
 
-html {
-    height: 100%;
-    font-family: 'Taviraj', serif;
+/*Data Filter Styles*/
+.tags {
+  margin: 10px;
 }
 
-div{
-    font-family: 'Work Sans', sans-serif;
+#filters > div {
+    padding-left: 5px;
+    margin-left: 20px;
 }
 
-div p {
-    font-family: Taviraj;
+#myFilter div.col-lg-1 {
+    padding: 5px;
 }
 
-.panel-default .panel-heading{
-    background: #e6e6e6;
+#myFilter div.col-lg-2 {
+    padding: 5px;
 }
 
-#support {
-    margin-top: 100px;
+#textBox {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
+
+#myFilter > div:nth-child(3) {
+    margin-left: 20px;
+}
+/*button {
+  width:110px;
+  margin-top: 10px;
+}*/
+/*#myFilter > div div.well div {
+    padding-left: 10px;
+}
+
+#filters > div {
+    padding: 20px;
+}*/
+
+/*END data filter styles*/
 
