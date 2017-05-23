@@ -1,4 +1,4 @@
-/*NavBar Styles*/
+/*/*NavBar Styles*/
 nav {
     -webkit-box-shadow: 3px -2px 20px 2px rgba(194, 190, 194, 0.79);
     -moz-box-shadow: 3px -2px 20px 2px rgba(194, 190, 194, 0.79);
@@ -8,20 +8,42 @@ nav {
     padding-top: 10px;
     padding-bottom: 10px;
 }
-nav img {
+body div.wrapper div div div a img {
     height: 45px;
     width: 55px;
     vertical-align: top;
     margin-left: 20px;
 }
-nav span {
+
+/*body div.wrapper div div {
+    background-color: #0099ff;
+}*/
+
+/*nav span {
     color: #ffffff;
     padding-left: 10px;
     vertical-align: bottom;
     font-size: 1.8em;
+}*/
+
+body > div > div.sidebar > div > div > span {
+    color: #ffffff;
+    padding-left: 10px;
+    vertical-align: bottom;
+    font-size: 1.5em;
 }
 
-.navbar-default {
+/* Pie charts consist of solid slices where you can use this selector to override the default style. */
+.ct-series-a .ct-slice-pie {
+  /* fill of the pie slieces */
+  fill: hsl(120, 40%, 60%);
+  /* give your pie slices some outline or separate them visually by using the background color here */
+  stroke: white;
+  /* outline width */
+  stroke-width: 4px;
+}
+
+/*.navbar-default {
     background-color: #0099ff;
 }
 
@@ -31,9 +53,9 @@ nav span {
 
 .navbar-default .navbar-nav li a {
     color: #ffffff;
-}
+}*/
 
-ul li a{
+/*ul li a{
     font-family: font-family: 'Open Sans', sans-serif;
     color: #ffffff;
     font-size: 1.2em;
@@ -42,10 +64,10 @@ ul li a{
 span {
     font-family: font-family: 'Khula', sans-serif;
     color: #191970;
-}
+}*/
 /*End NavBar Styles*/
 
-/*TIP Response Guage Styles*/
+TIP Response Guage Styles
 header {
     text-align: center;
     padding-top: 80px;
@@ -118,3 +140,4 @@ nav a {
 
 /*END data filter styles*/
 
+*/
