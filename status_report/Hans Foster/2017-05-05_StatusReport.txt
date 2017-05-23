@@ -1,5 +1,9 @@
-+1)  With Gehbreh, divided up work to create sql queries/research the questions posed by the front end about queries
+
++1)  Played with SQL lite browser to create test databases with data to match the 5 tables that our test code uses
 +
-+2)  Will finish creating test queries and finalize an ERD of the database
++2)  Will test the data
 +
-+3)  none so far
++3)  Tasks are not always clear, and inexperience from different people including myself cause the appearence of some 
+people doing more/less work. As long as we're using "growth" as opposed to "achievement", as our standard (think differently
+from Betsy Devoss)
+
