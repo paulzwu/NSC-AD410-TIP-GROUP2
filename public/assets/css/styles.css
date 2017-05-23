@@ -38,7 +38,7 @@ span {
 }
 
 .content-wrapper{
-    background: #f2f2f2;
+    background: red;
     top: 87%;
     min-height: 12%;
     position:absolute;
@@ -123,4 +123,3 @@ div p {
 #support {
     margin-top: 100px;
 }
-
