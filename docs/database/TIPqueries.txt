@@ -1,0 +1,65 @@
+tables:
+
+users
+answers
+quizzes
+answer-quiz
+
+//I called all the TIP forms quizzes basically
+
+//I noticed a lot of repetition in the original front end file, asking 
+
+SELECT usernames
+FROM Users
+WHERE isAdmin = "No"
+
+SELECT facultydivision
+FROM Users
+
+SELECT quizname
+FROM Quizzes
+WHERE Quizzes.quizstatus = "complete"
+
+
+SELECT quizname
+FROM Quizzes
+WHERE Quizzes.quizstatus = "in_progress"
+
+SELECT quizname
+FROM Quizzes
+WHERE Quizzes.quizstatus = "not_started"
+
+SELECT COUNT(*)
+FROM Users
+WHERE asAdmin = "No"
+
+SELECT answer, date
+from Answers
+
+SELECT Users.quizAnswerID, Quizzes.quizstatus
+WHERE quizstatus = "complete", facultydivision = "anydivision"
+FROM Users
+INNER JOIN Quizzes ON Users.quizAnswerID = Quizzes.quizAnswerID
+
+//Need to select questions that are not completed, or completed?  Impossible through database (if we don't save individual questions)
+
+SELECT facultydepartment, facultydivision
+FROM Users
+
+//Learning outcomes filtered by searching for the answer to learning outcome question in the quiz?
+
+SELECT username
+FROM user
+
+SELECT quiz
+FROM Quizzes
+WHERE quizstring LIKE '%anyword%
+
+SELECT quiz
+FROM Quizzes
+WHERE date = 2015 (or any date)
+
+SELECT 
+
+//Didn't do everything, but join format should be consistent mostly.  Haven't tested the queries, and still not sure about the
+ERD so things could change.  
