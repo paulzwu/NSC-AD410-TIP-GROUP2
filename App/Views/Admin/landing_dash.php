@@ -1,5 +1,5 @@
 <!--Landing Dashboard-->
-<div class="content-wrapper">
+<div>
     <header id="page-top">
         <div class="container">
             <div class="row">

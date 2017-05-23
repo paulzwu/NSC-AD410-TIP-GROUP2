@@ -9,13 +9,7 @@ header {
     text-align: center;
     color: #ffffff;
     background: #0099ff;
-    position: fixed;
     width:100%;
-    z-index: 1;
-    height: 88%;
-    overflow: hidden;
-    top: 0;
-    left: 0;
 }
 
 header h3 {
@@ -39,10 +33,6 @@ span {
 
 .content-wrapper{
     background: #f2f2f2;
-    top: 87%;
-    min-height: 12%;
-    position:absolute;
-    z-index: 2;
     width: 100%;
 }
 
@@ -91,11 +81,6 @@ h1 h3 {
 
 body {
     font-family: 'Work Sans', sans-serif;
-    background: -webkit-linear-gradient(90deg, #ffffff 10%, #f2f2f2 90%); /* Chrome 10+, Saf5.1+ */
-    background:    -moz-linear-gradient(90deg, #ffffff 10%, #f2f2f2 90%); /* FF3.6+ */
-    background:     -ms-linear-gradient(90deg, #ffffff 10%, #f2f2f2 90%); /* IE10 */
-    background:      -o-linear-gradient(90deg, #ffffff 10%, #f2f2f2 90%); /* Opera 11.10+ */
-    background:         linear-gradient(90deg, #ffffff 10%, #f2f2f2 90%); /* W3C */
 }
 
 nav a {

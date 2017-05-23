@@ -9,7 +9,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles2.css?<?php echo time(); ?>">
     <link href="https://fonts.googleapis.com/css?family=Taviraj|Work+Sans" rel="stylesheet">
 </head>
 <body>
@@ -21,9 +21,17 @@
 <?php include("landing_dash.php"); ?>
 
 <!--Reports-->
-<div class="content-wrapper">
+<div>
     <section id="reports">
-        <div class="container">
+        <div class="container-fluid">
+          <div class="row">
+            <nav class="col-sm-3">
+              <ul class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205">
+                <li class="active"><a href="#section1">Section 1</a></li>
+                <li><a href="#section2">Section 2</a></li>
+                <li><a href="#section3">Section 3</a></li>
+              </ul>
+            </nav>
             <div class="row">
                 <div class="col-lg-12 text-left">
                     <h2>Quick Reports</h2>
