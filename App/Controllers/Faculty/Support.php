@@ -26,7 +26,7 @@ class Support extends \Core\Controller
      */
     public function indexAction()
     {
-        $userSpecs = \App\Models\Dashboard::getUser();
+        $userSpecs = \App\Models\FacultyDash::getUser();
         $user = $userSpecs['name'];
         View::render('Faculty/support.php', [
             'name' => $user
