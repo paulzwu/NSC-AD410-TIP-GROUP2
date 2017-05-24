@@ -14,9 +14,19 @@
     $statement->setFetchMode(PDO::FETCH_ASSOC);
     $jsonData = $statement->fetchAll();
     $jsonArray = array('surveyInfo'=>$jsonData);
-    echo json_encode($jsonArray);
+    // returns surveyID of 0 if jsonArray is empty, else returns jsonArray
+    if (in_array(null, $jsonArray)) {
+      echo "{\"surveyInfo\":[{\"surveyID\":\"0\",\"surveyName\":\"none\"}]}";
+    } else {
+      echo json_encode($jsonArray);
+    }
     $conn = NULL;
   } catch (PDOException $e) {
-    echo "PHP Load error: ".$e->getMessage();
+    // returns internal server error if no table found
+    header('HTTP/1.1 500 Internal Server Error');
+    header('Content-Type: application/json; charset=UTF-8');
+    $error_msg = "PHP Load error: ".$e->getMessage();
+    // exits the program and sends json contianing error
+    exit(json_encode(array("message" => "$error_msg")));
   }
 ?>
