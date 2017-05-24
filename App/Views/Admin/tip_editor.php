@@ -174,7 +174,7 @@
                             console.log("no data");
                         } else {
                             $("#load").click(function() {
-                                $.ajax({url: 'survey_load.php',
+                                $.ajax({url: '../Models/TipEditor.php?action=loadSurveys',
                                         data: {'ID':docID},
                                         type: 'POST',
                                         success:function(result) {
@@ -218,8 +218,11 @@
                             console.log("Save canceled")
                         } else {
                             // survey json and name saved to db
-                            $.ajax({url: 'survey_save.php', data: {'saveData':jsonSurvey, 'saveName':nameOfSurvey}, type: 'POST',
-                                        success: console.log("json data sent to server") });
+                            $.ajax({
+                                url: '../Models/TipEditor.php?action=getSurveys',
+                                data: {'saveData':jsonSurvey, 'saveName':nameOfSurvey}, 
+                                type: 'POST',
+                                success: console.log("json data sent to server") });
                             
                             alert("This survey has been saved.");
                             $('#test').children('input').val('')
