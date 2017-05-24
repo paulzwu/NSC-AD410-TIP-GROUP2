@@ -48,51 +48,5 @@ div#saveas {
     margin-bottom: 20px;
 }
 
-<<<<<<< HEAD
 /*END FACULTY DASHBOARD STYLES*/
-=======
-/*END FACULTY DASHBOARD STYLES*/
-section h2 {
-    margin: 0;
-    font-size: 3em;
-}
 
-h1 h3 {
-    font-family: 'Work Sans', sans-serif;
-}
-
-body {
-    font-family: 'Work Sans', sans-serif;
-    background: -webkit-linear-gradient(90deg, #ffffff 10%, #f2f2f2 90%); /* Chrome 10+, Saf5.1+ */
-    background:    -moz-linear-gradient(90deg, #ffffff 10%, #f2f2f2 90%); /* FF3.6+ */
-    background:     -ms-linear-gradient(90deg, #ffffff 10%, #f2f2f2 90%); /* IE10 */
-    background:      -o-linear-gradient(90deg, #ffffff 10%, #f2f2f2 90%); /* Opera 11.10+ */
-    background:         linear-gradient(90deg, #ffffff 10%, #f2f2f2 90%); /* W3C */
-}
-
-nav a {
-    color: #191970;
-    font-family: 'Work Sans', sans-serif;
-}
-
-html {
-    height: 100%;
-    font-family: 'Taviraj', serif;
-}
-
-div{
-    font-family: 'Work Sans', sans-serif;
-}
-
-div p {
-    font-family: Taviraj;
-}
-
-.panel-default .panel-heading{
-    background: #e6e6e6;
-}
-
-#support {
-    margin-top: 100px;
-}
->>>>>>> 45d8e023d7aa5277fd97d2d7df6adf7d411230f3
