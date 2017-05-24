@@ -20,7 +20,7 @@
     //  * Database name
     //  * @var string
     //  */
-    // const DB_NAME = 'mvc';
+    const DB_NAME = 'tip-editor-testDB.sqlite';
 
     // /**
     //  * Database user

@@ -27,7 +27,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" type="text/css" rel="stylesheet" />
  
     <!-- Survey JS Scripts -->
-    <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="assets/js/lib/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
     <link href="https://surveyjs.azureedge.net/0.12.9/surveyeditor.css" type="text/css" rel="stylesheet" />
     <script src="https://surveyjs.azureedge.net/0.12.9/survey.ko.min.js"></script>
@@ -107,23 +107,9 @@
         <!-- Main Content -->
          <div class="content">
             <div class="container-fluid">
-<div id="surveyEditorContainer"></div>
-
-
-<script>
-    var editorOptions = {
-        // show the embeded survey tab. It is hidden by default
-        showEmbededSurveyTab: true,
-        // show the test survey tab. It is shown by default
-        showTestSurveyTab: true,
-        // show the JSON text editor tab. It is shown by default
-        showJSONEditorTab: true,
-        // show the "Options" button menu. It is hidden by default
-        showOptions: true
-    };
-
-    var survey = new SurveyEditor.SurveyEditor("surveyEditorContainer", editorOptions);
-</script>
+<div id="surveyEditorContainer">
+    
+</div>
 
 
 </div>
@@ -142,10 +128,11 @@
     <!--   Core JS Files   -->
     <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 
-    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+    <!-- Light Bootstrap Table Core javascript-->
     <script src="assets/js/light-bootstrap-dashboard.js"></script>
 
     <script src="assets/js/responsive_nav.js"></script>
+    <script src="assets/js/tip_editor.js"></script>
 
    
 </html>

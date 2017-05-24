@@ -5,99 +5,14 @@ nav {
     box-shadow: 3px -2px 20px 2px rgba(194, 190, 194, 0.79);
     font-family: 'Work Sans', sans-serif;
     font-size: 1.1em;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 7px;
 }
-body div.wrapper div div div a img {
-    height: 45px;
-    width: 55px;
-    vertical-align: top;
-    margin-left: 20px;
-}
-
-/*body div.wrapper div div {
-    background-color: #0099ff;
-}*/
-
-/*nav span {
-    color: #ffffff;
-    padding-left: 10px;
-    vertical-align: bottom;
-    font-size: 1.8em;
-}*/
 
 body > div > div.sidebar > div > div > span {
     color: #ffffff;
     padding-left: 10px;
     vertical-align: bottom;
-    font-size: 1.5em;
-}
-
-/* Pie charts consist of solid slices where you can use this selector to override the default style. */
-.ct-series-a .ct-slice-pie {
-  /* fill of the pie slieces */
-  fill: hsl(120, 40%, 60%);
-  /* give your pie slices some outline or separate them visually by using the background color here */
-  stroke: white;
-  /* outline width */
-  stroke-width: 4px;
-}
-
-/*.navbar-default {
-    background-color: #0099ff;
-}
-
-#navbar-collapse ul {
-    margin-right: 20px;
-}
-
-.navbar-default .navbar-nav li a {
-    color: #ffffff;
-}*/
-
-/*ul li a{
-    font-family: font-family: 'Open Sans', sans-serif;
-    color: #ffffff;
-    font-size: 1.2em;
-}
-
-span {
-    font-family: font-family: 'Khula', sans-serif;
-    color: #191970;
-}*/
-/*End NavBar Styles*/
-
-TIP Response Guage Styles
-header {
-    text-align: center;
-    padding-top: 80px;
-    color: #7f8c8d;
-}
-
-header hr {
-    margin-bottom: 40px;
-}
-/*END TIP Response Guage Styles*/
-
-/*Report List Styles*/
-#accordion2 > div div.panel-heading {
-    padding: 5px;
-}
-
-#page-top {
-    padding-top: 115px;
-    padding-bottom: 70px;
-}
-
-body {
-    font-family: font-family: 'Open Sans', sans-serif;
-    color: #7f8c8d;
-    background-color: #ecf0f1;
-}
-
-nav a {
-    color: #191970;
-    font-family: font-family: 'Khula', sans-serif;
+    font-size: 1.7em;
 }
 
 /*Data Filter Styles*/
@@ -105,39 +20,12 @@ nav a {
   margin: 10px;
 }
 
-#filters > div {
-    padding-left: 5px;
-    margin-left: 20px;
+/*TIP Editor Styles*/
+button#loadSurvey, button#newSurvey, button#saveSurvey, select#surveyNames {
+    float: right;
+    margin-right: 10px;
+    font-size: 11px;
 }
-
-#myFilter div.col-lg-1 {
-    padding: 5px;
+select#surveyNames {
+    width:200px;
 }
-
-#myFilter div.col-lg-2 {
-    padding: 5px;
-}
-
-#textBox {
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-#myFilter > div:nth-child(3) {
-    margin-left: 20px;
-}
-/*button {
-  width:110px;
-  margin-top: 10px;
-}*/
-/*#myFilter > div div.well div {
-    padding-left: 10px;
-}
-
-#filters > div {
-    padding: 20px;
-}*/
-
-/*END data filter styles*/
-
-*/

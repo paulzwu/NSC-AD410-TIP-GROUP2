@@ -24,14 +24,17 @@ abstract class Model
         if ($db === null) {
     
             try {
-
+                // $db = new PDO("sqlite:DB/tip-editor-testDB.sqlite");
+                $db = new PDO('sqlite:tip-editor-testDB.sqlite');
 
 
             } catch (PDOException $e) {
-                echo $e->getMessage();
+                echo "PHP Load error: ".$e->getMessage();
             }
         }
 
         return $db;
     }
+
+
 }
