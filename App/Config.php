@@ -14,6 +14,6 @@ class Config
      * Database path
      * @var string
      */
-    const PATH_TO_SQLITE_FILE = '../DB/tip-editor-testDB.sqlite';
+    const PATH_TO_SQLITE_FILE = '../DB/test.sqlite';
 
 }

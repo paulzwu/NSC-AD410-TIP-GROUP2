@@ -26,18 +26,32 @@
     <!-- Survey JS CSS-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" type="text/css" rel="stylesheet" />
  
-    <!-- Survey JS Scripts -->
-    <script src="assets/js/lib/jquery-3.2.1.min.js" type="text/javascript"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
-        <link href="https://surveyjs.azureedge.net/0.12.14/surveyeditor.css" type="text/css" rel="stylesheet" />
-        <script src="https://surveyjs.azureedge.net/0.12.14/survey.ko.min.js"></script>
-        <script src="https://surveyjs.azureedge.net/0.12.14/surveyeditor.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.min.js" type="text/javascript"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/worker-json.js" type="text/javascript"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/mode-json.js" type="text/javascript"></script>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" type="text/css" rel="stylesheet" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" type="text/javascript"></script>
-
+    <!-- Survey JS Scripts -->		
+		<link href="http://getbootstrap.com/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
+	    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+	    <link href="https://surveyjs.azureedge.net/0.12.14/surveyeditor.css" type="text/css" rel="stylesheet" />
+	    <script src="https://surveyjs.azureedge.net/0.12.14/survey.ko.min.js"></script>
+	    <script src="https://surveyjs.azureedge.net/0.12.14/surveyeditor.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.min.js" type="text/javascript"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/worker-json.js" type="text/javascript"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/mode-json.js" type="text/javascript"></script>
+	    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" type="text/css" rel="stylesheet" />
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" type="text/javascript"></script>
+		<style>
+			button#loadSurvey, button#newSurvey, button#saveSurvey, button#deleteSurvey {
+				margin-right: 10px;
+				font-size: 11px;
+			}
+			div#surveyNames, div#overwrite {
+				max-height: 250px;
+				overflow-y:scroll;
+			}
+			div#saveas {
+				text-align: center;
+			}
+		</style>
 </head>
 <body>
 <div class="wrapper">
@@ -107,7 +121,7 @@
         <!-- Main Content -->
          <div class="content">
             <div class="container-fluid">
-<div id="surveyEditorContainer">
+			<div id="surveyEditorContainer"></div>
             <script>
             //------------ editor options ------------\\
             // show the JSON text editor tab. It is shown by default
@@ -250,7 +264,7 @@
                     $select = $(id);
                     // call to server to load quiz names
                     $.ajax({
-                        url: 'survey_ids.php',
+                        url: '../../Models/TipEditor.php?action=loadSurveyIDs',
                         dataType:'JSON',
                         success:function(data){
                             //clear the current content of the select
@@ -277,7 +291,7 @@
                 }
             });
         </script>
-</div>
+
 
 
 </div>
