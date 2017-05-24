@@ -1,0 +1,14 @@
+Status Report 18:
+
+1) What did you do?
+* Prepped for demo that has been pushed back till next Wednesday
+* Worked with Suraj and Kari on getting live site nav working
+
+2) What are you doing next?
+* Check in with team
+* Check git and status reports
+
+
+
+3)What roadblocks stand in your way?
+* No road blocks
