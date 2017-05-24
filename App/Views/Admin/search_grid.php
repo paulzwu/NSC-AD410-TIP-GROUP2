@@ -7,13 +7,16 @@
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Search TIP Submissions</h4>
+                                <div class="col-md-4">
+                                    
+                                </div>
+                                <div class="col-md-2"></div>
                                 <p class="category">Use the filters below to narrow the results of the following table</p>
                                 <div class="row" id="filters">
                                     <form id="myFilter">
                                     <div class="col-md-2">
                                         <div>
                                           <input type="text" id="textBox" placeholder="keyword">
-                                          <button type="button" class="btn btn-primary btn-tiny"  onClick=addTag("textBox")>add criteria</button>
                                         </div>
                                       </div>
                                     </form>
