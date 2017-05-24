@@ -9,15 +9,6 @@
     <meta name="viewport" content="width=device-width" />
     
 
-    <!-- Bootstrap -->
-<!--     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
-    <link href="css/tagtacular.css?donotcache=20130703" rel="stylesheet" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Khula:700|Open+Sans" rel="stylesheet"> -->
-
     <!-- Bootstrap core CSS     -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -30,7 +21,7 @@
     <!-- Custom CSS Defenitions -->
     <link rel="stylesheet" href="assets/css/styles.css">
 
-<!-- Chartist -->
+    <!-- Chartist -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
 
         <!--     Fonts and icons     -->

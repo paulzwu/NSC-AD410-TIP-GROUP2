@@ -19,7 +19,7 @@
 								<p class="hidden-lg hidden-md">Dashboard</p>
                             </a>
                         </li>
-                        <li class="dropdown">
+<!--                         <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <i class="fa fa-globe"></i>
                                     <b class="caret hidden-sm hidden-xs"></b>
@@ -36,36 +36,35 @@
                                 <li><a href="#">Notification 4</a></li>
                                 <li><a href="#">Another notification</a></li>
                               </ul>
-                        </li>
-                        <li>
+                        </li> -->
+<!--                         <li>
                            <a href="">
                                 <i class="fa fa-search"></i>
 								<p class="hidden-lg hidden-md">Search</p>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
+<!--                         <li>
                            <a href="">
                                <p>Account</p>
                             </a>
-                        </li>
+                        </li> -->
                         <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                     <p>
-										Dropdown
+										Quick Reports
 										<b class="caret"></b>
 									</p>
                               </a>
                               <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something</a></li>
+                                <li><a href="#">Report 1</a></li>
+                                <li><a href="#">Report 2</a></li>
+                                <li><a href="#">Report 3</a></li>
+                                <li><a href="#">Report 4</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
+                                <li><a href="#">Export</a></li>
                               </ul>
                         </li>
                         <li>
@@ -84,7 +83,7 @@
             <div class="container-fluid">
 
              <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-12">
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">TIP Submission Rates</h4>
@@ -92,7 +91,17 @@
                                 <p class="category">Waiting On: <?php echo $waitingOn ?></p>
                             </div>
                             <div class="content">
-                                <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+                                        <div class="row">
+                <div class="col-lg-4 col-md-3 col-sm-4 col-xs-3">
+                    <div id="complete" class="gauge"></div>
+                </div>
+                <div class="col-lg-4 col-md-3 col-sm-4 col-xs-3">
+                    <div id="inprogress" class="gauge"></div>
+                </div>
+                <div class="col-lg-4 col-md-3 col-sm-4 col-xs-3">
+                    <div id="notstarted" class="gauge"></div>
+                </div>
+            </div>
 
                                 <div class="footer">
                                     
@@ -106,31 +115,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-md-8">
-                        <div class="card">
-                            <div class="header">
-                                <h4 class="title">Quick Reports</h4>
-                                <p class="category">Export Data Quickly By choosing one of the reports below</p>
-                            </div>
-                            <div class="content">
-                            <ul class="list-group">
-                              <a href="#"><li class="list-group-item">Report 1</li></a>
-                              <a href="#"><li class="list-group-item">Report 2</li></a>
-                              <a href="#"><li class="list-group-item">Report 3</li></a>
-                              <a href="#"><li class="list-group-item">Report 4</li></a>
-                            </ul>
-                            <hr>
-                                <div class="footer">
-                                    <div class="legend">
-                                        <button>Export Report</button>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-
-              </div>
+          </div>
     
