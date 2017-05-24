@@ -1,62 +1,74 @@
 tables:
 
-users
-answers
-quizzes
-answer-quiz
+User
+Answers
+Survey
+User-Survey
 
 //I called all the TIP forms quizzes basically
 
 //I noticed a lot of repetition in the original front end file, asking 
 
-SELECT usernames
+//Selects all faculty
+SELECT user_name
+FROM User
+WHERE is_admin = 0
+
+//Selects all divisions
+SELECT faculty_division
 FROM Users
-WHERE isAdmin = "No"
 
-SELECT facultydivision
-FROM Users
+//Selects all complete surveys
+SELECT survey_data
+FROM Survey
+WHERE Survey.survey_status = 1
 
-SELECT quizname
-FROM Quizzes
-WHERE Quizzes.quizstatus = "complete"
+//SELECT survey_data
+//FROM Survey
+//WHERE Survey.survey_status = "in_progress"
 
+SELECT survey_data
+FROM Survey
+WHERE Survey.survey_status = 0
 
-SELECT quizname
-FROM Quizzes
-WHERE Quizzes.quizstatus = "in_progress"
-
-SELECT quizname
-FROM Quizzes
-WHERE Quizzes.quizstatus = "not_started"
-
+//Selects the number of non-admin faculty in the database
 SELECT COUNT(*)
 FROM Users
-WHERE asAdmin = "No"
+WHERE asAdmin = 0
 
-SELECT answer, date
-from Answers
-
-SELECT Users.quizAnswerID, Quizzes.quizstatus
-WHERE quizstatus = "complete", facultydivision = "anydivision"
+//Selects the number of admin faculty in the database
+SELECT COUNT(*)
 FROM Users
-INNER JOIN Quizzes ON Users.quizAnswerID = Quizzes.quizAnswerID
+WHERE asAdmin = 1
+
+//Selects the total number of users in the database
+SELECT COUNT(*)
+FROM Users
+
+SELECT answer_data
+FROM Answers
+
+//SELECT User.quizAnswerID, Quizzes.quizstatus
+//WHERE quizstatus = "complete", facultydivision = "anydivision"
+//FROM Users
+//INNER JOIN Quizzes ON Users.quizAnswerID = Quizzes.quizAnswerID
 
 //Need to select questions that are not completed, or completed?  Impossible through database (if we don't save individual questions)
 
-SELECT facultydepartment, facultydivision
+SELECT faculty_department, faculty_division
 FROM Users
 
 //Learning outcomes filtered by searching for the answer to learning outcome question in the quiz?
 
-SELECT username
-FROM user
+SELECT user_name
+FROM User
 
-SELECT quiz
-FROM Quizzes
-WHERE quizstring LIKE '%anyword%
+SELECT survey_data
+FROM Survey
+WHERE survey_data LIKE '%anyword%
 
-SELECT quiz
-FROM Quizzes
+SELECT survey_data
+FROM Survey
 WHERE date = 2015 (or any date)
 
 SELECT 
