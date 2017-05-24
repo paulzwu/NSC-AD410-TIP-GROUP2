@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 
     <!-- Chartist -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css"> -->
 
         <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -32,7 +32,43 @@
 </head>
 <body>
 <div class="wrapper">
-<?php include("navbar.php") ?>
+<div class="sidebar" data-color="azure">
+            <div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="/admin"><img src="assets/img/alt_logo.png" alt="NSC Logo" height="45" width="55"></a>
+                <span>Welcome, <?php echo htmlspecialchars($name); ?></span>
+            </div>
+
+            <ul class="nav">
+                <li class="active">
+                    <a href="admin">
+                        <i class="pe-7s-graph"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="edit">
+                        <i class="pe-7s-note2"></i>
+                        <p>TIP Editor</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="adminfaq">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>FAQs</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="support">
+                        <i class="pe-7s-science"></i>
+                        <p>Support</p>
+                    </a>
+                </li>
+                <li>
+            </ul>
+        </div>
+    </div>
+
 <?php include("main_panel.php") ?>
 <?php include("search_grid.php") ?>
 
@@ -45,19 +81,6 @@
 
 </div>
 </body>
-<!-- <script type="text/javascript" src="assets/js/lib/jquery-3.2.1.min.js"></script> -->
-    <!--   Core JS Files   -->
-<!--     <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
-    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="assets/js/custom.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs/jq-2.2.4/dt-1.10.15/datatables.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
-<script src="assets/js/lib/raphael-2.1.4.min.js"></script>
-<script type="text/javascript" src="assets/js/lib/d3.min.js"></script>
-<script src="assets/js/lib/justgage.js"></script>
-<script src="assets/js/lib/data_filters.js"></script>
-<script src="assets/js/tipprogress.js"></script>
-<script src="assets/js/datagrid.js"></script> -->
 
     <!--   Core JS Files   -->
     <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
@@ -65,10 +88,6 @@
 
     <!--  Checkbox, Radio & Switch Plugins -->
     <script src="assets/js/bootstrap-checkbox-radio-switch.js"></script>
-
-    <!--  Charts Plugin -->
-    <!-- <script src="assets/js/chartist.min.js"></script> -->
-    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 
     <!--  Notifications Plugin    -->
     <script src="assets/js/bootstrap-notify.js"></script>
@@ -81,23 +100,6 @@
     <script src="assets/js/lib/justgage.js"></script>
     <script src="assets/js/tipprogress.js"></script>
     <script src="assets/js/response_rate_pie_chart.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function(){
-
-            // responseRate.initChartist();
-
-            // $.notify({
-            //     icon: 'pe-7s-gift',
-            //     message: "Welcome to <b>Light Bootstrap Dashboard</b> - a beautiful freebie for every web developer."
-
-            // },{
-            //     type: 'info',
-            //     timer: 4000
-            // });
-
-        });
-    </script>
 
    
 </html>

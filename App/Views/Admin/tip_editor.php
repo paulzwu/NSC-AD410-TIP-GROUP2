@@ -23,7 +23,13 @@
 
     <!-- Bootstrap -->
     <link href="http://getbootstrap.com/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
+     <!-- Custom CSS Defenitions -->
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+
+    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Khula:700|Open+Sans" rel="stylesheet">
+
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
@@ -37,16 +43,82 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" type="text/javascript"></script>
 </head>
 <body>
-<!--NAVBAR-->
-<?php include("navbar.php"); ?>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-12" id="support">
-            <h2>TIP Editor</h2>
-            <hr>
+<div class="wrapper">
+<div class="sidebar" data-color="azure">
+            <div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="/admin"><img src="assets/img/alt_logo.png" alt="NSC Logo" height="45" width="55"></a>
+                <span>Welcome, <?php echo htmlspecialchars($name); ?></span>
+            </div>
+
+            <ul class="nav">
+                <li>
+                    <a href="/admin">
+                        <i class="pe-7s-graph"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="/edit">
+                        <i class="pe-7s-note2"></i>
+                        <p>TIP Editor</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/adminfaq">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>FAQs</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="/support">
+                        <i class="pe-7s-science"></i>
+                        <p>Support</p>
+                    </a>
+                </li>
+                <li>
+            </ul>
         </div>
     </div>
-</div>
+<div class="container-fluid">
+<!-- Tool Bar -->
+<body>
+<div class="wrapper">
+<?php include("navbar.php") ?>
+<!-- Tool Bar -->
+<div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">TIP Editor</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-dashboard"></i>
+                                <p class="hidden-lg hidden-md">TIP Editor</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#">
+                                <p>Log out</p>
+                            </a>
+                        </li>
+                        <li class="separator hidden-lg hidden-md"></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End Tool Bar -->
 <div id="surveyEditorContainer"></div>
 
 
@@ -70,11 +142,16 @@
         style="min-height:200px; background-color:#18bc9c;color:#fff;text-align:center;padding-top:50px;">
     © 2017 ADBAS PROGRAM | NORTH SEATTLE COLLEGE
 </footer>
+</div>
+</body>
 
 
-<script type="text/javascript" src="assets/js/lib/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="assets/js/custom.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs/jq-2.2.4/dt-1.10.15/datatables.min.js"></script>
+<!-- <script type="text/javascript" src="assets/js/lib/jquery-3.2.1.min.js"></script> -->
 
 </body>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+        });
+    </script>
 </html>
