@@ -186,8 +186,8 @@
                                             console.log("no survey to load");
                                         }
                                 });
-                            });
                         }
+                            });
                         console.log("survey ID: " + docID);
                     });
                 });
