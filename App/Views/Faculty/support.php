@@ -28,7 +28,7 @@
 <div class="sidebar" data-color="azure">
             <div class="sidebar-wrapper">
             <div class="logo">
-                <a href="/admin"><img src="assets/img/alt_logo.png" alt="NSC Logo" height="45" width="55"></a>
+                <a href="faculty"><img src="assets/img/alt_logo.png" alt="NSC Logo" height="45" width="55"></a>
                 <span>Welcome, <?php echo htmlspecialchars($name); ?></span>
             </div>
 

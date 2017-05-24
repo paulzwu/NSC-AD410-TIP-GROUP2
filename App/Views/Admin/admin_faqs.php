@@ -158,7 +158,7 @@
 
 
     <!-- Footer-->
-    <footer
+    <footer class="container-fluid" 
             style="min-height:200px; background-color:#18bc9c;color:#fff;text-align:center;padding-top:50px;">
         © 2017 ADBAS PROGRAM | NORTH SEATTLE COLLEGE
     </footer>

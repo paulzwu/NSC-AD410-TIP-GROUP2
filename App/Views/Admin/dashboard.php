@@ -132,12 +132,19 @@
                     </div>
                 </div>
 
+
 <?php include("search_grid.php") ?>
-</div>
+    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
 
 
     <!-- Footer-->
-    <footer
+    <footer class="container-fluid" 
             style="min-height:200px; background-color:#18bc9c;color:#fff;text-align:center;padding-top:50px;">
         © 2017 ADBAS PROGRAM | NORTH SEATTLE COLLEGE
     </footer>
@@ -151,12 +158,15 @@
 
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
     <script src="assets/js/light-bootstrap-dashboard.js"></script>
+    <script src="assets/js/responsive_nav.js"></script>
 
     <!-- Response Rate Assets -->
    <script src="assets/js/lib/raphael-2.1.4.min.js"></script>
     <script src="assets/js/lib/justgage.js"></script>
     <script src="assets/js/tipprogress.js"></script>
-    <script src="assets/js/responsive_nav.js"></script>
+    
 
    
 </html>
+
+
