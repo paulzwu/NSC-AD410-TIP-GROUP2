@@ -12,23 +12,16 @@
     <!-- Bootstrap core CSS     -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- Animation library for notifications   -->
-    <link href="assets/css/animate.min.css" rel="stylesheet"/>
-
     <!--  Light Bootstrap Table core CSS    -->
     <link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
 
     <!-- Custom CSS Defenitions -->
     <link rel="stylesheet" href="assets/css/styles.css">
 
-    <!-- Chartist -->
-    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css"> -->
-
     <!--     Fonts and icons     -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Khula:700|Open+Sans" rel="stylesheet">
+
 </head>
 <body>
 <div class="wrapper">
@@ -41,25 +34,25 @@
 
             <ul class="nav">
                 <li>
-                    <a href="/admin">
+                    <a href="admin">
                         <i class="pe-7s-graph"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/edit">
+                    <a href="edit">
                         <i class="pe-7s-note2"></i>
                         <p>TIP Editor</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/adminfaq">
+                    <a href="adminfaq">
                         <i class="pe-7s-news-paper"></i>
                         <p>FAQs</p>
                     </a>
                 </li>
                 <li class="active">
-                    <a href="/support">
+                    <a href="support">
                         <i class="pe-7s-science"></i>
                         <p>Support</p>
                     </a>
@@ -69,7 +62,7 @@
         </div>
     </div>
 
-<div class="container-fluid">
+<!-- Tool Bar -->
 <div class="main-panel">
         <nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
@@ -80,17 +73,9 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">TIP Editor</a>
+                    <a class="navbar-brand" href="/adminfaq">Support</a>
                 </div>
                 <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-left">
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-dashboard"></i>
-                                <p class="hidden-lg hidden-md">TIP Editor</p>
-                            </a>
-                        </li>
-                    </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <a href="#">
@@ -100,18 +85,20 @@
                         <li class="separator hidden-lg hidden-md"></li>
                     </ul>
                 </div>
-            <!-- </div> -->
+            </div>
         </nav>
         <!-- End Tool Bar -->
-<!-- <div id="support"> -->
-<!--     <div class="row">
+        <!-- Main Content -->
+         <div class="content">
+            <div class="container-fluid">
+
+        <div class="row">
         <div class="col-lg-12 text-center">
             <h1>Contact</h1>
             <hr>
-        </div> -->
-<!-- </div> -->
-    <!-- <div class="row"> -->
-<!--         <div class="col-lg-8 col-lg-offset-2">
+        </div>
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
             <form name="sentMessage" id="contactForm" novalidate="">
                 <div class="row control-group">
                     <div class="form-group col-xs-12 floating-label-form-group controls">
@@ -153,20 +140,30 @@
                     </div>
                 </div>
             </form>
-        </div> -->
+        </div>
+    </div>
+    </div>
+    </div>
     </div>
 
-<!-- </div> -->
-<!-- Footer-->
-<footer class="container-fluid"
-        style="min-height:200px; background-color:#18bc9c;color:#fff;text-align:center;padding-top:50px;">
-    © 2017 ADBAS PROGRAM | NORTH SEATTLE COLLEGE
-</footer>
-<script type="text/javascript" src="assets/js/lib/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="assets/js/custom.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs/jq-2.2.4/dt-1.10.15/datatables.min.js"></script>
-<script src="assets/js/lib/raphael-2.1.4.min.js"></script>
-<script src="assets/js/lib/justgage.js"></script>
 
+    <!-- Footer-->
+    <footer
+            style="min-height:200px; background-color:#18bc9c;color:#fff;text-align:center;padding-top:50px;">
+        © 2017 ADBAS PROGRAM | NORTH SEATTLE COLLEGE
+    </footer>
+
+</div>
 </body>
+
+    <!--   Core JS Files   -->
+    <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+    <script src="assets/js/light-bootstrap-dashboard.js"></script>
+
+    <script src="assets/js/responsive_nav.js"></script>
+
+   
 </html>

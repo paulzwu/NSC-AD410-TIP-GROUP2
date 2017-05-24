@@ -21,10 +21,7 @@
     <!-- Custom CSS Defenitions -->
     <link rel="stylesheet" href="assets/css/styles.css">
 
-    <!-- Chartist -->
-    <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css"> -->
-
-        <!--     Fonts and icons     -->
+    <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
@@ -42,7 +39,7 @@
             <ul class="nav">
                 <li class="active">
                     <a href="admin">
-                        <i class="pe-7s-graph"></i>
+                        <i class="fa fa-dashboard"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
@@ -69,15 +66,86 @@
         </div>
     </div>
 
-<?php include("main_panel.php") ?>
+<!-- Tool Bar -->
+<div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Dashboard</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <p>
+                                        Quick Reports
+                                        <b class="caret"></b>
+                                    </p>
+                              </a>
+                              <ul class="dropdown-menu">
+                                <li><a href="#">Report 1</a></li>
+                                <li><a href="#">Report 2</a></li>
+                                <li><a href="#">Report 3</a></li>
+                                <li><a href="#">Report 4</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Export</a></li>
+                              </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <p>Log out</p>
+                            </a>
+                        </li>
+                        <li class="separator hidden-lg hidden-md"></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End Tool Bar -->
+        <!-- Main Content -->
+         <div class="content">
+            <div class="container-fluid">
+
+             <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">TIP Submission Rates</h4>
+                                <p class="category">Total Responses Expected: <?php echo $totalFaculty ?></p>
+                                <p class="category">Waiting On: <?php echo $waitingOn ?></p>
+                            </div>
+                            <div class="content">
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-3 col-sm-4 col-xs-3">
+                                                <div id="complete" class="gauge"></div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-3 col-sm-4 col-xs-3">
+                                                <div id="inprogress" class="gauge"></div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-3 col-sm-4 col-xs-3">
+                                                <div id="notstarted" class="gauge"></div>
+                                            </div>
+                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 <?php include("search_grid.php") ?>
+</div>
 
 
     <!-- Footer-->
-    <!-- <footer
+    <footer
             style="min-height:200px; background-color:#18bc9c;color:#fff;text-align:center;padding-top:50px;">
         © 2017 ADBAS PROGRAM | NORTH SEATTLE COLLEGE
-    </footer> -->
+    </footer>
 
 </div>
 </body>
@@ -99,7 +167,7 @@
    <script src="assets/js/lib/raphael-2.1.4.min.js"></script>
     <script src="assets/js/lib/justgage.js"></script>
     <script src="assets/js/tipprogress.js"></script>
-    <script src="assets/js/response_rate_pie_chart.js"></script>
+    <script src="assets/js/responsive_nav.js"></script>
 
    
 </html>
