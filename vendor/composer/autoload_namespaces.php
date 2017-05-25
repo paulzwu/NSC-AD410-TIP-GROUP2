@@ -8,6 +8,4 @@ $baseDir = dirname($vendorDir);
 return array(
     'SecurityLib' => array($vendorDir . '/ircmaxell/security-lib/lib'),
     'RandomLib' => array($vendorDir . '/ircmaxell/random-lib/lib'),
-    'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
-    'Mockery' => array($vendorDir . '/mockery/mockery/library'),
 );

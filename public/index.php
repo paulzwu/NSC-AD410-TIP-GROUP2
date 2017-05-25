@@ -1,4 +1,7 @@
 <?php
+header("Cache-Control: no-store, no-cache, must-revalidate");  
+header("Cache-Control: post-check=0, pre-check=0", false);  
+header("Pragma: no-cache");  
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include "../Core/Config.php";
@@ -77,13 +80,12 @@ Toggle this block to turn oauth on and off
 //     echo "Your email is: ", $profile->primary_email;
 //         //https://northseattle.test.instructure.com/api/v1/users/3901027/profile
 
-// //exit;
+//exit;
 // }
 /*****************************************
 Toggle this block to turn oauth on and off
 
 ******************************************/
-
 
 /**
  * Routing
