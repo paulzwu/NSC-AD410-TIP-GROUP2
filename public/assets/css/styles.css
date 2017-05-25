@@ -50,3 +50,7 @@ div#saveas {
 
 /*END FACULTY DASHBOARD STYLES*/
 
+/*Removes svd properties sidebar*/
+.svd_properties {
+    display: none !important;
+}
