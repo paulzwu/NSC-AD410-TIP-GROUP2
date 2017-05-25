@@ -188,7 +188,7 @@
                             console.log("no data");
                         } else {
                             $("#load").click(function() {
-                                $.ajax({url: '../Models/TipEditor.php?action=loadSurveys',
+                                $.ajax({url: 'adminajax',
                                         data: {'ID':docID},
                                         type: 'POST',
                                         success:function(result) {
@@ -200,8 +200,8 @@
                                             console.log("no survey to load");
                                         }
                                 });
-                        }
-                            });
+                        })
+                            };
                         console.log("survey ID: " + docID);
                     });
                 });
@@ -264,7 +264,7 @@
                     $select = $(id);
                     // call to server to load quiz names
                     $.ajax({
-                        url: '../../Models/TipEditor.php?action=loadSurveyIDs',
+                        url: 'Editor/loadSurveys',
                         dataType:'JSON',
                         success:function(data){
                             //clear the current content of the select
@@ -314,7 +314,7 @@
     <script src="assets/js/light-bootstrap-dashboard.js"></script>
 
     <script src="assets/js/responsive_nav.js"></script>
-    <script src="assets/js/tip_editor.js"></script>
+    <!-- <script src="assets/js/tip_editor.js"></script> -->
 
    
 </html>

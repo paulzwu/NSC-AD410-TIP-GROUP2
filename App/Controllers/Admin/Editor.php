@@ -35,4 +35,22 @@ class Editor extends \Core\Controller
         ]);
     }
 
+     public function testDB(){
+        $db_conn = TipEditor::testDB();
+        View::render('Admin/test_db_conn.php', [
+                'db' => $db_conn
+            ]);
+    }
+
+    public function loadSurveys(){
+        if(empty($_POST['data'])){
+            die();
+        } else {
+            $data = $_POST['data'];
+            $result = TipEditor::loadSurveyIDs($data);
+            View::render('Admin/tip_editor.php', $result);
+        }
+    }
+    
+
 }

@@ -4,7 +4,10 @@ header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");  
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-include "../Core/Config.php";
+// include "../Core/Config.php";
+
+include "../Core/Model.php";
+use App\Config;
 
 /**
  * Composer
@@ -100,6 +103,7 @@ $router->add('edit', ['namespace' => 'Admin', 'controller' => 'Editor', 'action'
 $router->add('adminfaq', ['namespace' => 'Admin', 'controller' => 'FAQ', 'action' => 'index']);
 $router->add('support', ['namespace' => 'Admin', 'controller' => 'Support', 'action' => 'index']);
 $router->add('report1', ['namespace' => 'Admin', 'controller' => 'Dashboard', 'action' => 'report1']);
+$router->add('testdb', ['namespace' => 'Admin', 'controller' => 'Editor', 'action' => 'testDB']);
 
 $router->add('', ['namespace' => 'Admin', 'controller' => 'Dashboard', 'action' => 'index']);
 //Faculty Routes

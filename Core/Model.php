@@ -1,8 +1,9 @@
 <?php
-
 namespace Core;
 
 use PDO;
+use App\Config;
+
 
 /**
  * Base model
@@ -17,23 +18,25 @@ abstract class Model
      *
      * @return mixed
      */
-    protected static function getDB()
+ protected static function getDB()
     {
         static $db = null;
 
         if ($db === null) {
     
             try {
-                // $db = new PDO("sqlite:DB/tip-editor-testDB.sqlite");
-                $db = new PDO('sqlite:tip-editor-testDB.sqlite');
-
-
+                $dbname = "sqlite:".Config::SQLITE;
+                $db = new PDO($dbname);
+                $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $message = true;
             } catch (PDOException $e) {
-                echo "PHP Load error: ".$e->getMessage();
+                $e->getMessage();
+                $message = false;
+
             }
         }
 
-        return $db;
+        return $message;
     }
 
 
