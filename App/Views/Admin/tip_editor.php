@@ -27,7 +27,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" type="text/css" rel="stylesheet" />
  
     <!-- Survey JS Scripts -->		
-		<link href="http://getbootstrap.com/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
 	    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
@@ -264,7 +263,7 @@
                     $select = $(id);
                     // call to server to load quiz names
                     $.ajax({
-                        url: 'Editor/loadSurveys',
+                        url: 'Editor',
                         dataType:'JSON',
                         success:function(data){
                             //clear the current content of the select

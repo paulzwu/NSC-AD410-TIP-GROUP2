@@ -4,15 +4,21 @@ header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");  
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-// include "../Core/Config.php";
 
-include "../Core/Model.php";
-use App\Config;
+// use App\Config;
 
 /**
  * Composer
  */
 require '../vendor/autoload.php';
+
+use App\SQLiteConnection;
+    $pdo = (new SQLiteConnection())->connect();
+if ($pdo != null)
+    echo 'Connected to the SQLite database successfully!';
+else
+    echo 'Whoops, could not connect to the SQLite database!';
+
 
 /*****************************************
 Toggle this block to turn oauth on and off
@@ -103,9 +109,9 @@ $router->add('edit', ['namespace' => 'Admin', 'controller' => 'Editor', 'action'
 $router->add('adminfaq', ['namespace' => 'Admin', 'controller' => 'FAQ', 'action' => 'index']);
 $router->add('support', ['namespace' => 'Admin', 'controller' => 'Support', 'action' => 'index']);
 $router->add('report1', ['namespace' => 'Admin', 'controller' => 'Dashboard', 'action' => 'report1']);
-$router->add('testdb', ['namespace' => 'Admin', 'controller' => 'Editor', 'action' => 'testDB']);
 
 $router->add('', ['namespace' => 'Admin', 'controller' => 'Dashboard', 'action' => 'index']);
+$router->add('test', ['namespace' => 'Admin', 'controller' => 'Test', 'action' => 'index']);
 //Faculty Routes
 $router->add('faculty', ['namespace' => 'Faculty', 'controller' => 'Dashboard', 'action' => 'index']);
 $router->add('tip', ['namespace' => 'Faculty', 'controller' => 'TIP', 'action' => 'index']);
