@@ -146,7 +146,7 @@ button {
                   var btn = document.createElement("BUTTON");
                   btn.setAttribute("id", text);
                   btn.setAttribute("onclick", "removeTag(this.id)");
-                  btn.setAttribute("class", "tags")
+                  btn.setAttribute("class", "tags");
                   var t = document.createTextNode(text + "  x");
                   btn.appendChild(t);
                   document.body.appendChild(btn);
