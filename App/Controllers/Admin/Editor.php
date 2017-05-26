@@ -3,6 +3,7 @@
 namespace App\Controllers\Admin;
 
 use \Core\View;
+use App\Models\TipEditor;
 
 
 class Editor extends \Core\Controller
@@ -26,11 +27,12 @@ class Editor extends \Core\Controller
      */
     public function indexAction()
     {
+        //get username
+        $userSpecs = TipEditor::getUser();
+        $user = $userSpecs['name'];
         View::render('Admin/tip_editor.php', [
-            'name'    => 'User'
+            'name' => $user
         ]);
-
-
     }
 
 }

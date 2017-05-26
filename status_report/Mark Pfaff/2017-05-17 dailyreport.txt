@@ -1,0 +1,15 @@
+Status Report 17:
+
+1) What did you do?
+* Met with team, decided steps before demo with Alissa
+* Worked with Suraj and Kari on getting live site nav working
+
+2) What are you doing next?
+* Get live site faculty pages working on server
+* Document how each user needs to interact with repo to get it to work locally
+* Update .ignore files appropriately
+* Prep for demo that has been pushed back till next Wednesday
+
+
+3)What roadblocks stand in your way?
+* No road blocks

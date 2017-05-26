@@ -1,91 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Faculty Dashboard</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+    <!-- Bootstrap core CSS     -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!--  Light Bootstrap Table core CSS    -->
+    <link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
+
+    <!-- Custom CSS Defenitions -->
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Taviraj|Work+Sans" rel="stylesheet">
+
+    <!--     Fonts and icons     -->
+    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Khula:700|Open+Sans" rel="stylesheet">
+
 </head>
 <body>
-
-<!--NAVBAR-->
-<?php include("navbar.php"); ?>
-
-<!--Quick Glace Completion Status-->
-<?php include("landing_dash.php"); ?>
-
-<!--Reports-->
-<div class="content-wrapper">
-    <section id="reports">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-left">
-                    <h2>Quick Reports</h2>
-                    <hr>
-                </div>
+<div class="wrapper">
+<div class="sidebar" data-color="azure">
+<!-- SIDE BAR -->
+            <div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="faculty"><img src="assets/img/alt_logo.png" alt="NSC Logo" height="45" width="55"></a>
+                <span>Welcome, <?php echo htmlspecialchars($name); ?></span>
             </div>
-            <div class="row">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a data-toggle="tab" href="#LOD">Learning Outcomes by Division</a></li>
-                    <li><a data-toggle="tab" href="#ROD">Response Rates By Division</a></li>
-                    <li><a data-toggle="tab" href="#ET">Emerging Trends</a></li>
-                </ul>
-                <div class="tab-content">
-                    <div id="LOD" class="tab-pane fade in active">
-                        <hr>
-                        <p>See how frequently learning outcomes are being addressed by each
-                            division.</p>
-                        <button class="btn btn-info">Export</button>
-                    </div>
-                    <div id="ROD" class="tab-pane fade">
-                        <hr>
-                        <p>View assessment response rates by each division.</p>
-                        <button class="btn btn-info">Export</button>
-                    </div>
-                    <div id="ET" class="tab-pane fade">
-                        <hr>
-                        <p>See what topics are being addressed most in assessment responses.</p>
-                        <button class="btn btn-info">Export</button>
-                    </div>
-                </div>
-            </div>
+
+            <ul class="nav">
+                <li class="active">
+                    <a href="faculty">
+                        <i class="pe-7s-graph"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="tip">
+                        <i class="pe-7s-note2"></i>
+                        <p>TIP Assessment</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="facultyfaq">
+                        <i class="pe-7s-news-paper"></i>
+                        <p>FAQs</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="facultysupport">
+                        <i class="pe-7s-science"></i>
+                        <p>Support</p>
+                    </a>
+                </li>
+                <li>
+            </ul>
         </div>
-    </section>
-    <section>
-        <div class="container">
-            <div class="row" id="filters">
-                <div class="col-lg-12">
-                    <p>filters</p>
-                    <p>filters</p>
-                    <p>filters</p>
-                    <p>filters</p>
-                    <p>filters</p>
-                    <p>filters</p>
+    </div>
+    <!-- END SIDEBAR -->
+
+<!-- Tool Bar -->
+<div class="main-panel">
+        <nav class="navbar navbar-default navbar-fixed">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/edit">Dashboard</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#">
+                                <p>Log out</p>
+                            </a>
+                        </li>
+                        <li class="separator hidden-lg hidden-md"></li>
+                    </ul>
                 </div>
             </div>
-            <div class="row">
-                <?php include("datagrid.php"); ?>
-            </div>
-        </div>
-    </section>
+        </nav>
+        <!-- End Tool Bar -->
+   <!-- Main Content -->
+         <div class="content">
+            <div class="container-fluid">
+
+             <div class="row">
+                    <!--TIP Assessment Start-->
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="col-lg-12 text-center">
+                                <h1>Let's start your assessment!</h1>
+                            </div>
+                            <div class="col-lg-12 text-center start-div">
+                                <a href="tip">
+                                    <button class="btn btn-info">Start</button>
+                                </a>
+                            </div>
+                        </div>
+                     </div>
+              </div>
+
+<!-- Search Grid -->
+<?php include("search_grid.php") ?>
+    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+
 
     <!-- Footer-->
-    <footer class="container-fluid"
+    <footer class="container-fluid" 
             style="min-height:200px; background-color:#18bc9c;color:#fff;text-align:center;padding-top:50px;">
         © 2017 ADBAS PROGRAM | NORTH SEATTLE COLLEGE
     </footer>
 
 </div>
-<script type="text/javascript" src="assets/js/lib/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="assets/js/custom.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs/jq-2.2.4/dt-1.10.15/datatables.min.js"></script>
-
 </body>
+
+    <!--   Core JS Files   -->
+    <script src="assets/js/lib/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+
+    <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
+    <script src="assets/js/light-bootstrap-dashboard.js"></script>
+    <script src="assets/js/responsive_nav.js"></script>
+
+   
 </html>
+
+
 

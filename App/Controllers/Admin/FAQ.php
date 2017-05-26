@@ -25,7 +25,7 @@ class FAQ extends \Core\Controller
      */
     public function indexAction()
     {
-        View::render('Admin/faqs.php', [
+        View::render('Admin/admin_faqs.php', [
             'name' => 'User'
         ]);
     }

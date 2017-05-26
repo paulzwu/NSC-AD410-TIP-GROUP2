@@ -1,0 +1,19 @@
+Joseph Sayler
+Status report 20
+5/24/2017
+
+
+Yesterday
+
+unable to finish the save as/overwrite, so left it as save as. got the rest of the editor, db, and quiz viewer ready for the showing, which did not happen today. /=|
+
+
+Today
+
+working with Kari to fit together the pieces we have complete so far
+
+
+Roadblocks
+
+having issue with core\model. i keep getting this error whenever i try to use a model, like tipeditor.php. whenever it goes to DB, it comes back saying core\model not found.
+

@@ -9,3 +9,4 @@ Homestead.yaml
 npm-debug.log
 .env
 *.iml
+.DS_Store
