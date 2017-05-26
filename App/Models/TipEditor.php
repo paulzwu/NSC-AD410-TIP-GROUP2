@@ -30,7 +30,8 @@ class TipEditor
         $col2 = 'jsonData';
         $sqlstmt = "SELECT $col2 FROM $table WHERE $col1 = '$surveyID';";
         try {
-            $conn = new PDO("sqlite:DB/tip-editor-testDB.sqlite");
+            // $conn = new PDO("sqlite:DB/tip-editor-testDB.sqlite");
+            $conn = (new SQLiteConnection())->connect();
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $statement = $conn->prepare($sqlstmt);
             $statement->execute();

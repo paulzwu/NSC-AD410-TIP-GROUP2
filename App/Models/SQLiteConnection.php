@@ -19,6 +19,7 @@ class SQLiteConnection {
         if ($this->pdo == null) {
             try {
                $this->pdo = new \PDO("sqlite:" . Config::SQLITE);
+               $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (\PDOException $e) {
                // handle the exception here
             }

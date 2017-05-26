@@ -11,7 +11,7 @@
 
     <!-- Bootstrap core CSS     -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="http://getbootstrap.com/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
+    <!-- <link href="http://getbootstrap.com/dist/css/bootstrap.css" type="text/css" rel="stylesheet" /> -->
 
     <!--  Light Bootstrap Table core CSS    -->
     <link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
@@ -38,19 +38,6 @@
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/mode-json.js" type="text/javascript"></script>
 	    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" type="text/css" rel="stylesheet" />
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" type="text/javascript"></script>
-		<style>
-			button#loadSurvey, button#newSurvey, button#saveSurvey, button#deleteSurvey {
-				margin-right: 10px;
-				font-size: 11px;
-			}
-			div#surveyNames, div#overwrite {
-				max-height: 250px;
-				overflow-y:scroll;
-			}
-			div#saveas {
-				text-align: center;
-			}
-		</style>
 </head>
 <body>
 <div class="wrapper">
@@ -187,7 +174,7 @@
                             console.log("no data");
                         } else {
                             $("#load").click(function() {
-                                $.ajax({url: 'adminajax',
+                                $.ajax({url: 'edit',
                                         data: {'ID':docID},
                                         type: 'POST',
                                         success:function(result) {
@@ -263,7 +250,7 @@
                     $select = $(id);
                     // call to server to load quiz names
                     $.ajax({
-                        url: 'Editor',
+                        url: 'edit',
                         dataType:'JSON',
                         success:function(data){
                             //clear the current content of the select
