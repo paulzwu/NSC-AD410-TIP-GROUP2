@@ -24,9 +24,9 @@ class Editor extends \Core\Controller
         if ($this->is_ajax()){
 
             //Example
-            $action = $_POST["action"];
+            $action = $_POST["ID"];
             switch($action) {
-                case "test":
+                case "ID":
                     $result = TipEditor::loadSurvey();
                     //View render takes a php associative array, and echos it to the view as indiviual views
                     echo $result;

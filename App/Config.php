@@ -14,7 +14,7 @@ class Config
      * Database Path
      * @var string
      */
-    const SQLITE = 'App/Models/DB/tip-editor-testDB.sqlite'; //loaded by  composer
+    const SQLITE = 'App/Models/DB/test.sqlite'; //loaded by  composer
 
     const CONFIG = [
         'canvasClientId' => '90000000000383',
