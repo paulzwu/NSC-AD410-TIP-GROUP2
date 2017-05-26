@@ -1,12 +1,24 @@
 <?php
+header("Cache-Control: no-store, no-cache, must-revalidate");  
+header("Cache-Control: post-check=0, pre-check=0", false);  
+header("Pragma: no-cache");  
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-include "../Core/Config.php";
+
+// use App\Config;
 
 /**
  * Composer
  */
 require '../vendor/autoload.php';
+
+use App\SQLiteConnection;
+    $pdo = (new SQLiteConnection())->connect();
+if ($pdo != null)
+    echo 'Connected to the SQLite database successfully!';
+else
+    echo 'Whoops, could not connect to the SQLite database!';
+
 
 /*****************************************
 Toggle this block to turn oauth on and off
@@ -77,13 +89,12 @@ Toggle this block to turn oauth on and off
 //     echo "Your email is: ", $profile->primary_email;
 //         //https://northseattle.test.instructure.com/api/v1/users/3901027/profile
 
-// //exit;
+//exit;
 // }
 /*****************************************
 Toggle this block to turn oauth on and off
 
 ******************************************/
-
 
 /**
  * Routing
@@ -100,6 +111,7 @@ $router->add('support', ['namespace' => 'Admin', 'controller' => 'Support', 'act
 $router->add('report1', ['namespace' => 'Admin', 'controller' => 'Dashboard', 'action' => 'report1']);
 
 $router->add('', ['namespace' => 'Admin', 'controller' => 'Dashboard', 'action' => 'index']);
+$router->add('test', ['namespace' => 'Admin', 'controller' => 'Test', 'action' => 'index']);
 //Faculty Routes
 $router->add('faculty', ['namespace' => 'Faculty', 'controller' => 'Dashboard', 'action' => 'index']);
 $router->add('tip', ['namespace' => 'Faculty', 'controller' => 'TIP', 'action' => 'index']);

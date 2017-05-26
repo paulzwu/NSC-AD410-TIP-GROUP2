@@ -1,125 +1,56 @@
+/*NAVBAR STYLES*/
 nav {
     -webkit-box-shadow: 3px -2px 20px 2px rgba(194, 190, 194, 0.79);
     -moz-box-shadow: 3px -2px 20px 2px rgba(194, 190, 194, 0.79);
     box-shadow: 3px -2px 20px 2px rgba(194, 190, 194, 0.79);
-    font-family: 'Work Sans', sans-serif;
+    padding-top: 7px;
 }
 
-header {
-    text-align: center;
+body > div > div.sidebar > div > div > span {
     color: #ffffff;
-    background: #0099ff;
-    position: fixed;
-    width:100%;
-    z-index: 1;
-    height: 88%;
+    padding-left: 10px;
+    vertical-align: bottom;
+    font-size: 1.5em;
+}
+/*END NAVBAR STYLES*/
+
+/*DATA FILTER STYLES*/
+.tags {
+  margin: 10px;
+}
+/*END DATA FILTER STYLES*/
+
+
+
+/*TIP EDITOR STYLES*/
+button#loadSurvey, button#newSurvey, button#saveSurvey, button#deleteSurvey {
+    margin-right: 10px;
+    font-size: 11px;
+}
+div#surveyNames, div#overwrite {
+    max-height: 250px;
+    overflow-y:scroll;
+}
+div#saveas {
+    text-align: center;
+}
+/*END TIP EDITOR STYLES*/
+
+
+
+/*FACULTY DASHBOARD STYLES*/
+.card {
     overflow: hidden;
-    top: 0;
-    left: 0;
 }
 
-header h3 {
-    font-family: 'Work Sans', sans-serif;
-    margin-top: 0px;
-}
-
-header button {
-    margin-top: 20px;
-    margin-right: 5px;
-}
-
-header hr {
-    margin-bottom: 40px;
-}
-
-span {
-    font-family: 'Work Sans', sans-serif;
-    color: #191970;
-}
-
-.content-wrapper{
-    background: #f2f2f2;
-    top: 87%;
-    min-height: 12%;
-    position:absolute;
-    z-index: 2;
-    width: 100%;
-}
-
-header .container {
-    padding-top: 150px;
-    padding-bottom: 50px;
-}
-
-section {
-    width: 100%;
-}
-
-#reports {
-    padding-top: 100px;
-}
-
-#filters{
-    width: 100%;
-    background: #ffffff;
-    margin-top: 10px;
-    margin-botton: 10px;
-    padding-top: 10px;
-}
-
-.quickGlance{
-    padding-top: 0;
-}
-
-.tab-content div{
-    background: #ffffff;
-    margin: 5px;
-}
-
-.faqHeader {
-    margin-top: 20px;
+.start-div {
+    padding: 20px;
     margin-bottom: 20px;
 }
-section h2 {
-    margin: 0;
-    font-size: 3em;
-}
 
-h1 h3 {
-    font-family: 'Work Sans', sans-serif;
-}
+/*END FACULTY DASHBOARD STYLES*/
 
-body {
-    font-family: 'Work Sans', sans-serif;
-    background: -webkit-linear-gradient(90deg, #ffffff 10%, #f2f2f2 90%); /* Chrome 10+, Saf5.1+ */
-    background:    -moz-linear-gradient(90deg, #ffffff 10%, #f2f2f2 90%); /* FF3.6+ */
-    background:     -ms-linear-gradient(90deg, #ffffff 10%, #f2f2f2 90%); /* IE10 */
-    background:      -o-linear-gradient(90deg, #ffffff 10%, #f2f2f2 90%); /* Opera 11.10+ */
-    background:         linear-gradient(90deg, #ffffff 10%, #f2f2f2 90%); /* W3C */
-}
-
-nav a {
-    color: #191970;
-    font-family: 'Work Sans', sans-serif;
-}
-
-html {
-    height: 100%;
-    font-family: 'Taviraj', serif;
-}
-
-div{
-    font-family: 'Work Sans', sans-serif;
-}
-
-div p {
-    font-family: Taviraj;
-}
-
-.panel-default .panel-heading{
-    background: #e6e6e6;
-}
-
-#support {
-    margin-top: 100px;
+/*Removes svd properties sidebar*/
+.svd_properties {
+    display: none !important;
 }
