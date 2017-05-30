@@ -8,7 +8,7 @@
 
 <body>
 
-<table id="table_id" class="display compact"></table>
+<table id="table_id" class="display compact "></table>
 
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
