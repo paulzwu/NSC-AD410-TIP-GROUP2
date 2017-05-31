@@ -1,16 +1,3 @@
-<?php
-
-include 'Views/templates/header.php';
-
-if($usertype=="admin"){
-    include 'Views/Admin/dashboard.php';
-
-}else{
-    include 'Views/Faculty/dashboard.php';
-}
-
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,9 +8,7 @@ if($usertype=="admin"){
 
 <body>
 
-<table id="table_id" class="display "></table>
-
-<?php include 'Views/templates/footer.php'; ?>
+<table id="table_id" class="display compact "></table>
 
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
