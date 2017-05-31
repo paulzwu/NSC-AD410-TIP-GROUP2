@@ -89,7 +89,8 @@
                                 <li><a href="#">Report 3</a></li>
                                 <li><a href="#">Report 4</a></li>
                                 <li class="divider"></li>
-                                <li><a href="#">Export</a></li>
+                                <li><a href="reportxml">Export XML</a></li>
+                                <li><a href="reportpdf">Export PDF</a></li>
                               </ul>
                         </li>
                         <li>

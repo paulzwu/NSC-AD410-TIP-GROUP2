@@ -12,12 +12,12 @@ ini_set('display_errors', 1);
  */
 require '../vendor/autoload.php';
 
-use App\SQLiteConnection;
-    $pdo = (new SQLiteConnection())->connect();
-if ($pdo != null)
-    echo 'Connected to the SQLite database successfully!';
-else
-    echo 'Whoops, could not connect to the SQLite database!';
+// use App\SQLiteConnection;
+//     $pdo = (new SQLiteConnection())->connect();
+// if ($pdo != null)
+//     echo 'Connected to the SQLite database successfully!';
+// else
+//     echo 'Whoops, could not connect to the SQLite database!';
 
 
 /*****************************************
@@ -108,7 +108,8 @@ $router->add('admin', ['namespace' => 'Admin', 'controller' => 'Dashboard', 'act
 $router->add('edit', ['namespace' => 'Admin', 'controller' => 'Editor', 'action' => 'index']);
 $router->add('adminfaq', ['namespace' => 'Admin', 'controller' => 'FAQ', 'action' => 'index']);
 $router->add('support', ['namespace' => 'Admin', 'controller' => 'Support', 'action' => 'index']);
-$router->add('report1', ['namespace' => 'Admin', 'controller' => 'Dashboard', 'action' => 'report1']);
+$router->add('reportxml', ['namespace' => 'Admin', 'controller' => 'Export', 'action' => 'index']);
+$router->add('reportpdf', ['namespace' => 'Admin', 'controller' => 'Export', 'action' => 'pdf']);
 
 $router->add('', ['namespace' => 'Admin', 'controller' => 'Dashboard', 'action' => 'index']);
 $router->add('test', ['namespace' => 'Admin', 'controller' => 'Test', 'action' => 'index']);

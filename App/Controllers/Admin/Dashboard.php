@@ -39,6 +39,8 @@ class Dashboard extends \Core\Controller
     }
 
     public function report1(){
+        $userSpecs = \App\Models\AdminDash::getUser();
+        $user = $userSpecs['name'];
         View::render('Reports/tip_report1.php', [
             'name' => $user
         ]);
