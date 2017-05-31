@@ -125,6 +125,7 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.jqueryui.min.js"></script>
 <script>
+var complete = 0;
 
     $(document).ready(function() {
         $('#table_id').DataTable({
@@ -134,17 +135,20 @@
                 dataSrc : function(data) {
                     var dataTable = [];
                     for (i = 0; i < data.length; i++) {
-                        dataTable.push([data[i].movie, data[i].year, data[i].url]);
-
+                        dataTable.push([data[i].name, data[i].course, data[i].department, data[i].status, data[i].view_export]);
+                        if (dataTable[i][3] == "Complete"){complete++}
                     }
+                    //alert("Total complete: " + complete);
                     return dataTable
                 }
             },
 
             columns: [
-                { data: 0, title: 'Movie'},
-                { data: 1, title: 'Year'},
-                { data: 2, title: 'Link',
+                { data: 0, title: 'Name'},
+                { data: 1, title: 'Course'},
+                { data: 2, title: 'Department'},
+                { data: 3, title: 'Status'},
+                { data: 4, title: 'View/Export',
                     "render": function(data, type){
                         if(type === 'display'){
                             data = '<a href="' + data + '" target="_blank">' + data + '</a>';

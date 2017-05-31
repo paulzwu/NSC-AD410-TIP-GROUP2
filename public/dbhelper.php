@@ -10,7 +10,7 @@ function openOrCreateDB(){
     global $conn;
     try {
         $conn = new PDO("sqlite:test.sqlite");
-        echo "DB connected <br>";
+        //echo "DB connected <br>";
     } catch (PDOException $e){
         echo 'Exception : '.$e->getMessage();
     }
