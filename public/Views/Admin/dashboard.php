@@ -1,5 +1,5 @@
 <!-- Main Content -->
-<div class="content">
+<div class="content responses-content">
     <div class="container-fluid">
 
         <div class="row">
