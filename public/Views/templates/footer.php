@@ -7,11 +7,16 @@
 
 
     <!--   Core JS Files   -->
+<<<<<<< HEAD
     <script src="assets/js/lib/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.jqueryui.min.js"></script>
+=======
+<!--    <script src="assets/js/lib/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>-->
+>>>>>>> 62e580574db8ddb8e08f760e56a28f98d361b195
 
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
     <script src="assets/js/light-bootstrap-dashboard.js"></script>
@@ -21,6 +26,15 @@
    <script src="assets/js/lib/raphael-2.1.4.min.js"></script>
     <script src="assets/js/lib/justgage.js"></script>
     <script src="assets/js/tipprogress.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+	    <script src="https://surveyjs.azureedge.net/0.12.9/survey.ko.min.js"></script>
+	    <script src="https://surveyjs.azureedge.net/0.12.9/surveyeditor.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.min.js" type="text/javascript"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/worker-json.js" type="text/javascript"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/mode-json.js" type="text/javascript"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" type="text/javascript"></script>
     <script>
     			$(document).ready(function() {
 
@@ -114,6 +128,42 @@
 				}
 			});
                         </script>
+                        
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.jqueryui.min.js"></script>
+<script>
+
+    $(document).ready(function() {
+        $('#table_id').DataTable({
+            "processing" : true,
+            "ajax" : {
+                url : "movies.json",
+                dataSrc : function(data) {
+                    var dataTable = [];
+                    for (i = 0; i < data.length; i++) {
+                        dataTable.push([data[i].movie, data[i].year, data[i].url]);
+
+                    }
+                    return dataTable
+                }
+            },
+
+            columns: [
+                { data: 0, title: 'Movie'},
+                { data: 1, title: 'Year'},
+                { data: 2, title: 'Link',
+                    "render": function(data, type){
+                        if(type === 'display'){
+                            data = '<a href="' + data + '" target="_blank">' + data + '</a>';
+                        }
+
+                        return data;
+                    }}
+            ]
+        });
+    });
+</script>
 
 </body>
 

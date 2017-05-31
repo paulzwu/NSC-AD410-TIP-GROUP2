@@ -2,8 +2,9 @@
 
 include 'Views/templates/header.php';
 ?>
-        <!-- Main Content -->
-<div id="container">
+        <!-- Maiin Content -->
+<div id="container" class="col-md-6 col-lg-6 col-sm-12">
+    <div class="tip-container">
 		<div><button type="button" class="btn btn-primary" id="loadSurvey" data-toggle="modal" data-target="#loadBox" data-backdrop="static">Load a survey</button></div>
 		<div class="modal fade" id="loadBox" role="dialog">
 			<div class="modal-dialog">
@@ -22,6 +23,7 @@ include 'Views/templates/header.php';
 				</div>
 			</div>
 		</div>
-		</div>
+	</div>
+    </div>
 
 <?php include 'Views/templates/footer.php';?>

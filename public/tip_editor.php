@@ -20,7 +20,7 @@ $totalFaculty = 200;
     <title><?php echo $pagetitle;?></title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
-    
+
 
     <!-- Bootstrap core CSS     -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -37,7 +37,7 @@ $totalFaculty = 200;
 
     <!-- Survey JS CSS-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" type="text/css" rel="stylesheet" />
- 
+
      <!-- Survey JS Scripts       -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -60,8 +60,8 @@ $totalFaculty = 200;
                 <span>Welcome, <?php echo htmlspecialchars($username); ?></span>
             </div>
 
-            <?php 
-            
+            <?php
+
             if ($usertype == 'admin'){
                 include 'Views/templates/nav-admin.php';
                 include 'Views/templates/toolbar-admin.php';
@@ -81,13 +81,13 @@ $totalFaculty = 200;
             //var editorOptions = { showJSONEditorTab: false, };
                         var editorOptions = {
                // show the embeded survey tab. It is hidden by default
-               showEmbededSurveyTab: true,
+               showEmbededSurveyTab: false,
                // show the test survey tab. It is shown by default
                showTestSurveyTab: true,
                // show the JSON text editor tab. It is shown by default
-               showJSONEditorTab: true,
+               showJSONEditorTab: false,
                // show the "Options" button menu. It is hidden by default
-               showOptions: true
+               showOptions: false
             };
             // pass the editorOptions into the constructor. It is an optional parameter.
             var survey = new SurveyEditor.SurveyEditor("surveyEditorContainer", editorOptions);
@@ -101,7 +101,7 @@ $totalFaculty = 200;
                 "<button type=\"button\" class=\"btn btn-primary\" id=\"loadSurvey\" data-toggle=\"modal\" data-target=\"#loadBox\" data-backdrop=\"static\">Load</button>" +
                 "<button type=\"button\" class=\"btn btn-primary\" id=\"saveSurvey\" data-toggle=\"modal\" data-target=\"#saveBox\" data-backdrop=\"static\">Save</button>" +
                 "<button type=\"button\" class=\"btn btn-primary\" id=\"newSurvey\">New</button>" +
-                
+
                 "<div class=\"modal fade\" id=\"loadBox\" role=\"dialog\">" +
                     "<div class=\"modal-dialog\">" +
                         "<div class=\"modal-content\">" +
@@ -127,9 +127,9 @@ $totalFaculty = 200;
                                 "<h4 class=\"modal-title\">Save</h4>" +
                             "</div>" +
                             "<div class=\"modal-body\">" +
-                                
+
                                         "<br><form id=\"test\">New survey name: <input type=\"text\" name=\"surveyName1\"></form>" +
-                                    
+
                             "</div>" +
                             "<div class=\"modal-footer\">" +
                                 "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" id=\"save\">Save</button>" +
@@ -139,7 +139,7 @@ $totalFaculty = 200;
                     "</div>" +
                 "</div>"
             );
-            
+
             $(document).ready(function() {
                 //------------ load survey ------------\\
                 //request the JSON data and parse into the select element
@@ -187,7 +187,7 @@ $totalFaculty = 200;
                     // when save button pressed,
                     $("#save").click(function() {
                         // right now, names do not have to be unique - TODO: enforce unique quiz names
-                        var nameOfSurvey = $('input[name=surveyName1]').val(); 
+                        var nameOfSurvey = $('input[name=surveyName1]').val();
                         var jsonSurvey = survey.text;
                         //var jsonSurvey1 = JSON.stringify(jsonSurvey.replace(/\r?\n|\r/g, ""));
                         //var jsonSurvey2 = jsonSurvey1.replace(/ /g, '');
@@ -199,7 +199,7 @@ $totalFaculty = 200;
                             // survey json and name saved to db
                             $.ajax({url: 'survey_save.php', data: {'saveData':jsonSurvey, 'saveName':nameOfSurvey}, type: 'POST',
                                         success: console.log("json data sent to server") });
-                            
+
                             alert("This survey has been saved.");
                             $('#test').children('input').val('')
                         }
@@ -220,7 +220,7 @@ $totalFaculty = 200;
                     survey.text = '';
                     console.log("json data cleared");
                 });
-                
+
                 // used to load a list of survey names into the load and overwrite modal boxes
                 function loadNames(id){
                     $select = $(id);

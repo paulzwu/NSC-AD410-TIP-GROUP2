@@ -11,4 +11,12 @@ if($usertype=="admin"){
 
 include 'Views/templates/footer.php';
 
+<<<<<<< HEAD
 
+=======
+?>
+
+
+
+<?php include 'Views/templates/footer.php'; ?>
+>>>>>>> 62e580574db8ddb8e08f760e56a28f98d361b195

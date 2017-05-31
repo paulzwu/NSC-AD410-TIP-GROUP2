@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-
-<body>
 <!-- Main Content -->
 <div class="content">
     <div class="container-fluid">
@@ -32,7 +26,11 @@
                 </div>
             </div>
         </div>
+<table id="table_id" class="display "></table>
 
+<?php //include("Views/Admin/search_grid.php") ?>
+
+<<<<<<< HEAD
         <table id="table_id" class="display "></table>
 
 
@@ -73,6 +71,8 @@
 </script>
 </body>
 </html>
+=======
+>>>>>>> 62e580574db8ddb8e08f760e56a28f98d361b195
 
 
 
