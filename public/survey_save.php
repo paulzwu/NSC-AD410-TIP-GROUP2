@@ -11,7 +11,7 @@
 	$col3 = 'surveyName';
 	$sqlstmt = "INSERT INTO $table($col2, $col3) VALUES ('$surveyData', '$surveyName');";
 	try {
-		$conn = new PDO("sqlite:Models/DB/test.sqlite");
+		$conn = new PDO("sqlite:DB/test.sqlite");
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$statement = $conn->prepare($sqlstmt);
 		$statement->execute();

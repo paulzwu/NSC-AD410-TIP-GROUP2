@@ -1,9 +1,9 @@
 <?PHP
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
-include 'Models/SQLiteConnection.php';
 include  'config.php';
+openOrCreateDB();
+
 //$pdo = (new SQLiteConnection())->connect();
 //if ($pdo != null)
 //    echo 'Connected to the SQLite database successfully!';
@@ -11,7 +11,7 @@ include  'config.php';
 //    echo 'Whoops, could not connect to the SQLite database!';
 
 $pagetitle = 'Tip';
-$username = 'Jane Doe';
+$username = 'Kari';
 $usertype = 'admin';
 $waitingOn = 45;
 $totalFaculty = 200;
@@ -115,21 +115,28 @@ Toggle this block to turn oauth on and off
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Khula:700|Open+Sans" rel="stylesheet">
 
-    <!-- Survey JS CSS-->
-<!--    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" type="text/css" rel="stylesheet" />
+<!--     Survey JS CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" type="text/css" rel="stylesheet" />
  
-     Survey JS Scripts 		
+<!--     Survey JS Scripts 		-->
+            	    <link href="http://getbootstrap.com/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
 	    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
-	    <link href="https://surveyjs.azureedge.net/0.12.14/surveyeditor.css" type="text/css" rel="stylesheet" />
-	    <script src="https://surveyjs.azureedge.net/0.12.14/survey.ko.min.js"></script>
-	    <script src="https://surveyjs.azureedge.net/0.12.14/surveyeditor.min.js"></script>
+	    <link href="https://surveyjs.azureedge.net/0.12.9/surveyeditor.css" type="text/css" rel="stylesheet" />
+	    <script src="https://surveyjs.azureedge.net/0.12.9/survey.ko.min.js"></script>
+	    <script src="https://surveyjs.azureedge.net/0.12.9/surveyeditor.min.js"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.min.js" type="text/javascript"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/worker-json.js" type="text/javascript"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/mode-json.js" type="text/javascript"></script>
 	    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" type="text/css" rel="stylesheet" />
-	    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" type="text/javascript"></script>-->
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" type="text/javascript"></script>	
+                <?php 
+//    if (basename($_SERVER['PHP_SELF']) == 'tip.php'){
+//        echo '<!--if page is tip.php include survey_demo.js-->';
+//        echo '<script src="survey_demo.js"></script>';
+//    }?>
+            
 </head>
 <body>
     <div class="wrapper">

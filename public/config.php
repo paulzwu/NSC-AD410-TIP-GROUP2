@@ -9,4 +9,4 @@
         'canvasInstanceUrl'=>'https://northseattle.test.instructure.com'
     ];
 
-
+include "dbhelper.php";

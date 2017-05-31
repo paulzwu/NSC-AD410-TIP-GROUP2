@@ -7,7 +7,7 @@
   $col2 = 'surveyName';
   $sqlstmt = "SELECT $col1, $col2 FROM $table;";
   try {
-    $conn = new PDO("sqlite:Models/DB/test.sqlite");
+    $conn = new PDO("sqlite:DB/test.sqlite");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $statement = $conn->prepare($sqlstmt);
     $statement->execute();
