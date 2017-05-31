@@ -1,5 +1,0 @@
-1) Yesterday I worked on updating the UI
-
-2) Up-coming to-do is connect functionality to datasource
-
-3) Roadblocks - routing functionality

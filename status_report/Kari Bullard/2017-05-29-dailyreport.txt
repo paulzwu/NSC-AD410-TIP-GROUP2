@@ -1,5 +1,0 @@
-1) I worked extra on the project during the week last week, because I had a feeling I wouldn't be able to get much done come the holiday weekend, as I was out of town, but It became clear that there is an issue in connecting to a Sqlite db, and because it would be easier to switch to the newly discovered php slim framework then spend another day troubleshooting, we're doing that. I looked into the framework, and am waiting to catch up with Joe and Mark regarding what's left to be done in the transition. Also, it has online documentation, which will be helpful for everyone.
-
-2) Tonight / tomorrow I plan on helping out with whatever needs to be done still.
-
-3) Need to get caught up with where we are in switching to the new framework.
