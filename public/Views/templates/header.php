@@ -12,7 +12,7 @@ openOrCreateDB();
 
 $pagetitle = 'Tip';
 $username = 'Kari';
-$usertype = 'admin';
+$usertype = 'faculty';
 $waitingOn = 45;
 $totalFaculty = 200;
 /*****************************************
