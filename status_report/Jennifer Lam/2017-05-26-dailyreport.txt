@@ -1,0 +1,7 @@
+Status Report 21:
+
+1) What I did is research on MVC structure
+
+2) Trying to figure out how controller and modules work
+
+3) no issues

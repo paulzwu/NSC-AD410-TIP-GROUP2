@@ -1,0 +1,7 @@
+Status Report 22:
+
+1) What I did is trying to understand MVC framework
+
+2) Look for any bugs on our site.
+
+3) no issues
