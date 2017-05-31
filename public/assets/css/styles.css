@@ -54,3 +54,8 @@ div#saveas {
 .svd_properties {
     display: none !important;
 }
+
+
+input[type="radio"] {
+    display:inline-block;
+}

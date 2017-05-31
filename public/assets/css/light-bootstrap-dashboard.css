@@ -935,10 +935,10 @@ body > .navbar-collapse {
   line-height: 1.5;
   color: #333333; }
 
-.checkbox input,
+/*.checkbox input,
 .radio input {
   outline: none !important;
-  display: none; }
+  display: none; }*/
 
 .checkbox .icons,
 .radio .icons {
@@ -1103,8 +1103,8 @@ body > .navbar-collapse {
   box-shadow: 0 1px 1px #FFFFFF inset, 0 1px 1px rgba(0, 0, 0, 0.25);
   cursor: pointer; }
 
-.has-switch input[type=checkbox] {
-  display: none; }
+/*.has-switch input[type=checkbox] {
+  display: none; }*/
 
 .has-switch span {
   /*     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset; */
