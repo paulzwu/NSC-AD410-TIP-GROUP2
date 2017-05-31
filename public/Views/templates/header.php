@@ -127,6 +127,8 @@ Toggle this block to turn oauth on and off
 //        echo '<!--if page is tip.php include survey_demo.js-->';
 //        echo '<script src="survey_demo.js"></script>';
 //    }?>
+    <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.jqueryui.min.css">
             
 </head>
 <body>

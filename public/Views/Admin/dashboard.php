@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-
-<body>
 <!-- Main Content -->
 <div class="content">
     <div class="container-fluid">
@@ -32,10 +26,10 @@
                 </div>
             </div>
         </div>
+<table id="table_id" class="display "></table>
 
-</body>
-</html>
-<?php include("Views/Admin/search_grid.php") ?>
+<?php //include("Views/Admin/search_grid.php") ?>
+
 
 
 
