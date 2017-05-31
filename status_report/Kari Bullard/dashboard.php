@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 </head>
 
-<body>
+<body> -->
 <!-- Main Content -->
 <div class="content">
     <div class="container-fluid">
@@ -34,11 +34,10 @@
         </div>
 
         <table id="table_id" class="display "></table>
+        </div>
+        </div>
 
 
-<script src="//code.jquery.com/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.jqueryui.min.js"></script>
 <script>
 
     $(document).ready(function() {
@@ -66,7 +65,8 @@
                         }
 
                         return data;
-                    }}
+                    }
+                }
             ]
         });
     });
