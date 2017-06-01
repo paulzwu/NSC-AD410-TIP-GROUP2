@@ -10,6 +10,7 @@ function openOrCreateDB(){
     global $conn;
     try {
         $conn = new PDO("sqlite:test.sqlite");
+        //echo "DB connected <br>";
     } catch (PDOException $e){
         echo 'Exception : '.$e->getMessage();
     }
@@ -32,7 +33,6 @@ function createTable(){
         } else {
             echo "Faculty table already exists.";
         }
-
         $sql = "CREATE TABLE IF NOT EXISTS Departments (
                 department_id INTEGER PRIMARY KEY, 
                 depart_name TEXT, 
@@ -48,7 +48,6 @@ function createTable(){
         } else {
             echo "Departments table already exists.";
         }
-
         $sql = "CREATE TABLE IF NOT EXISTS Courses (
                 course_id INTEGER PRIMARY KEY, 
                 department_id INTEGER, 
@@ -63,7 +62,6 @@ function createTable(){
         } else {
             echo "Courses table already exists.";
         }
-
         $sql = "CREATE TABLE IF NOT EXISTS Questions (
                 question_id INTEGER PRIMARY KEY, 
                 course_id INTEGER, 
@@ -105,7 +103,6 @@ function createTable(){
         } else {
             echo "Questions table already exists.";
         }
-
         $sql = "CREATE TABLE IF NOT EXISTS Answers (
                 answer_id INTEGER PRIMARY KEY, 
                 course_id INTEGER, 
@@ -121,7 +118,6 @@ function createTable(){
         } else {
             echo "Answers table already exists.";
         }
-
         $sql = "CREATE TABLE IF NOT EXISTS Results (
                 result_id INTEGER PRIMARY KEY, 
                 question_id INTEGER, 
@@ -129,21 +125,16 @@ function createTable(){
                 result_description TEXT)";
         $conn->exec($sql);
         if ($conn->exec($sql)){
-
             echo "Results table created.";
         } else {
             echo "Results table already exists.";
         }
-
         echo "Tables created successfully <br>";
     } catch (PDOException $e){
         echo 'Exception : '.$e->getMessage();
     }
 }
-
 // ------------------------------------INSERT METHODS---------------------------------------------//
-
-
 function insertFaculty($depart_id,$name,$email){
     global $conn;
     try {
@@ -156,7 +147,6 @@ function insertFaculty($depart_id,$name,$email){
         echo 'Exception : '.$e->getMessage();
     }
 }
-
 function insertDepartment($name,$description){
     global $conn;
     try {
@@ -169,7 +159,6 @@ function insertDepartment($name,$description){
         echo 'Exception : ' . $e->getMessage();
     }
 }
-
 function insertCourses($depart_id,$course_name,$course_descrip){
     global $conn;
     try {
@@ -182,7 +171,6 @@ function insertCourses($depart_id,$course_name,$course_descrip){
         echo 'Exception : '.$e->getMessage();
     }
 }
-
 function insertQuestions($course_id, $department_id, $question_name, $question_descrip){
     global $conn;
     try {
@@ -195,7 +183,6 @@ function insertQuestions($course_id, $department_id, $question_name, $question_d
         echo 'Exception : '.$e->getMessage();
     }
 }
-
 function insertAnswers($course_id, $department_id, $answer_name, $answer_descrip){
     global $conn;
     try {
@@ -208,7 +195,6 @@ function insertAnswers($course_id, $department_id, $answer_name, $answer_descrip
         echo 'Exception : '.$e->getMessage();
     }
 }
-
 // Needs modifying to
 function insertResults($depart_id,$course_name,$result_descrip){
     global $conn;
@@ -222,139 +208,133 @@ function insertResults($depart_id,$course_name,$result_descrip){
         echo 'Exception : '.$e->getMessage();
     }
 }
-
 // -------------------------UPDATE METHODS------------------------------------//
-
 function updateFaculty($faculty_id,$depart_id,$name,$email,$new_depart_id,$new_name,$new_email){
     global $conn;
     try {
-		//Update single record
+        //Update single record
         if ($new_depart_id == '' && $new_name == ''){
-			$sql = "UPDATE OR IGNORE Faculty
-			SET email = '$new_email'
-			WHERE faculty_id = '$faculty_id;";
-			$conn->exec($sql);
-		}
-		else if ($new_depart_id == '' && $new_email == ''){
-			$sql = "UPDATE OR IGNORE Faculty
-			SET name = '$new_name'
-			WHERE faculty_id = '$faculty_id;";
-			$conn->exec($sql);
-		}
-		else if ($new_name == '' && $new_email == ''){
-			$sql = "UPDATE OR IGNORE Faculty
-			SET department_id = '$new_depart_id'
-			WHERE faculty_id = '$faculty_id;";
-			$conn->exec($sql);
-		}
-		//Multiple record updates
-		else if ($new_depart_id == ''){
-			$sql = "UPDATE OR IGNORE Faculty
-			SET name = '$new_name', email = $new_email
-			WHERE faculty_id = '$faculty_id;";
-			$conn->exec($sql);
-		}
-		else if ($new_name == ''){
-			$sql = "UPDATE OR IGNORE Faculty
-			SET department_id = '$new_depart_id', email = $new_email
-			WHERE faculty_id = '$faculty_id';";
-			$conn->exec($sql);
-		}
-		else if ($new_email == ''){
-			$sql = "UPDATE OR IGNORE Faculty
-			SET department_id = '$new_depart_id', name = '$new_name'
-			WHERE faculty_id = '$faculty_id';";
-			$conn->exec($sql);
-		}
-		//All record update
-		else{
-			$sql = "UPDATE OR IGNORE Faculty
-			SET department_id = '$new_depart_id', name = '$new_name', email = '$new_email'
-			WHERE faculty_id = '$faculty_id'";
-			$conn->exec($sql);
-		}
+            $sql = "UPDATE OR IGNORE Faculty
+            SET email = '$new_email'
+            WHERE faculty_id = '$faculty_id;";
+            $conn->exec($sql);
+        }
+        else if ($new_depart_id == '' && $new_email == ''){
+            $sql = "UPDATE OR IGNORE Faculty
+            SET name = '$new_name'
+            WHERE faculty_id = '$faculty_id;";
+            $conn->exec($sql);
+        }
+        else if ($new_name == '' && $new_email == ''){
+            $sql = "UPDATE OR IGNORE Faculty
+            SET department_id = '$new_depart_id'
+            WHERE faculty_id = '$faculty_id;";
+            $conn->exec($sql);
+        }
+        //Multiple record updates
+        else if ($new_depart_id == ''){
+            $sql = "UPDATE OR IGNORE Faculty
+            SET name = '$new_name', email = $new_email
+            WHERE faculty_id = '$faculty_id;";
+            $conn->exec($sql);
+        }
+        else if ($new_name == ''){
+            $sql = "UPDATE OR IGNORE Faculty
+            SET department_id = '$new_depart_id', email = $new_email
+            WHERE faculty_id = '$faculty_id';";
+            $conn->exec($sql);
+        }
+        else if ($new_email == ''){
+            $sql = "UPDATE OR IGNORE Faculty
+            SET department_id = '$new_depart_id', name = '$new_name'
+            WHERE faculty_id = '$faculty_id';";
+            $conn->exec($sql);
+        }
+        //All record update
+        else{
+            $sql = "UPDATE OR IGNORE Faculty
+            SET department_id = '$new_depart_id', name = '$new_name', email = '$new_email'
+            WHERE faculty_id = '$faculty_id'";
+            $conn->exec($sql);
+        }
         echo "Deleted data successfully <br>";
     }catch (PDOException $e){
         echo 'Exception : '.$e->getMessage();
     }
 }
-
 //separated the two updates into two functions for now. We can combine them later.
-
 function updateDepartName($name,$new_name){
     global $conn;
     try {
         // update data name
         $sql = "UPDATE OR IGNORE Departments 
-				SET depart_name = '$new_name'
-				WHERE depart_name = '$name';";
+                SET depart_name = '$new_name'
+                WHERE depart_name = '$name';";
         $conn->exec($sql);
         echo "Updated data successfully <br>";
     } catch (PDOException $e) {
         echo 'Exception : ' . $e->getMessage();
     }
 }
-
 function updateDepartDescription($new_description,$description){
     global $conn;
     try {
         // update data description
         $sql = "UPDATE OR IGNORE Departments 
-				SET depart_description = '$new_description'
-				WHERE depart_description = '$description';";
+                SET depart_description = '$new_description'
+                WHERE depart_description = '$description';";
         $conn->exec($sql);
         echo "Updated data successfully <br>";
     } catch (PDOException $e) {
         echo 'Exception : ' . $e->getMessage();
     }
 }
-
 function updateCourses($course_id, $new_depart_id, $new_course_name, $new_course_descrip){
     global $conn;
     try {
         //Update single record
         if ($new_depart_id == '' && $new_course_name == ''){
             $sql = "UPDATE OR IGNORE Courses
-			SET course_description = '$new_course_descrip'
-			WHERE course_id = '$course_id;";
+            SET course_description = '$new_course_descrip'
+            WHERE course_id = '$course_id;";
             $conn->exec($sql);
         }
         else if ($new_depart_id == '' && $new_course_descrip == ''){
             $sql = "UPDATE OR IGNORE Courses
-			SET course_name = '$new_course_name'
-			WHERE course_id = '$course_id;";
+            SET course_name = '$new_course_name'
+            WHERE course_id = '$course_id;";
             $conn->exec($sql);
         }
         else if ($new_course_name == '' && $new_course_descrip == ''){
             $sql = "UPDATE OR IGNORE Courses
-			SET department_id = '$new_depart_id'
-			WHERE course_id = '$course_id;";
+            SET department_id = '$new_depart_id'
+            WHERE course_id = '$course_id;";
             $conn->exec($sql);
         }
         //Mutiple record updates
         else if ($new_depart_id == ''){
             $sql = "UPDATE OR IGNORE Courses
-			SET course_name = '$new_course_name', description = $new_course_descrip
-			WHERE course_id = '$course_id;";
+            SET course_name = '$new_course_name', description = $new_course_descrip
+            WHERE course_id = '$course_id;";
             $conn->exec($sql);
         }
         else if ($new_course_name == ''){
             $sql = "UPDATE OR IGNORE Courses
-			SET department_id = '$new_depart_id', description = $new_course_descrip
-			WHERE course_id = '$course_id';";
+            SET department_id = '$new_depart_id', description = $new_course_descrip
+            WHERE course_id = '$course_id';";
             $conn->exec($sql);
         }
         else if ($new_course_descrip == ''){
             $sql = "UPDATE OR IGNORE Courses
-			SET department_id = '$new_depart_id', course_name = '$new_course_name'
-			WHERE course_id = '$course_id';";
+            SET department_id = '$new_depart_id', course_name = '$new_course_name'
+            WHERE course_id = '$course_id';";
             $conn->exec($sql);
         }
         //All record update
         else{
             $sql = "UPDATE OR IGNORE Courses
-			SET department_id = '$new_depart_id', course_name = '$new_course_name', description = '$new_course_descrip'
-			WHERE course_id = '$course_id'";
+            SET department_id = '$new_depart_id', course_name = '$new_course_name', description = '$new_course_descrip'
+            WHERE course_id = '$course_id'";
             $conn->exec($sql);
         }
         echo "Updated data successfully <br>";
@@ -362,102 +342,101 @@ function updateCourses($course_id, $new_depart_id, $new_course_name, $new_course
         echo 'Exception : '.$e->getMessage();
     }
 }
-
 function updateQuestions($question_id, $new_course_id, $new_depart_id, $new_question_name, $new_question_descrip){
     global $conn;
     try {
         //One record update
         if ($new_course_id == '' && $new_depart_id == '' && $new_question_name == ''){
             $sql = "UPDATE OR IGNORE Questions
-			SET question_description = $new_question_descrip
-			WHERE question_id = '$question_id;";
+            SET question_description = $new_question_descrip
+            WHERE question_id = '$question_id;";
             $conn->exec($sql);
         }
         else if ($new_course_id == '' && $new_depart_id == '' && $new_question_descrip == ''){
             $sql = "UPDATE OR IGNORE Questions
-			SET question_name = $new_question_name
-			WHERE question_id = '$question_id;";
+            SET question_name = $new_question_name
+            WHERE question_id = '$question_id;";
             $conn->exec($sql);
         }
         else if ($new_course_id == '' && $new_question_descrip == '' && $new_question_name == ''){
             $sql = "UPDATE OR IGNORE Questions
-			SET department_id = $new_depart_id
-			WHERE question_id = '$question_id;";
+            SET department_id = $new_depart_id
+            WHERE question_id = '$question_id;";
             $conn->exec($sql);
         }
         else if ($new_question_descrip == '' && $new_depart_id == '' && $new_question_name == ''){
             $sql = "UPDATE OR IGNORE Questions
-			SET course_id = $new_course_id
-			WHERE question_id = '$question_id;";
+            SET course_id = $new_course_id
+            WHERE question_id = '$question_id;";
             $conn->exec($sql);
         }
         //Update two records
         else if ($new_depart_id == '' && $new_question_name == ''){
             $sql = "UPDATE OR IGNORE Questions
-			SET question_description = '$new_question_descrip', course_id = $new_course_id
-			WHERE question_id = '$question_id;";
+            SET question_description = '$new_question_descrip', course_id = $new_course_id
+            WHERE question_id = '$question_id;";
             $conn->exec($sql);
         }
         else if ($new_depart_id == '' && $new_course_id == ''){
             $sql = "UPDATE OR IGNORE Questions
-			SET question_description = '$new_question_descrip', question_name = $new_question_name
-			WHERE question_id = '$question_id;";
+            SET question_description = '$new_question_descrip', question_name = $new_question_name
+            WHERE question_id = '$question_id;";
             $conn->exec($sql);
         }
         else if ($new_depart_id == '' && $new_question_descrip == ''){
             $sql = "UPDATE OR IGNORE Questions
-			SET question_name = '$new_question_name', course_id = $new_course_id 
-			WHERE question_id = '$question_id;";
+            SET question_name = '$new_question_name', course_id = $new_course_id 
+            WHERE question_id = '$question_id;";
             $conn->exec($sql);
         }
         else if ($new_course_id == '' && $new_question_descrip == ''){
             $sql = "UPDATE OR IGNORE Questions
-			SET question_name = '$new_question_name', department_id = $new_depart_id 
-			WHERE question_id = '$question_id;";
+            SET question_name = '$new_question_name', department_id = $new_depart_id 
+            WHERE question_id = '$question_id;";
             $conn->exec($sql);
         }
         else if ($new_course_id == '' && $new_question_name == ''){
             $sql = "UPDATE OR IGNORE Questions
-			SET question_description = '$new_question_descrip', department_id = $new_depart_id 
-			WHERE question_id = '$question_id;";
+            SET question_description = '$new_question_descrip', department_id = $new_depart_id 
+            WHERE question_id = '$question_id;";
             $conn->exec($sql);
         }
         else if ($new_question_name == '' && $new_question_descrip == ''){
             $sql = "UPDATE OR IGNORE Questions
-			SET department_id = '$new_depart_id', course_id = '$new_course_id'
-			WHERE question_id = '$question_id;";
+            SET department_id = '$new_depart_id', course_id = '$new_course_id'
+            WHERE question_id = '$question_id;";
             $conn->exec($sql);
         }
         //Three record updates
         else if ($new_depart_id == ''){
             $sql = "UPDATE OR IGNORE Questions
-			SET question_name = '$new_question_name', description = '$new_question_descrip', course_id = '$new_course_id'
-			WHERE question_id = '$question_id;";
+            SET question_name = '$new_question_name', description = '$new_question_descrip', course_id = '$new_course_id'
+            WHERE question_id = '$question_id;";
             $conn->exec($sql);
         }
         else if ($new_course_id == ''){
             $sql = "UPDATE OR IGNORE Questions
-			SET question_name = '$new_question_name', description = '$new_question_descrip', department_id = '$new_depart_id'
-			WHERE question_id = '$question_id;";
+            SET question_name = '$new_question_name', description = '$new_question_descrip', department_id = '$new_depart_id'
+            WHERE question_id = '$question_id;";
             $conn->exec($sql);
         }
         else if ($new_question_name == ''){
             $sql = "UPDATE OR IGNORE Questions
-			SET department_id = '$new_depart_id', description = '$new_question_descrip', course_id = '$new_course_id'
-			WHERE question_id = '$question_id';";
+            SET department_id = '$new_depart_id', description = '$new_question_descrip', course_id = '$new_course_id'
+            WHERE question_id = '$question_id';";
             $conn->exec($sql);
         }
         else if ($new_question_descrip == ''){
             $sql = "UPDATE OR IGNORE Questions
-			SET department_id = '$new_depart_id', question_name = '$new_question_name', course_id = '$new_course_id'
-			WHERE question_id = '$question_id';";
+            SET department_id = '$new_depart_id', question_name = '$new_question_name', course_id = '$new_course_id'
+            WHERE question_id = '$question_id';";
             $conn->exec($sql);
         }
         //All record update
         else{
             $sql = "UPDATE OR IGNORE Questions
-			SET department_id = '$new_depart_id', question_name = '$new_question_name', description = '$new_question_descrip', course_id = $new_course_id
-			WHERE question_id = '$question_id'";
+            SET department_id = '$new_depart_id', question_name = '$new_question_name', description = '$new_question_descrip', course_id = $new_course_id
+            WHERE question_id = '$question_id'";
             $conn->exec($sql);
         }
         echo "Updated data successfully <br>";
@@ -465,102 +444,101 @@ function updateQuestions($question_id, $new_course_id, $new_depart_id, $new_ques
         echo 'Exception : '.$e->getMessage();
     }
 }
-
 function updatAnswers($answer_id, $new_course_id, $new_depart_id, $new_answer_name, $new_answer_descrip){
     global $conn;
     try {
         //One record update
         if ($new_course_id == '' && $new_depart_id == '' && $new_answer_name == ''){
             $sql = "UPDATE OR IGNORE Answers
-			SET answer_description = $new_answer_descrip
-			WHERE answer_id = '$answer_id;";
+            SET answer_description = $new_answer_descrip
+            WHERE answer_id = '$answer_id;";
             $conn->exec($sql);
         }
         else if ($new_course_id == '' && $new_depart_id == '' && $new_answer_descrip == ''){
             $sql = "UPDATE OR IGNORE Answers
-			SET answer_name = $new_answer_name
-			WHERE answer_id = '$answer_id;";
+            SET answer_name = $new_answer_name
+            WHERE answer_id = '$answer_id;";
             $conn->exec($sql);
         }
         else if ($new_course_id == '' && $new_answer_descrip == '' && $new_answer_name == ''){
             $sql = "UPDATE OR IGNORE Answers
-			SET department_id = $new_depart_id
-			WHERE answer_id = '$answer_id;";
+            SET department_id = $new_depart_id
+            WHERE answer_id = '$answer_id;";
             $conn->exec($sql);
         }
         else if ($new_answer_descrip == '' && $new_depart_id == '' && $new_answer_name == ''){
             $sql = "UPDATE OR IGNORE Answers
-			SET course_id = $new_course_id
-			WHERE answer_id = '$answer_id;";
+            SET course_id = $new_course_id
+            WHERE answer_id = '$answer_id;";
             $conn->exec($sql);
         }
         //Update two records
         else if ($new_depart_id == '' && $new_answer_name == ''){
             $sql = "UPDATE OR IGNORE Answers
-			SET answer_description = '$new_answer_descrip', course_id = $new_course_id
-			WHERE answer_id = '$answer_id;";
+            SET answer_description = '$new_answer_descrip', course_id = $new_course_id
+            WHERE answer_id = '$answer_id;";
             $conn->exec($sql);
         }
         else if ($new_depart_id == '' && $new_course_id == ''){
             $sql = "UPDATE OR IGNORE Answers
-			SET answer_description = '$new_answer_descrip', answer_name = $new_answer_name
-			WHERE answer_id = '$answer_id;";
+            SET answer_description = '$new_answer_descrip', answer_name = $new_answer_name
+            WHERE answer_id = '$answer_id;";
             $conn->exec($sql);
         }
         else if ($new_depart_id == '' && $new_answer_descrip == ''){
             $sql = "UPDATE OR IGNORE Answers
-			SET answer_name = '$new_answer_name', course_id = $new_course_id 
-			WHERE answer_id = '$answer_id;";
+            SET answer_name = '$new_answer_name', course_id = $new_course_id 
+            WHERE answer_id = '$answer_id;";
             $conn->exec($sql);
         }
         else if ($new_course_id == '' && $new_answer_descrip == ''){
             $sql = "UPDATE OR IGNORE Answers
-			SET answer_name = '$new_answer_name', department_id = $new_depart_id 
-			WHERE answer_id = '$answer_id;";
+            SET answer_name = '$new_answer_name', department_id = $new_depart_id 
+            WHERE answer_id = '$answer_id;";
             $conn->exec($sql);
         }
         else if ($new_course_id == '' && $new_answer_name == ''){
             $sql = "UPDATE OR IGNORE Answers
-			SET answer_description = '$new_answer_descrip', department_id = $new_depart_id 
-			WHERE answer_id = '$answer_id;";
+            SET answer_description = '$new_answer_descrip', department_id = $new_depart_id 
+            WHERE answer_id = '$answer_id;";
             $conn->exec($sql);
         }
         else if ($new_answer_name == '' && $new_answer_descrip == ''){
             $sql = "UPDATE OR IGNORE Answers
-			SET department_id = '$new_depart_id', course_id = '$new_course_id'
-			WHERE answer_id = '$answer_id;";
+            SET department_id = '$new_depart_id', course_id = '$new_course_id'
+            WHERE answer_id = '$answer_id;";
             $conn->exec($sql);
         }
         //Three record updates
         else if ($new_depart_id == ''){
             $sql = "UPDATE OR IGNORE Answers
-			SET answer_name = '$new_answer_name', description = '$new_answer_descrip', course_id = '$new_course_id'
-			WHERE answer_id = '$answer_id;";
+            SET answer_name = '$new_answer_name', description = '$new_answer_descrip', course_id = '$new_course_id'
+            WHERE answer_id = '$answer_id;";
             $conn->exec($sql);
         }
         else if ($new_course_id == ''){
             $sql = "UPDATE OR IGNORE Answers
-			SET answer_name = '$new_answer_name', description = '$new_answer_descrip', department_id = '$new_depart_id'
-			WHERE answer_id = '$answer_id;";
+            SET answer_name = '$new_answer_name', description = '$new_answer_descrip', department_id = '$new_depart_id'
+            WHERE answer_id = '$answer_id;";
             $conn->exec($sql);
         }
         else if ($new_answer_name == ''){
             $sql = "UPDATE OR IGNORE Answers
-			SET department_id = '$new_depart_id', description = '$new_answer_descrip', course_id = '$new_course_id'
-			WHERE answer_id = '$answer_id';";
+            SET department_id = '$new_depart_id', description = '$new_answer_descrip', course_id = '$new_course_id'
+            WHERE answer_id = '$answer_id';";
             $conn->exec($sql);
         }
         else if ($new_answer_descrip == ''){
             $sql = "UPDATE OR IGNORE Answers
-			SET department_id = '$new_depart_id', answer_name = '$new_answer_name', course_id = '$new_course_id'
-			WHERE answer_id = '$answer_id';";
+            SET department_id = '$new_depart_id', answer_name = '$new_answer_name', course_id = '$new_course_id'
+            WHERE answer_id = '$answer_id';";
             $conn->exec($sql);
         }
         //All record update
         else{
             $sql = "UPDATE OR IGNORE Answers
-			SET department_id = '$new_depart_id', answer_name = '$new_answer_name', description = '$new_answer_descrip', course_id = $new_course_id
-			WHERE answer_id = '$answer_id'";
+            SET department_id = '$new_depart_id', answer_name = '$new_answer_name', description = '$new_answer_descrip', course_id = $new_course_id
+            WHERE answer_id = '$answer_id'";
             $conn->exec($sql);
         }
         echo "Updated data successfully <br>";
@@ -568,53 +546,52 @@ function updatAnswers($answer_id, $new_course_id, $new_depart_id, $new_answer_na
         echo 'Exception : '.$e->getMessage();
     }
 }
-
 function updateResults($course_id, $new_depart_id, $new_course_name, $new_result_descrip){
     global $conn;
     try {
         //Update single record
         if ($new_depart_id == '' && $new_course_name == ''){
             $sql = "UPDATE OR IGNORE Results
-			SET result_description = '$new_result_descrip'
-			WHERE course_id = '$course_id;";
+            SET result_description = '$new_result_descrip'
+            WHERE course_id = '$course_id;";
             $conn->exec($sql);
         }
         else if ($new_depart_id == '' && $new_result_descrip == ''){
             $sql = "UPDATE OR IGNORE Results
-			SET course_name = '$new_course_name'
-			WHERE course_id = '$course_id;";
+            SET course_name = '$new_course_name'
+            WHERE course_id = '$course_id;";
             $conn->exec($sql);
         }
         else if ($new_course_name == '' && $new_result_descrip == ''){
             $sql = "UPDATE OR IGNORE Results
-			SET department_id = '$new_depart_id'
-			WHERE course_id = '$course_id;";
+            SET department_id = '$new_depart_id'
+            WHERE course_id = '$course_id;";
             $conn->exec($sql);
         }
         //Mutiple record updates
         else if ($new_depart_id == ''){
             $sql = "UPDATE OR IGNORE Results
-			SET course_name = '$new_course_name', result_description = $new_result_descrip
-			WHERE course_id = '$course_id;";
+            SET course_name = '$new_course_name', result_description = $new_result_descrip
+            WHERE course_id = '$course_id;";
             $conn->exec($sql);
         }
         else if ($new_course_name == ''){
             $sql = "UPDATE OR IGNORE Results
-			SET department_id = '$new_depart_id', result_description = $new_result_descrip
-			WHERE course_id = '$course_id';";
+            SET department_id = '$new_depart_id', result_description = $new_result_descrip
+            WHERE course_id = '$course_id';";
             $conn->exec($sql);
         }
         else if ($new_result_descrip == ''){
             $sql = "UPDATE OR IGNORE Results
-			SET department_id = '$new_depart_id', course_name = '$new_course_name'
-			WHERE course_id = '$course_id';";
+            SET department_id = '$new_depart_id', course_name = '$new_course_name'
+            WHERE course_id = '$course_id';";
             $conn->exec($sql);
         }
         //All record update
         else{
             $sql = "UPDATE OR IGNORE Results
-			SET department_id = '$new_depart_id', course_name = '$new_course_name', result_description = '$new_result_descrip'
-			WHERE course_id = '$course_id'";
+            SET department_id = '$new_depart_id', course_name = '$new_course_name', result_description = '$new_result_descrip'
+            WHERE course_id = '$course_id'";
             $conn->exec($sql);
         }
         echo "Updated data successfully <br>";
@@ -622,7 +599,6 @@ function updateResults($course_id, $new_depart_id, $new_course_name, $new_result
         echo 'Exception : '.$e->getMessage();
     }
 }
-
 // ----------------------------------DELETE METHODS----------------------------------//
 //Delete needs to be careful of children
 function deleteFaculty($faculty_id){
@@ -630,85 +606,78 @@ function deleteFaculty($faculty_id){
     try {
         // insert data
         $sql = "DELETE OR IGNORE FROM Faculty
-				WHERE faculty_id = '$faculty_id';";
+                WHERE faculty_id = '$faculty_id';";
         $conn->exec($sql);
         echo "Deleted data successfully <br>";
     }catch (PDOException $e){
         echo 'Exception : '.$e->getMessage();
     }
 }
-
 function deleteDepartment($depart_id){
     global $conn;
     try {
         // update data description
         $sql = "DELETE OR IGNORE FROM Departments 
-				WHERE department_id = '$depart_id';";
+                WHERE department_id = '$depart_id';";
         $conn->exec($sql);
         echo "Deleted data successfully <br>";
     } catch (PDOException $e) {
         echo 'Exception : ' . $e->getMessage();
     }
 }
-
 //Delete needs to be careful of children
 function deleteCourses($course_id){
     global $conn;
     try {
         // insert data
         $sql = "DELETE OR IGNORE FROM Cources
-				WHERE course_id = '$course_id';";
+                WHERE course_id = '$course_id';";
         $conn->exec($sql);
         echo "Deleted data successfully <br>";
     }catch (PDOException $e){
         echo 'Exception : '.$e->getMessage();
     }
 }
-
 //Delete needs to be careful of children
 function deleteQuestions($question_id){
     global $conn;
     try {
         // insert data
         $sql = "DELETE OR IGNORE FROM Questions
-				WHERE question_id = '$question_id';";
+                WHERE question_id = '$question_id';";
         $conn->exec($sql);
         echo "Deleted data successfully <br>";
     }catch (PDOException $e){
         echo 'Exception : '.$e->getMessage();
     }
 }
-
 //Delete needs to be careful of children
 function deleteAnswers($answer_id){
     global $conn;
     try {
         // insert data
         $sql = "DELETE OR IGNORE FROM Answers
-				WHERE answer_id = '$answer_id';";
+                WHERE answer_id = '$answer_id';";
         $conn->exec($sql);
         echo "Deleted data successfully <br>";
     }catch (PDOException $e){
         echo 'Exception : '.$e->getMessage();
     }
 }
-
 //Delete needs to be careful of children
 function deleteResults($course_id){
     global $conn;
     try {
         // insert data
         $sql = "DELETE OR IGNORE FROM Cources
-				WHERE course_id = '$course_id';";
+                WHERE course_id = '$course_id';";
         $conn->exec($sql);
         echo "Deleted data successfully <br>";
     }catch (PDOException $e){
         echo 'Exception : '.$e->getMessage();
     }
 }
-
-//		***RESULTS END***
-
+//      ***RESULTS END***
 function outputData(){
     global $conn;
     try {
@@ -716,7 +685,7 @@ function outputData(){
         $result = $conn->query('SELECT * FROM Departments');
         // formatting statements
         print "<style>table, th, td {border: 1px solid black; border-collapse: collapse; padding: 12px;
-		text-align: center;}</style>";
+        text-align: center;}</style>";
         print "<table><br><tr><th>Id</th><th>Name</th><th>Description</th></tr>";
         // pulls results from returned data
         foreach ($result as $row) {

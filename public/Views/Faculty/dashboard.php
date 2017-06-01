@@ -10,7 +10,7 @@
                                 <h1>Let's start your assessment!</h1>
                             </div>
                             <div class="col-lg-12 text-center start-div">
-                                <a href="tip">
+                                <a href="tip.php">
                                     <button class="btn btn-info">Start</button>
                                 </a>
                             </div>
@@ -19,7 +19,9 @@
               </div>
 
 <!-- Search Grid -->
-<?php include("Views/Faculty/search_grid.php") ?>
+<?php //include("Views/Faculty/search_grid.php") ?>
+<table id="table_id" class="display "></table>
+
     </div>
                     </div>
                     </div>

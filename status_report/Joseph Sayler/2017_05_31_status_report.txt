@@ -1,0 +1,14 @@
+Joseph Sayler
+Status report 23
+5/31/2017
+
+
+Today
+
+wrote a test script for justin to pull json out of db; need to confirm with him that it is what he wants.
+
+also added a post processing of sorts for json data coming from the editor. up till now, it was producing readable but not valid json. this prevented the quiz viewer from reading the data. 'readable' json was a default setting in the editor (for reasons i do not know). but now i added to the survey_save.php file to turn all keys into strings. this creates valid json objects like the very first quiz i made (and corrected by hand). this should enable the ability to load a quiz directly from the db. its kinda complicated to put into words but i can show you an example if you want. just know that it works now.
+
+Roadblocks
+
+almost the end of the quarter. freakin out! !8O
