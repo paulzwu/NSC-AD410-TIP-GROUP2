@@ -9,9 +9,7 @@ if($usertype=="admin"){
     include 'Views/Faculty/dashboard.php';
 }
 
-
-?>
-
+include 'Views/templates/footer.php';
 
 
-<?php include 'Views/templates/footer.php'; ?>
+
