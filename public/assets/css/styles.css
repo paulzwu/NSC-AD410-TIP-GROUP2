@@ -54,3 +54,24 @@ div#saveas {
 .svd_properties {
     display: none !important;
 }
+
+
+input[type="radio"] {
+    display:inline-block;
+}
+
+.main-panel > .content.responses-content {
+    height: 500px !important;
+}
+
+.tip-container {
+    padding-bottom: 300px;
+    padding-left: 100px;
+    padding-top: 50px;
+}
+
+.tip-title {
+    text-align:center;
+    padding-top:20px;
+    width: 80%;
+}
