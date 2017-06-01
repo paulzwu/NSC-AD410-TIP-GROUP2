@@ -1,5 +1,4 @@
 <?php
-
 include 'Views/templates/header.php';
 ?>
         <!-- Maiin Content -->

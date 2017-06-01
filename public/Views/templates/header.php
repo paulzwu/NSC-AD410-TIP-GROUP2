@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include  'config.php';
-openOrCreateDB();
+// openOrCreateDB();
 
 //$pdo = (new SQLiteConnection())->connect();
 //if ($pdo != null)
@@ -12,7 +12,8 @@ openOrCreateDB();
 
 $pagetitle = 'Tip';
 $username = 'Kari';
-$usertype = 'admin';
+// $usertype = 'admin';
+$usertype = 'faculty';
 $waitingOn = 45;
 $totalFaculty = 200;
 /*****************************************
