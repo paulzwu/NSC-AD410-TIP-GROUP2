@@ -1,0 +1,12 @@
+Joseph Sayler
+Status report 22
+5/29/2017
+
+
+Today
+
+working on php scripts for Justin to pull out all data from DB and write it to a json file
+
+Roadblocks
+
+/=|

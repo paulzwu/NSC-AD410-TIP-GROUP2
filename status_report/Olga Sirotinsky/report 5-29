@@ -1,9 +1,0 @@
-Olga Sirotinsky
-status report for 5/29/2017
-
-1) completed pie charts but changed the library. No longer using d3.js 
-
-2) will continue working on galaxy chart. 
-
-3) galaxy chart requires csv file of data. Tryng to find a easier way to retrieve data instead of using csv file. 
-May have to use different type of chart or figure out how to export data into csv?
