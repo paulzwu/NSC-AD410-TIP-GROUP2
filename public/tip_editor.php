@@ -79,7 +79,7 @@ $totalFaculty = 200;
             //------------ editor options ------------\\
             // show the JSON text editor tab. It is shown by default
             //var editorOptions = { showJSONEditorTab: false, };
-                        var editorOptions = {
+                var editorOptions = {
                // show the embeded survey tab. It is hidden by default
                showEmbededSurveyTab: false,
                // show the test survey tab. It is shown by default
