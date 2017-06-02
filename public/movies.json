@@ -8,13 +8,13 @@
   {"name" : "Justin Simmons",
     "course" : "AD410",
     "department"  : "AHSS",
-    "status" : "Complete",
+    "status" : "In-Progress",
     "view_export" : "Link to Assessment"},
 
   {"name" : "Joseph Sayler",
     "course" : "AD410",
     "department"  : "AHSS",
-    "status" : "Complete",
+    "status" : "Not Started",
     "view_export" : "Link to Assessment"},
 
   {"name" : "Mark Pfaff",
@@ -56,13 +56,13 @@
   {"name" : "Jennifer Lam",
     "course" : "AD410",
     "department"  : "AHSS",
-    "status" : "Complete",
+    "status" : "Not Started",
     "view_export" : "Link to Assessment"},
 
   {"name" : "Kari Bullard",
     "course" : "AD410",
     "department"  : "AHSS",
-    "status" : "Complete",
+    "status" : "In-Progress",
     "view_export" : "Link to Assessment"},
 
   {"name" : "Mahilet Hailemariam",
@@ -80,7 +80,7 @@
   {"name" : "Olga Sirotinsky",
     "course" : "AD410",
     "department"  : "AHSS",
-    "status" : "Complete",
+    "status" : "Not Started",
     "view_export" : "Link to Assessment"},
 
   {"name" : "Suraj Upreti",
@@ -122,7 +122,7 @@
   {"name" : "Ghebre Ghebremedhin",
     "course" : "AD410",
     "department"  : "HHS",
-    "status" : "Complete",
+    "status" : "Not Started",
     "view_export" : "Link to Assessment"},
 
   {"name" : "Hans Foster",
@@ -134,7 +134,7 @@
   {"name" : "James No",
     "course" : "AD410",
     "department"  : "HHS",
-    "status" : "Complete",
+    "status" : "In-Progress",
     "view_export" : "Link to Assessment"},
 
   {"name" : "Jennifer Lam",
@@ -146,7 +146,7 @@
   {"name" : "Kari Bullard",
     "course" : "AD410",
     "department"  : "HHS",
-    "status" : "Complete",
+    "status" : "Not Started",
     "view_export" : "Link to Assessment"},
 
   {"name" : "Mahilet Hailemariam",
@@ -164,13 +164,13 @@
   {"name" : "Olga Sirotinsky",
     "course" : "AD410",
     "department"  : "HHS",
-    "status" : "Complete",
+    "status" : "Not Started",
     "view_export" : "Link to Assessment"},
 
   {"name" : "Suraj Upreti",
     "course" : "AD410",
     "department"  : "HHS",
-    "status" : "Complete",
+    "status" : "In-Progress",
     "view_export" : "Link to Assessment"},
 
   {"name" : "Justin Simmons",
@@ -194,7 +194,7 @@
   {"name" : "Satoru Ouchi",
     "course" : "AD410",
     "department"  : "BEIT",
-    "status" : "Complete",
+    "status" : "Not Started",
     "view_export" : "Link to Assessment"},
 
   {"name" : "Daniel Cherniy",
@@ -212,7 +212,7 @@
   {"name" : "Hans Foster",
     "course" : "AD410",
     "department"  : "BEIT",
-    "status" : "Complete",
+    "status" : "Not Started",
     "view_export" : "Link to Assessment"},
 
   {"name" : "James No",
@@ -230,7 +230,7 @@
   {"name" : "Kari Bullard",
     "course" : "AD410",
     "department"  : "BEIT",
-    "status" : "Complete",
+    "status" : "In-Progress",
     "view_export" : "Link to Assessment"},
 
   {"name" : "Mahilet Hailemariam",
@@ -254,13 +254,13 @@
   {"name" : "Suraj Upreti",
     "course" : "AD410",
     "department"  : "BEIT",
-    "status" : "Complete",
+    "status" : "In-Progress",
     "view_export" : "Link to Assessment"},
 
   {"name" : "Jane Doe",
     "course" : "AD340",
     "department"  : "BEIT",
-    "status" : "Complete",
+    "status" : "Not Started",
     "view_export" : "Link to Assessment"}
 
 ]
