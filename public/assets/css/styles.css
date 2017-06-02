@@ -154,6 +154,10 @@ span.glyphicon.glyphicon-arrow-up::before {
 
 }
 
+.modal-backdrop {
+    display: none !important;
+}
+
 /***********
 Make sure this is the last style in the sheet - nothing below it
 *************/
