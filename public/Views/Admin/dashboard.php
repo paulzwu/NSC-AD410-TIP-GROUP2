@@ -30,10 +30,6 @@
         <table id="table_id" class="display "></table>
         </div>
 
-
-<script src="//code.jquery.com/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.jqueryui.min.js"></script>
 </body>
 </html>
 
