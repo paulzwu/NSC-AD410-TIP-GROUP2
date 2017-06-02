@@ -1,6 +1,6 @@
 
     <!-- Footer-->
-    <footer style="clear:both; min-height:200px; background-color:#18bc9c;color:#fff;text-align:center;padding-top:50px;">
+    <footer>
         © 2017 ADBAS PROGRAM | NORTH SEATTLE COLLEGE
     </footer>
     </div>
@@ -125,6 +125,14 @@
 				}
 			});
                         </script>
+                        <script>
+                            $(".svd_container .svd_menu a").each(function() {
+                                var text = $(this).text();
+                                text = text.replace("Survey Designer", "Tip Editor");
+                                text = text.replace("Test Survey", "Preview Tip");
+                                $(this).text(text);
+                            });
+                         </script>
                         
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
