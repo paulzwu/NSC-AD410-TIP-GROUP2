@@ -54,3 +54,115 @@ div#saveas {
 .svd_properties {
     display: none !important;
 }
+
+
+input[type="radio"] {
+    display:inline-block;
+}
+
+.main-panel > .content.responses-content {
+    height: 500px !important;
+    
+}
+
+.main-panel {
+    padding-bottom: 100px;
+}
+
+.tip-container {
+    padding-bottom: 300px;
+    padding-left: 100px;
+    padding-top: 50px;
+}
+
+.tip-title {
+    text-align:center;
+    padding-top:20px;
+    width: 50%;
+    padding-left: 100px;
+    
+}
+
+footer {
+    z-index:0;
+    clear:both; 
+    min-height:50px; 
+    background-color:#18bc9c;
+    color:#fff;
+    text-align:center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding-top: 10px;
+}
+
+table.dataTable thead th div.DataTables_sort_wrapper {
+    cursor: pointer !important;
+}
+
+div.progress-bar span {
+    display: none;
+}
+
+.modal-body .list-group-item {
+    margin: 15px !important;
+}
+
+a.svd_page_nav {
+    margin: 5px;
+}
+
+span.glyphicon.glyphicon-arrow-down::before, 
+span.glyphicon.glyphicon-arrow-up::before,
+.glyphicon-trash:before {
+    font-weight: bolder;
+    font-size: 15px;
+}
+
+span.glyphicon.glyphicon-arrow-down::before {
+    content: "⬇";
+}
+
+span.glyphicon.glyphicon-arrow-up::before {
+    content: "⬆";
+}
+
+.glyphicon-trash:before {
+    content: "✘";
+}
+
+/*.start-div a {
+    border: solid 2px #337ab7 !important;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.start-div a:hover {
+    text-decoration: none;
+}*/
+
+.assessment-table {
+    margin-left:20px;
+    padding: 10px;
+    margin-bottom:20px;
+}
+
+.assessment-table th
+.assessment-table td {
+    text-align: center;
+
+}
+
+.modal-backdrop {
+    display: none !important;
+}
+
+/***********
+Make sure this is the last style in the sheet - nothing below it
+*************/
+input[value="Next"],
+input[value="Complete"] {
+    float:right; 
+}​
+
