@@ -1,5 +1,0 @@
-1) Made faculty dashboard and integrated datatables
-
-2) Working on Olga to create the "questionairre" page
-
-3) N/A

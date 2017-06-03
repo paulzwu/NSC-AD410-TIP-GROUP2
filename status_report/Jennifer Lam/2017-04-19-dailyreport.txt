@@ -1,7 +1,0 @@
-Status Report 5:
-
-1) What I did is mock up for tip editor andvFAQ
-
-2) What I am working on is user stories in Trello
-
-3) maybe getting started on framework

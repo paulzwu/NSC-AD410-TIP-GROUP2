@@ -1,5 +1,0 @@
-1. Met with group, dicussed user stories in greater detail
-
-2. Started writing PDO prepared statement code (connect to database etc.)
-
-3. No obstacles

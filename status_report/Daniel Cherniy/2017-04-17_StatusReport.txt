@@ -1,5 +1,0 @@
-1) Reviewed documentation of survey.js and datatables.js
-
-2) Creating html faculty page
-
-3) N/A

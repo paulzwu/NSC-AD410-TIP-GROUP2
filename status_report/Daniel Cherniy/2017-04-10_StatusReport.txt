@@ -1,5 +1,0 @@
-1) Collect more info about website.
-
-2) Create wireframe/mockup for site.
-
-3) Create basic html site with form for input/output variables.

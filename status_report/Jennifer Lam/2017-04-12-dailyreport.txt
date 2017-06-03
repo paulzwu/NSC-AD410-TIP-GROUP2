@@ -1,7 +1,0 @@
-Status Report 2:
-
-1) What I did is construct a wireframe for 2 pages for the admin pages
-
-2) What I am working on is creating a Acceptance Criteria from User Stories
-
-3) No issues yet.

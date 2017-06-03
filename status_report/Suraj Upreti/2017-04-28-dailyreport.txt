@@ -1,7 +1,0 @@
-Status Report 9:
-
-1). Learned how to use composer and packagist
-
-2). Learned basic Lavarel
-
-3). Working on creating a sample login page

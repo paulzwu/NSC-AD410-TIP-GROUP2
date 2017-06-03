@@ -1,8 +1,0 @@
-Status Report 10
-
-1. Yesterday I worked on other projects. 
-
-2. Today I attended a meeting to see what I can do by next week Tuesday.
-
-3. Tomorrow I will start on coding a helper file that inserts the JSON data into the DB. The roadblock I'm facing is time. 
-I am moving pretty soon so time management is a deiciding factor in doing this task.

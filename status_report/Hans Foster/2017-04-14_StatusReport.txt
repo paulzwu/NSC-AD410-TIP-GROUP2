@@ -1,6 +1,0 @@
-1)  Finished up user stories and discussed implementing a tooltip to make things less complicated for users
-    Made an implementation of the php mail function with Joseph.
-
-2)  I want to fully understand how survey JS is going to work
-
-3)  We should divide up tasks more, all is going well.  

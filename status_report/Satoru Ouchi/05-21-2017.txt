@@ -1,7 +1,0 @@
-Status Report 16
-
-1. Yesterday I worked on making a helper php file to supplement "insert, update, delete" methods to the DB. 
-
-2. I countinued working on the helper php file. Will have it by Monday/Tuesday. Start to expand the Database.
-
-3. Currently, there are no problmes in my way

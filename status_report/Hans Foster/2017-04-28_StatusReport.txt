@@ -1,6 +1,0 @@
-1)  Leaving over the weekend, confirmed that we're going to try using laravel, had a good discussion in class and saw all the mockups.  Contributed
-    opinions on design.  
-
-2)  Unfortunately I won't be able to work much during the next 3 days due to being out of town, but will read about laravel
-
-3)  Need more concrete meeting times - I think Thursday an hour before class and Monday at 5 will be our regular times.  

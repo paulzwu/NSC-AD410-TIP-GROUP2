@@ -1,5 +1,0 @@
-1) Yesterday I added a data visualization library to the project, and got a few of them working.
-
-2) Tomorrow I plan on seeing if I can get a data grid working for the adming dash.
-
-3) Road blocks would be getting actual data from the database to the views to see if they work ad expected.

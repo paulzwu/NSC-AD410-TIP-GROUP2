@@ -1,9 +1,0 @@
-Status Report 2:
-
-1). Met with group on Tuesday
-
-2). Understood most of the project requirements
-
-2). Learned how to use github
-
-3). Working on database diagram showing entites, their attributes and relationship between entities

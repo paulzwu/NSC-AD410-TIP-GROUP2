@@ -1,4 +1,0 @@
-WK-1 
-1. Read the material on the TIP 
-2. Revised SQLite 
-3. Read about GitHub 

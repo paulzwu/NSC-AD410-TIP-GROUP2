@@ -1,7 +1,0 @@
-Status Report 2:
-
-1) Met with client then met with team to review results, reviewed scrum with team, created user stories based on answers to questionnaire,
-
-2) Reviewing code structure guidelines, git instructions, checkin on team progress with user stories and tasks
-
-3) No major roadblocks

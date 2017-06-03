@@ -1,9 +1,0 @@
-
-
-Status report 1 on 04/10/2017
-
-1. Read project requirements.
-2. Followed Justin's GitHub guide (very helpful).
-3. Created very basic php database connection script
-   * Need a database and some basic info (db name, username, password) to connect with.
-

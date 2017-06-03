@@ -1,7 +1,0 @@
-Status Report 11:
-
-1) What I did is research on filters 
-
-2) What I am working on is generate filter tags
-
-3) no issues

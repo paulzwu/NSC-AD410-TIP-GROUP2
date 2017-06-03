@@ -1,7 +1,0 @@
-Status Report 16:
-
-1) What I did is working on filter and displaying the tags 
-
-2) What I am working on is filter forms 
-
-3) no issues

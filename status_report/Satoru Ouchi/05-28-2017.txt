@@ -1,7 +1,0 @@
-Status Report 18
-
-1. Yesterday I worked on parsing the JSON for specific output.
-
-2. Today I also worked on parsing JOSN for specific output.
-
-3. Currently, there are no problmes in my way. I have lots to do.

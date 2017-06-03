@@ -1,8 +1,0 @@
-Status Report 11
-
-1. Yesterday I talked with members of the mid-web to find out if there is anything I can do. 
-
-2. Today I worked on a mock DB to store quiz data from the quiz output.
-
-3. The biggest roadblock I'm facing is getting my spare laptop setup for school work. It has taken some time to install certain programs
-needed.

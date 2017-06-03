@@ -1,7 +1,0 @@
-Status Report 3:
-
-1) What I did is write a Acceptance Criteria from the User Stories for the filters
-
-2) What I am working on is redoing the wireframe using the user stories
-
-3) No issues yet.

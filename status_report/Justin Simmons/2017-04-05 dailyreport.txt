@@ -1,7 +1,0 @@
-Status Report 1:
-
-1) Read project requirements
-
-2) Write a Git help guide for group members
-
-3) Check out the project file. 
