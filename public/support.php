@@ -12,7 +12,7 @@ include 'Views/templates/header.php';
         </div>
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
-            <form name="sentMessage" id="contactForm" novalidate="">
+            <form action="formhandler.php" method="post" name="sentMessage" id="contactForm" novalidate="">
                 <div class="row control-group">
                     <div class="form-group col-xs-12 floating-label-form-group controls">
                         <label>Name</label>
