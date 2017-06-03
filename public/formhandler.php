@@ -1,6 +1,7 @@
 <?php
 //This is a very simple PHP script that outputs the name of each bit of information in the browser window, and then sends it all to an email address you add to the script.
 echo "formhandler has run";
+ob_start();
 if (empty($_POST)) {
 	header('Location: '.$_SERVER['HTTP_REFERER']);
 	exit();
@@ -50,6 +51,7 @@ $subject = 'Email from the TIP Assessment Web App'; // if your client has more t
 //Sends email, with elements created above
 //Replace clientname@domain.com with your client's email address. Put your address here for initial testing, put your client's address for final testing and use.
 mail ('markdpfaff@gmail.com', $subject, $body, $from);
+
 
 header('Location: thanks.php'); // replace "thx.html" with the name and path to your actual thank you page
 
