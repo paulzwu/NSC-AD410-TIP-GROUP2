@@ -1,0 +1,28 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.mahiltletdan.hw1.MainActivity">
+    <item
+        android:id="@+id/home"
+        android:title="@string/action_home"
+        app:showAsAction="always"
+    />
+
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="100"
+        android:title="@string/action_about"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_movie_list"
+        android:orderInCategory="100"
+        android:title="@string/action_movie_list"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/map"
+        android:orderInCategory="100"
+        android:title="MapActivity"
+        app:showAsAction="never" />
+
+</menu>
