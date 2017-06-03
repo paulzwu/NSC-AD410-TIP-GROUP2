@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/main_dialog_title"
+        android:title="@string/main_dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="which Movies Should You watch Tody" />
+
+    <TextView
+        android:id="@+id/main_dialog_content"
+        android:title="@string/main_dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="please give you comment about today Movies in cinema  " />
+</LinearLayout>

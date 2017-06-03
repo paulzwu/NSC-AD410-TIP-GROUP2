@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name" translatable="false">Mahilet First APP</string>
+
+    <string name="Me" translatable="false">Seeking Junior Software Engineer</string>
+    <string name="Name" translatable="false"> Mahilet Hailemariam</string>
+    <string name="MeDetail" translatable="false">I am an experienced software
+        developer and current student at
+        North Seattle College pursuing my Bachelor’s degree in Web Applications.
+        I specialize in SQL development and database administration and
+        I have experience with many different languages, libraries and frameworks
+        for creating web Applications.
+        My previous education and experience is in Engineering,
+        this background has provided me with a foundation in Mathematics
+        and analytics that has proved indispensable during
+        my transition to computer science.</string>
+
+    <string name="btn_string">1</string>
+    <string name="main_dialog_title">Do you want Give Comment  about a Movies </string>
+    <string name="dialog_yes">Yes?</string>
+    <string name="dialog_no">No?</string>
+    <string name="demo_list_header">Demos</string>
+    <string name="activity_recycler_view">Today Movie List</string>
+    <string name="action_home">Home</string>
+    <string name="action_about">About</string>
+    <string name="action_movie_list">Movie List</string>
+    <string name="action_settings">Setting</string>
+    <string name="buttonTL">Top Left</string>
+    <string name="buttonTR">Top Right</string>
+    <string name="buttonBL">Bottom Left</string>
+    <string name="buttonBR">Bottom Right</string>
+    <string name="placeholder">placeholder</string>
+    <string name="default_info_title">Default Location</string>
+    <string name="default_info_snippet">No places found, because location permission is disabled.</string>
+    <string name="pick_place">Choose a place</string>
+    <string name="label_latitude">Latitude</string>
+    <string name="label_longitude">Longitude</string>
+    <string name="label_location">Location</string>
+    <string name="no_location_data">No Location Data</string>
+    <string name="service_not_available">Service unavailable</string>
+    <string name="address_found">Address found</string>
+    <string name="no_address_found">No address found</string>
+    <string name="invalid_lat_long_used">Invalid Lat/Long</string>
+    <string name="title_activity_maps">MapActivity</string>
+    <string name="title_activity_fetch_address_intent_service">FetchAddressIntentService</string>
+
+
+</resources>
+
+
+
+
