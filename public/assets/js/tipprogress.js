@@ -1,15 +1,15 @@
+var complete, inprogress, notstarted;
 document.addEventListener("DOMContentLoaded", function(event) {
-    var complete, inprogress, notstarted;
 
-    var complete = new JustGage({
+    complete = new JustGage({
         id: "complete",
-        value: getRandomInt(0, 1000),
+        value: statsComplete,
         titleFontFamily: "Open Sans",
         valueFontFamily: "Open Sans",
         titleFontColor: "#7f8c8d",
         valueFontColor: "#7f8c8d",
         min: 0,
-        max: 1000,
+        max: 50,
         gaugeWidthScale: 0.2,
         levelColors: ["#a2c171", "#92b558", "#8bb14e"],
         title: "COMPLETE",
@@ -17,15 +17,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
         donut: true,
     });
 
-    var inprogress = new JustGage({
+    inprogress = new JustGage({
         id: "inprogress",
-        value: getRandomInt(0, 1000),
+        value: statsInProgress,
         titleFontFamily: "Open Sans",
         valueFontFamily: "Open Sans",
         titleFontColor: "#7f8c8d",
         valueFontColor: "#7f8c8d",
         min: 0,
-        max: 1000,
+        max: 50,
         gaugeWidthScale: 0.2,
         levelColors: ["#ffd480", "#ffcc66", "#ffc34d"],
         title: "IN-PROGRESS",
@@ -33,15 +33,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
         donut: true,
     });
 
-    var notstarted = new JustGage({
+    notstarted = new JustGage({
         id: "notstarted",
-        value: getRandomInt(0, 1000),
+        value: statsNotStarted,
         titleFontFamily: "Open Sans",
         valueFontFamily: "Open Sans",
         titleFontColor: "#7f8c8d",
         valueFontColor: "#7f8c8d",
         min: 0,
-        max: 1000,
+        max: 50,
         gaugeWidthScale: 0.2,
         levelColors: ["#ff944d", "#ff8533", "#ff751a"],
         title: "NOT-STARTED",
