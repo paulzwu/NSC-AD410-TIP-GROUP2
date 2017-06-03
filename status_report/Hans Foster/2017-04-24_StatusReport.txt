@@ -1,0 +1,5 @@
+1)  Talked about using cloud9 and Trello for communication and hosting.  Laravel was first mentioned.  
+
+2)  Just met with the group - might work more with the database side on exactly what the ERD should look like after we use Json files, this interests me the most I think
+
+3)  None.  

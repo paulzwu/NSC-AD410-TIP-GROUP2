@@ -1,0 +1,21 @@
+Joseph Sayler
+Status report 5
+04-19-2017
+
+
+Yesterday:
+1. updated Nico's db connection scripts for use with sqlite; moved them into lib folder to be at same directory level as the connection script
+2. made the examples folder its own entity; download that folder and run the scripts on your own machine; also made readme file
+
+
+Today\tomorrow:
+1. working on sprint1: Hans and I are creating a script to handle sending emails using PHP; will come up with a basic script and get Hans' input
+2. working on survey.js editor: need to customize the editor for the project's needs
+	a) a save/load function needs to be implemented; this will involve jquery (ajax function) and the connection/query scripts I made previously
+	b) the editor's options need to be customized: right now, the editor gives a lot of great functionality; this would be too much for a site administrator; need to tone down what options are available. this is not an urgent matter, and we can discuss what stays and what goes after the save/load function is done
+	c) need to upload the editor's pre-compiled code to github so others can use it
+3. will be looking into some alternatives to survey.js; survey.js is great, but I have not explored all of what it can/can't do. will find some alternatives just in case survey.js does not work out in the long run
+
+
+Roadblocks:
+none

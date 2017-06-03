@@ -1,0 +1,14 @@
+Status Report 6:
+
+1) What did you do?
+* Confirmed User Stories each subteam was working on for this sprint
+* Rewrote criteria for User Stories as people were too confused with current format
+* Assigned OAuth feature to Suraj in frontend so we can start working on implementation
+
+2) What are you doing next?
+* Review status reports for roadblocks
+* Review all User Stories and make sure everything is added to Trello
+* Review code structure and how configuration files should be handled
+
+3)What roadblocks stand in your way?
+No roadblocks

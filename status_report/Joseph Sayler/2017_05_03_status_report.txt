@@ -1,0 +1,16 @@
+Joseph Sayler
+Status report 11
+5/3/2017
+
+Yesterday
+
+finished load function on the example quiz display script; it now loads using a php function in the sqlite3_calls.php library
+
+Today
+
+... /=|
+
+
+roadblocks
+
+coming up with a design for how the data is stored in database. met with some people and we are all on the same page about how to store things, but not sure how to keep all IDs for all quizes unique. meeting tomorrow before class to discuss this. meeting will include members of front end

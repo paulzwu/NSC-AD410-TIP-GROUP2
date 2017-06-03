@@ -1,0 +1,5 @@
+1) Created a list of potential tasks front-end team could begin work on. Continued work on wireframes for admin dashboard and analysis tool. Also began an implementation details document for both pages outlining the various user inputs on the page, what the default data displayed should be, and how the view will need to be updated with different interactions.
+
+2) Tomorrow I plan to finish the wireframes and the input doc.
+
+3) I'm not sure what our development timeline is, so we should try to define that at our group meeting on Tuesday (maybe).

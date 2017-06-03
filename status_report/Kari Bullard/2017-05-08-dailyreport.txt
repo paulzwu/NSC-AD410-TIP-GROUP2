@@ -1,0 +1,5 @@
+1) Yesterday I worked on implementing a new framework for the group to use because we ran into issues putting Laravel on a shared server. It took a lot of time, but I feel this will work out better in the end because it's simpler, but we didn't necessarily need all the complexity Laravel provided.
+
+2) Today I'm finishing up documentation for what I wrote, and tomorrow I'll share it with everyone at SCRUM.
+
+3) Roadblocks: front-end needs database info to know if what we're writing will work.

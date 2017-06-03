@@ -1,4 +1,7 @@
-# NSC-AD410-TIP-GROUP2
-Project by Team 2.
+# MOBILE-APP.DEVELOPMENT-HW1
+Building My First App
 
-The web application is to redesign an application that was designed as a Canvas module for teaching improvement. The application will have a friendlier user interface, more powerful and flexible report functionality, and administration functionality for adding, modifying or deleting questions.
+On my first week in android class, I download and install Android Studio
+then I created a new Android project with Android Studio and run a debug
+that I built AD340/Hw1, and tested the application on Nexus 5x. Still,
+I'm having a problem with emulator

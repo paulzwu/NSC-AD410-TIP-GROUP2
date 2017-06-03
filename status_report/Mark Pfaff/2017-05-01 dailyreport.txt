@@ -1,0 +1,17 @@
+Status Report 10:
+
+1) What did you do?
+* Summarized feedback for team from Alissa meeting
+* Installed laravel and composer
+* Created a cloud9 install to see if we can use it for a live site
+* Reviewed status reports for roadblocks
+
+
+2) What are you doing next?
+* Get my local instance and cloud 9 to show live site
+* Finalize styles with front end
+* Test Emailing feature
+* Test Database
+
+3)What roadblocks stand in your way?
+* Can’t get Laravel to show live site yet

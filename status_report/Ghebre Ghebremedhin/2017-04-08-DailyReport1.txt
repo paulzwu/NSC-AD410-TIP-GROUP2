@@ -1,0 +1,7 @@
+Daily Report 1:
+
+1. Read project requirements
+
+2. Started reading about SQLite
+
+3. Learned more about Github

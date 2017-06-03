@@ -1,0 +1,5 @@
+1)  With Gehbreh, divided up work to create sql queries/research the questions posed by the front end about queries
+
+2)  Will finish creating test queries and finalize an ERD of the database
+
+3)  none so far

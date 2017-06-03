@@ -1,0 +1,168 @@
+/*NAVBAR STYLES*/
+nav {
+    -webkit-box-shadow: 3px -2px 20px 2px rgba(194, 190, 194, 0.79);
+    -moz-box-shadow: 3px -2px 20px 2px rgba(194, 190, 194, 0.79);
+    box-shadow: 3px -2px 20px 2px rgba(194, 190, 194, 0.79);
+    padding-top: 7px;
+}
+
+body > div > div.sidebar > div > div > span {
+    color: #ffffff;
+    padding-left: 10px;
+    vertical-align: bottom;
+    font-size: 1.5em;
+}
+/*END NAVBAR STYLES*/
+
+/*DATA FILTER STYLES*/
+.tags {
+  margin: 10px;
+}
+/*END DATA FILTER STYLES*/
+
+
+
+/*TIP EDITOR STYLES*/
+button#loadSurvey, button#newSurvey, button#saveSurvey, button#deleteSurvey {
+    margin-right: 10px;
+    font-size: 11px;
+}
+div#surveyNames, div#overwrite {
+    max-height: 250px;
+    overflow-y:scroll;
+}
+div#saveas {
+    text-align: center;
+}
+/*END TIP EDITOR STYLES*/
+
+
+
+/*FACULTY DASHBOARD STYLES*/
+.card {
+    overflow: hidden;
+}
+
+.start-div {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/*END FACULTY DASHBOARD STYLES*/
+
+/*Removes svd properties sidebar*/
+.svd_properties {
+    display: none !important;
+}
+
+
+input[type="radio"] {
+    display:inline-block;
+}
+
+.main-panel > .content.responses-content {
+    height: 500px !important;
+    
+}
+
+.main-panel {
+    padding-bottom: 100px;
+}
+
+.tip-container {
+    padding-bottom: 300px;
+    padding-left: 100px;
+    padding-top: 50px;
+}
+
+.tip-title {
+    text-align:center;
+    padding-top:20px;
+    width: 50%;
+    padding-left: 100px;
+    
+}
+
+footer {
+    z-index:0;
+    clear:both; 
+    min-height:50px; 
+    background-color:#18bc9c;
+    color:#fff;
+    text-align:center;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding-top: 10px;
+}
+
+table.dataTable thead th div.DataTables_sort_wrapper {
+    cursor: pointer !important;
+}
+
+div.progress-bar span {
+    display: none;
+}
+
+.modal-body .list-group-item {
+    margin: 15px !important;
+}
+
+a.svd_page_nav {
+    margin: 5px;
+}
+
+span.glyphicon.glyphicon-arrow-down::before, 
+span.glyphicon.glyphicon-arrow-up::before,
+.glyphicon-trash:before {
+    font-weight: bolder;
+    font-size: 15px;
+}
+
+span.glyphicon.glyphicon-arrow-down::before {
+    content: "⬇";
+}
+
+span.glyphicon.glyphicon-arrow-up::before {
+    content: "⬆";
+}
+
+.glyphicon-trash:before {
+    content: "✘";
+}
+
+/*.start-div a {
+    border: solid 2px #337ab7 !important;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.start-div a:hover {
+    text-decoration: none;
+}*/
+
+.assessment-table {
+    margin-left:20px;
+    padding: 10px;
+    margin-bottom:20px;
+}
+
+.assessment-table th
+.assessment-table td {
+    text-align: center;
+
+}
+
+.modal-backdrop {
+    display: none !important;
+}
+
+/***********
+Make sure this is the last style in the sheet - nothing below it
+*************/
+input[value="Next"],
+input[value="Complete"] {
+    float:right; 
+}​
+
