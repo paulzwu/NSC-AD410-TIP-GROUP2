@@ -2,14 +2,15 @@
 	/*
 	 * Retrieves a survey JSON object from DB
 	 */
+
+	 include "db_connect.php";
+
 	$surveyID = (isset($_POST['ID'])) ? $_POST['ID'] : "";
 	$table = 'SURVEY';
 	$col1 = 'surveyID';
 	$col2 = 'surveyJSON';
 	$sqlstmt = "SELECT $col2 FROM $table WHERE $col1 = '$surveyID';";
 	try {
-		$conn = new PDO("sqlite:DB/db.sqlite");
-		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$statement = $conn->prepare($sqlstmt);
 		$statement->execute();
 		$surveyData = $statement->fetchColumn();

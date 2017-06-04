@@ -115,6 +115,7 @@ $totalFaculty = 200;
                             "<div class=\"modal-footer\">" +
                                 "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" id=\"load\">Load</button>" +
                                 "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" id=\"cancelLoad\">Cancel</button>" +
+                                "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" id=\"delete\">Delete</button>" +
                             "</div>" +
                         "</div>" +
                     "</div>" +
@@ -151,22 +152,31 @@ $totalFaculty = 200;
                         if (docID == 0) {
                             console.log("no data");
                         } else {
-                            $("#load").click(function() {
-                                $.ajax({url: 'survey_load.php',
-                                        data: {'ID':docID},
-                                        type: 'POST',
-                                        success:function(result) {
-                                        // survey.text loads quiz data into surveyjs editor
-                                            survey.text=result;
-                                            console.log("survey loaded");
-                                        },
-                                        error:function() {
-                                            console.log("no survey to load");
-                                        }
-                                });
+                          console.log("survey ID: " + docID);
+                          $("#load").click(function() {
+                              $.ajax({url: 'survey_load.php',
+                                      data: {'ID':docID},
+                                      type: 'POST',
+                                      success:function(result) {
+                                      // survey.text loads quiz data into surveyjs editor
+                                          survey.text=result;
+                                          console.log("survey loaded");
+                                      },
+                                      error:function() {
+                                          console.log("no survey to load");
+                                      }
+                              });
+                          });
+                          $("#delete").click(function() {
+                            $.ajax({url: 'survey_delete.php',
+                                    data: {'ID':docID},
+                                    type: 'POST',
+                                    success:function(result) {
+                                      console.log("survey " + docID + " deleted");
+                                    }
                             });
+                          });
                         }
-                        console.log("survey ID: " + docID);
                     });
                 });
 
