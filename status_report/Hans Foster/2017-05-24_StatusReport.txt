@@ -1,0 +1,6 @@
+1)  Had a good discussion with Joseph and generated some pseudo-code with him for the filters.  
+Particularly we talked about how to check for quiz completeness and searching for incomplete quizzes.
+
+2)  Will try to work more on the pseudo code to turn it into actual code.
+
+3)  Can't attend next week.  

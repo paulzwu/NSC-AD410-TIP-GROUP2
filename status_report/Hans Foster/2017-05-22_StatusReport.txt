@@ -1,0 +1,6 @@
+1)  Ended up missing today (Monday's meeting) but wanted to work on filters - have identified some challenges already
+
+2)  Will write more finalized SQL queries to upload to github that should represent how we search the database 
+each time a query is made.  
+
+3)  Only that I am missing today's meeting and will unfortunately miss next week too.  
