@@ -71,7 +71,7 @@
           function previewReport(){
             var element = this;
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'Views/report_preview.php', true);
+            xhr.open('POST', 'report_preview.php', true);
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
             xhr.onreadystatechange = function(){
