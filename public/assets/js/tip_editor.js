@@ -57,117 +57,142 @@
                     "</div>" +
                 "</div>" +
             "</div>" +
-        "</div>"
+        "</div>" +
+        "<div id=\"snackbar\"></div>"
     );
 
 $(document).ready(function() {
-
-  //------------ load survey ------------\\
-  //request the JSON data and parse into the select element
-  $('#loadSurvey').one('click', function() {
-    loadNames('#surveyNames');
-    // when load is clicked, pass the surveyID to the server and return survey json
-    $(document).on('click', 'button#pass-data', function(){
-        var docID = $(this).attr('data-id');
-        if (docID == 0) {
-          console.log("no data");
-        } else {
-          console.log("survey ID: " + docID);
-          $("#load").click(function() {
-              $.ajax({url: 'survey_load.php',
+    //------------ load survey ------------\\
+    //request the JSON data and parse into the select element
+    $('#loadSurvey').on('click', function() {
+      loadNames('#surveyNames');
+      console.log("load clicked");
+      $('#loadBox').one('click', '#pass-data', function() {
+        console.log("Survey name clicked");
+          var docID = $(this).attr('data-id');
+          if (docID == 0) {
+            console.log("no data");
+          } else {
+            console.log("survey ID: " + docID);
+            // when load is clicked, pass the surveyID to the server and return survey json
+            $("#load").one('click', function() {
+                console.log("modal load clicked");
+                $.ajax({url: 'survey_load.php',
+                    data: {'ID':docID},
+                    type: 'POST',
+                    success:function(result) {
+                    // survey.text loads quiz data into surveyjs editor
+                      survey.text=result;
+                      console.log("survey loaded");
+                      snackBar("Survey loaded");
+                    },
+                    error:function() {
+                      console.log("no survey to load");
+                      snackBar("No survey to load");
+                    }
+                });
+            });
+            $("#delete").one('click', function() {
+              $.ajax({url: 'survey_delete.php',
                   data: {'ID':docID},
                   type: 'POST',
                   success:function(result) {
-                  // survey.text loads quiz data into surveyjs editor
-                    survey.text=result;
-                    console.log("survey loaded");
+                    console.log("survey " + docID + " deleted");
+                    snackBar("Survey deleted");
                   },
                   error:function() {
-                    console.log("no survey to load");
+                    console.log("no survey to delete");
+                    snackBar("No survey to delete");
                   }
               });
-          });
-          $("#delete").click(function() {
-            $.ajax({url: 'survey_delete.php',
-                data: {'ID':docID},
-                type: 'POST',
-                success:function(result) {
-                  console.log("survey " + docID + " deleted");
-                }
             });
-          });
+          }
+      });
+//      $("#loadBox").on('hidden.bs.modal', function () {
+//        $(this).data('bs.modal', null);
+//      });
+    });
+
+    //------------ save survey ------------\\
+    $('#saveSurvey').on('click', function() {
+      // when save button pressed,
+      $("#save").one('click', function() {
+        // right now, names do not have to be unique - TODO: enforce unique quiz names
+        var nameOfSurvey = $('input[name=surveyName1]').val();
+        var jsonSurvey = survey.text;
+        // if no name given, data not saved
+        if (nameOfSurvey == null || !nameOfSurvey.replace(/\s/g, '').length) {
+            snackBar("No name given, survey not saved");
+            console.log("No name, save canceled")
+        } else {
+            // survey json and name saved to db
+            $.ajax({url: 'survey_save.php', data: {'saveData':jsonSurvey, 'saveName':nameOfSurvey}, type: 'POST',
+                        success: console.log("json data sent to server") });
+
+            snackBar("This survey has been saved as " + nameOfSurvey);
+            $('#test').children('input').val('')
         }
+      });
+      $("#cancelSave").one('click', function() {
+        $('#test').children('input').val('')
+        snackBar("Save canceled");
+        console.log("User canceled save")
+      });
     });
-  });
 
-  //------------ save survey ------------\\
-  $('#saveSurvey').one('click', function() {
-    // when save button pressed,
-    $("#save").click(function() {
-      // right now, names do not have to be unique - TODO: enforce unique quiz names
-      var nameOfSurvey = $('input[name=surveyName1]').val();
-      var jsonSurvey = survey.text;
-      // if no name given, data not saved
-      if (nameOfSurvey == null || !nameOfSurvey.replace(/\s/g, '').length) {
-          alert("No name given. Survey not saved.");
-          console.log("Save canceled")
-      } else {
-          // survey json and name saved to db
-          $.ajax({url: 'survey_save.php', data: {'saveData':jsonSurvey, 'saveName':nameOfSurvey}, type: 'POST',
-                      success: console.log("json data sent to server") });
-
-          alert("This survey has been saved.");
-          $('#test').children('input').val('')
-      }
+    //------------ new survey ------------\\
+    $("#newSurvey").on('click', function() {
+      // removes all json data, effectively resetting the survey editor
+      survey.text = '';
+      console.log("json data cleared");
+      snackBar("Survey cleared");
     });
-    $("#cancelSave").click(function(){
-      $('#test').children('input').val('')
+
+    // renames tip editor tabs
+    $(".svd_container .svd_menu a").each(function() {
+        var text = $(this).text();
+        text = text.replace("Survey Designer", "Tip Editor");
+        text = text.replace("Test Survey", "Preview Tip");
+        $(this).text(text);
     });
-  });
 
-  //------------ new survey ------------\\
-  $("#newSurvey").click(function() {
-    // removes all json data, effectively resetting the survey editor
-    survey.text = '';
-    console.log("json data cleared");
-  });
-
-  // renames tip editor tabs
-  $(".svd_container .svd_menu a").each(function() {
-      var text = $(this).text();
-      text = text.replace("Survey Designer", "Tip Editor");
-      text = text.replace("Test Survey", "Preview Tip");
-      $(this).text(text);
-  });
-});
-
-  // used to load a list of survey names into the load and overwrite modal boxes
-  function loadNames(id){
-    $select = $(id);
-    // call to server to load quiz names
-    $.ajax({
-      url: 'survey_ids.php',
-      dataType:'JSON',
-      success:function(data){
-          //clear the current content of the select
+    // used to load a list of survey names into the load and overwrite modal boxes
+    function loadNames(id){
+      $select = $(id);
+      // call to server to load quiz names
+      $.ajax({
+        url: 'survey_ids.php',
+        dataType:'JSON',
+        success:function(data){
+            //clear the current content of the select
+            $select.html('');
+            $.each(data.surveyInfo, function(key, val) {
+              //report to user if db empty (no data in table)
+              if (val.surveyID == '0') {
+                $select.append('<button type=\"button\" id=\"pass-data\" class=\"list-group-item list-group-item-action\" data-id=\"0">No surveys saved.</button>');
+                console.log("no items to display");
+              } else {
+                //iterate over the data and create a list of buttons with data values to pass to load function
+                $select.append('<button type=\"button\" id=\"pass-data\" class=\"list-group-item list-group-item-action\" data-id=\"' + val.surveyID + '\">' + val.surveyName + '</button>');
+              }
+          })
+          console.log("survey menu created");
+        },
+        error:function(){
           $select.html('');
-          $.each(data.surveyInfo, function(key, val){
-            //report to user if db empty (no data in table)
-            if (val.surveyID == '0') {
-              $select.append('<button type=\"button\" id=\"pass-data\" class=\"list-group-item list-group-item-action\" data-id=\"0">No surveys saved.</button>');
-              console.log("no items to display");
-            } else {
-              //iterate over the data and create a list of buttons with data values to pass to load function
-              $select.append('<button type=\"button\" id=\"pass-data\" class=\"list-group-item list-group-item-action\" data-id=\"' + val.surveyID + '\">' + val.surveyName + '</button>');
-            }
-        })
-        console.log("survey menu created");
-      },
-      error:function(){
-        $select.html('');
-        //report to user if there is an error (db file missing)
-        $select.append('<button type=\"button\" id=\"pass-data\" class=\"list-group-item list-group-item-action\" data-id=\"-1\">Database not available.</button>');
-        console.log("database file not found");
-      }
-    });
-  }
+          //report to user if there is an error (db file missing)
+          $select.append('<button type=\"button\" id=\"pass-data\" class=\"list-group-item list-group-item-action\" data-id=\"-1\">Database not available.</button>');
+          console.log("database file not found");
+        }
+      });
+    }
+
+    function snackBar(text) {
+      $('#snackbar').empty();
+      var x = document.getElementById("snackbar")
+      x.className = "show";
+      $("#snackbar").append(text);
+      setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    }
+
+  });
