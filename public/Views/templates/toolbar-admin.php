@@ -27,6 +27,8 @@
                                 <li><a href="#">Report 4</a></li>
                                 <li class="divider"></li>
                                 <li><a href="#">Export</a></li>
+                                <li><a href="Export.php?format=pdf">Export pdf</a></li>
+                                <li><a href="Export.php?format=csv">Export csv</a></li>
                               </ul>
                         </li>
                         <li>
