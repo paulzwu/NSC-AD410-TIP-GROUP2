@@ -14,7 +14,7 @@ $usertype = 'admin';
 $waitingOn = 45;
 $totalFaculty = 200;
 
-openOrCreateDB();
+//openOrCreateDB();
 
 // $username = App\Models\AdminDash::getUser();
 
