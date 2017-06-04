@@ -31,4 +31,3 @@ foreach ($_POST as $key => $value){
 
 //send form
 mail('markdpfaff@gmail.com', 'Message from TIP Web Application', $message);
-
