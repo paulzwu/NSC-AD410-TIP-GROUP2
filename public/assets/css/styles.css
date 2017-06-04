@@ -158,6 +158,32 @@ span.glyphicon.glyphicon-arrow-up::before {
     display: none !important;
 }
 
+.svd_editors {
+    width: 70% ;
+}
+
+.svd_toolbox {
+    width: 30% ;
+}
+
+@media screen and (max-width: 768px){
+    .svd_editors {
+        width: 100%;
+        float:none;
+    }
+
+    .svd_toolbox {
+        width: 100% ;
+        float:none ;
+    }
+    
+    .svd_container .svd_content .svd_survey_designer .svd_toolbox .btn-group-vertical .btn {
+        float: left;
+        width: 30px !important;
+    }
+}
+
+
 /***********
 Make sure this is the last style in the sheet - nothing below it
 *************/
