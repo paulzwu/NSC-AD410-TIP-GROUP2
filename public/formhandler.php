@@ -31,3 +31,7 @@ foreach ($_POST as $key => $value){
 
 //send form
 mail('markdpfaff@gmail.com', 'Message from TIP Web Application', $message);
+
+//redirect to thankyou page
+header( 'Location: thanks.php' ) ;
+
