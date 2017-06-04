@@ -30,8 +30,7 @@
         <table id="table_id" class="display "></table>
         </div>
 
-</body>
-</html>
+
 
 
 

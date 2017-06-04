@@ -74,44 +74,38 @@ Toggle this block to turn oauth on and off
 /*****************************************
 Toggle this block to turn oauth on and off
 ******************************************/
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title><?php echo $pagetitle;?></title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     
 
-<!--     Bootstrap core CSS     -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- BASE STYLES FOR SITE | DO NOT ERASE -->
 
-<!--      Light Bootstrap Table core CSS    -->
-    <link href="assets/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
+    <!-- CORE BOOTSTRAP CSS !!! REQUIRED-->
+     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+     <!-- DASHBOARD CSS !!! REQUIRED-->
+     <link rel="stylesheet" type="text/css" href="assets/css/light-bootstrap-dashboard.css">
+     <!-- NAVBAR ICONS !!! REQUIRED-->
+     <link rel="stylesheet" type="text/css" href="assets/css/pe-icon-7-stroke.css">
+     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+     <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.min.css">
+     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.jqueryui.min.css">
+     <!-- FONTS !!! REQUIRED-->
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Khula:700|Open+Sans">
 
-<!--         Fonts and icons     -->
-    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Khula:700|Open+Sans" rel="stylesheet">
-
-<!--     Survey JS CSS-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" type="text/css" rel="stylesheet" />
- 
-<!--     Survey JS Scripts      -->
-            <link href="http://getbootstrap.com/dist/css/bootstrap.css" type="text/css" rel="stylesheet" />
-
-        <link href="https://surveyjs.azureedge.net/0.12.9/surveyeditor.css" type="text/css" rel="stylesheet" />
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" type="text/css" rel="stylesheet" />
-       <!--     Custom CSS Defenitions -->
-    <link rel="stylesheet" href="assets/css/styles.css">    
-                <?php 
-//    if (basename($_SERVER['PHP_SELF']) == 'tip.php'){
-//        echo '<!--if page is tip.php include survey_demo.js-->';
-//        echo '<script src="survey_demo.js"></script>';
-//    }?>
-    <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.css">
+     <!-- Data Tables -->
+         <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.jqueryui.min.css">
+
+    <!-- END  STYLES FOR SITE                   -->
+
             
 </head>
 <body>
@@ -120,8 +114,11 @@ Toggle this block to turn oauth on and off
             <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="index.php"><img src="assets/img/alt_logo.png" alt="NSC Logo" height="45" width="55"></a>
-                <span>Welcome, <?php echo htmlspecialchars($username); ?></span>
+                <span>Welcome, <?php echo $username; ?></span>
             </div>
+
+
+
 
             <?php 
             
