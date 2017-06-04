@@ -138,6 +138,16 @@ $(document).ready(function() {
         snackBar("Save canceled");
         console.log("User canceled save")
       });
+
+      $('#saveBox').on('hidden.bs.modal', function (e) {
+        $(this)
+          .find("input,textarea,select")
+             .val('')
+             .end()
+          .find("input[type=checkbox], input[type=radio]")
+             .prop("checked", "")
+             .end();
+      })
     });
 
     //------------ new survey ------------\\
