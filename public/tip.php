@@ -1,30 +1,18 @@
-<?php
-include 'Views/templates/header.php';
-?>
-        <!-- Maiin Content -->
-        <div class="tip-title">
-            <h3>TIP Assessment</h3>
-        </div>
 
-<div id="container" class="col-md-6 col-lg-6 col-sm-12 tip-container">
-		<div><button type="button" class="btn btn-primary" id="loadSurvey" data-toggle="modal" data-target="#loadBox" data-backdrop="static">Load a survey</button></div>
-		<div class="modal fade" id="loadBox" role="dialog">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Load</h4>
-					</div>
-					<div class="modal-body">
-						<div class="list-group" id="surveyNames"></div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal" id="loadBtn">Load</button>
-						<button type="button" class="btn btn-default" data-dismiss="modal" id="cancelLoad">Cancel</button>
-					</div>
-				</div>
-			</div>
-		</div>
-    </div>
+<?php include 'Views/templates/header.php';?>
+<script src="assets/js/lib/jquery-3.2.1.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+<link href="https://surveyjs.azureedge.net/0.12.14/surveyeditor.css" type="text/css" rel="stylesheet" />
+<script src="https://surveyjs.azureedge.net/0.12.14/survey.ko.min.js"></script>
+<script src="https://surveyjs.azureedge.net/0.12.14/surveyeditor.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/worker-json.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/mode-json.js" type="text/javascript"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
+  <!-- Maiin Content -->
+  <div class="tip-title"><h3>TIP Assessment</h3></div>
+  <div id="container" class="col-md-6 col-lg-6 col-sm-12 tip-container"></div>
+  <script src="assets/js/tip_viewer.js" type="text/javascript"></script>
 <?php include 'Views/templates/footer.php';?>
