@@ -2,12 +2,12 @@
   /*
    * Retrieves survey names from DB for populating in a select element
    */
-  $table = 'Surveys';
+  $table = 'SURVEY';
   $col1 = 'surveyID';
   $col2 = 'surveyName';
   $sqlstmt = "SELECT $col1, $col2 FROM $table;";
   try {
-    $conn = new PDO("sqlite:DB/test.sqlite");
+    $conn = new PDO("sqlite:DB/db.sqlite");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $statement = $conn->prepare($sqlstmt);
     $statement->execute();
