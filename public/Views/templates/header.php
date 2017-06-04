@@ -23,8 +23,6 @@ $totalFaculty = 200;
 // } else {
 //     openOrCreateDB();
 // }
-
-?>
 ?>
 <!DOCTYPE html>
 <html lang="en">
