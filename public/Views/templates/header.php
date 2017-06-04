@@ -1,7 +1,7 @@
 <?PHP
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
+include 'config.php';
 require '../vendor/autoload.php';
 
 use Core\View;
@@ -14,7 +14,7 @@ $usertype = 'admin';
 $waitingOn = 45;
 $totalFaculty = 200;
 
-//openOrCreateDB();
+openOrCreateDB();
 
 // $username = App\Models\AdminDash::getUser();
 
