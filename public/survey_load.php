@@ -3,12 +3,12 @@
 	 * Retrieves a survey JSON object from DB
 	 */
 	$surveyID = (isset($_POST['ID'])) ? $_POST['ID'] : "";
-	$table = 'Surveys';
+	$table = 'SURVEY';
 	$col1 = 'surveyID';
-	$col2 = 'jsonData';
+	$col2 = 'surveyJSON';
 	$sqlstmt = "SELECT $col2 FROM $table WHERE $col1 = '$surveyID';";
 	try {
-		$conn = new PDO("sqlite:DB/test.sqlite");
+		$conn = new PDO("sqlite:DB/db.sqlite");
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$statement = $conn->prepare($sqlstmt);
 		$statement->execute();
