@@ -11,11 +11,13 @@
     "require": {
         "php": ">=5.6.0",
         "league/oauth2-client": "~1.0",
-        "smtech/oauth2-canvaslms": "^1.0"
+        "smtech/oauth2-canvaslms": "^1.0",
+        "dompdf/dompdf": "^0.8.0",
+        "faisalman/simple-excel-php": "^0.3.15"
     },
     "autoload": {
         "psr-4": {
-            "smtech\\OAuth2\\Client\\": "src",
+            "smtech\\OAuth2\\Client\\": "src"
         }
     }
 }
