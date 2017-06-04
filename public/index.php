@@ -1,4 +1,6 @@
 <?php
+
+$pagetitle = 'Tip';
 include 'Views/templates/header.php';
 
 if($usertype=="admin"){

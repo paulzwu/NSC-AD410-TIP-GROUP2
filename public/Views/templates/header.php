@@ -28,7 +28,7 @@ openOrCreateDB();
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title><?php echo $pagetitle;?></title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -53,7 +53,7 @@ openOrCreateDB();
          <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.jqueryui.min.css">
 
-    <!-- END  STYLES FOR SITE                   -->
+    <!-- END  STYLES FOR SITE -->
 
             
 </head>

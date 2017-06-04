@@ -36,11 +36,48 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+        <h4 class="modal-title" id="modalHeader"></h4>
       </div>
       <div class="modal-body">
+        <p id="modalDescription"></p>
+        <br>
+        <!-- DATE RANGE PICKER -->
+    <div class="row">
+            <div class="form-group col-sm-4 reportSpecifications">
+              <label for="usr">Start Date:</label>
+              <input type="date" class="form-control dateRange" id="startDate" onchange="getSelectedRange()">
+            </div>
+            <div class="form-group col-sm-4">
+              <label for="pwd">End Date:</label>
+              <input type="date" class="form-control dateRange" id="endDate" onchange="getSelectedRange()">
+            </div>
+                        <div class="form-group col-sm-4">
+              <div class="form-group academicYear">
+              <label for="pwd">Academic Year:</label>
+                  <select class="form-control" id="academicYear">
+
+                  </select>
+                </div>
+            </div>
+      </div>
+      <div class="row">
+     <!--    <li><a href="Export.php?format=pdf">Export pdf</a></li>
+                                <li><a href="Export.php?format=csv">Export csv</a></li> -->
+        <div class="checkbox col-sm-6">
+          <label><input type="checkbox" value="">Include Data Visualization</label>
+        </div>
+        <div class="col-sm-6">
+                    <label for="pwd">Export As:</label>
+          <select class="form-control" id="exportType">
+                <option>PDF</option>
+                <option>CSV</option>
+          </select>
+        </div>
+
+          
       </div>
       <div class="modal-footer">
+          <button type="submit" class="btn btn-success" onclick="clearReportFields()">Clear Fields</button>
         <button type="submit" class="btn btn-success">Export</button>
         <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
       </div>
