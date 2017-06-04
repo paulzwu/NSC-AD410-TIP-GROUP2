@@ -16,8 +16,6 @@
     "autoload": {
         "psr-4": {
             "smtech\\OAuth2\\Client\\": "src",
-            "Core\\": "Core/",
-            "App\\": "App/"
         }
     }
 }

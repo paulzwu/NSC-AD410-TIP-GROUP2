@@ -64,8 +64,31 @@
                 }
             ]
         });
-        
     });
+</script>
+<!-- Report Request Handler -->
+<script>
+          function previewReport(){
+            var element = this;
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'Views/report_preview.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+            xhr.onreadystatechange = function(){
+              if(xhr.readyState == 4 && xhr.status == 200){
+                var result = xhr.responseText;
+                console.log('Result: '+ result);
+                // $('#reportModal').html(result).modal('toggle');
+                $('#reportModal').modal({'show' : true});
+              }
+            };
+            xhr.send("id=" + element.id);
+          }
+
+          var buttons = document.getElementsByClassName("previewReport");
+          for(i = 0; i < buttons.length; i++){
+            buttons.item(i).addEventListener("click", previewReport);
+          }
 </script>
 
 </body>

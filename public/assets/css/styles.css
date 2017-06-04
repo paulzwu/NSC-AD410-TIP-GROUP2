@@ -132,16 +132,6 @@ span.glyphicon.glyphicon-arrow-up::before {
     content: "✘";
 }
 
-/*.start-div a {
-    border: solid 2px #337ab7 !important;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.start-div a:hover {
-    text-decoration: none;
-}*/
-
 .assessment-table {
     margin-left:20px;
     padding: 10px;

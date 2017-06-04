@@ -291,8 +291,10 @@ $usertype = 'admin';
 
 <!-- Response Rate Assets -->
 <script>
+       $(document).ready(function() {
+                
         //------------ load survey ------------\\
-        $(document).ready(function() {
+        //request the JSON data and parse into the select element
         $('#loadSurvey').one('click', function() {
             loadNames('#surveyNames');
             // when load is clicked, pass the surveyID to the server and return survey json
@@ -302,7 +304,7 @@ $usertype = 'admin';
                     console.log("no data");
                 } else {
                     $("#loadBtn").click(function() {
-                        $.ajax({url: '"<?php echo base_url(); ?>" + "index.php/ajax_post_controller/user_data_submit"',
+                        $.ajax({url: 'survey_load.php',
                             data: {'ID':docID},
                             type: 'POST',
                             success:function(result) {
@@ -383,7 +385,6 @@ $usertype = 'admin';
         text = text.replace("Test Survey", "Preview Tip");
         $(this).text(text);
     });
-</script>
 </script>
 
 </body>
