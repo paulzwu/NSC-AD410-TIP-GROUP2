@@ -7,7 +7,8 @@
   $table = 'SURVEY';
   $col1 = 'surveyID';
   $col2 = 'surveyName';
-  $sqlstmt = "SELECT $col1, $col2 FROM $table;";
+  $col3 = 'currentTIP';
+  $sqlstmt = "SELECT $col1, $col2, $col3 FROM $table;";
   try {
     $statement = $conn->prepare($sqlstmt);
     $statement->execute();
@@ -16,7 +17,7 @@
     $jsonArray = array('surveyInfo'=>$jsonData);
 	// returns surveyID of 0 if jsonArray is empty, else returns jsonArray
 	if (in_array(null, $jsonArray)) {
-		echo "{\"surveyInfo\":[{\"surveyID\":\"0\",\"surveyName\":\"none\"}]}";
+		echo "{\"surveyInfo\":[{\"surveyID\":\"0\",\"surveyName\":\"none\",\"currentTIP\":\"0\"}]}";
 	} else {
 		echo JSON_encode($jsonArray);
 	}
