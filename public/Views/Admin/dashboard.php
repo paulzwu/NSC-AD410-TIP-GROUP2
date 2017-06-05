@@ -28,7 +28,7 @@
         </div>
         <!-- DATAGRID -->
         </div>
-        <table id="table_id" class="display "></table>
+        <table id="table_id" class="display"></table>
         </div>
         <!-- REPORT MODAL -->
         <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -61,16 +61,14 @@
             </div>
       </div>
       <div class="row">
-     <!--    <li><a href="Export.php?format=pdf">Export pdf</a></li>
-                                <li><a href="Export.php?format=csv">Export csv</a></li> -->
         <div class="checkbox col-sm-6">
-          <label><input type="checkbox" value="">Include Data Visualization</label>
+          <label><input id="includeDataViz" onchange="includeViz()" type="checkbox" value="">Include Data Visualization</label>
         </div>
         <div class="col-sm-6">
                     <label for="pwd">Export As:</label>
-          <select class="form-control" id="exportType">
-                <option>PDF</option>
-                <option>CSV</option>
+          <select class="form-control" id="exportType" onchange="exportKind()">
+                <option id="PDF">PDF</option>
+                <option id="CSV">CSV</option>
           </select>
         </div>
 
@@ -78,7 +76,7 @@
       </div>
       <div class="modal-footer">
           <button type="submit" class="btn btn-success" onclick="clearReportFields()">Clear Fields</button>
-        <button type="submit" class="btn btn-success">Export</button>
+        <button type="submit" onclick="exportReport()" class="btn btn-success">Export</button>
         <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
       </div>
     </div>

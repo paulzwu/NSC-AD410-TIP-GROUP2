@@ -3,7 +3,7 @@
 <footer>
     © 2017 ADBAS PROGRAM | NORTH SEATTLE COLLEGE
 </footer>
-</div>
+<!-- </div> -->
 
 
 <!--   Core JS Files   -->
@@ -64,14 +64,16 @@
                 }
             ]
         });
-    });
-</script>
-
+         });
+         </script>
+    
 <script>
-          var isDateRange = false;
+        var isDateRange = false;
           var startDate = '';
           var endDate = '';
           var academicYear = '';
+          var exportType = '';
+          var includeDataViz = false;
 
 
           // Report Request Handler (Queues Modal from Toolbar)
@@ -96,6 +98,24 @@
             xhr.send("id=" + element.id + 'Modal');
           }
 
+
+           function exportKind() {
+                if(document.getElementById("exportType").selectedIndex == '0') {
+                    exportType = 'PDF';
+                } else if (document.getElementById("exportType").selectedIndex == '1'){
+                    exportType = 'CSV';
+                }
+                console.log(exportType);
+            }
+
+            function includeViz() {
+                if(document.getElementById("includeDataViz").checked == true)  {
+                    includeDataViz = true;
+                } else if (document.getElementById("includeDataViz").checked== false){
+                    includeDataViz = false;
+                }
+            }
+
           function getSelectedRange(){
             var dateRangeSelectors = document.getElementsByClassName("dateRange");
             var academicYearSelector = document.getElementById("academicYear");
@@ -106,6 +126,7 @@
                 dateRangeSelectors.item(1).disabled=false;
                 if(document.activeElement == dateRangeSelectors.item(0)) {
                     startDate = document.getElementById('startDate').value;
+                    console.log(startDate);
                 } else if(document.activeElement == dateRangeSelectors.item(1)) {
                     endDate = document.getElementById('startDate').value;
                 }
@@ -123,11 +144,13 @@
             isDateRange = false;
             startDate = '';
             endDate = '';
+            var exportType = '';
+            var includeDataViz = '';
+            var academicYear = '';
         }
 
-
-          function specifyReportDetails(){
-                        var element = this;
+       
+          function exportReport(){ 
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'report_preview.php', true);
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -136,13 +159,13 @@
               if(xhr.readyState == 4 && xhr.status == 200){
                 var result = xhr.responseText;
                 console.log('Result: '+ result);
-                var obj = JSON.parse(result);
-                document.getElementById("modalHeader").innerHTML = obj.modalHeader;
-                document.getElementById("modalDescription").innerHTML = obj.modalDescription;
-                $('#reportModal').modal({'show' : true});
+                // var obj = JSON.parse(result);
+                // document.getElementById("modalHeader").innerHTML = obj.modalHeader;
+                // document.getElementById("modalDescription").innerHTML = obj.modalDescription;
+                // $('#reportModal').modal({'show' : true});
               }
             };
-            xhr.send("id=" + element.id);
+            xhr.send("startDate=" + startDate + ", endDate=" + endDate, + ", ");
           }
 
           //adds event listeners to the reports drop-down in the toolbar
@@ -160,10 +183,10 @@
             function enable() {
                 document.getElementById("mySelect").disabled=false;
             }
-
-
-
 </script>
+      
+
+           
 
 </body>
 </html>

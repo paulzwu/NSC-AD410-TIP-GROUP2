@@ -34,10 +34,10 @@ switch ($rawID) {
 		break;
 	case 'divisionCompletionModal':
 			$dummyJSON = '{
-				"modalHeader": "TIP Participation Rate By Department",
-				"modalDescription": "This report represents the rates of participation for each division. The percentage of participation is measured in relation to the total number of submissions received for the time period specified.", 
-				"academicYears":["<option>2016-2017</option>"]
-			}';
+						"modalHeader": "TIP Participation Rate By Department",
+						"modalDescription": "This report represents the rates of participation for each division. The percentage of participation is measured in relation to the total number of submissions received for the time period specified.",
+						"academicYears": ["<option>2016-2017</option>"]
+					}';
 			echo $dummyJSON;
 			break;
 	case 'divisionCompletion':

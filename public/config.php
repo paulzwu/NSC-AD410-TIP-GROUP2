@@ -1,6 +1,6 @@
 <?php
 
-    const SQLITE = 'App/Models/DB/test.sqlite'; //loaded by  composer
+    // const SQLITE = 'App/Models/DB/test.sqlite'; //loaded by  composer
 
     global $config;
 	$config = [

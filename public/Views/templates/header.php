@@ -4,11 +4,11 @@ ini_set('display_errors', 1);
 include 'config.php';
 require '../vendor/autoload.php';
 
-use Core\View;
+// use Core\View;
 
 session_start();
 
-$agetitle = 'Tip';
+$pagetitle = 'Tip';
 $username = 'Kari';
 $usertype = 'admin';
 $waitingOn = 45;
@@ -48,10 +48,6 @@ openOrCreateDB();
      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.jqueryui.min.css">
      <!-- FONTS !!! REQUIRED-->
      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Khula:700|Open+Sans">
-
-     <!-- Data Tables -->
-         <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.jqueryui.min.css">
 
     <!-- END  STYLES FOR SITE -->
 
