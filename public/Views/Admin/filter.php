@@ -83,8 +83,7 @@
               <button type="button"  class="btn btn-primary btn-tiny" onClick=clearTag() style="align:right" type="reset">clear tag</button>
             </div>
           </div>
-<<<<<<< HEAD
-=======
+
         </div>
         <script>
         //global variable
@@ -148,5 +147,4 @@
           var dupElement = document.getElementById("tagDiv").contains(element);
           return dupElement;
         }
->>>>>>> table
 
