@@ -6,8 +6,7 @@
 
   $table = 'SURVEY';
   $col1 = 'surveyID';
-  $col2 = 'surveyName';
-  $col3 = 'currentTIP';
+  $col2 = 'currentTIP';
   $sqlstmt = "SELECT $col1, $col2, $col3 FROM $table;";
   try {
     $statement = $conn->prepare($sqlstmt);
