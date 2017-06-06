@@ -28,8 +28,11 @@
         </div>
         <!-- DATAGRID -->
         </div>
-        <table id="table_id" class="display"></table>
+        <table id="table_id" class="display">
+            <?php include "filter.php" ?>
+        </table>
         </div>
+
         <!-- REPORT MODAL -->
         <div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
