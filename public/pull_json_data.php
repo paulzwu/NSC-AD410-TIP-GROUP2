@@ -30,6 +30,7 @@
   	foreach($response as $k=>$v) {
   		$inputValue = $inputValue . stripcslashes(stripcslashes(trim(implode($v))));
   	}
+
   	$fp = fopen('results.json', 'a');
     $json_output = preg_replace("(}{)", "}, {", preg_replace("(^{)", "[ {", preg_replace("(}$)", "} ]", $inputValue)));
   	fwrite($fp, $json_output);
