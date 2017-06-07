@@ -23,7 +23,7 @@ body > div > div.sidebar > div > div > span {
 
 
 /*TIP EDITOR STYLES*/
-button#loadSurvey, button#newSurvey, button#saveSurvey, button#deleteSurvey {
+button#loadSurvey, button#newSurvey, button#saveSurvey, button#deleteSurvey, button#loadTIP {
     margin-right: 10px;
     font-size: 11px;
 }
@@ -62,7 +62,7 @@ input[type="radio"] {
 
 .main-panel > .content.responses-content {
     height: 500px !important;
-    
+
 }
 
 .main-panel {
@@ -80,13 +80,13 @@ input[type="radio"] {
     padding-top:20px;
     width: 50%;
     padding-left: 100px;
-    
+
 }
 
 footer {
     z-index:0;
-    clear:both; 
-    min-height:50px; 
+    clear:both;
+    min-height:50px;
     background-color:#18bc9c;
     color:#fff;
     text-align:center;
@@ -113,7 +113,7 @@ a.svd_page_nav {
     margin: 5px;
 }
 
-span.glyphicon.glyphicon-arrow-down::before, 
+span.glyphicon.glyphicon-arrow-down::before,
 span.glyphicon.glyphicon-arrow-up::before,
 .glyphicon-trash:before {
     font-weight: bolder;
@@ -166,7 +166,7 @@ span.glyphicon.glyphicon-arrow-up::before {
         width: 100% ;
         float:none ;
     }
-    
+
     .svd_container .svd_content .svd_survey_designer .svd_toolbox .btn-group-vertical .btn {
         float: left;
         width: 30px !important;
@@ -179,6 +179,5 @@ Make sure this is the last style in the sheet - nothing below it
 *************/
 input[value="Next"],
 input[value="Complete"] {
-    float:right; 
+    float:right;
 }​
-
