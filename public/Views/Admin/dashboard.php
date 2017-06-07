@@ -28,7 +28,7 @@
         </div>
         <!-- DATAGRID -->
         </div>
-        <table id="table_id" class="display">
+        <table id="table_id" class="display" width="100%">
             <?php include "filter.php" ?>
         </table>
         </div>

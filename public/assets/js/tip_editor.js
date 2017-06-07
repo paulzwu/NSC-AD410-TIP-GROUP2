@@ -22,7 +22,7 @@
         "<button type=\"button\" class=\"btn btn-primary\" id=\"loadSurvey\" data-toggle=\"modal\" data-target=\"#loadBox\" data-backdrop=\"static\">Load</button>" +
         "<button type=\"button\" class=\"btn btn-primary\" id=\"saveSurvey\" data-toggle=\"modal\" data-target=\"#saveBox\" data-backdrop=\"static\">Save</button>" +
         "<button type=\"button\" class=\"btn btn-primary\" id=\"newSurvey\">Clear Form</button>" +
-
+        "<button type=\"button\" class=\"btn btn-primary\" id=\"loadTIP\" data-toggle=\"modal\" data-target=\"#tipBox\" data-backdrop=\"static\">Set Current TIP</button>" +
         "<div class=\"modal fade\" id=\"loadBox\" role=\"dialog\">" +
             "<div class=\"modal-dialog\">" +
                 "<div class=\"modal-content\">" +
@@ -54,6 +54,23 @@
                     "<div class=\"modal-footer\">" +
                         "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" id=\"save\">Save</button>" +
                         "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" id=\"cancelSave\">Cancel</button>" +
+                    "</div>" +
+                "</div>" +
+            "</div>" +
+        "</div>" +
+        "<div class=\"modal fade\" id=\"tipBox\" role=\"dialog\">" +
+            "<div class=\"modal-dialog\">" +
+                "<div class=\"modal-content\">" +
+                    "<div class=\"modal-header\">" +
+                        "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>" +
+                        "<h4 class=\"modal-title\">Set default TIP</h4>" +
+                    "</div>" +
+                    "<div class=\"modal-body\">" +
+                        "<div id=\"deploy\"></div>" +
+                    "</div>" +
+                    "<div class=\"modal-footer\">" +
+                        "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" id=\"tipCurrent\">Set Current</button>" +
+                        "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" id=\"tipCancel\">Cancel</button>" +
                     "</div>" +
                 "</div>" +
             "</div>" +
@@ -204,5 +221,72 @@ $(document).ready(function() {
       $("#snackbar").append(text);
       setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
     }
-
+    var currentTIP;
+    var newTIP;
+//------ SET DEFAULT TIP ----\\
+// this code allows admins to set a default tip for everyone to answer
+    $('#loadTIP').on('click', function() {
+      console.log("tip loader clicked");
+      $select = $('#deploy');
+      // call to server to load quiz names
+      $.ajax({
+        url: 'survey_ids.php',
+        dataType:'JSON',
+        success:function(data){
+          //clear the current content of the select
+          $select.html('');
+          // render survey names into modal
+          $.each(data.surveyInfo, function(key, val) {
+            //report to user if db empty (no data in table)
+            if (val.surveyID == '0') {
+              $select.append('<div class=\"radio\"><label id=\"tipSelection\"><input type=\"radio\" name=\"optradio\" value=\"0\">No surveys saved</label></div>');
+              console.log("no items to display");
+            } else {
+              //iterate over the data and create a list of buttons with data values to pass to load function
+              // if val.currentTIP is 1 meaning that it is the current tip, that tip will be selected by default
+              if (val.currentTIP == '1') {
+                currentTIP = val.surveyID;
+                $select.append('<div class=\"radio\"><label class=\"active\" id=\"tipSelection\"><input type=\"radio\" name=\"optradio\" value=\"' + val.surveyID + '\" checked=\"\">' + val.surveyName + '</label></div>');
+                console.log("TIP #" + val.surveyID + ", '" + val.surveyName + "' is the current default survey")
+                // otherwise it will not be selected
+              } else {
+                $select.append('<div class=\"radio\"><label id=\"tipSelection\"><input type=\"radio\" name=\"optradio\" value=\"' + val.surveyID + '\">' + val.surveyName + '</label></div>');
+              }
+            }
+          })
+          console.log("list created");
+          // gets surveyID of currently selected survey
+          $('.radio').one('click', '#pass-data', function() {
+            console.log("Survey name clicked");
+              newTIP = document.getElementById('tipSelection').checked
+              if (newTIP == 0) {
+                console.log("no data");
+              } else {
+                console.log("new default tip set: #" + val.surveyID + ", '" + val.surveyName + "'");
+              }
+            });
+          // save selected tip as default
+          $("#tipCurrent").one('click', function() {
+              $.ajax({url: 'set_default_tip.php',
+                  data: {'ID':newTIP, 'oldID':currentTIP},
+                  type: 'POST',
+                  success:function() {
+                    console.log("db updated");
+                    snackBar("Current TIP selected");
+                  },
+                  error:function() {
+                    console.log("no survey to load");
+                    snackBar("No survey to load");
+                  }
+              });
+          });
+        },
+        error:function() {
+          $select.html('');
+          //report to user if there is an error (db file missing)
+          $select.append('<div class=\"radio\"><label id=\"tipSelection\"><input type=\"radio\" name=\"optradio\" value=\"-1\">Database not available</label></div>');
+          console.log("database file not found");
+        }
+      });
+    });
   });
