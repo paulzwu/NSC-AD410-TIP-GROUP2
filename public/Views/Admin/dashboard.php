@@ -7,8 +7,8 @@
                 <div class="card">
                     <div class="header">
                         <h4 class="title">TIP Submission Rates</h4>
-                        <p class="category">Total Responses Expected: <?php echo $totalFaculty ?></p>
-                        <p class="category">Waiting On: <?php echo $waitingOn ?></p>
+                        <p id="totalFaculty" class="category">Total Responses Expected: </p>
+                        <p id="waitingOn" class="category">Waiting On: </p>
                     </div>
                     <div class="content">
                         <div class="row">
