@@ -11,8 +11,6 @@ session_start();
 $pagetitle = 'Tip';
 $username = 'Kari';
 $usertype = 'admin';
-$waitingOn = 45;
-$totalFaculty = 200;
 
 openOrCreateDB();
 

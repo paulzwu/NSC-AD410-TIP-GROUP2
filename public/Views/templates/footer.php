@@ -21,86 +21,115 @@
 
 <!-- Response Rate Assets -->
 <script>
+    //global variables
+    var filter = [];
+    var radioChecked = "";
+    var text = "";
+    var tagCounter = 0;
     var statsComplete, statsInProgress, statsNotStarted;
+
     $(document).ready(function() {
         initTable();
     });
-
-    //global variable
-    var filter = "";
-    var radioChecked = "";
-    var text = "";
 
     //add tag based on filter
     function addTag(btnId) {
         switch(btnId){
             case "textBox":
                 text = document.getElementById("textBox").value;
+                if (text != "" && isDuplicate() == false && tagCounter < 5) {
+                    searchFilter();
+                }
                 break;
             case "radio":
                 text = radioChecked;
+                if (text != "" && isDuplicate() == false && tagCounter < 5) {
+                    searchFilter();
+                }
                 break;
             case "date":
-                text = document.getElementById("quartlydate").value;
+                text = document.getElementById("date").value;
+                if (text != "" && isDuplicate() == false && tagCounter < 5) {
+                    searchFilter();
+                }
                 break;
             case "outcome":
                 text = document.getElementById("learnOutcome").value;
+                if (text != "" && isDuplicate() == false && tagCounter < 5) {
+                    searchFilter();
+                }
                 break;
-            case "question":
-                text = document.getElementById("questions").value;
+            case "status":
+                text = document.getElementById("status").value;
+                if (text != "" && isDuplicate() == false && tagCounter < 5) {
+                    searchFilter();
+                }
                 break;
         } //end of switch case
 
-        if(text != ""){
-            if(isDuplicate()){
-                alert("No duplicates allowed");
-            }else{
-                var btn = document.createElement("BUTTON");
-                btn.setAttribute("id", text);
-                btn.setAttribute("onclick", "removeTag(this.id)");
-                btn.setAttribute("class", "tags");
-                var t = document.createTextNode(text + "  x");
-                btn.appendChild(t);
-                document.body.appendChild(btn);
-                document.getElementById("tagDiv").appendChild(btn);
+        createTag();
 
-                filter += text + " ";
-                // Perform a filter
-                $('#table_id').dataTable().fnFilter(filter);
-
-            }
-        }else{
-            alert("Enter a input");
-        }
         $('#textBox').val(null);
 
     } //end of addTag function
 
+    function createTag(){
+        if(text != ""){
+            if(isDuplicate() == false){
+                if(tagCounter < 5){
+                    var btn = document.createElement("BUTTON");
+                    btn.setAttribute("id", text);
+                    btn.setAttribute("onclick", "removeTag(this.id)");
+                    btn.setAttribute("class", "tags");
+                    var t = document.createTextNode(text + "  x");
+                    btn.appendChild(t);
+                    document.body.appendChild(btn);
+                    document.getElementById("tagDiv").appendChild(btn);
+                    tagCounter ++;
+                }else {
+                    alert("No more than 5 tags are allowed");
+                }
+            }else {
+                alert("Duplicates not allowed");
+            }
+        }else{
+            alert("Please select a filter");
+        }
+    }
+
+    function searchFilter(){
+        filter.push(text);
+        var table = $('#table_id').DataTable();
+        table
+            .search(filter.join("  "))
+            .draw();
+    }
     //remove the tag
     function removeTag(clicked_id) {
         var parent = document.getElementById("tagDiv");
         var child = document.getElementById(clicked_id);
         parent.removeChild(child);
-        filter = filter.replace(clicked_id , "");
-        alert(filter);
+
+        // gets the index of the button and deletes it
+        var index = filter.indexOf(clicked_id);
+        filter.splice(index, 1);
 
         var table = $('#table_id').DataTable();
         table
-            .search( filter )
+            .search( filter.join("  ") )
             .draw();
+        tagCounter --;
     }
 
     //selecting radio button if it is check
     function isChecked(value){
         radioChecked = value;
-
-
     }
+
     //check if input tag is duplicate
     function isDuplicate(){
         var element = document.getElementById(text);
-        var dupElement = document.getElementById("tagDiv").contains(element);
-        return dupElement;
+        return document.getElementById("tagDiv").contains(element);
     }
 
     function clearTags(){
@@ -111,11 +140,13 @@
             .search( '' )
             .columns().search( '' )
             .draw();
+        tagCounter = 0;
     }
 
     function initTable(){
         $('#table_id').DataTable({
             "processing": true,
+            dom: 'lrtip',
             "ajax": {
                 url: "movies.json",
                 dataSrc: function (data) {
@@ -124,7 +155,7 @@
                     statsNotStarted = 0;
                     var dataTable = [];
                     for (i = 0; i < data.length; i++) {
-                        dataTable.push([data[i].name, data[i].course, data[i].department, data[i].status, data[i].view_export]);
+                        dataTable.push([data[i].name, data[i].year, data[i].department, data[i].status, data[i].view_export]);
                         if (dataTable[i][3] == "Complete") {
                             statsComplete++
                         } else if (dataTable[i][3] == "In-Progress"){
@@ -138,13 +169,19 @@
                     inprogress.refresh(statsInProgress);
                     notstarted.refresh(statsNotStarted);
 
+                    var totalFacultyNum = dataTable.length;
+                    document.getElementById('totalFaculty').innerHTML = "Total Responses Expected: " + totalFacultyNum;
+
+                    var waitingNum = statsNotStarted + statsInProgress;
+                    document.getElementById('waitingOn').innerHTML = "Waiting on: " + waitingNum;
+
                     return dataTable
                 }
             },
 
             columns: [
                 {data: 0, title: 'Name'},
-                {data: 1, title: 'Course'},
+                {data: 1, title: 'Year'},
                 {data: 2, title: 'Department'},
                 {data: 3, title: 'Status'},
                 {
