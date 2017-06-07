@@ -173,6 +173,27 @@ span.glyphicon.glyphicon-arrow-up::before {
     }
 }
 
+.filter-button {
+    width: 15%;
+    float: left;
+    margin: 20px 20px;
+    padding: 10px;
+    border: solid 1px #ddd;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.filter-button button {
+    margin-top: 20px;
+}
+
+.panel {
+    width: 95%;
+    padding: 20px;
+    padding-right: 100px;
+    overflow: hidden;
+    margin: 0px 80px 0px 20px;
+}
 
 /***********
 Make sure this is the last style in the sheet - nothing below it

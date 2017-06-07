@@ -1,18 +1,18 @@
 
 <div class="row" id="filters">
-    <div class="col-lg-9 panel">
+    <div class="panel">
         <form id="myFilter">
-            <div class="col-lg-1">
+            <div class="filter-button">
                 <button type="button" id="resetTag" class="btn btn-primary btn-tiny"  onClick=this.form.reset() type="reset">reset criteria</button>
             </div>
-            <div class="col-md-2">
+            <div class="filter-button">
                 <div>
                     <input type="text" id="textBox" placeholder="keyword">
                     <button type="button" class="btn btn-primary btn-tiny"  onClick=addTag("textBox")>add criteria</button>
                 </div>
             </div>
 
-            <div class="col-lg-2">
+            <div class="filter-button">
                 <div>
                     <label>By division</label>
                     <div class="radio">
@@ -35,7 +35,7 @@
                     </div>
                     <button type="button" class="btn btn-primary btn-tiny"  onClick=addTag("radio")>add criteria</button></div>
             </div>
-            <div class="col-lg-2">
+            <div class="filter-button">
                 <div>
                     <label for="sel1">By Academic year:</label>
                     <select class="form-control" id="quartlydate">
@@ -47,7 +47,7 @@
                     <button type="button" class="btn btn-primary btn-tiny"  onClick=addTag("date")>add criteria</button>
                 </div>
             </div>
-            <div class="col-lg-2">
+            <div class="filter-button">
                 <div>
                     <label for="sel1">Learning Outcome</label>
                     <select class="form-control" id="learnOutcome">
@@ -58,7 +58,7 @@
                     </select>
                     <button type="button" class="btn btn-primary btn-tiny"  onClick=addTag("outcome")>add criteria</button></div>
             </div>
-            <div class="col-lg-2">
+            <div class="filter-button">
                 <div>
                     <label for="sel1">Question</label>
                     <select  class="form-control" id="questions">
