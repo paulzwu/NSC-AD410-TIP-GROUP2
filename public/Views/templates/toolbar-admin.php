@@ -21,12 +21,10 @@
                                     </p>
                               </a>
                               <ul class="dropdown-menu">
-                                <li><a href="#">Report 1</a></li>
-                                <li><a href="#">Report 2</a></li>
-                                <li><a href="#">Report 3</a></li>
-                                <li><a href="#">Report 4</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Export</a></li>
+                                <li><a class="previewReport" id="submissionStats" href="#">TIP Response Rates</a></li>
+                                <li><a class="previewReport" id="divisionCompletion" href="#">TIP Completion By Division</a></li>
+                                <li><a class="previewReport" id="trendingTopics" href="#">Trending Topics</a></li>
+                                <li><a class="previewReport" id="learningOutcomes" href="#">Learning Outcomes</a></li>
                               </ul>
                         </li>
                         <li>

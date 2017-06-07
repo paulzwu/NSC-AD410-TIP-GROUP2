@@ -3,44 +3,125 @@
 <footer>
     © 2017 ADBAS PROGRAM | NORTH SEATTLE COLLEGE
 </footer>
-</div>
+<!-- </div> -->
 
 
 <!--   Core JS Files   -->
 <script src="assets/js/lib/jquery-3.2.1.min.js" type="text/javascript"></script>
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="//code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.jqueryui.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.10.15/api/fnFilterClear.js"></script>
 <script src="assets/js/lib/raphael-2.1.4.min.js"></script>
 <script src="assets/js/lib/justgage.js"></script>
 <script src="assets/js/tipprogress.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
-<script src="https://surveyjs.azureedge.net/0.12.9/survey.ko.min.js"></script>
-<script src="https://surveyjs.azureedge.net/0.12.9/surveyeditor.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.min.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/worker-json.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/mode-json.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" type="text/javascript"></script>
-
-<!--    <script src="assets/js/lib/jquery-3.2.1.min.js" type="text/javascript"></script>
-    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>-->
-
-<!-- Light Bootstrap Table Core javascript and methods for Demo purpose
 <script src="assets/js/light-bootstrap-dashboard.js"></script>
-<script src="assets/js/responsive_nav.js"></script> -->
+<script src="assets/js/responsive_nav.js"></script>
+
 
 <!-- Response Rate Assets -->
 <script>
-    var statsComplete = 0, statsInProgress = 0, statsNotStarted = 0;
+    var statsComplete, statsInProgress, statsNotStarted;
     $(document).ready(function() {
+        initTable();
+    });
+
+    //global variable
+    var filter = "";
+    var radioChecked = "";
+    var text = "";
+
+    //add tag based on filter
+    function addTag(btnId) {
+        switch(btnId){
+            case "textBox":
+                text = document.getElementById("textBox").value;
+                break;
+            case "radio":
+                text = radioChecked;
+                break;
+            case "date":
+                text = document.getElementById("quartlydate").value;
+                break;
+            case "outcome":
+                text = document.getElementById("learnOutcome").value;
+                break;
+            case "question":
+                text = document.getElementById("questions").value;
+                break;
+        } //end of switch case
+
+        if(text != ""){
+            if(isDuplicate()){
+                alert("No duplicates allowed");
+            }else{
+                var btn = document.createElement("BUTTON");
+                btn.setAttribute("id", text);
+                btn.setAttribute("onclick", "removeTag(this.id)");
+                btn.setAttribute("class", "tags");
+                var t = document.createTextNode(text + "  x");
+                btn.appendChild(t);
+                document.body.appendChild(btn);
+                document.getElementById("tagDiv").appendChild(btn);
+
+                filter += text + " ";
+                // Perform a filter
+                $('#table_id').dataTable().fnFilter(filter);
+
+            }
+        }else{
+            alert("Enter a input");
+        }
+        $('#textBox').val(null);
+
+    } //end of addTag function
+
+    //remove the tag
+    function removeTag(clicked_id) {
+        var parent = document.getElementById("tagDiv");
+        var child = document.getElementById(clicked_id);
+        parent.removeChild(child);
+        filter = filter.replace(clicked_id , "");
+        alert(filter);
+
+        var table = $('#table_id').DataTable();
+        table
+            .search( filter )
+            .draw();
+    }
+
+    //selecting radio button if it is check
+    function isChecked(value){
+        radioChecked = value;
+
+
+    }
+    //check if input tag is duplicate
+    function isDuplicate(){
+        var element = document.getElementById(text);
+        var dupElement = document.getElementById("tagDiv").contains(element);
+        return dupElement;
+    }
+
+    function clearTags(){
+        filter = "";
+        $('.tags').remove();
+        var table = $('#table_id').DataTable();
+        table
+            .search( '' )
+            .columns().search( '' )
+            .draw();
+    }
+
+    function initTable(){
         $('#table_id').DataTable({
             "processing": true,
             "ajax": {
                 url: "movies.json",
                 dataSrc: function (data) {
+                    statsComplete = 0;
+                    statsInProgress = 0;
+                    statsNotStarted = 0;
                     var dataTable = [];
                     for (i = 0; i < data.length; i++) {
                         dataTable.push([data[i].name, data[i].course, data[i].department, data[i].status, data[i].view_export]);
@@ -78,101 +159,129 @@
                 }
             ]
         });
-        //$("div.panel-footer").append("<button type=\"button\" class=\"btn btn-primary\" id=\"loadSurvey\" data-toggle=\"modal\" data-target=\"#loadBox\" data-backdrop=\"static\">Load</button>");
-
-        //------------ load survey ------------\\
-        //request the JSON data and parse into the select element
-        $('#loadSurvey').one('click', function() {
-            loadNames('#surveyNames');
-            // when load is clicked, pass the surveyID to the server and return survey json
-            $(document).on('click', 'button#pass-data', function(){
-                var docID = $(this).attr('data-id');
-                if (docID == 0) {
-                    console.log("no data");
-                } else {
-                    $("#loadBtn").click(function() {
-                        $.ajax({url: 'survey_load.php',
-                            data: {'ID':docID},
-                            type: 'POST',
-                            success:function(result) {
-                                // custom complete message; displays a button for showing answers after the quiz is over
-                                //var surveyComplete = "<h3 style=\"text-align:center;\">Thank you for completing the survey!</h3>";
-                                Survey.defaultBootstrapCss.navigationButton = "btn btn-primary";
-                                Survey.Survey.cssType = "bootstrap";
-                                var survey = new Survey.Model(JSON.parse(result), "container");
-                                //options for progress bar - top, bottom, none
-                                survey.showProgressBar = "top"; survey.render();
-                                // use this for custom messages after survey completed; if no text provided, uses default message
-                                survey.completedHtml = ""; survey.render();
-                                // when set to false, prevents the after survey message from displaying
-                                survey.showCompletedPage = true; survey.render();
-                                // displays a custom complete message
-                                //survey.completedHtml = surveyComplete; survey.render();
-                                // gathers survey answer data and does something with it
-                                survey.onComplete.add(function (sender) {
-                                    var mySurvey = sender;
-                                    var surveyData = JSON.stringify(sender.data);
-                                    $.ajax({url: 'save_answers.php',
-                                        dataType: 'json',
-                                        data: {'Responses':surveyData},
-                                        type: 'POST',
-                                        async: true})
-                                    console.log("JSON data sent to server")
-                                });
-
-                                // survey.text loads quiz data into surveyjs editor
-                                //survey.text=result;
-                                console.log("survey loaded");
-                            },
-                            error:function() {
-                                console.log("no survey to load");
-                            }
-                        });
-                    });
-                }
-                console.log("survey ID: " + docID);
-            });
-        });
-        // used to load a list of survey names into the load and overwrite modal boxes
-        function loadNames(id){
-            $select = $(id);
-            // call to server to load quiz names
-            $.ajax({
-                url: 'survey_ids.php',
-                dataType:'JSON',
-                success:function(data){
-                    //clear the current content of the select
-                    $select.html('');
-                    $.each(data.surveyInfo, function(key, val){
-                        //report to user if db empty (no data in table)
-                        if (val.surveyID == '0') {
-                            $select.append('<button type=\"button\" id=\"pass-data\" class=\"list-group-item list-group-item-action\" data-id=\"0">No surveys saved.</button>');
-                            console.log("no items to display");
-                        } else {
-                            //iterate over the data and create a list of buttons with data values to pass to load function
-                            $select.append('<button type=\"button\" id=\"pass-data\" class=\"list-group-item list-group-item-action\" data-id=\"' + val.surveyID + '\">' + val.surveyName + '</button>');
-                        }
-                    })
-                    console.log("survey menu created");
-                },
-                error:function(){
-                    $select.html('');
-                    //report to user if there is an error (db file missing)
-                    $select.append('<button type=\"button\" id=\"pass-data\" class=\"list-group-item list-group-item-action\" data-id=\"-1\">Database not available.</button>');
-                    console.log("database file not found");
-                }
-            });
-        }
-    });
+    }
 </script>
+
 <script>
-    $(".svd_container .svd_menu a").each(function() {
-        var text = $(this).text();
-        text = text.replace("Survey Designer", "Tip Editor");
-        text = text.replace("Test Survey", "Preview Tip");
-        $(this).text(text);
-    });
+    var isDateRange = false;
+    var startDate = '';
+    var endDate = '';
+    var academicYear = '';
+    var exportType = '';
+    var includeDataViz = false;
+
+
+    // Report Request Handler (Queues Modal from Toolbar)
+    function previewReport(){
+        var element = this;
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'report_preview.php', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4 && xhr.status == 200){
+                var result = xhr.responseText;
+                console.log('Result: '+ result);
+                var obj = JSON.parse(result);
+                document.getElementById("modalHeader").innerHTML = obj.modalHeader;
+                document.getElementById("modalDescription").innerHTML = obj.modalDescription;
+                document.getElementById("academicYear").innerHTML = obj.academicYears;
+
+                $('#reportModal').modal({'show' : true});
+            }
+        };
+        xhr.send("id=" + element.id + 'Modal');
+    }
+
+
+    function exportKind() {
+        if(document.getElementById("exportType").selectedIndex == '0') {
+            exportType = 'PDF';
+        } else if (document.getElementById("exportType").selectedIndex == '1'){
+            exportType = 'CSV';
+        }
+        console.log(exportType);
+    }
+
+    function includeViz() {
+        if(document.getElementById("includeDataViz").checked == true)  {
+            includeDataViz = true;
+        } else if (document.getElementById("includeDataViz").checked== false){
+            includeDataViz = false;
+        }
+    }
+
+    function getSelectedRange(){
+        var dateRangeSelectors = document.getElementsByClassName("dateRange");
+        var academicYearSelector = document.getElementById("academicYear");
+        if(document.activeElement == dateRangeSelectors.item(0)|| document.activeElement == dateRangeSelectors.item(0)){
+            isDateRange = true;
+            academicYearSelector.disabled=true;
+            dateRangeSelectors.item(0).disabled=false;
+            dateRangeSelectors.item(1).disabled=false;
+            if(document.activeElement == dateRangeSelectors.item(0)) {
+                startDate = document.getElementById('startDate').value;
+                console.log(startDate);
+            } else if(document.activeElement == dateRangeSelectors.item(1)) {
+                endDate = document.getElementById('startDate').value;
+            }
+        }
+    }
+
+    function clearReportFields() {
+        var dateRangeSelectors = document.getElementsByClassName("dateRange");
+        var academicYearSelector = document.getElementById("academicYear");
+        academicYearSelector.disabled=false;
+        dateRangeSelectors.item(0).value='';
+        dateRangeSelectors.item(1).value='';
+        dateRangeSelectors.item(0).disabled=false;
+        dateRangeSelectors.item(1).disabled=false;
+        isDateRange = false;
+        startDate = '';
+        endDate = '';
+        var exportType = '';
+        var includeDataViz = '';
+        var academicYear = '';
+    }
+
+
+    function exportReport(){
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'report_preview.php', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4 && xhr.status == 200){
+                var result = xhr.responseText;
+                console.log('Result: '+ result);
+                // var obj = JSON.parse(result);
+                // document.getElementById("modalHeader").innerHTML = obj.modalHeader;
+                // document.getElementById("modalDescription").innerHTML = obj.modalDescription;
+                // $('#reportModal').modal({'show' : true});
+            }
+        };
+        xhr.send("startDate=" + startDate + ", endDate=" + endDate, + ", ");
+    }
+
+    //adds event listeners to the reports drop-down in the toolbar
+    var buttons = document.getElementsByClassName("previewReport");
+    for(i = 0; i < buttons.length; i++){
+        buttons.item(i).addEventListener("click", previewReport);
+    }
+
+
+
+    //disables date range selectors to eliminate bad query parameters
+    function disable() {
+        document.getElementById("mySelect").disabled=true;
+    }
+    function enable() {
+        document.getElementById("mySelect").disabled=false;
+    }
 </script>
+
+
+
 
 </body>
 </html>
