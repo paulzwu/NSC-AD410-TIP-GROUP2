@@ -86,7 +86,7 @@
         </div>
     </div>
     <div class="col-md-2">
-        <button type="button"  class="btn btn-primary btn-tiny" onClick=clearTags() style="align:right" type="reset">Clear Filters</button>
+        <button type="button"  class="btn btn-primary btn-tiny clear-filters-button" onClick=clearTags() type="reset">Clear Filters</button>
     </div>
 </div>
 <script>
