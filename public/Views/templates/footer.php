@@ -41,8 +41,8 @@
                     searchFilter();
                 }
                 break;
-            case "radio":
-                text = radioChecked;
+            case "divisions":
+                text = document.getElementById("divisions").value;
                 if (text != "" && isDuplicate() == false && tagCounter < 5) {
                     searchFilter();
                 }

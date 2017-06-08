@@ -3,9 +3,6 @@
     <div class="filter-panel panel">
         <form id="myFilter">
             <div class="filter-button">
-                <button type="button" id="resetTag" class="btn btn-primary btn-tiny"  onClick=this.form.reset() type="reset">Clear Inputs</button>
-            </div>
-            <div class="filter-button">
                 <div>
                     <input type="text" id="textBox" placeholder="Search Table">
                     <button type="button" class="btn btn-primary btn-tiny"  onClick=addTag("textBox")>Apply Filter</button>
@@ -15,7 +12,17 @@
             <div class="filter-button">
                 <div>
                     <label>By division</label>
-                    <div class="radio">
+                    <select class="form-control" id="divisions">
+                        <option>AHSS</option>
+                        <option>HHS</option>
+                        <option>BTS</option>
+                        <option>BEIT</option>
+                        <option>M&amp;S</option>
+                        <option>BTS</option>
+                        <option>BTS</option>
+                        
+                    </select>
+<!--                    <div class="radio">
                         <label><input type="radio" value="AHSS" name="optradio" onclick=isChecked(this.value) >AHSS</label>
                     </div>
                     <div class="radio">
@@ -32,8 +39,9 @@
                     </div>
                     <div class="radio">
                         <label><input type="radio"  value="M&amp;S" name="optradio" onclick=isChecked(this.value)>M&amp;S</label>
-                    </div>
-                    <button type="button" class="btn btn-primary btn-tiny"  onClick=addTag("radio")>Apply Filter</button></div>
+                    </div>-->
+                    
+                    <button type="button" class="btn btn-primary btn-tiny"  onClick=addTag("divisions")>Apply Filter</button></div>
             </div>
             <div class="filter-button">
                 <div>

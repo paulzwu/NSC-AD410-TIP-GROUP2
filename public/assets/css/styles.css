@@ -160,6 +160,28 @@ span.glyphicon.glyphicon-arrow-up::before {
     margin:0;
 }
 
+.filter-button {
+    margin:10px 10px;
+    padding: 20px;
+    border: solid 1px #ddd;
+    border-radius: 4px;
+    text-align: center;
+    width: 20%;
+
+}
+
+.filter-button button {
+    margin-top: 20px;
+}
+
+.filter-panel.panel {
+    width: 95%;
+    padding: 20px;
+    padding-right: 100px;
+    overflow: hidden;
+    margin: 0px 80px 0px 20px;
+    display:flex;
+}
 
 @media screen and (max-width: 768px){
     .svd_editors {
@@ -176,28 +198,50 @@ span.glyphicon.glyphicon-arrow-up::before {
         float: left;
         width: 30px !important;
     }
+ 
+    .filter-button {        
+        width: 100%;
+    }
+    
+    .filter-button button {        
+        margin: 0px 20px;
+    }
+    
+    .filter-panel.panel {
+        padding: 10px;
+    }
+    
+    .filter-button label {
+        clear:both;
+        display: block;
+        width: 100%;
+        padding-bottom: 10px;
+    }
+    
+    .filter-button input, 
+    .filter-button button,
+    select.form-control {
+        float: left;
+    }
+    
+    select.form-control {
+        width: 50%;
+        min-width:50%;
+            
+    }
 
 }
 
-.filter-button {
-    margin:10px 10px;
-    padding: 20px;
-    border: solid 1px #ddd;
-    border-radius: 4px;
-    text-align: center;
-}
+@media screen and (max-width: 1300px){
+    .filter-panel.panel {
+        display:block;
+    }
+    
+    .filter-button {
+        float: left;
+        min-width: 200px;
+    }    
 
-.filter-button button {
-    margin-top: 20px;
-}
-
-.filter-panel.panel {
-    width: 95%;
-    padding: 20px;
-    padding-right: 100px;
-    overflow: hidden;
-    margin: 0px 80px 0px 20px;
-    display:flex;
 }
 
 /***********
