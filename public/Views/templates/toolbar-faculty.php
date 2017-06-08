@@ -14,7 +14,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="Logout.php">
+                            <a href="#">
                                 <p>Log out</p>
                             </a>
                         </li>
