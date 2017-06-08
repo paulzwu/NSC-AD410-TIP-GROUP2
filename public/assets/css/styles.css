@@ -150,11 +150,16 @@ span.glyphicon.glyphicon-arrow-up::before {
 
 .svd_editors {
     width: 70% ;
+    float:left;
+    margin:0;
 }
 
-.svd_toolbox {
+.panel.svd_toolbox {
     width: 30% ;
+    float:left;
+    margin:0;
 }
+
 
 @media screen and (max-width: 768px){
     .svd_editors {
@@ -171,13 +176,12 @@ span.glyphicon.glyphicon-arrow-up::before {
         float: left;
         width: 30px !important;
     }
+
 }
 
 .filter-button {
-    width: 15%;
-    float: left;
-    margin: 20px 20px;
-    padding: 10px;
+    margin:10px 10px;
+    padding: 20px;
     border: solid 1px #ddd;
     border-radius: 4px;
     text-align: center;
@@ -187,12 +191,13 @@ span.glyphicon.glyphicon-arrow-up::before {
     margin-top: 20px;
 }
 
-.panel {
+.filter-panel.panel {
     width: 95%;
     padding: 20px;
     padding-right: 100px;
     overflow: hidden;
     margin: 0px 80px 0px 20px;
+    display:flex;
 }
 
 /***********

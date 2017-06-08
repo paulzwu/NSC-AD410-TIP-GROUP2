@@ -1,6 +1,6 @@
 
 <div class="row" id="filters">
-    <div class="panel">
+    <div class="filter-panel panel">
         <form id="myFilter">
             <div class="filter-button">
                 <button type="button" id="resetTag" class="btn btn-primary btn-tiny"  onClick=this.form.reset() type="reset">reset criteria</button>
