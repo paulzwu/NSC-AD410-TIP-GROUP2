@@ -3,12 +3,12 @@
     <div class="filter-panel panel">
         <form id="myFilter">
             <div class="filter-button">
-                <button type="button" id="resetTag" class="btn btn-primary btn-tiny"  onClick=this.form.reset() type="reset">reset criteria</button>
+                <button type="button" id="resetTag" class="btn btn-primary btn-tiny"  onClick=this.form.reset() type="reset">Clear Inputs</button>
             </div>
             <div class="filter-button">
                 <div>
-                    <input type="text" id="textBox" placeholder="keyword">
-                    <button type="button" class="btn btn-primary btn-tiny"  onClick=addTag("textBox")>add criteria</button>
+                    <input type="text" id="textBox" placeholder="Search Table">
+                    <button type="button" class="btn btn-primary btn-tiny"  onClick=addTag("textBox")>Apply Filter</button>
                 </div>
             </div>
 
@@ -33,18 +33,17 @@
                     <div class="radio">
                         <label><input type="radio"  value="M&amp;S" name="optradio" onclick=isChecked(this.value)>M&amp;S</label>
                     </div>
-                    <button type="button" class="btn btn-primary btn-tiny"  onClick=addTag("radio")>add criteria</button></div>
+                    <button type="button" class="btn btn-primary btn-tiny"  onClick=addTag("radio")>Apply Filter</button></div>
             </div>
             <div class="filter-button">
                 <div>
                     <label for="sel1">By Academic year:</label>
-                    <select class="form-control" id="quartlydate">
-                        <option>date</option>
-                        <option>3/5/14</option>
-                        <option>4/6/15</option>
-                        <option>6/4/16</option>
+                    <select class="form-control" id="date">
+                        <option>2017</option>
+                        <option>2016</option>
+                        <option>2015</option>
                     </select>
-                    <button type="button" class="btn btn-primary btn-tiny"  onClick=addTag("date")>add criteria</button>
+                    <button type="button" class="btn btn-primary btn-tiny"  onClick=addTag("date")>Apply Filter</button>
                 </div>
             </div>
             <div class="filter-button">
@@ -56,18 +55,17 @@
                         <option>learning outcome3</option>
                         <option>learning outcome4</option>
                     </select>
-                    <button type="button" class="btn btn-primary btn-tiny"  onClick=addTag("outcome")>add criteria</button></div>
+                    <button type="button" class="btn btn-primary btn-tiny"  onClick=addTag("outcome")>Apply Filter</button></div>
             </div>
             <div class="filter-button">
                 <div>
-                    <label for="sel1">Question</label>
-                    <select  class="form-control" id="questions">
-                        <option>question</option>
-                        <option>question2</option>
-                        <option>question3</option>
-                        <option>question4</option>
+                    <label for="sel1">Status</label>
+                    <select  class="form-control" id="status">
+                        <option>Complete</option>
+                        <option>In-Progress</option>
+                        <option>Not Started</option>
                     </select>
-                    <button type="button" class="btn btn-primary btn-tiny" onClick=addTag("question")>add criteria</button>
+                    <button type="button" class="btn btn-primary btn-tiny" onClick=addTag("status")>Apply Filter</button>
                 </div>
             </div>
         </form>
@@ -80,7 +78,7 @@
         </div>
     </div>
     <div class="col-md-2">
-        <button type="button"  class="btn btn-primary btn-tiny" onClick=clearTags() style="align:right" type="reset">clear tags</button>
+        <button type="button"  class="btn btn-primary btn-tiny" onClick=clearTags() style="align:right" type="reset">Clear Filters</button>
     </div>
 </div>
 <script>
