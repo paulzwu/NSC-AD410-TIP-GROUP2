@@ -1,4 +1,7 @@
 <?PHP
+//for oauth, this line session_start must be at the top!
+session_start();
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include 'config.php';
@@ -6,7 +9,6 @@ require '../vendor/autoload.php';
 
 // use Core\View;
 
-session_start();
 
 $pagetitle = 'Tip';
 $username = 'Kari';
