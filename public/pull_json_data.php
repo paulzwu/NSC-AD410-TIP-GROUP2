@@ -48,7 +48,7 @@
   // try/catch that runs all code that fetches info from db
 
 	try {
-		$stmt = $conn->prepare($sql);
+		$stmt = $connection->prepare($sql);
 		$stmt->execute();
 
     // this fetches all results and formats them into an associative array
