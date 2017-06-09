@@ -20,14 +20,14 @@
   // ids from the other three tables, and it is what links everything together
 
   $sql="SELECT b.name, b.email, c.answerJSON, c.complete, c.time_complete
-  			FROM USR_JOIN_ANS_JOIN_SUR a
-  				INNER JOIN USERS b
-  					ON a.userID = b.userID
-  				INNER JOIN ANSWER c
-  					ON a.answerID = c.answerID
-  				INNER JOIN SURVEY d
-  					ON a.surveyID = d.surveyID
-  			WHERE d.surveyID = '$ID';";
+        FROM USR_JOIN_ANS_JOIN_SUR a
+        	LEFT JOIN USERS b
+        	ON a.userID = b.userID
+        	LEFT JOIN ANSWER c
+        	ON a.answerID = c.answerID
+        	LEFT JOIN SURVEY d
+        	ON a.surveyID = d.surveyID
+        WHERE d.surveyID = '1'";
 
   // name of the file where everything will be saved to
 

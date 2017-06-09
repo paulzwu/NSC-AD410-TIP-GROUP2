@@ -56,5 +56,16 @@
         "Course_ID": "TEST",
         "Course_Prefix": "TEST",
         "Share": "No, I would rather not share any specifics"
+    },
+    {
+        "name": "Jane Doe",
+        "email": "j.doe@someEmail.com",
+        "answerJSON": null,
+        "complete": null,
+        "time_complete": null,
+        "Division": null,
+        "Course_ID": null,
+        "Course_Prefix": null,
+        "Share": null
     }
 ]
