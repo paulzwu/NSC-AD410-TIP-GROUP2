@@ -7,80 +7,80 @@ include 'dbUserHelper.php';
 include 'db_connect.php';
 require '../vendor/autoload.php';
 
-use smtech\OAuth2\Client\Provider\CanvasLMS;
-use GuzzleHttp\Client;
-
 $pagetitle = 'Tip';
-$username = '';
-$usertype = '';
-$oauthID = '';
+$username = 'Kari';
+$usertype = 'admin';
+// $oauthID = '';
 
-define('CODE', 'code');
-define('STATE', 'state');
-define('STATE_LOCAL', 'oauth2-state');
-define('OAUTH_ID', 'oauth-id');
+// use smtech\OAuth2\Client\Provider\CanvasLMS;
+// use GuzzleHttp\Client;
 
-if (isset($_GET['error'])) {
-    header('Location: http://markpfaff.com/projects/NSC-AD410-TIP-GROUP2/public/');
-    exit();
-}
-if (!isset($_SESSION[OAUTH_ID]) || empty($_SESSION[OAUTH_ID])) {
-    $provider = new CanvasLMS([
-        'clientId' => $config['canvasClientId'] ,
-        'clientSecret' => $config['canvasClientSecret'],
-        'purpose' => 'tip',
-        'redirectUri' => $config['redirectUri'],
-        'canvasInstanceUrl' => $config['canvasInstanceUrl']
-    ]);
-    $c = new Client(['verify'=>false]);
-    $provider->setHttpClient($c);
+// define('CODE', 'code');
+// define('STATE', 'state');
+// define('STATE_LOCAL', 'oauth2-state');
+// define('OAUTH_ID', 'oauth-id');
 
-    /* if we don't already have an authorization code, let's get one! */
-    if (!isset($_GET[CODE])) {
-        $authorizationUrl = $provider->getAuthorizationUrl();
-        $_SESSION[STATE_LOCAL] = $provider->getState();
-        header("Location: $authorizationUrl");
-        exit();
+// if (isset($_GET['error'])) {
+//     header('Location: http://markpfaff.com/projects/NSC-AD410-TIP-GROUP2/public/');
+//     exit();
+// }
+// if (!isset($_SESSION[OAUTH_ID]) || empty($_SESSION[OAUTH_ID])) {
+//     $provider = new CanvasLMS([
+//         'clientId' => $config['canvasClientId'] ,
+//         'clientSecret' => $config['canvasClientSecret'],
+//         'purpose' => 'tip',
+//         'redirectUri' => $config['redirectUri'],
+//         'canvasInstanceUrl' => $config['canvasInstanceUrl']
+//     ]);
+//     $c = new Client(['verify'=>false]);
+//     $provider->setHttpClient($c);
 
-    /* check that the passed state matches the stored state to mitigate cross-site request forgery attacks */
-    } elseif (empty($_GET[STATE]) || $_GET[STATE] !== $_SESSION[STATE_LOCAL]) {
-        unset($_SESSION[STATE_LOCAL]);
-        exit('Invalid state');
+//     /* if we don't already have an authorization code, let's get one! */
+//     if (!isset($_GET[CODE])) {
+//         $authorizationUrl = $provider->getAuthorizationUrl();
+//         $_SESSION[STATE_LOCAL] = $provider->getState();
+//         header("Location: $authorizationUrl");
+//         exit();
 
-    } else {
-        $_SESSION[CODE] = $_GET[CODE];
-        $token = $provider->getAccessToken('authorization_code', [CODE => $_GET[CODE]]);
-        $ownerDetails = $provider->getResourceOwner($token);
-        $oauth_id = $ownerDetails->getId();
-        $name = $ownerDetails->getName();
+//     /* check that the passed state matches the stored state to mitigate cross-site request forgery attacks */
+//     } elseif (empty($_GET[STATE]) || $_GET[STATE] !== $_SESSION[STATE_LOCAL]) {
+//         unset($_SESSION[STATE_LOCAL]);
+//         exit('Invalid state');
 
-        $domain = 'northseattle.test.instructure.com';
-        $profile_url = 'https://' . $domain . '/api/v1/users/' . $oauth_id . '/profile?access_token=' . $token;
-        $f = @file_get_contents($profile_url);
-        $profile = json_decode($f);
-        $email = $profile->primary_email;
+//     } else {
+//         $_SESSION[CODE] = $_GET[CODE];
+//         $token = $provider->getAccessToken('authorization_code', [CODE => $_GET[CODE]]);
+//         $ownerDetails = $provider->getResourceOwner($token);
+//         $oauth_id = $ownerDetails->getId();
+//         $name = $ownerDetails->getName();
 
-        $_SESSION[OAUTH_ID] = $oauth_id;
-        $userInfo = getUser($connection, $oauth_id);
-        if (empty($userInfo['userInfo'])) {
-            insertUser($connection, $oauth_id, $name, $email);
-        }
-        $oauthID = $oauth_id;
-    }
-}
-if (!isset($_SESSION[OAUTH_ID])) {
-    $_SESSION[OAUTH_ID] = $oauthID;    
-}
-if (isset($_GET[CODE]) || isset($_GET[STATE])) {
-    header('Location: http://markpfaff.com/projects/NSC-AD410-TIP-GROUP2/public/');
-    exit();
-}
-$userInfo = getUser($connection, $_SESSION[OAUTH_ID]);
-if (!empty($userInfo['userInfo'])) {
-    $user = $userInfo['userInfo'][0];
-    $username = $user['name'];
-    $usertype = $user['userType'];
-}
+//         $domain = 'northseattle.test.instructure.com';
+//         $profile_url = 'https://' . $domain . '/api/v1/users/' . $oauth_id . '/profile?access_token=' . $token;
+//         $f = @file_get_contents($profile_url);
+//         $profile = json_decode($f);
+//         $email = $profile->primary_email;
+
+//         $_SESSION[OAUTH_ID] = $oauth_id;
+//         $userInfo = getUser($connection, $oauth_id);
+//         if (empty($userInfo['userInfo'])) {
+//             insertUser($connection, $oauth_id, $name, $email);
+//         }
+//         $oauthID = $oauth_id;
+//     }
+// }
+// if (!isset($_SESSION[OAUTH_ID])) {
+//     $_SESSION[OAUTH_ID] = $oauthID;    
+// }
+// if (isset($_GET[CODE]) || isset($_GET[STATE])) {
+//     header('Location: http://markpfaff.com/projects/NSC-AD410-TIP-GROUP2/public/');
+//     exit();
+// }
+// $userInfo = getUser($connection, $_SESSION[OAUTH_ID]);
+// if (!empty($userInfo['userInfo'])) {
+//     $user = $userInfo['userInfo'][0];
+//     $username = $user['name'];
+//     $usertype = $user['userType'];
+// }
 
 openOrCreateDB();
 
