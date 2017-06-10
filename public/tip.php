@@ -1,4 +1,3 @@
-
 <?php include 'Views/templates/header.php';?>
   <!-- Maiin Content -->
   <div class="tip-title"><h3>TIP Assessment</h3></div>
