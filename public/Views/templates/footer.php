@@ -148,19 +148,26 @@
             "processing": true,
             dom: 'lrtip',
             "ajax": {
-                url: "movies.json",
+                url: "results.json",
                 dataSrc: function (data) {
                     statsComplete = 0;
                     statsInProgress = 0;
                     statsNotStarted = 0;
                     var dataTable = [];
                     for (i = 0; i < data.length; i++) {
-                        dataTable.push([data[i].name, data[i].year, data[i].department, data[i].status, data[i].view_export]);
-                        if (dataTable[i][3] == "Complete") {
+                        var date = data[i].time_complete;
+                        var shared = data[i].Share;
+                        //var year = date.substr(0, 4);
+                        //var shared_res = shared.substr(0, 3);
+                        dataTable.push([data[i].name, date, data[i].Division, data[i].complete, shared]);
+                        if (dataTable[i][3] == "1") {
+                            dataTable[i][3] = "Complete";
                             statsComplete++
-                        } else if (dataTable[i][3] == "In-Progress"){
+                        } else if (dataTable[i][3] == "2"){
+                            dataTable[i][3] = "In-Progress";
                             statsInProgress++
-                        } else if (dataTable[i][3] == "Not Started"){
+                        } else if (dataTable[i][3] == "0"){
+                            dataTable[i][3] = "Not Started";
                             statsNotStarted++
                         }
                     }
@@ -188,7 +195,7 @@
                     data: 4, title: 'View/Export',
                     "render": function (data, type) {
                         if (type === 'display') {
-                            data = '<a href="' + data + '" target="_blank">' + data + '</a>';
+                            data = '<a href="tip.php" target="_blank">View</a>';
                         }
 
                         return data;
