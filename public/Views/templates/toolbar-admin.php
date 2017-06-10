@@ -28,7 +28,7 @@
                               </ul>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="Logout.php">
                                 <p>Log out</p>
                             </a>
                         </li>

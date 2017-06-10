@@ -15,7 +15,7 @@
 	$valid_json = preg_replace('/([{,])(\s*)([A-Za-z0-9_\-]+?)\s*:/','$1"$3":',trim(preg_replace('/\s+/', ' ', $surveyData)));
 	$sqlstmt = "INSERT INTO $table($col2, $col3) VALUES ('$valid_json', '$surveyName');";
 	try {
-		$statement = $conn->prepare($sqlstmt);
+		$statement = $connection->prepare($sqlstmt);
 		$statement->execute();
 		$conn = NULL;
 	} catch (PDOException $e) {

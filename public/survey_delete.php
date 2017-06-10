@@ -10,7 +10,7 @@
 	$col1 = 'surveyID';
 	$sqlstmt = "DELETE FROM $table WHERE $col1 = '$surveyID';";
 	try {
-		$statement = $conn->prepare($sqlstmt);
+		$statement = $connection->prepare($sqlstmt);
 		$statement->execute();
 		$conn = NULL;
 	} catch (PDOException $e) {
