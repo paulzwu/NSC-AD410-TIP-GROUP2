@@ -5,12 +5,13 @@
         <group>
             <file>file:/Applications/MAMP/htdocs/ad410/NSC-AD410-TIP-GROUP2/public/assets/css/light-bootstrap-dashboard.css</file>
             <file>file:/Applications/MAMP/htdocs/ad410/NSC-AD410-TIP-GROUP2/public/Views/Admin/table.php</file>
-            <file>file:/Applications/MAMP/htdocs/ad410/NSC-AD410-TIP-GROUP2/public/survey_demo.js</file>
             <file>file:/Applications/MAMP/htdocs/ad410/NSC-AD410-TIP-GROUP2/public/survey_ids.php</file>
             <file>file:/Applications/MAMP/htdocs/ad410/NSC-AD410-TIP-GROUP2/public/Views/Admin/dashboard.php</file>
-            <file>file:/Applications/MAMP/htdocs/ad410/NSC-AD410-TIP-GROUP2/public/Views/templates/header.php</file>
+            <file>file:/Applications/MAMP/htdocs/ad410/NSC-AD410-TIP-GROUP2/public/config.php</file>
             <file>file:/Applications/MAMP/htdocs/ad410/NSC-AD410-TIP-GROUP2/public/support.php</file>
+            <file>file:/Applications/MAMP/htdocs/ad410/NSC-AD410-TIP-GROUP2/public/Views/templates/header.php</file>
             <file>file:/Applications/MAMP/htdocs/ad410/NSC-AD410-TIP-GROUP2/public/thanks.php</file>
+            <file>file:/Applications/MAMP/htdocs/ad410/NSC-AD410-TIP-GROUP2/public/Views/templates/toolbar-faculty.php</file>
             <file>file:/Applications/MAMP/htdocs/ad410/NSC-AD410-TIP-GROUP2/public/formhandler.php</file>
             <file>file:/Applications/MAMP/htdocs/ad410/NSC-AD410-TIP-GROUP2/public/Views/Admin/search_grid.php</file>
             <file>file:/Applications/MAMP/htdocs/ad410/NSC-AD410-TIP-GROUP2/public/Views/templates/footer.php</file>
@@ -19,6 +20,7 @@
             <file>file:/Applications/MAMP/htdocs/ad410/NSC-AD410-TIP-GROUP2/public/Views/Faculty/dashboard.php</file>
             <file>file:/Applications/MAMP/htdocs/ad410/NSC-AD410-TIP-GROUP2/public/survey_load.php</file>
             <file>file:/Applications/MAMP/htdocs/ad410/NSC-AD410-TIP-GROUP2/public/tip.php</file>
+            <file>file:/Applications/MAMP/htdocs/ad410/NSC-AD410-TIP-GROUP2/public/Views/Admin/filter.php</file>
             <file>file:/Applications/MAMP/htdocs/ad410/NSC-AD410-TIP-GROUP2/public/assets/css/styles.css</file>
             <file>file:/Applications/MAMP/htdocs/ad410/NSC-AD410-TIP-GROUP2/public/movies.json</file>
         </group>
