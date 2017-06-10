@@ -1,0 +1,10 @@
+Status Report 27:
+
+1). Login and Logout implementated on our live site
+
+2). Inserting and retrieving user info from database working properly
+
+3). Problem:
+      It's not really a problem because it works on our live site. It's a problem when trying to login using localhost.
+      When we try to login from our local machine, it gives 'state invalid' error.
+      

@@ -10,7 +10,7 @@
   $col3 = 'currentTIP';
   $sqlstmt = "SELECT $col1, $col2, $col3 FROM $table;";
   try {
-    $statement = $conn->prepare($sqlstmt);
+    $statement = $connection->prepare($sqlstmt);
     $statement->execute();
     $statement->setFetchMode(PDO::FETCH_ASSOC);
     $jsonData = $statement->fetchAll();

@@ -11,7 +11,7 @@
 	$col2 = 'surveyJSON';
 	$sqlstmt = "SELECT $col2 FROM $table WHERE $col1 = '$surveyID';";
 	try {
-		$statement = $conn->prepare($sqlstmt);
+		$statement = $connection->prepare($sqlstmt);
 		$statement->execute();
 		$surveyData = $statement->fetchColumn();
 		$conn = NULL;

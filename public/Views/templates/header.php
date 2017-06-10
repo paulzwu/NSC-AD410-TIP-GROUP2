@@ -1,28 +1,89 @@
-<?PHP
-//for oauth, this line session_start must be at the top!
-session_start();
-
+<?php
+session_start(); //for oauth, this line session_start must be at the top!
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include 'config.php';
+include 'dbUserHelper.php';
+include 'db_connect.php';
 require '../vendor/autoload.php';
-
-// use Core\View;
-
 
 $pagetitle = 'Tip';
 $username = 'Kari';
 $usertype = 'admin';
+// $oauthID = '';
+
+// use smtech\OAuth2\Client\Provider\CanvasLMS;
+// use GuzzleHttp\Client;
+
+// define('CODE', 'code');
+// define('STATE', 'state');
+// define('STATE_LOCAL', 'oauth2-state');
+// define('OAUTH_ID', 'oauth-id');
+
+// if (isset($_GET['error'])) {
+//     header('Location: http://markpfaff.com/projects/NSC-AD410-TIP-GROUP2/public/');
+//     exit();
+// }
+// if (!isset($_SESSION[OAUTH_ID]) || empty($_SESSION[OAUTH_ID])) {
+//     $provider = new CanvasLMS([
+//         'clientId' => $config['canvasClientId'] ,
+//         'clientSecret' => $config['canvasClientSecret'],
+//         'purpose' => 'tip',
+//         'redirectUri' => $config['redirectUri'],
+//         'canvasInstanceUrl' => $config['canvasInstanceUrl']
+//     ]);
+//     $c = new Client(['verify'=>false]);
+//     $provider->setHttpClient($c);
+
+//     /* if we don't already have an authorization code, let's get one! */
+//     if (!isset($_GET[CODE])) {
+//         $authorizationUrl = $provider->getAuthorizationUrl();
+//         $_SESSION[STATE_LOCAL] = $provider->getState();
+//         header("Location: $authorizationUrl");
+//         exit();
+
+//     /* check that the passed state matches the stored state to mitigate cross-site request forgery attacks */
+//     } elseif (empty($_GET[STATE]) || $_GET[STATE] !== $_SESSION[STATE_LOCAL]) {
+//         unset($_SESSION[STATE_LOCAL]);
+//         exit('Invalid state');
+
+//     } else {
+//         $_SESSION[CODE] = $_GET[CODE];
+//         $token = $provider->getAccessToken('authorization_code', [CODE => $_GET[CODE]]);
+//         $ownerDetails = $provider->getResourceOwner($token);
+//         $oauth_id = $ownerDetails->getId();
+//         $name = $ownerDetails->getName();
+
+//         $domain = 'northseattle.test.instructure.com';
+//         $profile_url = 'https://' . $domain . '/api/v1/users/' . $oauth_id . '/profile?access_token=' . $token;
+//         $f = @file_get_contents($profile_url);
+//         $profile = json_decode($f);
+//         $email = $profile->primary_email;
+
+//         $_SESSION[OAUTH_ID] = $oauth_id;
+//         $userInfo = getUser($connection, $oauth_id);
+//         if (empty($userInfo['userInfo'])) {
+//             insertUser($connection, $oauth_id, $name, $email);
+//         }
+//         $oauthID = $oauth_id;
+//     }
+// }
+// if (!isset($_SESSION[OAUTH_ID])) {
+//     $_SESSION[OAUTH_ID] = $oauthID;    
+// }
+// if (isset($_GET[CODE]) || isset($_GET[STATE])) {
+//     header('Location: http://markpfaff.com/projects/NSC-AD410-TIP-GROUP2/public/');
+//     exit();
+// }
+// $userInfo = getUser($connection, $_SESSION[OAUTH_ID]);
+// if (!empty($userInfo['userInfo'])) {
+//     $user = $userInfo['userInfo'][0];
+//     $username = $user['name'];
+//     $usertype = $user['userType'];
+// }
 
 openOrCreateDB();
 
-// $username = App\Models\AdminDash::getUser();
-
-// if (!defined('CANVAS_USERNAME') || defined('CANVAS_USERNAME') && $username !== $_SESSION[CANVAS_USERNAME]) {
-//     View::render('Login.php');
-// } else {
-//     openOrCreateDB();
-// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
