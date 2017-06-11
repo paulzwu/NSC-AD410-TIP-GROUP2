@@ -3,13 +3,13 @@
 //var editorOptions = { showJSONEditorTab: false, };
   var editorOptions = {
   // show the embeded survey tab. It is hidden by default
-  showEmbededSurveyTab: true,
+  showEmbededSurveyTab: false,
   // show the test survey tab. It is shown by default
-  showTestSurveyTab: true,
+  showTestSurveyTab: false,
   // show the JSON text editor tab. It is shown by default
-  showJSONEditorTab: true,
+  showJSONEditorTab: false,
   // show the "Options" button menu. It is hidden by default
-  showOptions: true
+  showOptions: false
   };
 //pass the editorOptions parameter to display on the SurveyEditor
     var editorOptions = {questionTypes : ["text", "checkbox", "radiogroup", "dropdown", "comment"]};
