@@ -56,7 +56,7 @@
 		// uncomment the next line for testing purposes
 		echo "<pre>" . file_get_contents('results.json') . "</pre>";
 
-		$conn = NULL;
+		$connection = NULL;
 	} catch (PDOException $e) {
 		echo "PHP Load error: ".$e->getMessage();
   } catch (Exception $e) {
