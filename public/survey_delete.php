@@ -12,7 +12,7 @@
 	try {
 		$statement = $connection->prepare($sqlstmt);
 		$statement->execute();
-		$conn = NULL;
+		$connection = NULL;
 	} catch (PDOException $e) {
 		echo "PHP Delete error: ".$e->getMessage();
 	}
