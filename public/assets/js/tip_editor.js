@@ -11,6 +11,8 @@
   // show the "Options" button menu. It is hidden by default
   showOptions: true
   };
+//pass the editorOptions parameter to display on the SurveyEditor
+    var editorOptions = {questionTypes : ["text", "checkbox", "radiogroup", "dropdown", "comment"]};
 // pass the editorOptions into the constructor. It is an optional parameter.
   var survey = new SurveyEditor.SurveyEditor("surveyEditorContainer", editorOptions);
   //--- this block uses jquery to append the save, load and new buttons to the div used ---\\
