@@ -1,4 +1,3 @@
-
 <!-- Footer-->
 <footer>
     © 2017 ADBAS PROGRAM | NORTH SEATTLE COLLEGE
@@ -204,7 +203,7 @@
     var startDate = '';
     var endDate = '';
     var academicYear = '';
-    var exportType = '';
+    var exportType = 'PDF';
     var includeDataViz = false;
 
 
@@ -228,6 +227,7 @@
             }
         };
         xhr.send("id=" + element.id + 'Modal');
+
     }
 
 
@@ -251,16 +251,17 @@
     function getSelectedRange(){
         var dateRangeSelectors = document.getElementsByClassName("dateRange");
         var academicYearSelector = document.getElementById("academicYear");
-        if(document.activeElement == dateRangeSelectors.item(0)|| document.activeElement == dateRangeSelectors.item(0)){
+        if(document.activeElement == dateRangeSelectors.item(0)|| document.activeElement == dateRangeSelectors.item(1)){
             isDateRange = true;
             academicYearSelector.disabled=true;
             dateRangeSelectors.item(0).disabled=false;
             dateRangeSelectors.item(1).disabled=false;
             if(document.activeElement == dateRangeSelectors.item(0)) {
                 startDate = document.getElementById('startDate').value;
-                console.log(startDate);
-            } else if(document.activeElement == dateRangeSelectors.item(1)) {
-                endDate = document.getElementById('startDate').value;
+                console.log("Start Date: " + startDate);
+            } else {
+                endDate = document.getElementById('endDate').value;
+                console.log("End Date: " + endDate);
             }
         }
     }
@@ -290,14 +291,12 @@
         xhr.onreadystatechange = function(){
             if(xhr.readyState == 4 && xhr.status == 200){
                 var result = xhr.responseText;
+                window.open(result, '_blank');
                 console.log('Result: '+ result);
-                // var obj = JSON.parse(result);
-                // document.getElementById("modalHeader").innerHTML = obj.modalHeader;
-                // document.getElementById("modalDescription").innerHTML = obj.modalDescription;
-                // $('#reportModal').modal({'show' : true});
             }
         };
-        xhr.send("startDate=" + startDate + ", endDate=" + endDate, + ", ");
+        console.log('Date: '+ "startDate=" + startDate + ", endDate=" + endDate);
+        xhr.send("id=exportReport&startDate=" + startDate + "&endDate=" + endDate + "&exportType=" + exportType);
     }
 
     //adds event listeners to the reports drop-down in the toolbar
