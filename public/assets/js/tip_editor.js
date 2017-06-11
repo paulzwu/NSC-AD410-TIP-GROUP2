@@ -3,13 +3,13 @@
 //var editorOptions = { showJSONEditorTab: false, };
   var editorOptions = {
   // show the embeded survey tab. It is hidden by default
-  showEmbededSurveyTab: false,
+  showEmbededSurveyTab: true,
   // show the test survey tab. It is shown by default
   showTestSurveyTab: true,
   // show the JSON text editor tab. It is shown by default
-  showJSONEditorTab: false,
+  showJSONEditorTab: true,
   // show the "Options" button menu. It is hidden by default
-  showOptions: false
+  showOptions: true
   };
 // pass the editorOptions into the constructor. It is an optional parameter.
   var survey = new SurveyEditor.SurveyEditor("surveyEditorContainer", editorOptions);
