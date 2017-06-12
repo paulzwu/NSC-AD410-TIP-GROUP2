@@ -5,14 +5,14 @@
   // show the embeded survey tab. It is hidden by default
   showEmbededSurveyTab: false,
   // show the test survey tab. It is shown by default
-  showTestSurveyTab: false,
+  showTestSurveyTab: true,
   // show the JSON text editor tab. It is shown by default
   showJSONEditorTab: false,
   // show the "Options" button menu. It is hidden by default
-  showOptions: false
+  showOptions: false,
+  // controls which question types are displayed in editor
+  questionTypes : ["text", "checkbox", "radiogroup", "dropdown", "comment"]
   };
-//pass the editorOptions parameter to display on the SurveyEditor
-    var editorOptions = {questionTypes : ["text", "checkbox", "radiogroup", "dropdown", "comment"]};
 // pass the editorOptions into the constructor. It is an optional parameter.
   var survey = new SurveyEditor.SurveyEditor("surveyEditorContainer", editorOptions);
   //--- this block uses jquery to append the save, load and new buttons to the div used ---\\
