@@ -157,16 +157,22 @@
                     for (i = 0; i < data.length; i++) {
                         var date = data[i].time_complete;
                         var shared = data[i].Share;
-                        //var year = date.substr(0, 4);
-                        //var shared_res = shared.substr(0, 3);
+                        if (date != null){
+                            date = date.substring(0,4);
+                            alert(date);
+                        }
+                        if (shared != null){
+                            shared = shared.substring(0,3);
+                            alert(shared);
+                        }
                         dataTable.push([data[i].name, date, data[i].Division, data[i].complete, shared]);
                         if (dataTable[i][3] == "1") {
                             dataTable[i][3] = "Complete";
                             statsComplete++
-                        } else if (dataTable[i][3] == "2"){
+                        } else if (dataTable[i][3] == "0"){
                             dataTable[i][3] = "In-Progress";
                             statsInProgress++
-                        } else if (dataTable[i][3] == "0"){
+                        } else if (dataTable[i][3] == null){
                             dataTable[i][3] = "Not Started";
                             statsNotStarted++
                         }
