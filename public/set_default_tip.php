@@ -10,8 +10,10 @@
   $table = 'SURVEY';
   $col1 = 'surveyID';
   $col2 = 'currentTIP';
-  $sqlstmt = "SELECT $col1, $col2, $col3 FROM $table;";
+  $sqlstmt1 = "UPDATE $table SET $col2 = '1' WHERE $col1 = '$newTIP';";
+  $sqlstmt2 = "UPDATE $table SET $col2 = '0' WHERE $col1 = '$oldTIP';";
   try {
+<<<<<<< HEAD
     $statement = $connection->prepare($sqlstmt);
     $statement->execute();
     $statement->setFetchMode(PDO::FETCH_ASSOC);
@@ -32,4 +34,16 @@
   	// exits the program and sends json contianing error
   	exit(json_encode(array("message" => "$error_msg")));
   }
+=======
+		$statement = $connection->prepare($sqlstmt1);
+		$statement->execute();
+
+    $statement = $connection->prepare($sqlstmt2);
+		$statement->execute();
+		$connection = NULL;
+	} catch (PDOException $e) {
+		echo "PHP Delete error: ".$e->getMessage();
+	}
+
+>>>>>>> ad5581bce631c3345e7d325c6d90b6d4f51a74ac
 ?>

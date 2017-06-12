@@ -13,7 +13,7 @@
 	try {
 		$statement = $connection->prepare($sqlstmt);
 		$statement->execute();
-		$conn = NULL;
+		$connection = NULL;
 	} catch (PDOException $e) {
 		echo "PHP Save error: ".$e->getMessage();
 }

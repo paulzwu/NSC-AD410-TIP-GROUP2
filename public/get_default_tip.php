@@ -1,15 +1,14 @@
 <?php
-	/*
-	 * Retrieves a survey JSON object from DB
-	 */
+  /*
+   * finds the current default TIP in the db and returns it to tip_viewer.js
+   */
 
-	 include "db_connect.php";
+  include "db_connect.php";
 
-	$surveyID = (isset($_POST['ID'])) ? $_POST['ID'] : "";
 	$table = 'SURVEY';
-	$col1 = 'surveyID';
+	$col1 = 'currentTIP';
 	$col2 = 'surveyJSON';
-	$sqlstmt = "SELECT $col2 FROM $table WHERE $col1 = '$surveyID';";
+	$sqlstmt = "SELECT $col2 FROM $table WHERE $col1 = '1';";
 	try {
 		$statement = $connection->prepare($sqlstmt);
 		$statement->execute();

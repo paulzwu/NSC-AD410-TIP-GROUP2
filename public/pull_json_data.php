@@ -18,7 +18,11 @@
 
   // name of the file where everything will be saved to
 
+<<<<<<< HEAD
 	$file_name = "results.json";
+=======
+	$file_name = "r1.json";
+>>>>>>> ad5581bce631c3345e7d325c6d90b6d4f51a74ac
 
   // try/catch that runs all code that fetches info from db
 
@@ -54,9 +58,9 @@
 		fclose($fp);
 
 		// uncomment the next line for testing purposes
-		echo "<pre>" . file_get_contents('results.json') . "</pre>";
+		//echo "<pre>" . file_get_contents('r1.json') . "</pre>";
 
-		$conn = NULL;
+		$connection = NULL;
 	} catch (PDOException $e) {
 		echo "PHP Load error: ".$e->getMessage();
   } catch (Exception $e) {
@@ -114,7 +118,11 @@
 
   function checkID($input) {
   // returns individual surveyID
+<<<<<<< HEAD
   $sql1 = "SELECT d.surveyName, b.name, b.email, c.answerJSON, c.complete, c.time_complete
+=======
+  $sql1 = "SELECT d.surveyName, b.name, b.email, d.surveyJSON, c.answerJSON, c.complete, c.time_complete
+>>>>>>> ad5581bce631c3345e7d325c6d90b6d4f51a74ac
 			FROM USR_JOIN_ANS_JOIN_SUR a
 			JOIN USERS b
 			ON a.userID = b.userID
@@ -125,7 +133,11 @@
 			WHERE d.surveyID = '$input';";
 
   // returns all surveyIDs
+<<<<<<< HEAD
   $sql2 = "SELECT d.surveyName, b.name, b.email, c.answerJSON, c.complete, c.time_complete
+=======
+  $sql2 = "SELECT d.surveyName, b.name, b.email, d.surveyJSON, c.answerJSON, c.complete, c.time_complete
+>>>>>>> ad5581bce631c3345e7d325c6d90b6d4f51a74ac
 			FROM USR_JOIN_ANS_JOIN_SUR a
 			JOIN USERS b
 			ON a.userID = b.userID

@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 <?php
 session_start(); //for oauth, this line session_start must be at the top!
+=======
+<?php 
+ob_start();
+session_start(); 
+//for oauth, this line session_start must be at the top!
+>>>>>>> ad5581bce631c3345e7d325c6d90b6d4f51a74ac
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include 'config.php';
