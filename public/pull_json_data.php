@@ -18,7 +18,7 @@
 
   // name of the file where everything will be saved to
 
-	$file_name = "results.json";
+	$file_name = "r1.json";
 
   // try/catch that runs all code that fetches info from db
 
@@ -54,7 +54,7 @@
 		fclose($fp);
 
 		// uncomment the next line for testing purposes
-		echo "<pre>" . file_get_contents('results.json') . "</pre>";
+		//echo "<pre>" . file_get_contents('r1.json') . "</pre>";
 
 		$connection = NULL;
 	} catch (PDOException $e) {
@@ -114,7 +114,7 @@
 
   function checkID($input) {
   // returns individual surveyID
-  $sql1 = "SELECT d.surveyName, b.name, b.email, c.answerJSON, c.complete, c.time_complete
+  $sql1 = "SELECT d.surveyName, b.name, b.email, d.surveyJSON, c.answerJSON, c.complete, c.time_complete
 			FROM USR_JOIN_ANS_JOIN_SUR a
 			JOIN USERS b
 			ON a.userID = b.userID
@@ -125,7 +125,7 @@
 			WHERE d.surveyID = '$input';";
 
   // returns all surveyIDs
-  $sql2 = "SELECT d.surveyName, b.name, b.email, c.answerJSON, c.complete, c.time_complete
+  $sql2 = "SELECT d.surveyName, b.name, b.email, d.surveyJSON, c.answerJSON, c.complete, c.time_complete
 			FROM USR_JOIN_ANS_JOIN_SUR a
 			JOIN USERS b
 			ON a.userID = b.userID
