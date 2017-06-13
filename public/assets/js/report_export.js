@@ -137,7 +137,7 @@
                 }
                 var dt = JSON.stringify(deptTotal);
                 console.log(dt);
-                var w = window.open('Views/Reports/tip_completion_by_division');
+                var w = window.open('Views/Reports/tip_completion_by_division.php');
             }
         };
         console.log('Date: '+ "startDate=" + startDate + ", endDate=" + endDate);
