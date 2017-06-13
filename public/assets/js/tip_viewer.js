@@ -1,7 +1,5 @@
 $(document).ready(function() {
-  var docID = '1';
-  $.ajax({url: 'survey_load.php',
-      data: {'ID':docID},
+  $.ajax({url: 'get_default_tip.php',
       type: 'POST',
       success:function(result) {
         Survey.defaultBootstrapCss.navigationButton = "btn btn-primary";

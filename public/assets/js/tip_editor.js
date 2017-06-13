@@ -9,10 +9,15 @@
   // show the JSON text editor tab. It is shown by default
   showJSONEditorTab: false,
   // show the "Options" button menu. It is hidden by default
-  showOptions: false
+  showOptions: false,
+  // controls which question types are displayed in editor
+  questionTypes : ["text", "checkbox", "radiogroup", "dropdown", "comment"]
   };
 // pass the editorOptions into the constructor. It is an optional parameter.
   var survey = new SurveyEditor.SurveyEditor("surveyEditorContainer", editorOptions);
+  // instead of just removing all json, it also loads this json string after
+  // clearing out the previous json string
+  survey.text = "{\"pages\":[{\"name\":\"page1\",\"elements\":[{\"type\":\"radiogroup\",\"isRequired\":\"true\",\"name\":\"requiredQuestion1\",\"title\":\"What is your Division?\",\"choices\":[\"AHSS\",\"BEIT\",\"BTS\",\"HHS\",\"LIB\",\"M&S\"]},{\"type\":\"text\",\"isRequired\":\"true\",\"name\":\"requiredQuestion2\",\"title\":\"Course Prefix\"},{\"type\":\"text\",\"isRequired\":\"true\",\"name\":\"requiredQuestion3\",\"title\":\"Course Number\"},{\"type\":\"radiogroup\",\"isRequired\":\"true\",\"name\":\"requiredQuestion4\",\"title\":\"TIP data will be shared de-identified and in aggregate. TIPs are NOT an evaluation of your teaching. It is useful to campus-wide assessment and professional development to use specifics of individual TIPs.\",\"choices\":[\"Yes, you may use my specifics to share with colleagues\",\"No, I would rather not share any specifics\"]}]}]}";
   //--- this block uses jquery to append the save, load and new buttons to the div used ---\\
   //--- by survey js. this makes integration of these features look seamless ---\\
     $navBarHack = $(".navbar-default.container-fluid.nav.nav-tabs.svd_menu");
@@ -82,52 +87,50 @@ $(document).ready(function() {
     //------------ load survey ------------\\
     //request the JSON data and parse into the select element
     $('#loadSurvey').on('click', function() {
+      var docID;
       loadNames('#surveyNames');
       console.log("load clicked");
-      $('#loadBox').one('click', '#pass-data', function() {
+      $('#loadBox').on('click', '#pass-data', function() {
         console.log("Survey name clicked");
-          var docID = $(this).attr('data-id');
+          docID = $(this).attr('data-id');
           if (docID == 0) {
             console.log("no data");
           } else {
             console.log("survey ID: " + docID);
-            // when load is clicked, pass the surveyID to the server and return survey json
-            $("#load").one('click', function() {
-                console.log("modal load clicked");
-                $.ajax({url: 'survey_load.php',
-                    data: {'ID':docID},
-                    type: 'POST',
-                    success:function(result) {
-                    // survey.text loads quiz data into surveyjs editor
-                      survey.text=result;
-                      console.log("survey loaded");
-                      snackBar("Survey loaded");
-                    },
-                    error:function() {
-                      console.log("no survey to load");
-                      snackBar("No survey to load");
-                    }
-                });
-            });
-            $("#delete").one('click', function() {
-              $.ajax({url: 'survey_delete.php',
-                  data: {'ID':docID},
-                  type: 'POST',
-                  success:function(result) {
-                    console.log("survey " + docID + " deleted");
-                    snackBar("Survey deleted");
-                  },
-                  error:function() {
-                    console.log("no survey to delete");
-                    snackBar("No survey to delete");
-                  }
-              });
-            });
           }
       });
-//      $("#loadBox").on('hidden.bs.modal', function () {
-//        $(this).data('bs.modal', null);
-//      });
+      // when load is clicked, pass the surveyID to the server and return survey json
+      $("#load").one('click', function() {
+          console.log("modal load clicked");
+          $.ajax({url: 'survey_load.php',
+              data: {'ID':docID},
+              type: 'POST',
+              success:function(result) {
+              // survey.text loads quiz data into surveyjs editor
+                survey.text=result;
+                console.log("survey loaded");
+                snackBar("Survey loaded");
+              },
+              error:function() {
+                console.log("no survey to load");
+                snackBar("No survey to load");
+              }
+          });
+      });
+      $("#delete").one('click', function() {
+        $.ajax({url: 'survey_delete.php',
+            data: {'ID':docID},
+            type: 'POST',
+            success:function(result) {
+              console.log("survey " + docID + " deleted");
+              snackBar("Survey deleted");
+            },
+            error:function() {
+              console.log("no survey to delete");
+              snackBar("No survey to delete");
+            }
+        });
+      });
     });
 
     //------------ save survey ------------\\
@@ -169,8 +172,9 @@ $(document).ready(function() {
 
     //------------ new survey ------------\\
     $("#newSurvey").on('click', function() {
-      // removes all json data, effectively resetting the survey editor
-      survey.text = '';
+      // instead of just removing all json, it also loads this json string after
+      // clearing out the previous json string
+      survey.text = "{\"pages\":[{\"name\":\"page1\",\"elements\":[{\"type\":\"radiogroup\",\"isRequired\":\"true\",\"name\":\"requiredQuestion1\",\"title\":\"What is your Division?\",\"choices\":[\"AHSS\",\"BEIT\",\"BTS\",\"HHS\",\"LIB\",\"M&S\"]},{\"type\":\"text\",\"isRequired\":\"true\",\"name\":\"requiredQuestion2\",\"title\":\"Course Prefix\"},{\"type\":\"text\",\"isRequired\":\"true\",\"name\":\"requiredQuestion3\",\"title\":\"Course Number\"},{\"type\":\"radiogroup\",\"isRequired\":\"true\",\"name\":\"requiredQuestion4\",\"title\":\"TIP data will be shared de-identified and in aggregate. TIPs are NOT an evaluation of your teaching. It is useful to campus-wide assessment and professional development to use specifics of individual TIPs.\",\"choices\":[\"Yes, you may use my specifics to share with colleagues\",\"No, I would rather not share any specifics\"]}]}]}";
       console.log("json data cleared");
       snackBar("Survey cleared");
     });
@@ -221,14 +225,12 @@ $(document).ready(function() {
       $("#snackbar").append(text);
       setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
     }
+
     var currentTIP;
     var newTIP;
-//------ SET DEFAULT TIP ----\\
-// this code allows admins to set a default tip for everyone to answer
-    $('#loadTIP').on('click', function() {
-      console.log("tip loader clicked");
-      $select = $('#deploy');
+    function loadTIPnames(id){
       // call to server to load quiz names
+      $select = $(id);
       $.ajax({
         url: 'survey_ids.php',
         dataType:'JSON',
@@ -241,52 +243,56 @@ $(document).ready(function() {
             if (val.surveyID == '0') {
               $select.append('<div class=\"radio\"><label id=\"tipSelection\"><input type=\"radio\" name=\"optradio\" value=\"0\">No surveys saved</label></div>');
               console.log("no items to display");
-            } else {
               //iterate over the data and create a list of buttons with data values to pass to load function
               // if val.currentTIP is 1 meaning that it is the current tip, that tip will be selected by default
-              if (val.currentTIP == '1') {
-                currentTIP = val.surveyID;
-                $select.append('<div class=\"radio\"><label class=\"active\" id=\"tipSelection\"><input type=\"radio\" name=\"optradio\" value=\"' + val.surveyID + '\" checked=\"\">' + val.surveyName + '</label></div>');
-                console.log("TIP #" + val.surveyID + ", '" + val.surveyName + "' is the current default survey")
-                // otherwise it will not be selected
-              } else {
-                $select.append('<div class=\"radio\"><label id=\"tipSelection\"><input type=\"radio\" name=\"optradio\" value=\"' + val.surveyID + '\">' + val.surveyName + '</label></div>');
-              }
+            } else if (val.currentTIP == '1') {
+              $select.append('<div class=\"radio\"><label class=\"active\" id=\"tipSelection\"><input type=\"radio\" name=\"optradio\" value=\"' + val.surveyID + '\" checked=\"\">' + val.surveyName + '</label></div>');
+              console.log("TIP #" + val.surveyID + ", '" + val.surveyName + "' is the current default survey")
+              currentTIP = val.surveyID;
+              //console.log("currentTIP is " + currentTIP);
+              // otherwise it will not be selected
+            } else {
+              $select.append('<div class=\"radio\"><label id=\"tipSelection\"><input type=\"radio\" name=\"optradio\" value=\"' + val.surveyID + '\">' + val.surveyName + '</label></div>');
             }
           })
-          console.log("list created");
-          // gets surveyID of currently selected survey
-          $('.radio').one('click', '#pass-data', function() {
-            console.log("Survey name clicked");
-              newTIP = document.getElementById('tipSelection').checked
-              if (newTIP == 0) {
-                console.log("no data");
-              } else {
-                console.log("new default tip set: #" + val.surveyID + ", '" + val.surveyName + "'");
-              }
-            });
-          // save selected tip as default
-          $("#tipCurrent").one('click', function() {
-              $.ajax({url: 'set_default_tip.php',
-                  data: {'ID':newTIP, 'oldID':currentTIP},
-                  type: 'POST',
-                  success:function() {
-                    console.log("db updated");
-                    snackBar("Current TIP selected");
-                  },
-                  error:function() {
-                    console.log("no survey to load");
-                    snackBar("No survey to load");
-                  }
-              });
-          });
         },
-        error:function() {
+        error:function(){
           $select.html('');
           //report to user if there is an error (db file missing)
           $select.append('<div class=\"radio\"><label id=\"tipSelection\"><input type=\"radio\" name=\"optradio\" value=\"-1\">Database not available</label></div>');
           console.log("database file not found");
         }
       });
+    }
+//------ SET DEFAULT TIP ----\\
+// this code allows admins to set a default tip for everyone to answer
+    $('#loadTIP').on('click', function() {
+      console.log("tip loader clicked");
+      loadTIPnames('#deploy');
+      console.log("list created");
+        // gets surveyID of currently selected survey
+        $('#tipBox').on('click', '#tipSelection', function() {
+          newTIP = $('input[name=optradio]:checked').val();
+          //console.log("newTIP is " + newTIP);
+          if (newTIP == 0) {
+            console.log("no data");
+          }
+        });
+        // save selected tip as default
+        $("#tipCurrent").one('click', function() {
+          console.log("currentTIP = " + currentTIP + ", newTIP = " + newTIP);
+          $.ajax({url: 'set_default_tip.php',
+              data: {'ID':newTIP, 'oldID':currentTIP},
+              type: 'POST',
+              success:function() {
+                console.log("db updated");
+                snackBar("Current TIP selected");
+              },
+              error:function() {
+                console.log("no survey to load");
+                snackBar("No survey to load");
+            }
+          });
+        });
+      });
     });
-  });
