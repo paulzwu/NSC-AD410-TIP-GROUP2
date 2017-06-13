@@ -13,16 +13,14 @@
   // surveyID being requested. The request MUST use POST and it MUST have
   // a name of 'ID' for this to work.
 
-  $ID = (isset($_POST['ID'])) ? $_POST['ID'] : "";
-  //$ID = "1"; // test value
+  //$ID = (isset($_POST['ID'])) ? $_POST['ID'] : "";
+  $ID = "1"; // test value
 
   // name of the file where everything will be saved to
 
-<<<<<<< HEAD
 	$file_name = "results.json";
-=======
 	$file_name = "r1.json";
->>>>>>> ad5581bce631c3345e7d325c6d90b6d4f51a74ac
+	$file_name = "results.json";
 
   // try/catch that runs all code that fetches info from db
 
@@ -50,11 +48,14 @@
 
 		$json_output = json_decode(jsonProcess($result), true);
 
+    // this formats the surveyJSON and answerJSON elements
+    $json_final = formatQuestion($json_output);
+
     // this writes the above variable into the file created earlier
     // it converts the data as a json array, and formats it in a pretty, easy
     // to read string
-
-		fwrite($fp, json_encode($json_output, JSON_PRETTY_PRINT));
+    echo "<pre>" . json_encode($json_final, JSON_PRETTY_PRINT) . "</pre>";
+		fwrite($fp, json_encode($json_final, JSON_PRETTY_PRINT));
 		fclose($fp);
 
 		// uncomment the next line for testing purposes
@@ -99,15 +100,14 @@
 
   function parseData($input) {
     $field = 'answerJSON';
-    $newKey = array('Division', 'Course_ID', 'Course_Prefix');
+    $newKey = array('Division', 'Course_ID', 'Course_Prefix','Share');
     for($i = 0; $i < count($input); $i++) {
-      for($j = 0; $j < 3; $j++) {
-        $q = 'question' . ($j + 1);
+      for($j = 0; $j < 4; $j++) {
+        $q = 'requiredQuestion' . ($j + 1);
         $answerOutput = json_decode($input[$i][$field], true);
         $new_keyVal = $answerOutput[$q];
         $input[$i] += array($newKey[$j] => $new_keyVal);
       }
-      $input[$i] += array('Share' => $answerOutput['question17']);
     }
     return $input;
   }
@@ -118,11 +118,7 @@
 
   function checkID($input) {
   // returns individual surveyID
-<<<<<<< HEAD
-  $sql1 = "SELECT d.surveyName, b.name, b.email, c.answerJSON, c.complete, c.time_complete
-=======
   $sql1 = "SELECT d.surveyName, b.name, b.email, d.surveyJSON, c.answerJSON, c.complete, c.time_complete
->>>>>>> ad5581bce631c3345e7d325c6d90b6d4f51a74ac
 			FROM USR_JOIN_ANS_JOIN_SUR a
 			JOIN USERS b
 			ON a.userID = b.userID
@@ -133,11 +129,7 @@
 			WHERE d.surveyID = '$input';";
 
   // returns all surveyIDs
-<<<<<<< HEAD
-  $sql2 = "SELECT d.surveyName, b.name, b.email, c.answerJSON, c.complete, c.time_complete
-=======
   $sql2 = "SELECT d.surveyName, b.name, b.email, d.surveyJSON, c.answerJSON, c.complete, c.time_complete
->>>>>>> ad5581bce631c3345e7d325c6d90b6d4f51a74ac
 			FROM USR_JOIN_ANS_JOIN_SUR a
 			JOIN USERS b
 			ON a.userID = b.userID
@@ -175,4 +167,49 @@
     	}
     }
 
+    	// for this to work, all surveys must have a title (where user is supposed to put the question)
+    	// pattern is: the key pages, a number, the key elements, another number
+
+    function formatQuestion($json_data) {
+      //echo "<pre>" . var_export($json_data, true) . "</pre>";
+    	$temp1 = array();
+    	$temp2 = array();
+    	$counter1 = 0;
+    	for ($i = 0; $i < count($json_data); $i++) {
+    		for ($j = 0; $j < count($json_data[$i]['surveyJSON']['pages']); $j++) {
+    			for ($k = 0; $k < count($json_data[$i]['surveyJSON']['pages'][$j]['elements']); $k++) {
+    				$counter1++;
+    				$q = ($counter1);
+    				$temp2[] = 'question' . $q;
+    				$temp1[] = $json_data[$i]['surveyJSON']['pages'][$j]['elements'][$k]['title'];
+    			}
+    		}
+    		$json_data[$i]['surveyJSON'] = '';
+    		$json_data[$i]['surveyJSON'] = array_combine($temp2, $temp1);
+    		$temp1 = $temp2 = array();
+    		$counter1 = 0;
+    	}
+      $json_out = formatAnswer($json_data);
+      return $json_out;
+    }
+
+    function formatAnswer($json_data) {
+    	$tempA = array();
+    	$tempB = array();
+    	$counter2 = 0;
+    	for ($i = 0; $i < count($json_data); $i++) {
+    		for ($j = 0; $j < count($json_data[$i]['answerJSON']); $j++) {
+    			$tempC = array_values($json_data[$i]['answerJSON']);
+    			$counter2++;
+    			$q = $counter2;
+    			$tempB[] = 'question' . $q;
+    			$tempA[] = $tempC[$j];
+    		}
+    		$json_data[$i]['answerJSON'] = '';
+    		$json_data[$i]['answerJSON'] = array_combine($tempB, $tempA);
+    		$tempA = $tempB = array();
+    		$counter2 = 0;
+    	}
+      return $json_data;
+    }
 ?>
