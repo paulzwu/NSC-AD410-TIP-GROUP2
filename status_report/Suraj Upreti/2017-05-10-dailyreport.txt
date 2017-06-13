@@ -1,7 +1,0 @@
-Status Report 14:
-
-1). Got API key
-
-2). Working on adding login page
-
-3). Researching ways to export data from website to a pdf file

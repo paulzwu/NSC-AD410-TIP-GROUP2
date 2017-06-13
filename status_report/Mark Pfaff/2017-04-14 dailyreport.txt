@@ -1,7 +1,0 @@
-Status Report 3:
-
-1) Created project folder structure, reviewed team status reports
-
-2) Review roadblocks and add anything pertinent to GitHub issues, review Kari and Mahilet’s document submissions, checkin on team progress
-
-3) No major roadblocks

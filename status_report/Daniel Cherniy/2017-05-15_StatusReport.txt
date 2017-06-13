@@ -1,5 +1,0 @@
-1) Still working on implementing new tables for faculty page w/ filters
-
-2) Create breakpoints for style sheets
-
-3) Nothing is working, still having big issues working with views/controllers/apache/

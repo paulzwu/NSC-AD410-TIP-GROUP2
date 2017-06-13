@@ -1,5 +1,0 @@
-1) Yesterday I finished up my portion of the website mockup, and finished detailing implementation notes that came to mind while creating the mockup.
-
-2) Tomorrow I plan on reviewing what should be done for the next sprint with the group at our weekly scrum meeting / compiling all of our mockups to one spot for the project wiki
-
-3) We need an organized way to get feedback for mockups, and determine exact implementation details.

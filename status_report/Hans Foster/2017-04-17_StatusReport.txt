@@ -1,7 +1,0 @@
-1)  We discussed in detail survey JS and how the Json file will be a single chunk of code which the front end can manipulate to create any kind of reports on the TIP forms
-    for admins and whatnot.  
-
-2)  Just need to confirm that the DB will save only the Json file, this might be an issue later - we can create code to parse through the code at some point.  
-
-3)  We need to be better at deciding exactly what we're doing before attempting code I think?  This means communicating directly with front and back end asap about using 
-    survey JS code and Json.  But all is going well.  

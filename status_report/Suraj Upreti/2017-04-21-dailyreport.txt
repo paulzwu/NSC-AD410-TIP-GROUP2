@@ -1,5 +1,0 @@
-Status Report 6:
-
-1). Researching on using Oauth2 for login, data we need and resources we can access in Canvas
-
-2). Working on creating a sample login form using Oauth2 authorization

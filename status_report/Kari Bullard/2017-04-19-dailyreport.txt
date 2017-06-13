@@ -1,5 +1,0 @@
-1) Yesterday we went over mockups at Scrum, and got feedback on designs. I used the feedback to rethink some implementation details, and also populated Trello with user stories and this week's sprint backlog
-
-2) Today I plan on refactoring my mockups, and re-posting to see everyone's approval, as well as begin researching templating engines.
-
-3) No major problems, just that tasks need to be assigned among group members.

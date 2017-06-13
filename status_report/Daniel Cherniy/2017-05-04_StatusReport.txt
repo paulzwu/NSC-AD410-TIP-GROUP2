@@ -1,5 +1,0 @@
-1) Set up laravel, composer
-
-2) Finish FAQ pages, create filters for faculty/admin pages
-
-3) N/A

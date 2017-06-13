@@ -1,8 +1,0 @@
-Status report 3 04-14-2017
-
-1. continuing with research with sqlite and how to use native sqlite3 class(es) to connect to db
-2. sent pull request with a basic php connection script that utilizes pdo
-3. will try to set up a local instance of surveyjs editor
-	* the editor is written using knockout js; will research that as well
-4. computer hardware failure, spent whole day rebuilding machine
-

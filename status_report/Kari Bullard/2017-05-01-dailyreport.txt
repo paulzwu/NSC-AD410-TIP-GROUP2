@@ -1,5 +1,0 @@
-1) Yesterday I checked slack, and began trying to setup a meeting with mid-tier to begin discussing how data will be passed to the view.
-
-2) Tomorrow I plan on meeting with Jennifer to work on the admin dash, as well as review potential projects for the next sprint.
-
-3) No roadblocks.

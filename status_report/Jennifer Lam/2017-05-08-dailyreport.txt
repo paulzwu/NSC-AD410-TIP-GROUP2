@@ -1,7 +1,0 @@
-Status Report 13:
-
-1) What I did is researching on tags library 
-
-2) What I am working on is creating a filter tag for each button function
-
-3) no issues

@@ -1,6 +1,0 @@
-1)  First realized I had not been doing status reports (I had thought they were limited to peer reviews), then found out I didn't have access to merge, but looks like the 
-problem was resolved (updated 5/2/17)
-
-2)  Will work with Joseph on creating a php mail script so that users can email through this canvas application
-
-3)  Just need to complete status reports and do my best to remember what happened.  

@@ -1,7 +1,0 @@
-Status Report 14:
-
-1) What I did is continue on researching and creating script 
-
-2) What I am still working on is creating a filter tag 
-
-3) learning javascript

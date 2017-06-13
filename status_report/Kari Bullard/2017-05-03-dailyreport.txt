@@ -1,5 +1,0 @@
-1) yesterday I went looked into implementing a datagrid using google charts that can be updated with ajax requests.
-
-2) tomorrow I am attending a mid-tier meeting to discuss how we're planning on passing the data from us to them.
-
-3) Roadblock: need to make dummy data, or get real data to populate database so we can start testing.

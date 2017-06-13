@@ -1,5 +1,0 @@
-1)  The php function seems to be easy, one liner.  Joseph posted his work on it, I made the branch in github.  
-
-2)  Will discuss the next steps with json and trying to use the editor to our advantage without plagarizing anything (should be free to use for non-profit purposes).
-
-3)  Seems like the email server is causing trouble, despite us having a good understanding of the actual code to create emailability.

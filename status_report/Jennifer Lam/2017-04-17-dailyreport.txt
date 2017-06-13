@@ -1,7 +1,0 @@
-Status Report 4:
-
-1) What I did is create a mockup for the admin tip editor and FAQ
-
-2) What I am working on is finishing up my mockup
-
-3) No issues yet.

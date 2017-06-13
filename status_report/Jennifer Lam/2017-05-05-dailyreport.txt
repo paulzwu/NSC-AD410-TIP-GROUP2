@@ -1,7 +1,0 @@
-Status Report 12:
-
-1) What I did is trying to implement filters
-
-2) What I am working on is generate filter tags
-
-3) no issues

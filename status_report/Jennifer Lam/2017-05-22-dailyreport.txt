@@ -1,7 +1,0 @@
-Status Report 19:
-
-1) What I did is watch tutorials on javascript and form layout
-
-2) What I am doing is looking up tutorials and how I can implentment in the filters.
-
-3) no issues

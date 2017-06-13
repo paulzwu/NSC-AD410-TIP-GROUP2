@@ -1,7 +1,0 @@
-Status Report Test:
-
-1) Setup team meeting with clients, setup trello board for 
-
-2) Helping team get setup with git, meet with client
-
-3) Not everyone has checked in to GitHub, so our meeting may or may not need to focus on that

@@ -1,8 +1,0 @@
-
-Status Report 1:
-
-1) Read project requirements
-
-2) Start on MindMap and wireframe for the committee chair 
-
-3) Learn how to use github and gitshell. 

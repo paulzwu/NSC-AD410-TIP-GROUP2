@@ -1,5 +1,0 @@
-1) Created basic faculty page
-
-2) Adding more features to page as outline in requirements/trello
-
-3) N/A

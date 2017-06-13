@@ -1,7 +1,0 @@
-1. Met with entire team. Discussed our survey.js editor.
-
-2. Will be meeting with back end and front end thrusday to discuss ways to store the JSON object into our database.
-I think we should just store the entire object then parse through the information we need once we take the object out of the
-database. 
-
-3. Will discuss further with group thursday.

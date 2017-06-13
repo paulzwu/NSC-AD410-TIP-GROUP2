@@ -1,7 +1,0 @@
-Status report 1:
-
-1) Setup GitHub for use with project repository / learned how to use GitHub
-
-2) Read through user stories and TIP report to familiarize myself with the system
-
-3) Compiled clarifying questions to address with TIP administrators

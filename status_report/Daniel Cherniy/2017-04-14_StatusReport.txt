@@ -1,5 +1,0 @@
-1) Created new wireframes to match project requirements
-
-2) Building basic faculty page/questionairre
-
-3) Learn survey.js to integrate it into the page
