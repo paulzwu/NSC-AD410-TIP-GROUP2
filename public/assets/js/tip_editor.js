@@ -15,6 +15,9 @@
   };
 // pass the editorOptions into the constructor. It is an optional parameter.
   var survey = new SurveyEditor.SurveyEditor("surveyEditorContainer", editorOptions);
+  // instead of just removing all json, it also loads this json string after
+  // clearing out the previous json string
+  survey.text = "{\"pages\":[{\"name\":\"page1\",\"elements\":[{\"type\":\"radiogroup\",\"isRequired\":\"true\",\"name\":\"requiredQuestion1\",\"title\":\"What is your Division?\",\"choices\":[\"AHSS\",\"BEIT\",\"BTS\",\"HHS\",\"LIB\",\"M&S\"]},{\"type\":\"text\",\"isRequired\":\"true\",\"name\":\"requiredQuestion2\",\"title\":\"Course Prefix\"},{\"type\":\"text\",\"isRequired\":\"true\",\"name\":\"requiredQuestion3\",\"title\":\"Course Number\"},{\"type\":\"radiogroup\",\"isRequired\":\"true\",\"name\":\"requiredQuestion4\",\"title\":\"TIP data will be shared de-identified and in aggregate. TIPs are NOT an evaluation of your teaching. It is useful to campus-wide assessment and professional development to use specifics of individual TIPs.\",\"choices\":[\"Yes, you may use my specifics to share with colleagues\",\"No, I would rather not share any specifics\"]}]}]}";
   //--- this block uses jquery to append the save, load and new buttons to the div used ---\\
   //--- by survey js. this makes integration of these features look seamless ---\\
     $navBarHack = $(".navbar-default.container-fluid.nav.nav-tabs.svd_menu");
@@ -169,8 +172,9 @@ $(document).ready(function() {
 
     //------------ new survey ------------\\
     $("#newSurvey").on('click', function() {
-      // removes all json data, effectively resetting the survey editor
-      survey.text = '';
+      // instead of just removing all json, it also loads this json string after
+      // clearing out the previous json string
+      survey.text = "{\"pages\":[{\"name\":\"page1\",\"elements\":[{\"type\":\"radiogroup\",\"isRequired\":\"true\",\"name\":\"requiredQuestion1\",\"title\":\"What is your Division?\",\"choices\":[\"AHSS\",\"BEIT\",\"BTS\",\"HHS\",\"LIB\",\"M&S\"]},{\"type\":\"text\",\"isRequired\":\"true\",\"name\":\"requiredQuestion2\",\"title\":\"Course Prefix\"},{\"type\":\"text\",\"isRequired\":\"true\",\"name\":\"requiredQuestion3\",\"title\":\"Course Number\"},{\"type\":\"radiogroup\",\"isRequired\":\"true\",\"name\":\"requiredQuestion4\",\"title\":\"TIP data will be shared de-identified and in aggregate. TIPs are NOT an evaluation of your teaching. It is useful to campus-wide assessment and professional development to use specifics of individual TIPs.\",\"choices\":[\"Yes, you may use my specifics to share with colleagues\",\"No, I would rather not share any specifics\"]}]}]}";
       console.log("json data cleared");
       snackBar("Survey cleared");
     });
