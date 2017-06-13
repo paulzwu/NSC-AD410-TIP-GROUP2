@@ -1,7 +1,0 @@
-Status Report 24:
-
-1) What I did is look at the github repo and see any issues I can try and tackle 
-
-2) What I am doing is trying to figure out how to hide the tip editor options 
-
-3) no issues
