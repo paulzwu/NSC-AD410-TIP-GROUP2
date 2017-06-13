@@ -103,7 +103,7 @@ openOrCreateDB();
      <!-- DASHBOARD CSS !!! REQUIRED-->
      <link rel="stylesheet" type="text/css" href="assets/css/light-bootstrap-dashboard.css">
      <!-- CORE BOOTSTRAP CSS !!! REQUIRED-->
-	 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+	 <!-- <script src="assets/js/bootstrap.min.js" type="text/javascript"></script> -->
       <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
      <!-- Survey JS Scripts       -->
      <script src="assets/js/lib/jquery-3.2.1.min.js" type="text/javascript"></script>
