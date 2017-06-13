@@ -1,0 +1,6 @@
+1)  Went over some test queries, had a meeting in class, talked about the ERD a bit, and other aspects
+
+2)  Need to decide on exactly which attributes to include in every table.  It seems like this task will involve
+all three main groups.
+
+3)  Missed a meeting unfortunately, that happened on Thursday

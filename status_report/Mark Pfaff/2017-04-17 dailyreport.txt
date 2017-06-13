@@ -1,0 +1,23 @@
+Status Report 4:
+
+1) What did you do?
+* Reviewed all status reports for road blocks, no roadblocks were pertinent to add to * * * GitHub issues
+* Gave guidance on proper reporting to some team members
+* Integrated Burndown chart extension into our Trello
+* Finished summarizing questionnaire notes
+* Reviewed status of each teams user stories and projects
+* Reviewed wireframes and database ERD
+* Drafted agenda for Tuesdays meeting
+
+2) What are you doing next?
+* Meet with team: 
+   -Q/A with Paul - not sure what he’s going to want to do, we’ll see
+   -Review Timeline - How many Sprints do we have?
+   -Review/Refine User Stories
+     -Break them down into specific requirements
+     -Add them to Trello
+   -Select User Stories for our first official Sprint
+* Review code structure and how configuration files should be handled
+
+3)What roadblocks stand in your way?
+ No major roadblocks

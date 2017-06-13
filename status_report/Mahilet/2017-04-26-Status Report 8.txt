@@ -1,0 +1,24 @@
+Mahilet Haileamriam
+
+Status Report: 8
+
+Due date - 4/26/17
+
+
+
+What have I done?
+
+	•Met with all team to discuss Status update. We did very well: communicating current updates, task progress, challenges, and
+	
+	next steps.
+
+What will I do?
+
+	•I will continue to learn Laravel framework that development environment of team members choice. 
+
+	•I make to finalizing creation of the database drift. 
+
+Any obstacles?
+
+	•I don not have obstacles yet. 
+

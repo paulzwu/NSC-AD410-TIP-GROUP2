@@ -1,0 +1,7 @@
+Status Report 12:
+
+1). Working on creating a login page
+
+2). Waiting for API key
+
+3). Researching user data required after signing in

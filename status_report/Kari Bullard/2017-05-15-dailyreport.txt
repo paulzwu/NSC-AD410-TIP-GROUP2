@@ -1,0 +1,5 @@
+1) Yesterday I was unable to work on anything as I was driving for 8 hours. 
+
+2) Today and tomorrow I plan on getting O-auth working, and incorporating Olga's files into our project.
+
+3) Only roadblock was O-auth id stuff...but have that now.

@@ -1,0 +1,16 @@
+﻿Joseph Sayler
+Status report 9
+5-1-2017
+
+Tasks:
+
+Yesterday
+
+1. completed display of quiz. Added components to integrate into pdo scripts made by team members. 
+
+Today (Monday)
+1. with group and brought them up to speed with where the project is. Showed them code and explained how it works
+
+Roadblock(s):
+
+None

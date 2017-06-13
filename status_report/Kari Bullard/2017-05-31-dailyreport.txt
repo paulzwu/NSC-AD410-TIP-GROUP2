@@ -1,0 +1,5 @@
+1) Yesterday I worked on implementing changes with the new site structure
+
+2)Today we had our demo meeting with Alyssa, and tomorrow I plan on continue working on integration
+
+3) Current Roadblocks....not sure what the db status is....but that's not necessarily a direct problem for me, just more something I feel should be clarified.

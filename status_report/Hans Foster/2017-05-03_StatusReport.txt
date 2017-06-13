@@ -1,0 +1,6 @@
+1)  We met Monday separately and then again on Tuesday during class, talked about everything.  I worked on a mock databaset to test our SQL lite queries and emailed
+    the mid tier group the files. 
+
+2)  I would like to add this database to the code and test it myself
+
+3)  none so far, the editor looks good and things are on time

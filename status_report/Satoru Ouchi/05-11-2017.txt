@@ -1,0 +1,7 @@
+Status Report 12
+
+1. Yesterday I got a new computer and set up what's needed for this practicum. 
+
+2. Today I worked on a mock DB to store quiz data from the quiz output.
+
+3. The biggest "set back" I'm facing right now is trying to get Git to work again.
