@@ -6,10 +6,16 @@
     var exportType = 'PDF';
     var includeDataViz = false;
 
+    //Variables for submissions rates by department
+    var currentDepartments = new Array();
+    var currentDepartmentResponseCount = new Array();
+    var deptTotal = new Array();
+
 
     // Report Request Handler (Queues Modal from Toolbar)
     function previewReport(){
         var element = this;
+        console.log(element.id);
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'report_preview.php', true);
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -90,13 +96,58 @@
         xhr.onreadystatechange = function(){
             if(xhr.readyState == 4 && xhr.status == 200){
                 var result = xhr.responseText;
-                window.open(result, '_blank');
-                console.log('Result: '+ result);
+                obj = JSON.parse(result);
+                console.log(obj);
+
+                //Get current Departments from Active Survey
+                dept = obj["departments"];
+                deptObj = JSON.parse(dept);
+                surveyObj = JSON.parse(deptObj[0].surveyJSON);
+                pageObj = surveyObj["pages"];
+                departments = pageObj[0].elements[0].choices;
+                for (i in departments) {
+                    currentDepartments.push(departments[i]);
+                    currentDepartmentResponseCount.push(0);
+                }
+                
+                //Get total current TIP Submissions
+                submissionTotal = obj["submissionTotal"];
+                sTotalObj = JSON.parse(submissionTotal);
+                console.log(sTotalObj[0]["count(*)"]);
+
+                //Get Department Submissions Totals
+                ans = obj["submissionsByDept"];
+                ansObj = JSON.parse(ans);
+                for(i in ansObj){
+                    console.log(ansObj[i].answerID);
+                    jsonResponse = JSON.parse(ansObj[i].answerJSON);
+                    ansDept = jsonResponse["requiredQuestion1"];
+                    for(j in currentDepartments) {
+                        if(ansDept == currentDepartments[j]){
+                            currentDepartmentResponseCount[j]++;
+                        }
+                    }
+                }
+
+                //Create JSON array to Pass to Data Viz Chart
+                for (i in currentDepartmentResponseCount) {
+                    deptTotal.push({"label": currentDepartments[i],
+                                    "value": currentDepartmentResponseCount[i]
+                              });
+                }
+                var dt = JSON.stringify(deptTotal);
+                console.log(dt);
+                var w = window.open('Views/Reports/tip_completion_by_division');
             }
         };
         console.log('Date: '+ "startDate=" + startDate + ", endDate=" + endDate);
         xhr.send("id=exportReport&startDate=" + startDate + "&endDate=" + endDate + "&exportType=" + exportType);
     }
+
+    function displayDeptResponse(dept) {
+
+    }
+
 
     //adds event listeners to the reports drop-down in the toolbar
     var buttons = document.getElementsByClassName("previewReport");
@@ -113,3 +164,5 @@
     function enable() {
         document.getElementById("mySelect").disabled=false;
     }
+
+

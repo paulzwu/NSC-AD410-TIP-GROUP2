@@ -16,7 +16,7 @@
 <script src="assets/js/tipprogress.js"></script>
 <script src="assets/js/light-bootstrap-dashboard.js"></script>
 <script src="assets/js/responsive_nav.js"></script>
-<script src="assets/js/report_export.js"></script>
+
 
 
 <!-- Response Rate Assets -->
@@ -198,6 +198,7 @@
         });
     }
 </script>
+<script src="assets/js/report_export.js"></script>
 
 
 
