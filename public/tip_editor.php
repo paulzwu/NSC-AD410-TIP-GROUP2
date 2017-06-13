@@ -41,24 +41,24 @@ openOrCreateDB();
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Khula:700|Open+Sans" rel="stylesheet">
 
-    <!-- Survey JS CSS-->
-      <!-- Survey JS Scripts       -->
-     <script src="assets/js/lib/jquery-3.2.1.min.js" type="text/javascript"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
-     <link href="https://surveyjs.azureedge.net/0.12.16/surveyeditor.css" type="text/css" rel="stylesheet" />
-     <script src="https://surveyjs.azureedge.net/0.12.16/survey.ko.min.js"></script>
-     <script src="https://surveyjs.azureedge.net/0.12.16/surveyeditor.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js" type="text/javascript" charset="utf-8"></script>
-     <link rel="stylesheet" href="assets/css/editor_snackbar.css">
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/worker-json.js" type="text/javascript"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/mode-json.js" type="text/javascript"></script>
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <!-- Survey JS-->
+      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+      <script src="assets/js/lib/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+      <link href="https://surveyjs.azureedge.net/0.12.16/surveyeditor.css" type="text/css" rel="stylesheet" />
+      <script src="https://surveyjs.azureedge.net/0.12.16/survey.ko.min.js"></script>
+      <script src="https://surveyjs.azureedge.net/0.12.16/surveyeditor.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js" type="text/javascript" charset="utf-8"></script>
+      <link rel="stylesheet" href="assets/css/editor_snackbar.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/worker-json.js" type="text/javascript"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/mode-json.js" type="text/javascript"></script>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
      <!-- NAVBAR ICONS !!! REQUIRED-->
      <link rel="stylesheet" type="text/css" href="assets/css/pe-icon-7-stroke.css">
      <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
      <link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.min.css">
-     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.jqueryui.min.css">
      <!-- FONTS !!! REQUIRED-->
      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Khula:700|Open+Sans">
 </head>
@@ -96,23 +96,6 @@ openOrCreateDB();
 
 
 <!--   Core JS Files   -->
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="//code.jquery.com/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.jqueryui.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
-<script src="https://surveyjs.azureedge.net/0.12.9/survey.ko.min.js"></script>
-<script src="https://surveyjs.azureedge.net/0.12.9/surveyeditor.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.min.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/worker-json.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/mode-json.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js" type="text/javascript"></script>
-
-    <script src="assets/js/lib/jquery-3.2.1.min.js" type="text/javascript"></script>
-    <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-
 <script src="assets/js/light-bootstrap-dashboard.js"></script>
 <script src="assets/js/responsive_nav.js"></script>
 </body>
