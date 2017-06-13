@@ -4,6 +4,10 @@ session_start();
 //for oauth, this line session_start must be at the top!
 error_reporting(E_ALL);
 
+if (isset($_POST['id']) && isset($_POST['data']) && !empty($_POST['id']) && !empty($_POST['data'])) {
+    $_SESSION['chart_data'] = $_POST['data'];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,28 +97,11 @@ error_reporting(E_ALL);
 <script src="https://www.amcharts.com/lib/3/pie.js"></script>
 
 <script>
+var data = <?php echo $_SESSION['chart_data']; ?>;
 var chart = AmCharts.makeChart("chartdiv", {
     "type": "pie",
     "theme": "light",
-    "dataProvider": [{
-        "label": "AHSS",
-        "value": 50
-    }, {
-        "label": "BEIT",
-        "value": 10
-    }, {
-        "label": "BTS",
-        "value": 75
-    }, {
-        "label": "HHS",
-        "value": 5
-    }, {
-        "label": "LIB",
-        "value": 10
-    }, {
-        "label": "M&S",
-        "value": 40
-    }],
+    "dataProvider": data,
     "valueField": "value",
     "titleField": "label",
     "labelRadius": 10,
