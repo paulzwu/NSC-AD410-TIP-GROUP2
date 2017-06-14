@@ -15,7 +15,7 @@ $(document).ready(function() {
           console.log(parsed_json.surveyJSON);
           var survey = new Survey.Model(JSON.parse(parsed_json.surveyJSON), "container");
           //options for progress bar - top, bottom, none
-          survey.showProgressBar = "bottom"; survey.render();
+          survey.showProgressBar = "top"; survey.render();
           // use this for custom messages after survey completed; if no text provided, uses default message
           survey.completedHtml = ""; survey.render();
           // when set to false, prevents the after survey message from displaying
