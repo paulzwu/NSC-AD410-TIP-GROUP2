@@ -1,0 +1,7 @@
+Status Report 24
+
+1. Yesterday i worked on making a JSON object based on the data from the data base.
+
+2. Today I continued amd finished the above.
+
+3. No roadblocks as of now. I'm looking forward to the meetings tomorrow.
