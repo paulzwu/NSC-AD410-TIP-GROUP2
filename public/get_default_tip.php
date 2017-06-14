@@ -20,7 +20,7 @@
   $col7 = 'answerJSON';
   $col8 = 'surveyJSON';
   $surveyInfo = array();
-	$sqlstmt = "SELECT d.$col6, d.$col7, b.$col8
+	$sqlstmt = "SELECT d.$col6, d.$col7, b.$col8, b.$col5
               FROM $table1 a
               JOIN $table2 b
               ON a.$col1 = b.$col1

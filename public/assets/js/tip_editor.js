@@ -33,15 +33,15 @@
                 "<div class=\"modal-content\">" +
                     "<div class=\"modal-header\">" +
                         "<button type=\"button\" class=\"close\" data-dismiss=\"modal\">&times;</button>" +
-                        "<h4 class=\"modal-title\">Load</h4>" +
+                        "<h4 class=\"modal-title\">Load or Delete</h4>" +
                     "</div>" +
                     "<div class=\"modal-body\">" +
                         "<div class=\"list-group\" id=\"surveyNames\"></div>" +
                     "</div>" +
                     "<div class=\"modal-footer\">" +
                         "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" id=\"load\">Load</button>" +
-                        "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" id=\"cancelLoad\">Cancel</button>" +
                         "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" id=\"delete\">Delete</button>" +
+                        "<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\" id=\"cancelLoad\">Cancel</button>" +
                     "</div>" +
                 "</div>" +
             "</div>" +
@@ -118,18 +118,35 @@ $(document).ready(function() {
           });
       });
       $("#delete").one('click', function() {
-        $.ajax({url: 'survey_delete.php',
-            data: {'ID':docID},
-            type: 'POST',
-            success:function(result) {
-              console.log("survey " + docID + " deleted");
-              snackBar("Survey deleted");
-            },
-            error:function() {
-              console.log("no survey to delete");
-              snackBar("No survey to delete");
-            }
-        });
+        $.ajax({ url: 'survey_ids.php',
+           dataType:'JSON',
+           success:function(data) {
+             $.each(data.surveyInfo, function(key, val) {
+               if(docID == val.surveyID && val.currentTIP == '1') {
+                 console.log("current tip cannot be deleted");
+                 snackBar("The current TIP cannot be deleted.");
+                 return false;
+               } else if (docID == val.surveyID && val.currentTIP == '0') {
+                 $.ajax({url: 'survey_delete.php',
+                     data: {'ID':docID},
+                     type: 'POST',
+                     success:function(result) {
+                       console.log("survey " + docID + " deleted");
+                       snackBar("Survey deleted");
+                     },
+                     error:function() {
+                       console.log("no survey to delete");
+                       snackBar("No survey to delete");
+                     }
+                 });
+               }
+             })
+           },
+           error:function() {
+             console.log("error getting currentTIP and surveyID");
+             snackBar("Unable to delete TIP at this time");
+           }
+         });
       });
     });
 
