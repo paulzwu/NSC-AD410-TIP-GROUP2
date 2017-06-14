@@ -156,11 +156,6 @@
         tagCounter --;
     }
 
-    //selecting radio button if it is check
-    function isChecked(value){
-        radioChecked = value;
-    }
-
     //check if input tag is duplicate
     function isDuplicate(){
         var element = document.getElementById(text);
@@ -248,7 +243,7 @@
                     data: 8, title: 'View', "searchable": false,
                     "render": function (data, type) {
                         if (type === 'display') {
-                            //data = '<a href="tip.php" target="_blank">'+ data +'</a>';
+                            data = '<a href="tip.php" target="_blank">'+ data +'</a>';
                         }
 
                         return data;
