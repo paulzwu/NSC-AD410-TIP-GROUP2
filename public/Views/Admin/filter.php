@@ -56,14 +56,16 @@
             </div>
             <div class="filter-button">
                 <div>
-                    <label for="sel1">Learning Outcome</label>
-                    <select class="form-control" id="learnOutcome">
-                        <option>learning outcome</option>
-                        <option>learning outcome2</option>
-                        <option>learning outcome3</option>
-                        <option>learning outcome4</option>
+                    <label for="sel1">Search Assessments By:</label>
+                    <select class="form-control" id="searchBy">
+                        <option>Question</option>
+                        <option>Answer</option>
+                        <option>Course</option>
+                        <option>Shared</option>
                     </select>
-                    <button type="button" class="btn btn-primary btn-tiny"  onClick=addTag("outcome")>Apply Filter</button></div>
+                    <label></label>
+                    <input type="text" id="textBoxAssessment" placeholder="Search Assessments">
+                    <button type="button" class="btn btn-primary btn-tiny"  onClick=addTag("assessment")>Apply Filter</button></div>
             </div>
             <div class="filter-button">
                 <div>
