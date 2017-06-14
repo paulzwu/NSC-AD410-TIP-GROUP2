@@ -1,4 +1,5 @@
-<?php 
+<?php
+session_start(); //for oauth, this line session_start must be at the top!
 ob_start();
 session_start(); 
 //for oauth, this line session_start must be at the top!
