@@ -14,12 +14,10 @@
   // a name of 'ID' for this to work.
 
   //$ID = (isset($_POST['ID'])) ? $_POST['ID'] : "";
-  $ID = "1"; // test value
+  $ID = "all"; // test value
 
   // name of the file where everything will be saved to
 
-	$file_name = "results.json";
-	$file_name = "r1.json";
 	$file_name = "results.json";
 
   // try/catch that runs all code that fetches info from db
