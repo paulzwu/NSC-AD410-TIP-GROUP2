@@ -13,15 +13,15 @@ if (isset($_POST['id']) && isset($_POST['data']) && !empty($_POST['id']) && !emp
     $_SESSION['chart_data'] = $_POST['data'];
 }
 
-$data = json_decode($_SESSION['chart_data'], true);
-// print_r($data);
-$csvExportArray = array();
-for($i = 0; $i < sizeof($data); $i++) {
-    $dept = $data[$i]['label'];
-    $val = $data[$i]['value'];
-    array_push($csvExportArray, [$dept, $val]);
-}
-print_r($csvExportArray);
+// $data = json_decode($_SESSION['chart_data'], true);
+// // print_r($data);
+// $csvExportArray = array();
+// for($i = 0; $i < sizeof($data); $i++) {
+//     $dept = $data[$i]['label'];
+//     $val = $data[$i]['value'];
+//     array_push($csvExportArray, [$dept, $val]);
+// }
+// print_r($csvExportArray);
 // $totalSubmissions = $data[0]['label'];
 // echo $totalSubmissions;
 // print_r($totalSubmissions);
