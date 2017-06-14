@@ -26,11 +26,25 @@
     var radioChecked = "";
     var text = "";
     var tagCounter = 0;
+    var searchByCol = 0;
     var statsComplete, statsInProgress, statsNotStarted;
+    var dataTable = [];
+    var questions = [];
+    var answers = [];
+    var index = null;
 
     $(document).ready(function() {
         initTable();
+
+        var table = $('#table_id').DataTable();
+        $('#table_id tbody').on( 'click', 'tr', function () {
+            //alert( 'Row index: '+table.row( this ).index() );
+            index = table.row( this ).index();
+            //alert(table.row( this ).index());
+            displayTip();
+        } );
     });
+
 
     //add tag based on filter
     function addTag(btnId) {
@@ -53,9 +67,28 @@
                     searchFilter();
                 }
                 break;
-            case "outcome":
-                text = document.getElementById("learnOutcome").value;
+            case "assessment":
+                text = document.getElementById("textBoxAssessment").value;
                 if (text != "" && isDuplicate() == false && tagCounter < 5) {
+                    switch (document.getElementById("searchBy").value){
+                        case "Question":
+                            searchByCol = 6;
+                            keywordSearch();
+                            break;
+                        case "Answer":
+                            searchByCol = 7;
+                            keywordSearch();
+                            break;
+                        case "Course":
+                            searchByCol = 5;
+                            keywordSearch();
+                            break;
+                        case "Shared":
+                            searchByCol = 4;
+                            keywordSearch();
+                            break;
+                    }
+                    text = document.getElementById("textBoxAssessment").value;
                     searchFilter();
                 }
                 break;
@@ -70,6 +103,7 @@
         createTag();
 
         $('#textBox').val(null);
+        $('#textBoxAssessment').val(null);
 
     } //end of addTag function
 
@@ -104,6 +138,7 @@
             .search(filter.join("  "))
             .draw();
     }
+
     //remove the tag
     function removeTag(clicked_id) {
         var parent = document.getElementById("tagDiv");
@@ -133,7 +168,7 @@
     }
 
     function clearTags(){
-        filter = "";
+        filter = [];
         $('.tags').remove();
         var table = $('#table_id').DataTable();
         table
@@ -148,19 +183,40 @@
             "processing": true,
             dom: 'lrtip',
             "ajax": {
-                url: "movies.json",
+                url: "results.json",
                 dataSrc: function (data) {
                     statsComplete = 0;
                     statsInProgress = 0;
                     statsNotStarted = 0;
-                    var dataTable = [];
+
                     for (i = 0; i < data.length; i++) {
-                        dataTable.push([data[i].name, data[i].year, data[i].department, data[i].status, data[i].view_export]);
-                        if (dataTable[i][3] == "Complete") {
+                        var date = data[i].time_complete;
+                        var shared = data[i].Share;
+                        if (date != null){
+                            date = date.substring(0,4);
+                        }
+                        if (shared != null){
+                            shared = shared.substring(0,3);
+                        }
+                        var questionResult = [];
+                        var answerResult = [];
+                        for (j in data[i].surveyJSON) {
+                            questionResult.push(data[i].surveyJSON[j]);
+                        }
+                        questions.push(questionResult);
+                        for (j in data[i].answerJSON) {
+                            answerResult.push(data[i].answerJSON[j]);
+                        }
+                        answers.push(answerResult);
+                        dataTable.push([data[i].name, date, data[i].Division, data[i].complete, shared, data[i].Course_ID + "" + data[i].Course_Prefix, questions[i], answers[i], "View", i]);
+                        if (dataTable[i][3] == "1") {
+                            dataTable[i][3] = "Complete";
                             statsComplete++
-                        } else if (dataTable[i][3] == "In-Progress"){
+                        } else if (dataTable[i][3] == "0"){
+                            dataTable[i][3] = "In-Progress";
                             statsInProgress++
-                        } else if (dataTable[i][3] == "Not Started"){
+                        } else if (dataTable[i][3] == null){
+                            dataTable[i][3] = "Not Started";
                             statsNotStarted++
                         }
                     }
@@ -182,25 +238,43 @@
             columns: [
                 {data: 0, title: 'Name'},
                 {data: 1, title: 'Year'},
-                {data: 2, title: 'Department'},
+                {data: 2, title: 'Division'},
                 {data: 3, title: 'Status'},
+                {data: 4, title: 'Shared', "visible": true},
+                {data: 5, title: 'Course', "visible": true},
+                {data: 6, title: 'Questions', "visible": false, "searchable": false},
+                {data: 7, title: 'Answers', "visible": false, "searchable": false},
                 {
-                    data: 4, title: 'View/Export',
+                    data: 8, title: 'View', "searchable": false,
                     "render": function (data, type) {
                         if (type === 'display') {
-                            data = '<a href="' + data + '" target="_blank">' + data + '</a>';
+                            //data = '<a href="tip.php" target="_blank">'+ data +'</a>';
                         }
 
                         return data;
                     }
-                }
+                },
+                {data: 9, title: 'Index', "visible": true}
             ]
         });
     }
+
+    function displayTip() {
+        // Create table and pass in questions and answers that correspond with the index
+        var table = $('#table_id').DataTable();
+        console.log(questions);
+        questions[index].forEach(function (item) {
+            console.log(item);
+        });
+        answers[index].forEach(function (item) {
+            console.log(item);
+        });
+        //alert(questions[index][10] + " - " + answers[index][10]);
+    }
+
+
 </script>
 <script src="assets/js/report_export.js"></script>
-
-
 
 
 </body>
