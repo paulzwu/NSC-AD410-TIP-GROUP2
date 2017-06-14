@@ -14,9 +14,9 @@ $totalSubmissions = $data[0]['totalSubmissions'];
 $statsInProgress = $data[1]['statsInProgress'];
 $statsComplete = $data[2]['statsComplete'];
 $statsNotStarted = $data[3]['statsNotStarted'];
-$vz = $data[4]['vz'];
+// $vz = $data[4]['vz'];
 $csvExportArray = array("Total_Submissions"=>$totalSubmissions, "In-Progress"=>$statsInProgress, "Complete"=> $statsComplete, "Not_Started"=> $statsNotStarted);
-if($vz == false){
+// if($vz == false){
     header("Content-type: text/csv");
     header("Content-Disposition: attachment; filename=submission_rates.csv");
     header("Cache-Control: no-cache, no-store, must-revalidate");
@@ -29,4 +29,4 @@ if($vz == false){
     fputcsv($csvoutput, $row);
     fclose($csvoutput);
     exit;
-} 
+// } 

@@ -70,7 +70,7 @@ switch ($rawID) {
 	case 'exportReport':
 		$startDate = $_POST['startDate'];
 		$endDate = $_POST['endDate'];
-		$export= $_POST['exportType'];
+		// $export= $_POST['exportType'];
 		
 		if($_POST['reportType'] == 'TIPSubmissionStats') {
 			// if($_POST['dataViz'] == "false" ){
@@ -96,7 +96,7 @@ switch ($rawID) {
 	// print_r(json_encode($dataArray));
 		
 			// } else {
-			$dataArray = array("exportType" => $_POST['exportType'], "viz" => $_POST['dataViz'], "requestedReport" => 'TIPSubmissionStats', "submissionTotal" => getTotalSubmissions($connection), "inProgress" => getSubmissionsInProgress($connection), "complete" => getSubmissionsComplete($connection), "notStarted" => getSubmissionsNotStarted($connection));
+			$dataArray = array("requestedReport" => 'TIPSubmissionStats', "submissionTotal" => getTotalSubmissions($connection), "inProgress" => getSubmissionsInProgress($connection), "complete" => getSubmissionsComplete($connection), "notStarted" => getSubmissionsNotStarted($connection));
 				print_r(json_encode($dataArray));
 			// }
 		} else if ($_POST['reportType'] == 'TIPParticipationRateByDepartment') {
@@ -120,7 +120,7 @@ switch ($rawID) {
 			// 	}
 				// print_r(json_encode($dataArray));
 			// } else {
-			$dataArray = array("viz" => $_POST['dataViz'], "requestedReport" => 'TIPParticipationRateByDepartment', "departments" => getDepartments($connection), "submissionTotal" => getTotalSubmissions($connection), "submissionsByDept" => getSubmissionsByDepartment($connection));
+			$dataArray = array("requestedReport" => 'TIPParticipationRateByDepartment', "departments" => getDepartments($connection), "submissionTotal" => getTotalSubmissions($connection), "submissionsByDept" => getSubmissionsByDepartment($connection));
 			print_r(json_encode($dataArray));
 			// }
 		} else if ($_POST['reportType'] == 'TrendingTopics') {

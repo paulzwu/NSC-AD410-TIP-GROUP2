@@ -2,8 +2,8 @@ var isDateRange = false;
 var startDate = '';
 var endDate = '';
 var academicYear = '';
-var exportType = 'PDF';
-var vz = false;
+// var exportType = 'PDF';
+// var vz = false;
 
 //Variables for submissions rates by department
 var currentDepartments = new Array();
@@ -43,25 +43,25 @@ function previewReport(){
 }
 
 
-function exportKind() {
-    if(document.getElementById("exportType").selectedIndex == '0') {
-        exportType = 'PDF';
-    } else if (document.getElementById("exportType").selectedIndex == '1'){
-        exportType = 'CSV';
-    }
-    // console.log(exportType);
-    return exportType;
-}
+// function exportKind() {
+//     if(document.getElementById("exportType").selectedIndex == '0') {
+//         exportType = 'PDF';
+//     } else if (document.getElementById("exportType").selectedIndex == '1'){
+//         exportType = 'CSV';
+//     }
+//     // console.log(exportType);
+//     return exportType;
+// }
 
-function includeViz() {
-    if(document.getElementById("includeDataViz").checked == true)  {
-        vz = true;
-    } else if (document.getElementById("includeDataViz").checked== false){
-        vz = false;
-    }
-    // console.log(vz);
-    return vz;
-}
+// function includeViz() {
+//     if(document.getElementById("includeDataViz").checked == true)  {
+//         vz = true;
+//     } else if (document.getElementById("includeDataViz").checked== false){
+//         vz = false;
+//     }
+//     // console.log(vz);
+//     return vz;
+// }
 
 function getSelectedRange(){
     var dateRangeSelectors = document.getElementsByClassName("dateRange");
@@ -101,8 +101,8 @@ function clearReportFields() {
 function exportReport(){
     var requestedReport = document.getElementById("modalHeader").innerHTML;
     requestedReport = requestedReport.replace(/\s+/g, '');
-    var exportType = exportKind();
-    vizYa = includeViz();
+    // var exportType = exportKind();
+    // vizYa = includeViz();
     // console.log(vizYa);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'report_preview.php', true);
@@ -135,7 +135,7 @@ function exportReport(){
         }
     };
     console.log('Date: '+ "startDate=" + startDate + ", endDate=" + endDate);
-    xhr.send("id=exportReport&startDate=" + startDate + "&endDate=" + endDate + "&exportType=" + exportType + "&reportType=" + requestedReport + "&dataViz=" + vizYa);
+    xhr.send("id=exportReport&startDate=" + startDate + "&endDate=" + endDate + "&reportType=" + requestedReport);
 }
 
 function sendDataToChart(id, data, fileURL) {
@@ -190,7 +190,7 @@ function openDivisionResponseRateChart(responseObject){
                                 "value": currentDepartmentResponseCount[i]
                           });
             }
-            deptTotal.push({"label": 'vz', "value":vizYa});
+            // deptTotal.push({"label": 'vz', "value":vizYa});
             var dt = JSON.stringify(deptTotal);
             var chartData = encodeURIComponent(dt); //encodes special characters
             console.log(chartData);
@@ -223,7 +223,7 @@ function openTipCompletionReport(responseObject) {
     nsObj = JSON.parse(ns);
     console.log(nsObj[0]["count(*)"]);
     submissionStats.push({"statsNotStarted": nsObj[0]["count(*)"]});
-    submissionStats.push({"vz": vizYa});
+    // submissionStats.push({"vz": vizYa});
 
     var completionStats = JSON.stringify(submissionStats);
     var submissionChartData = encodeURIComponent(completionStats); //encodes special characters
