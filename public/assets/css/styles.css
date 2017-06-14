@@ -71,9 +71,21 @@ input[type="radio"] {
 
 .tip-container {
     padding-bottom: 300px;
-    padding-left: 100px;
-    padding-top: 50px;
+    margin: 0 auto;
+    display: block;
+    width: 50%;
+    float: none;
 }
+
+@media screen and (max-width: 1300px){
+        width: 70%;
+
+}
+
+@media screen and (max-width: 1300px){
+    
+}
+
 
 .tip-title {
     text-align:center;
