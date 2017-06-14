@@ -3,13 +3,21 @@ var startDate = '';
 var endDate = '';
 var academicYear = '';
 var exportType = 'PDF';
-var includeDataViz = false;
+var vz = false;
 
 //Variables for submissions rates by department
 var currentDepartments = new Array();
 var currentDepartmentResponseCount = new Array();
 var deptTotal = new Array();
 
+//variables for submission stats (in-progress / complete / not started)
+//what each index represents:
+//0 = total submissions
+//1 = in-progress
+//2 = complete
+//3 = not started
+var submissionStats = new Array();
+var vizYa;
 
 // Report Request Handler (Queues Modal from Toolbar)
 function previewReport(){
@@ -41,15 +49,18 @@ function exportKind() {
     } else if (document.getElementById("exportType").selectedIndex == '1'){
         exportType = 'CSV';
     }
-    console.log(exportType);
+    // console.log(exportType);
+    return exportType;
 }
 
 function includeViz() {
     if(document.getElementById("includeDataViz").checked == true)  {
-        includeDataViz = true;
+        vz = true;
     } else if (document.getElementById("includeDataViz").checked== false){
-        includeDataViz = false;
+        vz = false;
     }
+    // console.log(vz);
+    return vz;
 }
 
 function getSelectedRange(){
@@ -88,6 +99,11 @@ function clearReportFields() {
 
 
 function exportReport(){
+    var requestedReport = document.getElementById("modalHeader").innerHTML;
+    requestedReport = requestedReport.replace(/\s+/g, '');
+    var exportType = exportKind();
+    vizYa = includeViz();
+    // console.log(vizYa);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'report_preview.php', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -95,11 +111,51 @@ function exportReport(){
     xhr.onreadystatechange = function(){
         if(xhr.readyState == 4 && xhr.status == 200){
             var result = xhr.responseText;
-            obj = JSON.parse(result);
-            console.log(obj);
+            console.log('Result: '+ result);
+            var obj = JSON.parse(result);
+            if(requestedReport == 'TIPSubmissionStats') {
+                // if(vizYa = 'false') {
+                //     window.open(result, '_blank');
+                // } else {
+                    
+                    openTipCompletionReport(obj);
+                // }
+            } else if (requestedReport == 'TIPParticipationRateByDepartment') {
+                // if(vizYa == 'false') {
+                //     window.open(result, '_blank');
+                // } else {
+                    // var obj = JSON.parse(result);
+                    openDivisionResponseRateChart(obj);
+                // }
+                
+            } else if(requestedReport == 'TrendingTopics'){
 
-            //Get current Departments from Active Survey
-            dept = obj["departments"];
+            } else if(requestedReport == 'LearningOutcomesbyDivision'){}
+            
+        }
+    };
+    console.log('Date: '+ "startDate=" + startDate + ", endDate=" + endDate);
+    xhr.send("id=exportReport&startDate=" + startDate + "&endDate=" + endDate + "&exportType=" + exportType + "&reportType=" + requestedReport + "&dataViz=" + vizYa);
+}
+
+function sendDataToChart(id, data, fileURL) {
+    var xhr = new XMLHttpRequest();
+    // xhr.open('POST', 'Views/Reports/tip_completion_by_division.php', true);
+    xhr.open('POST', fileURL, true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4 && xhr.status == 200){
+            window.open(fileURL);
+        }
+    };
+    xhr.send("id=" + id + "&data=" + data);
+}
+
+function openDivisionResponseRateChart(responseObject){
+    //Get current Departments from Active Survey
+            // obj = JSON.parse(responseObject);
+            dept = responseObject["departments"];
             deptObj = JSON.parse(dept);
             surveyObj = JSON.parse(deptObj[0].surveyJSON);
             pageObj = surveyObj["pages"];
@@ -110,12 +166,12 @@ function exportReport(){
             }
             
             //Get total current TIP Submissions
-            submissionTotal = obj["submissionTotal"];
+            submissionTotal = responseObject["submissionTotal"];
             sTotalObj = JSON.parse(submissionTotal);
             console.log(sTotalObj[0]["count(*)"]);
 
             //Get Department Submissions Totals
-            ans = obj["submissionsByDept"];
+            ans = responseObject["submissionsByDept"];
             ansObj = JSON.parse(ans);
             for(i in ansObj){
                 console.log(ansObj[i].answerID);
@@ -134,31 +190,46 @@ function exportReport(){
                                 "value": currentDepartmentResponseCount[i]
                           });
             }
+            deptTotal.push({"label": 'vz', "value":vizYa});
             var dt = JSON.stringify(deptTotal);
             var chartData = encodeURIComponent(dt); //encodes special characters
             console.log(chartData);
-            sendDataToChart(chartData);
-        }
-    };
-    console.log('Date: '+ "startDate=" + startDate + ", endDate=" + endDate);
-    xhr.send("id=exportReport&startDate=" + startDate + "&endDate=" + endDate + "&exportType=" + exportType);
+            sendDataToChart('chartData', chartData, 'Views/Reports/tip_completion_by_division.php');
 }
 
-function displayDeptResponse(dept) {
+function openTipCompletionReport(responseObject) {
+    console.log(responseObject);
 
-}
+    //gets total tip submissions
+    subm = responseObject["submissionTotal"];
+    submObj = JSON.parse(subm);
+    console.log(submObj[0]["count(*)"]);
+    submissionStats.push({"totalSubmissions": submObj[0]["count(*)"]});
 
-function sendDataToChart(data) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'Views/Reports/tip_completion_by_division.php', true);
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-    xhr.onreadystatechange = function(){
-        if(xhr.readyState == 4 && xhr.status == 200){
-            window.open('Views/Reports/tip_completion_by_division.php');
-        }
-    };
-    xhr.send("id=chartData&data=" + data);
+    //gets in-progress total
+    ip = responseObject["inProgress"];
+    ipObj = JSON.parse(ip);
+    console.log(ipObj[0]["count(*)"]);
+    submissionStats.push({"statsInProgress": ipObj[0]["count(*)"]});
+
+    //gets complete total
+    c = responseObject["complete"];
+    cObj = JSON.parse(c);
+    console.log(cObj[0]["count(*)"]);
+    submissionStats.push({"statsComplete": cObj[0]["count(*)"]});
+
+    //gets not-started total
+    ns = responseObject["notStarted"];
+    nsObj = JSON.parse(ns);
+    console.log(nsObj[0]["count(*)"]);
+    submissionStats.push({"statsNotStarted": nsObj[0]["count(*)"]});
+    submissionStats.push({"vz": vizYa});
+
+    var completionStats = JSON.stringify(submissionStats);
+    var submissionChartData = encodeURIComponent(completionStats); //encodes special characters
+    console.log(submissionChartData);
+    sendDataToChart('submissionChartData', submissionChartData, 'Views/Reports/tip_completion_report.php');
+
 }
 
 
