@@ -14,7 +14,7 @@
 		$statement = $connection->prepare($sqlstmt);
 		$statement->execute();
 		$surveyData = $statement->fetchColumn();
-		$conn = NULL;
+		$connection = NULL;
 	} catch (PDOException $e) {
 		echo "PHP Load error: ".$e->getMessage();
 	}

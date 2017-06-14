@@ -1,0 +1,26 @@
+Joseph Sayler
+Status report 28
+6/12/2017
+
+
+Yesterday
+
+finished adding in the surveyJSON to the script that creates the JSON file for Justin's table (it was a major pain to do)
+
+Today
+
+in the editor, set the 4 questions discussed previously that are required for ALL asssessments. had to update Justin's JSON script to accomodate this (that was suprizingly easy!)
+
+started adding a quicksave button to the TIP assessment (under title)
+
+added major logic to, based on userID (need to work with suraj to nail this down 100%), look for the current TIP assigned to this user, look at if they started answering it, then pull up the surveyJSON, answerJSON, and whether or not it is complete. with this info, it will either tell the user they completed the TIP, display the tip with the users partial answers, or display a fresh assessment with no answers. the quicksave feature will tie into this, allowing for users to partially complete an assessment.
+
+Future
+
+1. finish implementing quicksave
+2. link the answer saving and the setting of default quizes to the db
+3. create an interface for admin to selectively assign TIPs to users
+
+Roadblocks
+
+TIME. not sure if there will be enough to complete list#3 above.

@@ -21,7 +21,7 @@
 	} else {
 		echo JSON_encode($jsonArray);
 	}
-    $conn = NULL;
+    $connection = NULL;
   } catch (PDOException $e) {
 	  // returns internal server error if no table found
 		header('HTTP/1.1 500 Internal Server Error');

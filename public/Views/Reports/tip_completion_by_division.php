@@ -1,12 +1,27 @@
+<?php
+ob_start();
+session_start(); 
+//for oauth, this line session_start must be at the top!
+error_reporting(E_ALL);
+
+if (isset($_POST['id']) && isset($_POST['data']) && !empty($_POST['id']) && !empty($_POST['data'])) {
+    $_SESSION['chart_data'] = $_POST['data'];
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ADMIN REPORTS</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Response By Division</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+    <script src="../../assets/js/lib/jquery-3.2.1.min.js" type="text/javascript"></script>
+
+
+    <!-- BASE STYLES FOR SITE | DO NOT ERASE -->
 
     <style>
         body {
@@ -66,6 +81,7 @@
         }
 
     </style>
+
 </head>
 <body>
 
@@ -80,10 +96,48 @@
 <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
 <script src="https://www.amcharts.com/lib/3/pie.js"></script>
 
-<script src="pie.js"></script>
+<script>
+var data = <?php echo $_SESSION['chart_data']; ?>;
+var chart = AmCharts.makeChart("chartdiv", {
+    "type": "pie",
+    "theme": "light",
+    "dataProvider": data,
+    "valueField": "value",
+    "titleField": "label",
+    "labelRadius": 10,
+    "radius": 200,
+    "labelText": "[[title]]",
+    "marginTop": 0,
+    "marginBottom": 0,
+    "groupPercent": 5
 
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
+});
+chart.addListener('rendered', function(event) {
+    // populate our custom legend when chart renders
+    chart.customLegend = document.getElementById('legend');
+    for (var i in chart.chartData) {
+        var row = chart.chartData[i];
+        var color = chart.colors[i];
+        var percent = Math.round(row.percents * 100) / 100;
+        var value = row.value;
+        legend.innerHTML += '<div class="legend-item" id="legend-item-' + i + '" onclick="toggleSlice(' + i + ');" onmouseover="hoverSlice(' + i + ');" onmouseout="blurSlice(' + i + ');" ><div class="legend-marker" style="background: ' + color + '"></div>' + row.title + '<div class="legend-value">' + value + ' | ' + percent + '%</div></div>';
+    }
+});
+
+function toggleSlice(item) {
+    chart.clickSlice(item);
+}
+
+function hoverSlice(item) {
+    chart.rollOverSlice(item);
+}
+
+function blurSlice(item) {
+    chart.rollOutSlice(item);
+}
+
+</script>
+
 
 </body>
 </html>
