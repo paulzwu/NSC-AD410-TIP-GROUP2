@@ -1,0 +1,9 @@
+Status Report 21
+
+1. Yesterday I worked on retrieving and updating a file for JSON. This relates on a bubble map that requires you to use 
+JSON objects. I also started on an algorithm that does something similar but with different requirements.
+
+2. Today I continued on working on the above.
+
+3. I haven't been able to work on the project a whole lot recently due to the last bit of moving into my new apartment/building stuff.
+However, I am finished with that now and will continue to work on the above.

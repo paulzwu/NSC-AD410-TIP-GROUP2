@@ -82,8 +82,6 @@ openOrCreateDB();
                 include 'Views/templates/toolbar-faculty.php';
             }
             ?>
-            <!-- Main Content -->
-        <div class="content"><div class="container-fluid">
   <!-- Maiin Content -->
   <div class="tip-title"><h3>TIP Assessment</h3></div>
   <div id="container" class="col-md-6 col-lg-6 col-sm-12 tip-container"></div>
