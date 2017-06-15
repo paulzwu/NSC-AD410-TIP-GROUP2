@@ -48,7 +48,9 @@
 
 <!-- Search Grid -->
 <?php //include("Views/Faculty/search_grid.php") ?>
-<table id="table_id" class="display "></table>
+<table id="table_id" class="display ">
+    <?php include "filter.php" ?>
+</table>
 
     </div>
                     </div>
