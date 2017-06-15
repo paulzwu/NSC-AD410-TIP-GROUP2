@@ -4,10 +4,6 @@ session_start();
 //for oauth, this line session_start must be at the top!
 error_reporting(E_ALL);
 
-// if (isset($_POST['csv_data']) && isset($_POST['data']) && !empty($_POST['csv_data']) && !empty($_POST['data'])) {
-//     $_SESSION['csv_data'] = $_POST['data'];
-// }
-
 
 $data = json_decode($_SESSION['response_data'], true);
 $totalSubmissions = $data[0]['totalSubmissions'];

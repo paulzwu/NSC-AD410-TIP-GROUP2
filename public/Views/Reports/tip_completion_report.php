@@ -34,6 +34,9 @@ if (isset($_POST['id']) && isset($_POST['data']) && !empty($_POST['id']) && !emp
                     <div class="header">
                         <h2 class="title">TIP Submission Rates</h2>
                         <h4 id="totalSubmissions"></h4>
+                    </div>
+                <button id="btnSave" type="submit" class="btn btn-success header" onclick="sendDataToCSV()">Download Data as CSV</button>
+            </div>
                         <p></p>
                         <hr>
                     </div>
@@ -53,18 +56,12 @@ if (isset($_POST['id']) && isset($_POST['data']) && !empty($_POST['id']) && !emp
                 </div>
             </div>
         </div>
-        <div class="row">
-            <button id="btnSave" class="button" onclick="sendDataToCSV()">Download Data as CSV</button>
-        </div>
-        <!-- <div id="img-out"></div> -->
 
 <script type="text/javascript" src="../../assets/js/lib/jquery-3.2.1.min.js"></script>
-<!-- <script type="text/javascript" src="../../assets/js/custom.js"></script> -->
 <script src="../../assets/js/lib/raphael-2.1.4.min.js"></script>
 <script type="text/javascript" src="../../assets/js/lib/d3.min.js"></script>
 <script src="../../assets/js/lib/justgage.js"></script>
 <script src="../../assets/js/tipprogress.js"></script>
-<!-- <script src="../../assets/js/lib/html2canvas.js"></script> -->
 <!-- Response Rate Assets -->
 <script>
     var data = <?php echo $_SESSION['response_data']; ?>;
@@ -73,12 +70,9 @@ if (isset($_POST['id']) && isset($_POST['data']) && !empty($_POST['id']) && !emp
     var statsInProgress = data[1]['statsInProgress'];
     var statsComplete = data[2]['statsComplete'];
     var statsNotStarted = data[3]['statsNotStarted'];
-    var viz = data[4]['vz'];
-    // document.getElementById('totalSubmissions').innerHTML = "Total Submissions: " + totalSubmissions;
-    // $(document).ready(function() {
+    document.getElementById('totalSubmissions').innerHTML = "Total Submissions: " + totalSubmissions;
         function sendDataToCSV() {
             var xhr = new XMLHttpRequest();
-            // xhr.open('POST', 'Views/Reports/tip_completion_by_division.php', true);
             xhr.open('POST', 'exportSubmissionCSV.php', true);
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
@@ -89,7 +83,6 @@ if (isset($_POST['id']) && isset($_POST['data']) && !empty($_POST['id']) && !emp
             };
             xhr.send("id=response_data&data=" + data);
         }           
-    // });
 </script>
 </body>
 </html>

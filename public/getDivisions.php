@@ -67,7 +67,7 @@ try {
 $sql = "SELECT answerJSON FROM ANSWER;";
 
 //query
-$result = $conn->query($sql);
+$result = $connection->query($sql);
 foreach($result as $row) {
 			$answerJSON = $row['answerJSON'];
 			$json = $answerJSON;

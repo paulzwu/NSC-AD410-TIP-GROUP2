@@ -3,47 +3,15 @@ ob_start();
 session_start(); 
 //for oauth, this line session_start must be at the top!
 error_reporting(E_ALL);
-include  '../../config.php';
-require '../../../vendor/autoload.php';
-use \Dompdf\Dompdf;
+// include  '../../config.php';
+// require '../../../vendor/autoload.php';
+// use \Dompdf\Dompdf;
 
-define('UPLOAD_DIRECTORY', '../../GeneratedReports/');
+// define('UPLOAD_DIRECTORY', '../../GeneratedReports/');
 
 if (isset($_POST['id']) && isset($_POST['data']) && !empty($_POST['id']) && !empty($_POST['data'])) {
     $_SESSION['chart_data'] = $_POST['data'];
 }
-
-// $data = json_decode($_SESSION['chart_data'], true);
-// // print_r($data);
-// $csvExportArray = array();
-// for($i = 0; $i < sizeof($data); $i++) {
-//     $dept = $data[$i]['label'];
-//     $val = $data[$i]['value'];
-//     array_push($csvExportArray, [$dept, $val]);
-// }
-// print_r($csvExportArray);
-// $totalSubmissions = $data[0]['label'];
-// echo $totalSubmissions;
-// print_r($totalSubmissions);
-// $statsInProgress = $data[1]['statsInProgress'];
-// $statsComplete = $data[2]['statsComplete'];
-// $statsNotStarted = $data[3]['statsNotStarted'];
-// $vz = $data[4]['vz'];
-// $csvExportArray = array("Total_Submissions"=>$totalSubmissions, "In-Progress"=>$statsInProgress, "Complete"=> $statsComplete, "Not_Started"=> $statsNotStarted);
-// if($vz == false){
-    // header("Content-type: text/csv");
-    // header("Content-Disposition: attachment; filename=submission_rates.csv");
-    // header("Cache-Control: no-cache, no-store, must-revalidate");
-    // header("Pragma: no-cache");
-    // header("Expires: 0");
-    // $csvoutput = fopen('php://output', 'w');
-    // $headers = array_keys($csvExportArray);
-    // fputcsv($csvoutput, $headers);
-    // $row = array_values($csvExportArray);
-    // fputcsv($csvoutput, $row);
-    // fclose($csvoutput);
-    // exit;
-// } 
 
 ?>
 <!DOCTYPE html>
@@ -123,6 +91,7 @@ if (isset($_POST['id']) && isset($_POST['data']) && !empty($_POST['id']) && !emp
 <body id="img">
 
 <div class="container-fluid">
+<button id="btnSave" type="submit" class="btn btn-success header" onclick="sendDataToCSV()">Download Data as CSV</button>
         <h2 style="margin-bottom:100px; margin-top:60px;">Response by Department</h2>
 
         <div id="chartdiv" align="center"></div>
@@ -135,6 +104,7 @@ if (isset($_POST['id']) && isset($_POST['data']) && !empty($_POST['id']) && !emp
 
 <script>
 var data = <?php echo $_SESSION['chart_data']; ?>;
+
 var chart = AmCharts.makeChart("chartdiv", {
     "type": "pie",
     "theme": "light",
@@ -173,20 +143,18 @@ function blurSlice(item) {
     chart.rollOutSlice(item);
 }
 
-var html = document.getElementById('img');
-createCookie("html", html, "10");
-
- function createCookie(name, value, days) {
- var expires;
- if (days) {
-  var date = new Date();
-  date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-  expires = "; expires=" + date.toGMTString();
- } else {
-  expires = "";
- }
-  document.cookie = escape(name) + "=" + escape(value) + expires + "; path=/";
- }
+    function sendDataToCSV() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'exportSubmissionByDepartmentCSV.php', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4 && xhr.status == 200){
+                window.open('exportSubmissionByDepartmentCSV.php');
+            }
+        };
+        xhr.send("id=chart_data&data=" + data);
+    } 
 
 </script>
 
