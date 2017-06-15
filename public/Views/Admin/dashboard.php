@@ -64,16 +64,16 @@
             </div>
       </div>
       <div class="row">
-        <div class="checkbox col-sm-6">
+<!--         <div class="checkbox col-sm-6">
           <label><input id="includeDataViz" onchange="includeViz()" type="checkbox" value="">Include Data Visualization</label>
-        </div>
-        <div class="col-sm-6">
+        </div> -->
+<!--         <div class="col-sm-6">
                     <label for="pwd">Export As:</label>
           <select class="form-control" id="exportType" onchange="exportKind()">
                 <option id="PDF">PDF</option>
                 <option id="CSV">CSV</option>
           </select>
-        </div>
+        </div> -->
 
           
       </div>

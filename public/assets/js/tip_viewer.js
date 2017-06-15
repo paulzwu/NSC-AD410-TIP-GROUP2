@@ -3,8 +3,12 @@ $(document).ready(function() {
   $.ajax({url: 'get_default_tip.php',
       type: 'POST',
       success:function(result) {
-        var parsed_json = JSON.parse(result);
-        console.log(parsed_json.complete);
+        try {
+          var parsed_json = JSON.parse(result);
+          console.log("json parsed correctly");
+        } catch (e) {
+          console.log("error: " + e);
+        }
         if (parsed_json.complete == 1) {
           $("#container").empty();
           $("#container").append("You have already completed this TIP assessment.");
@@ -12,7 +16,7 @@ $(document).ready(function() {
           $(".tip-title").append("<button type=\"button\" class=\"btn btn-primary\" id=\"quickSave\">Quick Save</button>");
           Survey.defaultBootstrapCss.navigationButton = "btn btn-primary";
           Survey.Survey.cssType = "bootstrap";
-          console.log(parsed_json.surveyJSON);
+          //console.log(parsed_json.surveyJSON);
           var survey = new Survey.Model(JSON.parse(parsed_json.surveyJSON), "container");
           //options for progress bar - top, bottom, none
           survey.showProgressBar = "top"; survey.render();
@@ -32,30 +36,37 @@ $(document).ready(function() {
           survey.onComplete.add(function (sender) {
             var mySurvey = sender;
             var surveyData = JSON.stringify(sender.data);
+            console.log(surveyData);
             $.ajax({url: 'save_answers.php',
                 dataType: 'json',
-                data: {'Responses':surveyData},
+                data: {'Responses':surveyData, 'Complete':'1'},
                 type: 'POST',
                 async: true})
-            console.log("JSON data sent to server")
+            console.log("complete: JSON data sent to server")
           });
 
           //---- QUICK SAVE FUNCTION ----\\
 
-          // survey.onComplete.add(function (sender) {
-          //   var mySurvey = sender;
-          //   var surveyData = JSON.stringify(sender.data);
-          //   $.ajax({url: 'save_answers.php',
-          //       dataType: 'json',
-          //       data: {'Responses':surveyData},
-          //       type: 'POST',
-          //       async: true})
-          //   console.log("JSON data sent to server")
-          //
-          //
-          //
+          $('#quickSave').on('click', function () {
+            var surveyData = JSON.stringify(survey.data);
+            $.ajax({url: 'save_answers.php',
+                dataType: 'json',
+                data: {'Responses':surveyData, 'Complete':'0'},
+                type: 'POST',
+                async: true})
+            console.log("quicksave: JSON data sent to server")
+            snackBar("Answers saved - Quiz incomplete");
+          });
 
           console.log("survey loaded");
+          }
+
+          function snackBar(text) {
+            $('#snackbar').empty();
+            var x = document.getElementById("snackbar")
+            x.className = "show";
+            $("#snackbar").append(text);
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
           }
         },
         error:function() {

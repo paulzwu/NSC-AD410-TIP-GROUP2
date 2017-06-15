@@ -70,67 +70,24 @@ switch ($rawID) {
 	case 'exportReport':
 		$startDate = $_POST['startDate'];
 		$endDate = $_POST['endDate'];
-		$export= $_POST['exportType'];
+		// $export= $_POST['exportType'];
 		
 		if($_POST['reportType'] == 'TIPSubmissionStats') {
-			// if($_POST['dataViz'] == "false" ){
-			// 	$array = getDepartmentData($connection, $startDate, $endDate);
-			// 	$dataArray = $array['data'];
-			// 	$html = "<html><body><table border='1'>";
-			// 	for($i = 0; $i < count($dataArray); $i++) {
-			// 		$html .= "<tr>
-			// 			      <td>" . $dataArray[$i]['answerID'] . "</td>
-			// 		            <td>" . $dataArray[$i]['answerJSON'] . "</td>
-			// 		            <td>" . $dataArray[$i]['complete'] . "</td>
-			// 		            <td>" . $dataArray[$i]['time_complete'] . "</td>
-			// 	      		</tr>";
-			// 	}
-			// 	$html .= "</table></body></html>";
-			// 	if ($export == 'PDF') {
-			// 		saveAsPDF($html);
-			// 	} else {
-			// 		saveAsCSV($dataArray);
-			// 	}
-				// $dataArray = array("departments" => getDepartments($connection), "submissionTotal" => getTotalSubmissions($connection), "submissionsByDept" => getSubmissionsByDepartment($connection));
-	// print_r(getDepartments($connection)); 
-	// print_r(json_encode($dataArray));
-		
-			// } else {
-			$dataArray = array("exportType" => $_POST['exportType'], "viz" => $_POST['dataViz'], "requestedReport" => 'TIPSubmissionStats', "submissionTotal" => getTotalSubmissions($connection), "inProgress" => getSubmissionsInProgress($connection), "complete" => getSubmissionsComplete($connection), "notStarted" => getSubmissionsNotStarted($connection));
+			$dataArray = array("requestedReport" => 'TIPSubmissionStats', "submissionTotal" => getTotalSubmissions($connection), "inProgress" => getSubmissionsInProgress($connection), "complete" => getSubmissionsComplete($connection), "notStarted" => getSubmissionsNotStarted($connection));
 				print_r(json_encode($dataArray));
-			// }
 		} else if ($_POST['reportType'] == 'TIPParticipationRateByDepartment') {
-			// if($_POST['dataViz'] == "false" ){
-			// 	$array = getDepartmentData($connection, $startDate, $endDate);
-			// 	$dataArray = $array['data'];
-			// 	$html = "<html><body><table border='1'>";
-			// 	for($i = 0; $i < count($dataArray); $i++) {
-			// 		$html .= "<tr>
-			// 			      <td>" . $dataArray[$i]['answerID'] . "</td>
-			// 		            <td>" . $dataArray[$i]['answerJSON'] . "</td>
-			// 		            <td>" . $dataArray[$i]['complete'] . "</td>
-			// 		            <td>" . $dataArray[$i]['time_complete'] . "</td>
-			// 	      		</tr>";
-			// 	}
-			// 	$html .= "</table></body></html>";
-			// 	if ($export == 'PDF') {
-			// 		saveAsPDF($html);
-			// 	} else {
-			// 		saveAsCSV($dataArray);
-			// 	}
-				// print_r(json_encode($dataArray));
-			// } else {
-			$dataArray = array("viz" => $_POST['dataViz'], "requestedReport" => 'TIPParticipationRateByDepartment', "departments" => getDepartments($connection), "submissionTotal" => getTotalSubmissions($connection), "submissionsByDept" => getSubmissionsByDepartment($connection));
+			$dataArray = array("requestedReport" => 'TIPParticipationRateByDepartment', "departments" => getDepartments($connection), "submissionTotal" => getTotalSubmissions($connection), "submissionsByDept" => getSubmissionsByDepartment($connection));
 			print_r(json_encode($dataArray));
-			// }
 		} else if ($_POST['reportType'] == 'TrendingTopics') {
 
 		} else if($_POST['reportType'] == 'LearningOutcomesbyDivision') {
-			
+			// $dataArray = array("requestedReport" => 'LearningOutcomesbyDivision', "submissionTotal" => getTotalSubmissions($connection), "inProgress" => getSubmissionsInProgress($connection), "complete" => getSubmissionsComplete($connection), "notStarted" => getSubmissionsNotStarted($connection));
+			$dataArray = getDivisionLearningOutomes($connection);
+			$newDataArray = array("requestedReport" => 'LearningOutcomesbyDivision', "data"=>$dataArray, "departments" => getDepartments($connection));
+				print_r(json_encode($newDataArray));
 		} else {
 			echo "Unable to process request";
 		}
-		// }
 		
 		break;
 
@@ -316,32 +273,26 @@ function saveAsCSV($dataArray) {
 	echo $directory;
 }
 
-function jsonProcess ($input) {
-    $new_input = parseData($input);
-		$inputValue = '';
+function getDivisionLearningOutomes($connection){
 
-    // this goes through each row from the db, converts it to a string,
-    // then puts it into an associative array
-
-		foreach($new_input as $row) {
-			$data[] = array(json_encode($row));
-		}
-
-    // this loops through the associative array above and converts each key/value
-    // pair into a string
-
-		foreach($data as $k=>$v) {
-			$inputValue = $inputValue . implode($v);
-		}
-
-    // it then returns a string that meets formal JSON requirements
-    // (copy/paste contents of json file into this validator to see that it is
-    // valid: https://jsonlint.com/)
-
-		return preg_replace("(}{)", "}, {", preg_replace("(^{)", "[ {",
-            preg_replace("(}$)", "} ]", stripslashes(str_replace("\"{", "{",
-            str_replace("}\"", "}", $inputValue))))));
-	}
+ $sqlstmt = "SELECT answerJSON
+			FROM Answer;";
+    try {
+        $statement = $connection->prepare($sqlstmt);
+        $statement->execute();
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        $jsonData = $statement->fetchAll();
+        $jsonArray = array('data' => $jsonData);
+    }  catch (PDOException $e) {
+      // returns internal server error if no table found
+        header('HTTP/1.1 500 Internal Server Error');
+        header('Content-Type: application/json; charset=UTF-8');
+        $error_msg = "PHP Load error: ".$e->getMessage();
+        // exits the program and sends json contianing error
+        exit(json_encode(array("message" => "$error_msg")));
+    }
+    return json_encode($jsonData);
+}
 
 ?>
 
