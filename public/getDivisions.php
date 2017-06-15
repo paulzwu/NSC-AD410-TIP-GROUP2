@@ -53,7 +53,7 @@ $outcome11 = array('AHSS'=>0,'BEIT'=>0,'BTS'=>0,'HHS'=>0,'LIB'=>0,'MS'=>0);
 //Synthesis and application of knowledge, skills, and responsibilities to new settings and problems
 $outcome12 = array('AHSS'=>0,'BEIT'=>0,'BTS'=>0,'HHS'=>0,'LIB'=>0,'MS'=>0);
 
-
+//Connect to DB
 try {
 	$conn = new PDO("sqlite:db.sqlite");
 	$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -61,18 +61,17 @@ try {
 	echo "Can't connet to DB: ".$e->getMessage();
 	}
 	
-	
-	
 //sql statement
 $sql = "SELECT answerJSON FROM ANSWER;";
 
 //query
-$result = $connection->query($sql);
+$result = $conn->query($sql);
 foreach($result as $row) {
 			$answerJSON = $row['answerJSON'];
 			$json = $answerJSON;
 			$getOutcome = findOutcome($json,$learningOuts);
 			
+			//Takes the returned input and finds the division that used that outcome.
 			switch ($getOutcome){
 				case 0:
 					$outcome1 = findDivisions($json,$outcome1);
@@ -161,12 +160,27 @@ $out10 = makeJson($outcome10, 10);
 $out11 = makeJson($outcome11, 11);
 $out12 = makeJson($outcome12, 12);
 
+//FinalJSON String
 $outcomeJSON = '{"name": "Outcomes", "children": ['.$out1.','.$out2.','.$out3.','.$out4.
 ','.$out5.','.$out6.','.$out7.','.$out8.','.$out9.','.$out10.','.$out11.','.$out12.
 ']}';
 
-echo $outcomeJSON;
+//*************FOR BUBBLE CHART*************
+//****REMOVE IF "FLARE.JSON" IS NOT USED****
+//******************************************
+$fp = fopen('flare.json', 'w');
+fwrite($fp, $outcomeJSON);
+fclose($fp);
+//*************FOR BUBBLE CHART*************
+//****REMOVE IF "FLARE.JSON" IS NOT USED****
+//******************************************
 
+
+//**********DELETE**********
+echo $outcomeJSON;
+//**********DELETE**********
+
+//Create a JSON String based on data in the database
 function makeJson ($outcome, $outcomeNum){
 	
 	$out = $parent.'{ "name": '.$outcomeNum.', "children": [';
@@ -194,6 +208,7 @@ function makeJson ($outcome, $outcomeNum){
 	return $out;
 }
 
+//Find what division the TIP user is in.
 function findDivisions($string,$array){
 	$answers = json_decode($string);
 	$divisions = $answers->{'requiredQuestion1'};
@@ -228,7 +243,7 @@ function findDivisions($string,$array){
 					return $array;
 					break;
 				
-				case 'MS':
+				case 'M&S':
 				
 					$array['MS'] = $array['MS'] + 1;
 					return $array;
@@ -237,6 +252,7 @@ function findDivisions($string,$array){
 			}
 }
 
+//Find the outcome the TIP user used.
 function findOutcome ($string,$array){
 	for ($i = 0; $i <= 11; $i++){
 		$find = strpos($string, $array[$i]);
