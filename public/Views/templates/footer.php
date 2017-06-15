@@ -23,25 +23,27 @@
 <script>
     //global variables
     var filter = [];
-    var radioChecked = "";
     var text = "";
     var tagCounter = 0;
-    var searchByCol = 0;
     var statsComplete, statsInProgress, statsNotStarted;
     var dataTable = [];
     var questions = [];
     var answers = [];
+    var completeAssessmentJSON = {};
+    var count = 0;
     var index = null;
 
     $(document).ready(function() {
         initTable();
 
+        // DataTable
         var table = $('#table_id').DataTable();
+
         $('#table_id tbody').on( 'click', 'tr', function () {
             //alert( 'Row index: '+table.row( this ).index() );
             index = table.row( this ).index();
+            window.open("view_complete_assessment.php", '_blank');
             //alert(table.row( this ).index());
-            displayTip();
         } );
     });
 
@@ -52,19 +54,19 @@
             case "textBox":
                 text = document.getElementById("textBox").value;
                 if (text != "" && isDuplicate() == false && tagCounter < 5) {
-                    searchFilter();
+                    keywordSearch();
                 }
                 break;
             case "divisions":
                 text = document.getElementById("divisions").value;
                 if (text != "" && isDuplicate() == false && tagCounter < 5) {
-                    searchFilter();
+                    searchFilter(2);
                 }
                 break;
             case "date":
-                text = document.getElementById("date").value;
+                text = document.getElementById("nameBox").value;
                 if (text != "" && isDuplicate() == false && tagCounter < 5) {
-                    searchFilter();
+                    searchFilter(0);
                 }
                 break;
             case "assessment":
@@ -72,30 +74,26 @@
                 if (text != "" && isDuplicate() == false && tagCounter < 5) {
                     switch (document.getElementById("searchBy").value){
                         case "Question":
-                            searchByCol = 6;
-                            keywordSearch();
+                            searchFilter(6);
                             break;
                         case "Answer":
-                            searchByCol = 7;
-                            keywordSearch();
+                            searchFilter(7);
                             break;
                         case "Course":
-                            searchByCol = 5;
-                            keywordSearch();
+                            searchFilter(5);
                             break;
-                        case "Shared":
-                            searchByCol = 4;
-                            keywordSearch();
+                        case "Year":
+                            searchFilter(1);
                             break;
                     }
-                    text = document.getElementById("textBoxAssessment").value;
-                    searchFilter();
+                    //text = document.getElementById("textBoxAssessment").value;
+                    //searchFilter();
                 }
                 break;
             case "status":
                 text = document.getElementById("status").value;
                 if (text != "" && isDuplicate() == false && tagCounter < 5) {
-                    searchFilter();
+                    searchFilter(3);
                 }
                 break;
         } //end of switch case
@@ -103,6 +101,7 @@
         createTag();
 
         $('#textBox').val(null);
+        $('#nameBox').val(null);
         $('#textBoxAssessment').val(null);
 
     } //end of addTag function
@@ -113,9 +112,9 @@
                 if(tagCounter < 5){
                     var btn = document.createElement("BUTTON");
                     btn.setAttribute("id", text);
-                    btn.setAttribute("onclick", "removeTag(this.id)");
+                    //btn.setAttribute("onclick", "removeTag(this.id)");
                     btn.setAttribute("class", "tags");
-                    var t = document.createTextNode(text + "  x");
+                    var t = document.createTextNode(text);
                     btn.appendChild(t);
                     document.body.appendChild(btn);
                     document.getElementById("tagDiv").appendChild(btn);
@@ -131,7 +130,17 @@
         }
     }
 
-    function searchFilter(){
+    function searchFilter(colNum){
+        filter.push(text);
+        var table = $('#table_id').DataTable();
+        table
+            .columns(colNum)
+            //.search(filter.join("  "))
+            .search(text)
+            .draw();
+    }
+
+    function keywordSearch(){
         filter.push(text);
         var table = $('#table_id').DataTable();
         table
@@ -154,11 +163,6 @@
             .search( filter.join("  ") )
             .draw();
         tagCounter --;
-    }
-
-    //selecting radio button if it is check
-    function isChecked(value){
-        radioChecked = value;
     }
 
     //check if input tag is duplicate
@@ -196,7 +200,7 @@
                             date = date.substring(0,4);
                         }
                         if (shared != null){
-                            shared = shared.substring(0,3);
+                            shared = shared.substring(0,1);
                         }
                         var questionResult = [];
                         var answerResult = [];
@@ -208,7 +212,7 @@
                             answerResult.push(data[i].answerJSON[j]);
                         }
                         answers.push(answerResult);
-                        dataTable.push([data[i].name, date, data[i].Division, data[i].complete, shared, data[i].Course_ID + "" + data[i].Course_Prefix, questions[i], answers[i], "View", i]);
+                        dataTable.push([data[i].name, date, data[i].Division, data[i].complete, shared, data[i].Course_ID + "" + data[i].Course_Prefix, questions[i], answers[i], "View"]);
                         if (dataTable[i][3] == "1") {
                             dataTable[i][3] = "Complete";
                             statsComplete++
@@ -242,26 +246,65 @@
                 {data: 3, title: 'Status'},
                 {data: 4, title: 'Shared', "visible": true},
                 {data: 5, title: 'Course', "visible": true},
-                {data: 6, title: 'Questions', "visible": false, "searchable": false},
-                {data: 7, title: 'Answers', "visible": false, "searchable": false},
+                {data: 6, title: 'Questions', "visible": false, "searchable": true},
+                {data: 7, title: 'Answers', "visible": false, "searchable": true},
                 {
                     data: 8, title: 'View', "searchable": false,
                     "render": function (data, type) {
                         if (type === 'display') {
-                            //data = '<a href="tip.php" target="_blank">'+ data +'</a>';
+                            data = '<a href="#" onclick="return false">'+ data +'</a>';
                         }
-
                         return data;
                     }
-                },
-                {data: 9, title: 'Index', "visible": true}
+                }
             ]
         });
     }
 
+    function createTable() {
+        // Create table.
+        // If you want to change the style with css, use setAttribute to set id, class, etc.
+        // Example: table.setAttribute("id", "tableId")
+        var idx = window.opener.index;
+        var ques = window.opener.questions;
+        var ans = window.opener.answers;
+        var table = document.createElement('TABLE');
+        table.style.border = "thick solid black";
+        var header = table.createTHead();
+        // Insert New Row for table at index '0'.
+        var headerRow = header.insertRow(0);
+        headerRow.style.backgroundColor = "lightgray";
+        headerRow.style.textAlign = "center";
+        headerRow.style.fontSize = "24px";
+        // Insert New Column for Row1 at index '0'.
+        var colName1 = headerRow.insertCell(0);
+        colName1.style.width = "50%";
+        colName1.innerHTML = 'Questions';
+        // Insert New Column for Row1 at index '1'.
+        var colName2 = headerRow.insertCell(1);
+        colName2.style.width = "50%";
+        colName2.innerHTML = 'Answers';
+
+        for (i = 1; i <= ques[idx].length; i++){
+                var row = table.insertRow(i);
+            if (i % 2 == 0) {
+                row.style.backgroundColor = "lightgray";
+            }
+                var question = row.insertCell(0);
+                question.innerHTML = ques[idx][i - 1];
+                var answer = row.insertCell(1);
+                answer.innerHTML = ans[idx][i - 1];
+                completeAssessmentJSON[count] = [ques[idx][i - 1], ans[idx][i - 1]];
+                count++;
+        }
+        // Append Table into div.
+        var div = document.getElementById('completedTIP');
+        div.appendChild(table);
+        completeAssessmentJSON = JSON.stringify(completeAssessmentJSON);
+    }
+
     function displayTip() {
         // Create table and pass in questions and answers that correspond with the index
-        var table = $('#table_id').DataTable();
         console.log(questions);
         questions[index].forEach(function (item) {
             console.log(item);

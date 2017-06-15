@@ -1,0 +1,19 @@
+Joseph Sayler
+Status report 29
+6/14/2017
+
+
+Yesterday
+
+added safe guard to deleting surveys so you cant delete a default survey, also fixed some errors in the survey answer save file
+
+Today
+
+working on getting the save_answers.php file's quick save to work. it will save to db, but always inserts a new row. looking into fixing that.
+
+Future
+
+need to get with suraj and write code that will update the joining table. when a new user logs in for the first time, their userID and the current surveyID need to go into the joining table. whenever the current survey is changed, all of the rows in the joining table need to be looked at, and any userIDs not associated with the new current survey need to be added to table.
+
+Roadblocks
+...
