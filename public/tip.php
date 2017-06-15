@@ -1,7 +1,7 @@
 <?php
 
 ob_start();
-session_start(); 
+session_start();
 //for oauth, this line session_start must be at the top!
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -32,7 +32,7 @@ openOrCreateDB();
     <!-- Bootstrap core CSS     -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 
-    
+
 
     <!-- Custom CSS Defenitions -->
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -85,6 +85,7 @@ openOrCreateDB();
   <!-- Maiin Content -->
   <div class="tip-title"><h3>TIP Assessment</h3></div>
   <div id="container" class="col-md-6 col-lg-6 col-sm-12 tip-container"></div>
+  <div id="snackbar"></div>
   <script src="assets/js/tip_viewer.js" type="text/javascript"></script>
 <!-- Footer-->
 <footer>
