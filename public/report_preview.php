@@ -68,32 +68,27 @@ switch ($rawID) {
 		break;
 
 	case 'exportReport':
-		// $startDate = $_POST['startDate'];
-		// $endDate = $_POST['endDate'];
-		// $exportType = $_POST['exportType'];
-		// if (!empty($startDate) && !empty($endDate) && !empty($exportType)) {
-		// 	$array = getDepartmentData($connection, $startDate, $endDate);
-		// 	$dataArray = $array['data'];
-		// 	$html = "<html><body><table border='1'>";
-		// 	for($i = 0; $i < count($dataArray); $i++) {
-		// 		$html .= "<tr>
-		// 			        <td>" . $dataArray[$i]['answerID'] . "</td>
-		// 		            <td>" . $dataArray[$i]['answerJSON'] . "</td>
-		// 		            <td>" . $dataArray[$i]['complete'] . "</td>
-		// 		            <td>" . $dataArray[$i]['time_complete'] . "</td>
-		// 	      		</tr>";
-		// 	}
-		// 	$html .= "</table></body></html>";
-		// 	if ($exportType == 'PDF') {
-		// 		saveAsPDF($html);
-		// 	} else {
-		// 		saveAsCSV($dataArray);
-		// 	}
- 	// 		//exit($jsonArray);
-		// }
-	$dataArray = array("departments" => getDepartments($connection), "submissionTotal" => getTotalSubmissions($connection), "submissionsByDept" => getSubmissionsByDepartment($connection));
-	// print_r(getDepartments($connection)); 
-	print_r(json_encode($dataArray));
+		$startDate = $_POST['startDate'];
+		$endDate = $_POST['endDate'];
+		// $export= $_POST['exportType'];
+		
+		if($_POST['reportType'] == 'TIPSubmissionStats') {
+			$dataArray = array("requestedReport" => 'TIPSubmissionStats', "submissionTotal" => getTotalSubmissions($connection), "inProgress" => getSubmissionsInProgress($connection), "complete" => getSubmissionsComplete($connection), "notStarted" => getSubmissionsNotStarted($connection));
+				print_r(json_encode($dataArray));
+		} else if ($_POST['reportType'] == 'TIPParticipationRateByDepartment') {
+			$dataArray = array("requestedReport" => 'TIPParticipationRateByDepartment', "departments" => getDepartments($connection), "submissionTotal" => getTotalSubmissions($connection), "submissionsByDept" => getSubmissionsByDepartment($connection));
+			print_r(json_encode($dataArray));
+		} else if ($_POST['reportType'] == 'TrendingTopics') {
+
+		} else if($_POST['reportType'] == 'LearningOutcomesbyDivision') {
+			// $dataArray = array("requestedReport" => 'LearningOutcomesbyDivision', "submissionTotal" => getTotalSubmissions($connection), "inProgress" => getSubmissionsInProgress($connection), "complete" => getSubmissionsComplete($connection), "notStarted" => getSubmissionsNotStarted($connection));
+			$dataArray = getDivisionLearningOutomes($connection);
+			$newDataArray = array("requestedReport" => 'LearningOutcomesbyDivision', "data"=>$dataArray, "departments" => getDepartments($connection));
+				print_r(json_encode($newDataArray));
+		} else {
+			echo "Unable to process request";
+		}
+		
 		break;
 
 	default:
@@ -169,6 +164,72 @@ function getTotalSubmissions($connection){
 
 }
 
+//returns the number of TIPs in-progress
+function getSubmissionsInProgress($connection){
+      $sqlstmt = "SELECT count(*)
+			From Answer
+			Where complete = 0";
+    try {
+        $statement = $connection->prepare($sqlstmt);
+        $statement->execute();
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        $jsonData = $statement->fetchAll();
+        $jsonArray = array('data' => $jsonData);
+    }  catch (PDOException $e) {
+      // returns internal server error if no table found
+        header('HTTP/1.1 500 Internal Server Error');
+        header('Content-Type: application/json; charset=UTF-8');
+        $error_msg = "PHP Load error: ".$e->getMessage();
+        // exits the program and sends json contianing error
+        exit(json_encode(array("message" => "$error_msg")));
+    }
+    return json_encode($jsonData);
+}
+
+//returns the number of TIPs complete
+function getSubmissionsComplete($connection){
+      $sqlstmt = "SELECT count(*)
+			From Answer
+			Where complete = 1";
+    try {
+        $statement = $connection->prepare($sqlstmt);
+        $statement->execute();
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        $jsonData = $statement->fetchAll();
+        $jsonArray = array('data' => $jsonData);
+    }  catch (PDOException $e) {
+      // returns internal server error if no table found
+        header('HTTP/1.1 500 Internal Server Error');
+        header('Content-Type: application/json; charset=UTF-8');
+        $error_msg = "PHP Load error: ".$e->getMessage();
+        // exits the program and sends json contianing error
+        exit(json_encode(array("message" => "$error_msg")));
+    }
+    return json_encode($jsonData);
+}
+
+//returns the number of TIPs complete
+function getSubmissionsNotStarted($connection){
+      $sqlstmt = "SELECT count(*)
+			From Answer
+			Where complete = null";
+    try {
+        $statement = $connection->prepare($sqlstmt);
+        $statement->execute();
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        $jsonData = $statement->fetchAll();
+        $jsonArray = array('data' => $jsonData);
+    }  catch (PDOException $e) {
+      // returns internal server error if no table found
+        header('HTTP/1.1 500 Internal Server Error');
+        header('Content-Type: application/json; charset=UTF-8');
+        $error_msg = "PHP Load error: ".$e->getMessage();
+        // exits the program and sends json contianing error
+        exit(json_encode(array("message" => "$error_msg")));
+    }
+    return json_encode($jsonData);
+}
+
 function getSubmissionsByDepartment($connection){
       $sqlstmt = "SELECT answerID, answerJSON
 			FROM Answer;";
@@ -210,6 +271,27 @@ function saveAsCSV($dataArray) {
 	}
 	fclose($file);
 	echo $directory;
+}
+
+function getDivisionLearningOutomes($connection){
+
+ $sqlstmt = "SELECT answerJSON
+			FROM Answer;";
+    try {
+        $statement = $connection->prepare($sqlstmt);
+        $statement->execute();
+        $statement->setFetchMode(PDO::FETCH_ASSOC);
+        $jsonData = $statement->fetchAll();
+        $jsonArray = array('data' => $jsonData);
+    }  catch (PDOException $e) {
+      // returns internal server error if no table found
+        header('HTTP/1.1 500 Internal Server Error');
+        header('Content-Type: application/json; charset=UTF-8');
+        $error_msg = "PHP Load error: ".$e->getMessage();
+        // exits the program and sends json contianing error
+        exit(json_encode(array("message" => "$error_msg")));
+    }
+    return json_encode($jsonData);
 }
 
 ?>

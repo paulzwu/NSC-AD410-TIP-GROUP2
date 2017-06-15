@@ -14,7 +14,7 @@
   // a name of 'ID' for this to work.
 
   //$ID = (isset($_POST['ID'])) ? $_POST['ID'] : "";
-  $ID = "1"; // test value
+  $ID = "all"; // test value
 
   // name of the file where everything will be saved to
 

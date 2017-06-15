@@ -14,6 +14,4 @@ return array(
     'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
     'FontLib\\' => array($vendorDir . '/phenx/php-font-lib/src/FontLib'),
     'Dompdf\\' => array($vendorDir . '/dompdf/dompdf/src'),
-    'Core\\' => array($baseDir . '/Core'),
-    'App\\' => array($baseDir . '/public'),
 );

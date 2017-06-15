@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         max: 50,
         gaugeWidthScale: 0.2,
         levelColors: ["#a2c171", "#92b558", "#8bb14e"],
-        title: "COMPLETE",
+        title: "Complete",
         relativeGaugeSize: true,
         donut: true,
     });
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         max: 50,
         gaugeWidthScale: 0.2,
         levelColors: ["#ffd480", "#ffcc66", "#ffc34d"],
-        title: "IN-PROGRESS",
+        title: "In-Progress",
         relativeGaugeSize: true,
         donut: true,
     });
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         max: 50,
         gaugeWidthScale: 0.2,
         levelColors: ["#ff944d", "#ff8533", "#ff751a"],
-        title: "NOT-STARTED",
+        title: "Not-Started",
         relativeGaugeSize: true,
         donut: true
     });

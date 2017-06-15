@@ -3,6 +3,11 @@ ob_start();
 session_start(); 
 //for oauth, this line session_start must be at the top!
 error_reporting(E_ALL);
+// include  '../../config.php';
+// require '../../../vendor/autoload.php';
+// use \Dompdf\Dompdf;
+
+// define('UPLOAD_DIRECTORY', '../../GeneratedReports/');
 
 if (isset($_POST['id']) && isset($_POST['data']) && !empty($_POST['id']) && !empty($_POST['data'])) {
     $_SESSION['chart_data'] = $_POST['data'];
@@ -83,9 +88,10 @@ if (isset($_POST['id']) && isset($_POST['data']) && !empty($_POST['id']) && !emp
     </style>
 
 </head>
-<body>
+<body id="img">
 
 <div class="container-fluid">
+<button id="btnSave" type="submit" class="btn btn-success header" onclick="sendDataToCSV()">Download Data as CSV</button>
         <h2 style="margin-bottom:100px; margin-top:60px;">Response by Department</h2>
 
         <div id="chartdiv" align="center"></div>
@@ -98,6 +104,7 @@ if (isset($_POST['id']) && isset($_POST['data']) && !empty($_POST['id']) && !emp
 
 <script>
 var data = <?php echo $_SESSION['chart_data']; ?>;
+
 var chart = AmCharts.makeChart("chartdiv", {
     "type": "pie",
     "theme": "light",
@@ -135,6 +142,19 @@ function hoverSlice(item) {
 function blurSlice(item) {
     chart.rollOutSlice(item);
 }
+
+    function sendDataToCSV() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'exportSubmissionByDepartmentCSV.php', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4 && xhr.status == 200){
+                window.open('exportSubmissionByDepartmentCSV.php');
+            }
+        };
+        xhr.send("id=chart_data&data=" + data);
+    } 
 
 </script>
 
