@@ -4,7 +4,7 @@
         <form id="myFilter">
             <div class="filter-button">
                 <div>
-                    <input type="text" id="textBox" placeholder="Search Table">
+                    <input type="text" id="textBox" placeholder="Search All Columns">
                     <button type="button" class="btn btn-primary btn-tiny"  onClick=addTag("textBox")>Apply Filter</button>
                 </div>
             </div>
@@ -45,12 +45,15 @@
             </div>
             <div class="filter-button">
                 <div>
-                    <label for="sel1">By Academic year:</label>
+                    <label for="sel1">By Name:</label>
+                    <!--
                     <select class="form-control" id="date">
                         <option>2017</option>
                         <option>2016</option>
                         <option>2015</option>
                     </select>
+                    -->
+                    <input type="text" id="nameBox" placeholder="Search Name">
                     <button type="button" class="btn btn-primary btn-tiny"  onClick=addTag("date")>Apply Filter</button>
                 </div>
             </div>
@@ -61,7 +64,7 @@
                         <option>Question</option>
                         <option>Answer</option>
                         <option>Course</option>
-                        <option>Shared</option>
+                        <option>Year</option>
                     </select>
                     <label></label>
                     <input type="text" id="textBoxAssessment" placeholder="Search Assessments">
