@@ -35,18 +35,32 @@ foreach ($dataArray as $lc) {
   $csvOutputArray[$lcc] = $lc['departments'];
 }
 // // print_r($csvOutputArray);
-    header("Content-type: text/csv");
-    header("Content-Disposition: attachment; filename=submission_rates.csv");
-    header("Cache-Control: no-cache, no-store, must-revalidate");
-    header("Pragma: no-cache");
-    header("Expires: 0");
-    $csvoutput = fopen('php://output', 'w');
-    $headers = array_keys($csvOutputArray);
-    fputcsv($csvoutput, $headers);
-    // $row = array_values($dataArray);
+    // header("Content-type: text/csv");
+    // header("Content-Disposition: attachment; filename=submission_rates.csv");
+    // header("Cache-Control: no-cache, no-store, must-revalidate");
+    // header("Pragma: no-cache");
+    // header("Expires: 0");
+    // $csvoutput = fopen('php://output', 'w');
+    // $headers = '      ,'.array_keys($csvOutputArray);
+    // $headers = array_keys($csvOutputArray);
+    // fputcsv($csvoutput, $headers);
+    for($i = 0; $i < sizeOf($csvOutputArray); $i++) {
+      // echo($csvOutputArray['learningOutcome'][$i]['dept']);
+      // echo('<br>');
+      echo($dataArray[$i]['learningOutcome']);
+      echo('<br>');
+      for($j = 0; $j < sizeOf($dataArray[$j]['departments']); $j++){
+          print_r($dataArray[$j]['departments'][$j]['dept']);
+          echo(', ');
+          print_r($dataArray[$j]['departments'][$j]['count']);
+          echo('<br>');
+      }
+      echo('<br>');
+    }
+    // $row = $dataArray;
     // fputcsv($csvoutput, $row);
-    fclose($csvoutput);
-    exit;
+    // fclose($csvoutput);
+    // exit;
 
 // foreach ($dataArray as $key) {
 //   print_r($key['departments']);
