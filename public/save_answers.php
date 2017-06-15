@@ -23,40 +23,44 @@
 	$col6 = 'oauthID';
 	$col7 = 'currentTIP';
 	$col8 = 'surveyID';
-	$ansID = '';
+	$lastid = '';
 
 	// tries to update row if row exists, else it inserts new row
-	$sql1 = "UPDATE $table1 SET $col2 = '$quiz_answer', $col3 = '$flag', $col4 = '$date'
-		WHERE $col1 = (SELECT a.answerID FROM USR_JOIN_ANS_JOIN_SUR a JOIN ANSWER b ON a.answerID = b.answerID
+	$sql1 = "UPDATE ANSWER SET answerJSON = '$quiz_answer', complete = '$flag', time_complete = '$date'
+		WHERE answerID = (SELECT a.answerID FROM USR_JOIN_ANS_JOIN_SUR a JOIN ANSWER b ON a.answerID = b.answerID
 							JOIN USERS c ON a.userID = c.userID JOIN SURVEY d ON a.surveyID = d.surveyID
-							WHERE d.currentTIP = '1' AND c.oauthID = '$oauthID');";
-
-	$sql2 = "INSERT INTO $table1($col2,$col3,$col4) VALUES ('$quiz_answer','$flag','$date');";
-
-	// assumes that row exists (it will be created elsewhere so it should always exist)
-	$sql3 = "UPDATE $table4 SET $col2 = (SELECT $col2 FROM $table1 WHERE $col4 = $date)
-		WHERE $col5 = (SELECT $col5 FROM $table2 WHERE $col6 = $oauthID) AND $col8 = (SELECT $col8
-		 FROM $table3 WHERE $col7 = '1');";
-
-	$sql4 = "SELECT a.answerID FROM USR_JOIN_ANS_JOIN_SUR a JOIN ANSWER b ON a.answerID = b.answerID
-						JOIN USERS c ON a.userID = c.userID JOIN SURVEY d ON a.surveyID = d.surveyID
-						WHERE d.currentTIP = '1' AND c.oauthID = '$oauthID';";
+							WHERE d.currentTIP = '1' AND c.userID = (SELECT userID FROM USERS WHERE oauthID = '$oauthID'));";
+	// if the above does not change any rows, this will insert rows
+	$sql2 = "INSERT INTO ANSWER(answerJSON,complete,time_complete) VALUES ('$quiz_answer','$flag','$date');";
 
 	try {
+		// runs statement that updates row if it exists
 		$statement = $connection->prepare($sql1);
 		$statement->execute();
-    // this counts how many rows were affected; since we are only affecting 1 at a time...
-    // $count = $statement->rowCount();
-		// echo $count;
-    // we check to see if zero rows were affected; if so, we insert instead of update
-    // if($count == 0) {
-    //   $statement = $connection->prepare($sql2);
-  	// 	$statement->execute();
-    // }
-    // this updates the joining table with answer id
-    // this table will have it rows inserted elsewhere
-    $stmnt = $connection->prepare($sql3);
-		$stmnt->execute();
+		// if rowCount returns 0, no rows updated
+		$count = $statement->rowCount();
+		$lastid = $connection->lastInsertId();
+		//echo $lastid;
+		if($count =='0'){
+			// so this sql statement is ran to insert the new row
+			$statement = $connection->prepare($sql2);
+			$statement->execute();
+			$lastid = $connection->lastInsertId();
+			// assumes that row exists (it will be created elsewhere so it should always exist)
+			// and only runs when a new row is inserted into answer table
+			$sql4 = "UPDATE USR_JOIN_ANS_JOIN_SUR SET answerID = '$lastid'
+								WHERE userID = (SELECT userID FROM USERS WHERE oauthID = $oauthID)
+								AND surveyID = (SELECT surveyID	FROM SURVEY WHERE currentTIP = '1');";
+			// this updates the joining table with answer id
+			// this table will have its rows inserted elsewhere
+			$statement = $connection->prepare($sql4);
+			$statement->execute();
+			echo "insert successful";
+		}
+		else {
+		  echo "update successful";
+		}
+
 		$connection = NULL;
 	} catch (PDOException $e) {
 		echo "PHP Save error: ".$e->getMessage();
