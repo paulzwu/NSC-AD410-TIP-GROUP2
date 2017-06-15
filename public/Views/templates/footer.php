@@ -37,11 +37,10 @@
         // DataTable
         var table = $('#table_id').DataTable();
 
+        // gets index of row clicked and opens link to view completed assessment
         $('#table_id tbody').on( 'click', 'tr', function () {
-            //alert( 'Row index: '+table.row( this ).index() );
             index = table.row( this ).index();
             window.open("view_complete_assessment.php", '_blank');
-            //alert(table.row( this ).index());
         } );
     });
 
@@ -84,8 +83,6 @@
                             searchFilter(1);
                             break;
                     }
-                    //text = document.getElementById("textBoxAssessment").value;
-                    //searchFilter();
                 }
                 break;
             case "status":
@@ -104,6 +101,7 @@
 
     } //end of addTag function
 
+    // creates filter tags
     function createTag(){
         if(text != ""){
             if(isDuplicate() == false){
@@ -128,6 +126,7 @@
         }
     }
 
+    // searches individual columns based on which input is being used
     function searchFilter(colNum){
         filter.push(text);
         var table = $('#table_id').DataTable();
@@ -138,6 +137,7 @@
             .draw();
     }
 
+    // searches the entire table, which includes hidden columns of Questions and Answers
     function keywordSearch(){
         filter.push(text);
         var table = $('#table_id').DataTable();
@@ -145,8 +145,8 @@
             .search(filter.join("  "))
             .draw();
     }
-
-    //remove the tag
+/*
+    //removes a tag when it's clicked
     function removeTag(clicked_id) {
         var parent = document.getElementById("tagDiv");
         var child = document.getElementById(clicked_id);
@@ -162,13 +162,14 @@
             .draw();
         tagCounter --;
     }
-
+*/
     //check if input tag is duplicate
     function isDuplicate(){
         var element = document.getElementById(text);
         return document.getElementById("tagDiv").contains(element);
     }
 
+    // clears all filters
     function clearTags(){
         filter = [];
         $('.tags').remove();
@@ -180,6 +181,7 @@
         tagCounter = 0;
     }
 
+    // initializes data table and pulls data from JSON file
     function initTable(){
         $('#table_id').DataTable({
             "processing": true,
@@ -210,7 +212,12 @@
                             answerResult.push(data[i].answerJSON[j]);
                         }
                         answers.push(answerResult);
-                        dataTable.push([data[i].name, date, data[i].Division, data[i].complete, shared, data[i].Course_ID + "" + data[i].Course_Prefix, questions[i], answers[i], "View"]);
+                        var course = data[i].Course_ID + "" + data[i].Course_Prefix;
+                        if (course == "nullnull"){
+                            course = "";
+                        }
+
+                        dataTable.push([data[i].name, date, data[i].Division, data[i].complete, shared, course, questions[i], answers[i], "View"]);
                         if (dataTable[i][3] == "1") {
                             dataTable[i][3] = "Complete";
                             statsComplete++
@@ -259,6 +266,7 @@
         });
     }
 
+    // Creates html table for viewing completed assessments
     function createTable() {
         // Create table.
         // If you want to change the style with css, use setAttribute to set id, class, etc.
@@ -283,6 +291,7 @@
         colName2.style.width = "50%";
         colName2.innerHTML = 'Answers';
 
+        // Adds data rows and styles every other row with lightgray color
         for (i = 1; i <= ques[idx].length; i++){
                 var row = table.insertRow(i);
             if (i % 2 == 0) {
@@ -296,18 +305,6 @@
         // Append Table into div.
         var div = document.getElementById('completedTIP');
         div.appendChild(table);
-    }
-
-    function displayTip() {
-        // Create table and pass in questions and answers that correspond with the index
-        console.log(questions);
-        questions[index].forEach(function (item) {
-            console.log(item);
-        });
-        answers[index].forEach(function (item) {
-            console.log(item);
-        });
-        //alert(questions[index][10] + " - " + answers[index][10]);
     }
 
 
