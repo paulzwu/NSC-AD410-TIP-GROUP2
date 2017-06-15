@@ -29,16 +29,16 @@ foreach ($_POST as $key => $value){
     }
 }
 
-// Help form email style 
-                      <h1 style="font-size: 32px;font-weight: bold;display: block; text-align: center;">Help</h1>
-<br>
-<h3 style="border-style: solid;border-width:2px;text-align:left;">		
-<h2 style="font-size: 20px;font-weight: bold;margin: auto;">Name: John Snow</h2>
-<br>
-<h2 style="font-size: 20px;font-weight: bold;margin: auto;">Email Address: hello@example.com</h2>
-<br>
-<h2 style="font-size: 20px;font-weight: bold;margin: auto;">Message: How do I do this?</h2>
-</h3>
+//// Help form email style 
+//                      <h1 style="font-size: 32px;font-weight: bold;display: block; text-align: center;">Help</h1>
+//<br>
+//<h3 style="border-style: solid;border-width:2px;text-align:left;">		
+//<h2 style="font-size: 20px;font-weight: bold;margin: auto;">Name: John Snow</h2>
+//<br>
+//<h2 style="font-size: 20px;font-weight: bold;margin: auto;">Email Address: hello@example.com</h2>
+//<br>  
+//<h2 style="font-size: 20px;font-weight: bold;margin: auto;">Message: How do I do this?</h2>
+//</h3>
    
 //send form
 mail('markdpfaff@gmail.com', 'Message from TIP Web Application', $message);
