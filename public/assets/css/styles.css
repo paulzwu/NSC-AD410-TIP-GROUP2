@@ -91,7 +91,7 @@ input[type="radio"] {
     text-align:center;
     padding-top:20px;
     width: 50%;
-    padding-left: 100px;
+    margin:0 auto;
 
 }
 
@@ -1335,6 +1335,8 @@ Glyphicons Manually added
 .glyphicon-menu-up:before {
   content: "\e260";
 }
+
+
 
 /***********
 Make sure this is the last style in the sheet - nothing below it
