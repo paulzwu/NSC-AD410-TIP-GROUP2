@@ -18,30 +18,58 @@ if (preg_match($find, $name) || preg_match($find, $email) || preg_match($find, $
 }
 
 //set title of message
-$message = "Message from TIP Web Application: \n";
+$message = "<ul>"."Message from TIP Web Application: \n";
 
 //get form data
 foreach ($_POST as $key => $value){
     if($key == 'submit'){
         continue;
     }else{
-        $message .= htmlspecialchars($key).": ".htmlspecialchars($value)."\n";
+        $message .="<li>". htmlspecialchars($key).": ".htmlspecialchars($value)."</li>";
+    }
+}
+$message .= "</ul>"
+   
+
+foreach ($_POST as $key => $value){
+    if($key == 'submit'){
+        continue;
+    }else{
+        $name .="<li>". htmlspecialchars($key).": ".htmlspecialchars($value)."</li>";
+    }
+}
+foreach ($_POST as $key => $value){
+    if($key == 'submit'){
+        continue;
+    }else{
+        $email .="<li>". htmlspecialchars($key).": ".htmlspecialchars($value)."</li>";
     }
 }
 
-//// Help form email style 
-//                      <h1 style="font-size: 32px;font-weight: bold;display: block; text-align: center;">Help</h1>
-//<br>
-//<h3 style="border-style: solid;border-width:2px;text-align:left;">		
-//<h2 style="font-size: 20px;font-weight: bold;margin: auto;">Name: John Snow</h2>
-//<br>
-//<h2 style="font-size: 20px;font-weight: bold;margin: auto;">Email Address: hello@example.com</h2>
-//<br>  
-//<h2 style="font-size: 20px;font-weight: bold;margin: auto;">Message: How do I do this?</h2>
-//</h3>
+// Help form email style
+$finalMessage = '
+<!DOCTYPE html>
+<html>
+<head>
+<header style="color: dark gray; display:block;"><h1 style="font-size: 32px;font-weight: bold;display: block; text-align: center;"> Help Question </h1></header>
+</head>
+<body>
+<br>	
+<br>
+<h2 style="border-style: solid;border-width:2px;text-align:left;font-size: 20px;font-weight: bold;margin-right: 20%;margin-left: 10%;">Name: '. $name .'
+<br>
+<br>
+Email Address: '.$emailAddress.'
+<br>
+<br>
+Message: '.$message.' </h2>
+</body>
+</html>
+'
+     
    
 //send form
-mail('markdpfaff@gmail.com', 'Message from TIP Web Application', $message);
+mail('markdpfaff@gmail.com', 'Message from TIP Web Application', $finalMessage);
 
 //redirect to thankyou page
 header( 'Location: thanks.php' ) ;
